@@ -1,0 +1,494 @@
+- section:
+  name: '홈'
+  url: '/index.html'
+- section:
+  name: '시작하기'
+  url: '/getting-started/index.html'
+  docs:
+    - name: 개발자 기본 사항 비디오
+      url: /training/developer-basics-videos.html
+    - name: '브라이트코브 플레이어란 무엇입니까?'
+      url: /getting-started/what-brightcove-player.html
+    - name: '개요: 브라이트코브 플레이어'
+      url: /getting-started/overview-brightcove-player.html
+    - name: '학습 가이드: 비디오 광고'
+      url: /getting-started/learning-guide-video-advertising.html
+    - name: '개요: 브라이트코브 플레이어 플러그인'
+      url: /getting-started/overview-brightcove-player-plugins.html
+    - name: 플레이어 개발 교육 비디오
+      url: /training/player-development-training-videos.html
+    - name: '단계별: 브라이트코브 플레이어'
+      url: /getting-started/step-step-brightcove-player.html
+    - name: '단계별: 플레이어 사용자 지정'
+      url: /getting-started/step-step-player-customization.html
+    - name: '교육: 브라이트코브 플레이어와 함께 개발'
+      url: /training/training-demand-developing-brightcove-player.html
+    - name: '학습 가이드: REST API 사용'
+      url: /getting-started/learning-guide-using-rest-apis.html
+- section:
+  name: '기본 사항 알아보기'
+  url: '/basics/index.html'
+  docs:
+    - name: 많은플레이어 코드
+      url: /basics/developer-basics-advanced-player-code.html
+    - name: 비디오 자동 재생
+      url: /basics/developer-basics-autoplaying-video.html
+    - name: '사용자 정의 플러그인-코드 변환'
+      url: /basics/developer-basics-custom-plugin-converting-code.html
+    - name: '사용자 정의 플러그인-데이터 전달'
+      url: /basics/developer-basics-custom-plugin-passing-data.html
+    - name: '커스텀 플러그인-Studio 사용'
+      url: /basics/developer-basics-custom-plugin-using-studio.html
+    - name: '사용자 정의 플러그인-이유와 방법'
+      url: /basics/developer-basics-custom-plugin-why-and-how.html
+    - name: 개발자 기본 사항 비디오
+      url: /training/developer-basics-videos.html
+    - name: 플레이어 코드 생성
+      url: /basics/developer-basics-generating-player-code.html
+    - name: 코드 작성 준비
+      url: /basics/developer-basics-preparing-write-code.html
+- section:
+  name: '참고문헌'
+  url: '/references/index.html'
+  docs:
+    - name: Brightcove Player 5-6 마이그레이션 가이드
+      url: /references/brightcove-player-5-6-migration-guide.html
+    - name: 브라이트코브 플레이어 API 문서
+      url: /brightcove-player/current-release/index.html
+    - name: Brightcove 플레이어 쿠키
+      url: /references/brightcove-player-cookies.html
+    - name: 브라이트코브 플레이어 오류 참조
+      url: /references/brightcove-player-error-reference.html
+    - name: Brightcove 플레이어 발표 포럼
+      url: 'https://groups.google.com/forum/embed/?place=forum/bcplayerdev#!forum/bcplayerdev'
+    - name: Brightcove Player 시스템 요구 사항
+      url: /references/brightcove-player-system-requirements.html
+    - name: 카탈로그 검색 아키텍처
+      url: /references/catalog-search-architecture.html
+    - name: 알려진 문제
+      url: https://general.support.brightcove.com/general/known-issues-studio-brightcove-player-and-apis.html
+    - name: 플레이어 카탈로그
+      url: /references/player-catalog.html
+    - name: 브라우저 별 플레이어 기능 지원
+      url: /references/player-feature-support-browser.html
+    - name: bcinfo의 플레이어 메타 데이터
+      url: /references/player-metadata-bcinfo.html
+    - name: 플레이어 메서드/이벤트 API
+      url: /brightcove-player/current-release/Player.html
+    - name: Playlist API 가이드
+      url: /references/guide-playlist-api.html
+    - name: 미디어인포의 비디오 메타데이터
+      url: /references/video-metadata-mediainfo.html
+- section:
+  name: '플러그인'
+  url: '/plugins/index.html'
+  docs:
+    - name: 360º 동영상
+      url: /plugins/360degvr-video-plugin.html
+    - name: 광고 만
+      url: /plugins/ad-only-plugin.html
+    - name: 프리휠 플러그인을 사용한 광고
+      url: /plugins/advertising-freewheel-plugin.html
+    - name: IMA3 플러그인을 사용한 광고
+      url: /plugins/advertising-ima3-plugin.html
+    - name: IMA3 플러그인 버전 3으로 업그레이드
+      url: /plugins/upgrading-ima3-plugin-version-3.html
+    - name: SSAI를 이용한 광고
+      url: /plugins/implementing-server-side-ads-brightcove-player.html
+    - name: 에어플레이
+      url: /plugins/airplay-plugin.html
+    - name: 크롬캐스트
+      url: /plugins/chromecast-plugin-brightcove-player.html
+    - name: 커스텀 엔드 스크린
+      url: /plugins/custom-endscreen-plugin.html
+    - name: 오류 메시지 표시
+      url: /plugins/display-error-messages-plugin.html
+    - name: 축소판 미리보기 표시
+      url: /plugins/display-thumbnail-previews-plugin.html
+    - DRMname: 
+      url: /plugins/configuring-brightcove-player-drm.html
+    - name: 구글 태그 매니저
+      url: /plugins/google-tag-manager-plugin-brightcove-player.html
+    - name: HLS
+      url: /plugins/hls-plugin.html
+    - name: 라이브 DVRUX
+      url: /plugins/live-dvrux-plugin.html
+    - name: 위에 까는 것
+      url: /plugins/display-overlay-plugin.html
+    - name: '개요: 플레이어 플러그인'
+      url: /plugins/overview-brightcove-player-plugins.html
+    - name: PIP(Picture-in-Picture)
+      url: /plugins/picture-picture-plugin-aka-floating-or-pinned.html
+    - name: 플레이어/플러그인 버전 테스트
+      url: /plugins/playerplugin-version-testing.html
+    - name: 재생 목록 최종 화면
+      url: /plugins/playlist-endscreen-plugin.html
+    - name: 재생 목록 UI
+      url: /plugins/playlist-ui-plugin.html
+    - name: 플러그인 변경 로그
+      url: /plugins/changelog/index.html
+    - name: 플러그인 레지스트리
+      url: /plugins/plugin-registry.html
+    - name: 플러그인 버전 참조
+      url: /plugins/plugin-version-reference.html
+    - name: 품질 선택
+      url: /plugins/quality-selection-plugin.html
+    - name: 소셜 미디어
+      url: /plugins/social-sharing-plugin.html
+    - name: Tealium 태그 관리자
+      url: /plugins/tealium-plugin-brightcove-player.html
+    - name: 썸네일 찾기
+      url: /plugins/thumbnails-plugin.html
+    - name: 비디오 SEO 스키마 생성기
+      url: /plugins/video-seo-schema-generator-plugin.html
+- section:
+  name: '광고'
+  url: '/advertising/index.html'
+  icon: '<i data-feather="dollar-sign"></i>'
+  docs:
+    - name: 광고 이벤트 및 광고 개체
+      url: /advertising/ad-events-and-ad-objects.html
+    - name: 광고 전용 플러그인
+      url: /plugins/ad-only-plugin.html
+    - name: 프리휠 플러그인을 사용한 광고
+      url: /plugins/advertising-freewheel-plugin.html
+    - name: IMA3 플러그인을 사용한 광고
+      url: /plugins/advertising-ima3-plugin.html
+    - name: '라이브 SSAI를 사용한 클라이언트 측 프리롤 광고'
+      url: /advertising/client-side-preroll-with-live-ssai.html
+    - name: 광고 큐 포인트를 사용하여 광고 표시
+      url: /advertising/displaying-ads-using-ad-cue-points.html
+    - name: IMA에서 더 이상 유효하지 않은 플래시
+      url: /advertising/flash-no-longer-valid-ima.html
+    - name: '가이드: 광고 파트너 통합'
+      url: /advertising/guide-ad-partner-integration.html
+    - name: '가이드: 기여 광고 마이그레이션'
+      url: /advertising/guide-contrib-ads-migration.html
+    - name: Brightcove Player로 SSAI 구현
+      url: /plugins/implementing-server-side-ads-brightcove-player.html
+    - name: '점프 스타트: 헤더 입찰 광고'
+      url: /advertising/jump-start-header-bidding-ad.html
+    - name: '점프 스타트: 아웃 스트림 광고'
+      url: /advertising/jump-start-outstream-ad.html
+    - name: '점프 스타트: 프리 롤 광고'
+      url: /advertising/jump-start-pre-roll-ad.html
+    - name: '알려진 문제: 서버 측 광고 삽입(SSAI)'
+      url: /advertising/known-issues-server-side-ad-insertion-ssai.html
+    - name: '학습 가이드: 비디오 광고'
+      url: /getting-started/learning-guide-video-advertising.html
+    - name: '단계별: 광고 구현'
+      url: /advertising/step-step-implementing-advertising.html
+    - name: 출시 전 광고 플러그인 테스트
+      url: /advertising/testing-pre-release-advertising-plugins.html
+    - name: Brightcove Player와 함께 DFP Premium 사용
+      url: /advertising/using-dfp-premium-brightcove-player.html
+    - name: Live SSAI에 대한 플레이어 향상 기능 사용
+      url: /advertising/using-player-enhancements-live-ssai-brightcove-player.html
+    - name: Video Cloud SSAI 광고 태그 유효성 검사
+      url: /advertising/video-cloud-ssai-ad-tag-validation.html
+- section:
+  name: '비디오 및 플레이어 게시'
+  url: '/publish/index.html'
+  docs:
+    - name: 프로그래밍 방식으로 플레이어에 비디오 할당
+      url: /publish/assigning-video-player-programmatically.html
+    - name: 고급 (인 페이지) 임베드 코드 옵션
+      url: /publish/available-options-advanced-page-embed-code.html
+    - name: 표준 (iframe) 임베드 코드 옵션
+      url: /publish/available-options-standard-iframe-embed-code.html
+    - name: 브라이트코브 플레이어 로더
+      url: /publish/brightcove-player-loader.html
+    - name: Brightcove 기본 플레이어 대량 업데이트
+      url: /publish/bulk-updating-brightcove-default-player.html
+    - name: 올바른 임베드 코드 선택
+      url: https://studio.support.brightcove.com/publish/choosing-correct-embed-code.html
+    - name: 플레이어 인스턴스화 지연
+      url: /publish/delaying-player-instantiation.html
+    - name: 시험판 플레이어
+      url: /publish/pre-release-player.html
+    - name: 신디케이션 전략
+      url: /publish/syndication-strategies.html
+    - name: 비 Brightcove 플레이어 사용
+      url: /publish/using-non-brightcove-player.html
+    - name: 한 페이지에서 여러 플레이어 사용
+      url: https://studio.support.brightcove.com/publish/using-multiple-players-one-page.html
+    - name: 참조 ID 사용
+      url: https://studio.support.brightcove.com/publish/using-reference-ids.html
+    - name: 비디오 변환 검사기
+      url:
+- section:
+  name: '문제 해결'
+  url: '/troubleshooting/index.html'
+  docs:
+    - name: 브라이트코브 재생 기술 앱
+      url: /troubleshooting/brightcove-playback-technology-app.html
+    - name: 브라이트코브 플레이어 오류 참조
+      url: /references/brightcove-player-error-reference.html
+    - name: Brightcove 플레이어 정보 모달
+      url: /troubleshooting/brightcove-player-information-modal.html
+    - name: Brightcove Player 문제 해결 가이드
+      url: /troubleshooting/brightcove-player-troubleshooting-guide.html
+    - name: Charles Log 생성
+      url: /troubleshooting/creating-charles-log.html
+    - name: 네트워크 로그 생성
+      url: /troubleshooting/creating-network-log.html
+    - name: 도메인 제한 메시징
+      url: /troubleshooting/domain-restrictions-messaging.html
+    - name: 오류 메시지 플러그인 표시
+      url: /plugins/display-error-messages-plugin.html
+    - name: 플레이어 버전 수동 설정
+      url: /troubleshooting/manually-setting-player-version.html
+    - name: 플레이어/플러그인 버전 테스트
+      url: /plugins/playerplugin-version-testing.html
+    - name: 플레이어 정보 속성
+      url: /troubleshooting/player-informational-properties.html
+    - name: '견본: 실시간 사용자 지정 오류 메시지'
+      url: /code-samples/brightcove-player-sample-live-custom-error-message.html
+    - name: '단계별: Brightcove 플레이어 디버거'
+      url: /troubleshooting/step-step-brightcove-player-debugger.html
+    - name: 네트워크 경로 추적 실행
+      url: /troubleshooting/running-network-path-trace.html
+    - name: 플레이어 참조 사용
+      url: /troubleshooting/using-player-reference.html
+    - name: Brightcove Player 릴리스 검토
+      url: /troubleshooting/vetting-brightcove-player-releases.html
+    - name: 플레이어 구성 보기
+      url: /troubleshooting/viewing-player-configuration.html
+- section:
+  name: '스타일링 및 외관'
+  url: '/styling/index.html'
+  docs:
+    - name: 플레이어 모양 사용자 지정
+      url: /styling/customizing-player-appearance.html
+    - name: 플레이어 모양 사용자 지정-레거시 스킨
+      url: /styling/customizing-player-appearance-legacy-skin.html
+    - name: 플레이어 스타일링 놀이터
+      url: /styling/brightcove-player-sample-player-styling-playground.html
+    - name: '빠른 시작: 플레이어 커스터마이징-레거시 스킨'
+      url: /styling/quick-start-player-customization-legacy-skin.html
+    - name: '단계별: 플레이어 사용자 지정'
+      url: /getting-started/step-step-player-customization.html
+    - name: Brightcove 플레이어를위한 반응 형 크기 조정
+      url: /styling/responsive-sizing-brightcove-player.html
+    - name: 플레이어 크기 조정
+      url: /styling/sizing-player.html
+    - name: 스킨 및 플레이어 버전
+      url: /styling/skins-and-player-versions.html
+    - name: 스타일링 캡션
+      url: https://studio.support.brightcove.com/media/styling-captions.html
+    - name: 재생목록 스타일링
+      url: /styling/styling-playlists.html
+- section:
+  name: '재생'
+  url: '/playback/index.html'
+  docs:
+    - name: 자동 재생 고려 사항
+      url: /playback/autoplay-considerations.html
+    - name: 브라이트코브 재생 기술 앱
+      url: /troubleshooting/brightcove-playback-technology-app.html
+    - name: 중국 배달
+      url: /playback/china-delivery-with-bcp.html
+    - name: 교차 기기 이력서
+      url: /playback/xdr-with-bcplayer.html
+    - name: 딥 링킹
+      url: https://studio.support.brightcove.com/publish/deep-linking.html
+    - name: HLS 비디오 제공
+      url: /playback/delivering-hls-video.html
+    - name: 배달 규칙
+      url: /playback/using-delivery-rules-with-bcp.html
+    - name: 재생할 렌 디션 결정
+      url: /playback/determining-which-rendition-will-play.html
+    - name: 포렌식 워터마킹
+      url: /playback/forensic-watermarking-with-bcp.html
+    - name: '가이드: 재생 기술'
+      url: /playback/guide-playback-technology.html
+    - name: HLS 플러그인
+      url: /plugins/hls-plugin.html
+    - name: iOS 및 Brightcove Player
+      url: /playback/ios-and-brightcove-player.html
+    - name: 재생 제한
+      url: /playback/playback-restrictions-with-bcp.html
+    - name: '개요: HTTPS 지원'
+      url: /playback/overview-https-support.html
+    - name: 품질 선택 플러그인
+      url: /plugins/quality-selection-plugin.html
+    - name: 정적 URL 전달
+      url: /playback/static-url-delivery.html
+    - name: PlayReady 보호 콘텐츠 스트리밍
+      url: /playback/streaming-playready-protected-content-dynamic-delivery.html
+    - name: TVE 용 Brightcove Player 사용
+      url: /playback/using-brightcove-player-tve.html
+- section:
+  name: 'DRM 및 콘텐츠 보호'
+  url: '/content-protection/index.html'
+  docs:
+    - name: 플레이어 콘텐츠 제한 구성
+      url: https://studio.support.brightcove.com/players/configuring-player-content-restrictions.html
+    - name: Brightcove 플레이어 용 DASH DRM 매니페스트 생성
+      url: /content-protection/creating-dash-drm-manifest-brightcove-player.html
+    - name: 도메인 제한 메시징
+      url: /troubleshooting/domain-restrictions-messaging.html
+    - name: DRM 플러그인
+      url: /plugins/configuring-brightcove-player-drm.html
+    - name: '개요: 콘텐츠 보호'
+      url: /content-protection/overview-content-protection.html
+    - name: 정책 키
+      url: /content-protection/policy-keys.html
+    - name: IP 주소를 사용하여 비디오 재생 제한
+      url: /content-protection/restricting-video-playback-using-ip-address.html
+    - name: 라이브 스트림을 통한 서명된 URL 및 토큰 인증
+      url: /content-protection/signed-urls-and-token-auth-live-stream.html
+- section:
+  name: '코딩 주제'
+  url: '/coding-topics/index.html'
+  docs:
+    - name: 브라이트코브 플레이어 로더
+      url: /publish/brightcove-player-loader.html
+    - name: 카탈로그 검색 업그레이드
+      url: /references/catalog-search-architecture.html
+    - name: 맞춤 이벤트
+      url: /code-samples/brightcove-player-sample-trigger-rewind-custom-event.html
+    - name: '가이드: 재생 기술'
+      url: /playback/guide-playback-technology.html
+    - name: Brightcove Player 현지화
+      url: /coding-topics/programmatically-localizing-brightcove-player.html
+    - name: 플러그인 현지화
+      url: /coding-topics/localizing-plugins.html
+    - name: 플레이어 이벤트
+      url: /coding-topics/player-events.html
+    - name: '개요: 구성품'
+      url: /coding-topics/overview-components.html
+    - name: '개요: HTTPS 지원'
+      url: /playback/overview-https-support.html
+    - name: '개요: 플레이어 API'
+      url: /coding-topics/overview-player-api.html
+    - name: 플러그인에 데이터 전달
+      url: /coding-topics/pass-data-plugin.html
+    - name: React Player 로더
+      url: /coding-topics/react-player-loader.html
+    - name: Brightcove 플레이어 구성에 대한보고
+      url: /coding-topics/reporting-brightcove-player-configurations.html
+    - name: 요구 사항 JS 및 브라이트코브 플레이어
+      url: /coding-topics/requirejs-and-brightcove-player.html
+    - name: 현재 변환의 비트 전송률 검색
+      url: /coding-topics/retrieve-bitrate-current-rendition.html
+    - name: '단계별: 플러그인 개발'
+      url: /coding-topics/step-step-plugin-development.html
+    - name: '단계별: Video.js 플러그인 생성기'
+      url: /coding-topics/step-step-videojs-plugin-generator.html
+    - name: bc () 및 getPlayer () 메서드 사용
+      url: /coding-topics/using-bc-and-getplayer-methods.html
+    - name: 플레이어 구성 보기
+      url: /troubleshooting/viewing-player-configuration.html
+- section:
+  name: '일반 정보'
+  url: '/general/index.html'
+  docs:
+    - name: 플레이어 임베드 코드에 애플리케이션 ID 추가
+      url: https://studio.support.brightcove.com/publish/adding-application-id-player-embed-code.html
+    - name: 프로그래밍 방식으로 동영상에 캡션 추가
+      url: /general/adding-captions-videos-programmatically.html
+    - name: 비디오에 챕터 추가
+      url: https://studio.support.brightcove.com/media/adding-chapters-video.html
+    - name: Brightcove Player 6 이제 기본 버전
+      url: /general/brightcove-player-6-now-default-version.html
+    - name: Brightcove 플레이어 접근성
+      url: /general/brightcove-player-accessibility.html
+    - name: 사용자 지정 엔드 스크린 플러그인
+      url: /plugins/custom-endscreen-plugin.html
+    - name: 디스플레이 오버레이 플러그인
+      url: /plugins/display-overlay-plugin.html
+    - name: 'Google 웹 로그 분석 자체 구성'
+      url: /general/ga-self-configure.html
+    - name: '가이드: 재생 목록 API'
+      url: /references/guide-playlist-api.html
+    - name: 저 성능 비디오 식별 및 삭제
+      url: /general/identify-and-delete-low-performing-videos.html
+    - name: 프로그래밍 방식으로 큐 포인트 구현
+      url: /general/implementing-cue-points-programmatically.html
+    - name: 재생 목록 구현
+      url: /general/implementing-playlists.html
+    - name: ModalDialog 구현
+      url: /general/implementing-modaldialog.html
+    - name: 라이브 HLS
+      url: /general/live-hls.html
+    - name: 라이브 스트림 구성
+      url: /general/live-stream-configuration.html
+    - name: 다중 오디오 트랙
+      url: /general/multiple-audio-tracks.html
+    - name: 플레이어 구성 가이드
+      url: /general/player-configuration-guide.html
+    - name: 라이브 스트림 재생
+      url: /general/playing-live-streams.html
+    - name: 재생목록 UI 플러그인
+      url: /plugins/playlist-ui-plugin.html
+    - name: 라이브 스트림을 통한 서명된 URL 및 토큰 인증
+      url: /content-protection/signed-urls-and-token-auth-live-stream.html
+    - name: 소셜 미디어 플러그인
+      url: /plugins/social-sharing-plugin.html
+    - name: '단계별: 플레이어 관리'
+      url: https://apis.support.brightcove.com/player-management/getting-started/step-step-player-management.html
+    - name: 재생목록 스타일링
+      url: /styling/styling-playlists.html
+    - name: Brightcove Player와 함께 화면 판독기 사용
+      url: /general/using-screen-reader-brightcove-player.html
+    - name: Brightcove Player 문서 버전
+      url: /general/versions-brightcove-player-documentation.html
+    - name: 볼륨 조절
+      url: /general/volume-control.html
+- section:
+  name: '코드 샘플'
+  url: '/code-samples/index.html'
+  docs:
+    - name: 그룹 별 코드 샘플
+      url: /code-samples/index-thumb.html
+    - name: 코드 샘플 색인
+      url: /code-samples/index.html
+- section:
+  name: '앰프'
+  url: '/amp/index.html'
+  docs:
+    - name: 비디오 클라우드 비디오를 사용하는 AMP
+      url: /amp/amp-using-video-cloud-video.html
+    - name: 외부 비디오를 사용하는 AMP
+      url: /amp/amp-using-external-video.html
+    - name: AMP 및 광고
+      url: /amp/amp-and-advertising.html
+- section:
+  name: '훈련'
+  url: '/training/index.html'
+  docs:
+    - name: 모든 온라인 교육 과정
+      url: /training/online-training-courses.html
+    - name: 개발자 기본 사항 비디오
+      url: /training/developer-basics-videos.html
+    - name: 플레이어 개발 교육 비디오
+      url: /training/player-development-training-videos.html
+    - name: 강사 주도 교육 등록
+      url: /training/register-training.html
+    - name: '교육: 브라이트코브 플레이어와 함께 개발'
+      url: /training/training-demand-developing-brightcove-player.html
+    - name: '교육: 플레이어 관리로 빠른 시작'
+      url: https://apis.support.brightcove.com/player-management/getting-started/training-demand-quick-start-player-management.html
+    - name: 브라이트코브 대학교 교육 과정
+      url: /training/brightcove-university.html
+- section:
+  name: 릴리스 노트
+  url: /release-notes/index.html
+  docs:
+    - name: Brightcove Player 릴리스 정보
+      url: /release-notes/brightcove-player-release-notes.html
+    - name: Brightcove Player 사전 출시 노트
+      url: /release-notes/brightcove-player-prerelease-notes.html
+- section:
+  name: '지원'
+  url: '/support/index.html'
+  docs:
+    - name: '브라이트코브 시스템 상태 페이지 보기'
+      url: '/support/viewing-brightcove-system-status-page.html'
+    - name: '영업 담당자'
+      url: '/support/contact-sales.html'
+    - name: '지원 사례 열기'
+      url: '/support/opening-case-with-brightcove-support.html'
+    - name: '지원 포털 암호 재설정'
+      url: '/support/reset-support-portal-password.html'

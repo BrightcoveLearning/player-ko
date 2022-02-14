@@ -1,0 +1,153 @@
+
+---
+title: "Brightcove Player를 사용한 포렌식 워터마킹"
+description: "이 주제에서는 Brightcove Player를 사용하여 포렌식 워터마킹으로 보호된 비디오를 제공하는 방법을 배우게 됩니다."
+parent: Playback 
+---
+
+
+<article class="bcls-article">
+  <h1>{{ page.title }}</h1>
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="Introduction">소개</h2>
+    <p>
+      포렌식 워터마킹을 사용하면 불법 복제 및 무단 콘텐츠 공유로부터 프리미엄 콘텐츠를 보호할 수 있습니다. 이 기능은 비디오에 보이지 않는 워터마크를 추가하여 콘텐츠 유출을 추적할 수 있습니다.
+    </p>
+    <p>자세한 내용은<a href="https://apis.support.brightcove.com/general/overview-forensic-watermarking.html">개요: 포렌식 워터마킹</a>문서.</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Requirements">요구 사항</h2>
+    <p>이 기능을 지원하려면 다음 요구 사항이 필요합니다.</p>
+    <h3>설정</h3>
+    <p>플레이어 구성 외에도 설정 요구 사항이 있습니다. 자세한 내용은<a href="https://apis.support.brightcove.com/general/overview-forensic-watermarking.html">개요를 참조하십시오. 포렌식 워터마킹</a>문서.</p>
+
+    <h3>브라이트코브 플레이어</h3>
+    <p>Brightcove Player 버전 6.55 이상이 필요합니다. 최신 버전 권장</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Configuring_Brightcove_Player">브라이트코브 플레이어 구성</h2>
+    <p>
+      포렌식 워터마킹을 사용하도록 플레이어를 구성하려면 다음 단계를 따르세요.
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>뷰어 ID가 분석 웹 비콘 ( <code translate="No">user</code>필드 내) 에 전달되도록 플레이어가 등록 시스템과 통합되어야 합니다.</p>
+        <p>이렇게 하려면<code translate="No">setUser()</code>메서드를 사용하십시오. 예를 들면 다음과 같습니다.</p>
+        <pre>
+<code class="language-html" translate="No">myPlayer.bcAnalytics.client.setUser('viewer id');</code></pre>
+      </li>
+      <li>
+        <p>
+          비디오를 가져오기 전에 플레이어 카탈로그 개체의 일부로 Nagra 워터마크 토큰 값을 사용하여 문자열 토큰을 설정하십시오.
+        </p>
+        <pre>
+<code class="language-html" translate="No">myPlayer.catalog.setWatermarkingToken()</code></pre>
+      </li>
+      <li>
+        <p>
+          워터마킹 토큰을 설정한 후에는 Brightcove Playback API에서 데이터를 요청하고 플레이어에 로드할 준비가 된 것입니다.
+        </p>
+        <p>
+          다음은 단일 비디오를 가져오는 예입니다.
+        </p>
+        <aside class="bcls-aside bcls-aside--tip">주의<code translate="No">bc()</code>메소드를 사용하여 카탈로그를 호출하기 전에 워터마킹 토큰을 설정할 수 있습니다.</aside> <aside class="bcls-aside bcls-aside--information">참고: 포함하지 마십시오. <code translate="No">data-video-id</code>매개변수<code translate="No">&lt;video-js&gt;</code>그렇게 하면 워터마킹 토큰 없이 자동 비디오 요청이 트리거되기 때문입니다.</aside>
+
+        <h3>HTML</h3>
+  <pre class="line-numbers">
+<code class="language-html" translate="No">&lt;div style=&quot;max-width: 960px;&quot;&gt;
+  &lt;video-js id=&quot;myPlayerID&quot;
+    data-embed=&quot;default&quot;
+    controls=&quot;&quot;
+    data-application-id=&quot;&quot;
+    class=&quot;vjs-fluid&quot;&gt;
+  &lt;/video-js&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;https://players.brightcove.net/your account id/your player id_default/index.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+        <h3>자바 스크립트</h3>
+<pre class="line-numbers">
+<code class="language-javascript" translate="No">&lt;script&gt;
+  // +++ Add the player attributes +++
+  var myPlayer,
+    myPlayerEl = document.getElementById(&quot;myPlayerID&quot;);
+  myPlayerEl.setAttribute('data-account', your account id);
+  myPlayerEl.setAttribute('data-player', 'your player id');
+
+  // +++ Create the player +++
+  myPlayer = bc(myPlayerEl);
+
+  // Set the viewer id for Brightcove analytics
+  <span class="bcls-highlight">myPlayer.bcAnalytics.client.setUser(<span class="bcls-input">'viewer id'</span>)</span>;
+
+  // Set the watermarking key
+  <span class="bcls-highlight">myPlayer.catalog.setWatermarkingToken(<span class="bcls-input">your watermark token</span>)</span>;
+
+  myPlayer.catalog.get({id: 'your video id', type: 'video'}).
+  then(function(data) {
+    myPlayer.catalog.load(data);
+    myPlayer.muted(true);
+    myPlayer.play();
+  }).
+  catch(function(error) {
+    throw new Error(error);
+  });
+&lt;/script&gt;
+</code></pre>
+      </li>
+    </ol> 
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Using_a_data_attribute">데이터 속성 사용</h2>
+   <p>또는 속성 이름을 사용하여 플레이어 카탈로그 개체의 일부로 문자열 토큰을 전달할 수 있습니다. <code translate="No">data-watermarking-token</code> .</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>플레이어의 고급 내장 코드를 검색합니다.</li>
+      <li>
+        <p>플레이어 내장 코드에 워터마킹 토큰을 포함합니다. 이렇게 하려면 data-watermarking-token을 속성으로 추가합니다. <video-js> 꼬리표.</p>
+          <pre class="line-numbers">
+<code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
+  data-account=&quot;1752604059001&quot; 
+  data-player=&quot;default&quot; 
+  data-embed=&quot;default&quot; 
+  controls=&quot;&quot; 
+  data-video-id=&quot;5550679964001&quot; 
+  data-playlist-id=&quot;&quot; 
+  data-application-id=&quot;&quot; 
+  <span class="bcls-highlight">data-watermarking-token=&quot;<span class="bcls-input">your watermark token</span>&quot;</span>
+  width=&quot;960&quot; height=&quot;540&quot;&gt;
+&lt;/video-js&gt;            
+</code></pre>
+      </li>
+      <li>
+        <p>뷰어 ID가 분석 웹 비콘 ( <code translate="No">user</code>필드 내) 에 전달되도록 플레이어가 등록 시스템과 통합되어야 합니다.</p>
+        <p>이렇게 하려면<code translate="No">setUser()</code>메서드를 사용하십시오. 예를 들면 다음과 같습니다.</p>
+        <pre><code class="language-html" translate="No">myPlayer.bcAnalytics.client.setUser('viewer id');</code></pre>
+        <h3>자바 스크립트</h3>
+        <pre class="line-numbers">
+<code class="language-html" translate="No">&lt;script&gt;
+  videojs.getPlayer('myPlayerID').ready(function() {
+    var myPlayer = this;
+
+    // Set the viewer id for Brightcove analytics
+    <span class="bcls-highlight">myPlayer.bcAnalytics.client.setUser('<span class="bcls-input">viewer id</span>'</span>); 
+  });
+&lt;/script&gt;      
+</code></pre>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Limitations">제한 사항</h2>
+    <p>이 기능의 제한 사항에 대한 자세한 내용은<a href="https://apis.support.brightcove.com/general/overview-forensic-watermarking.html#Limitations">개요: 포렌식 워터마킹</a>문서.</p>
+  </section>
+
+  
+</article>

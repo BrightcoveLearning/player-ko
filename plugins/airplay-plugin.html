@@ -1,0 +1,130 @@
+
+---
+title: Brightcove AirPlay 플러그인
+description: 이 항목에서는 Brightcove AirPlay 플러그인을 사용하여 Brightcove Player에서 Apple TV로 콘텐츠를 스트리밍하는 방법을 배웁니다.
+parent: Plugins
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="Overview">개요</h2> 
+    <p>Brightcove AirPlay 플러그인을 사용하면 Brightcove Player에서 Apple TV를 통해 고화질 디스플레이로 비디오를 스트리밍할 수 있습니다. Brightcove Player에서 AirPlay 아이콘을 탭하기만 하면 Apple TV 또는 AirPlay 2 지원 스마트 TV와 영화 및 비디오를 공유할 수 있습니다.</p> 
+    
+    <p>아래와 같이 플레이어 컨트롤 바의 AirPlay 아이콘은 다음 사항이 적용되는 경우에만 나타납니다.</p>
+    <ul>
+      <li>Brightcove Player가 Safari 브라우저에 있습니다.</li>
+      <li>이 Brightcove AirPlay 플러그인이 플레이어에 추가되었습니다.</li>
+      <li>AirPlay용 Safari 내장 Webkit 사용 가능</li>
+    </ul>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="AirPlay icon" src="/assets/images/plugins/airplay/airplay-icon.png" />
+      <figcaption class="bcls-caption--image">에어플레이 아이콘</figcaption>
+      </figure>
+
+  
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Requirements">요구 사항</h2> 
+    <p>Brightcove AirPlay 플러그인을 사용하려면 다음 요구 사항이 필요합니다.</p>
+    <ul>
+      <li>브라이트코브 플레이어 v6.51.4 이상</li> 
+    </ul>
+  </section>
+
+  <!-- <section class="bcls-section">
+    <h2 id="Implement_using_Players_module">Implement using Players module</h2> 
+    <p>Playlist end screens can be implemented using Video Cloud Studio's <strong>Players</strong> module. For details, see the <a href="https://studio.support.brightcove.com/players/configuring-playlist-endscreen-using-plugin.html">Configuring a Playlist Endscreen Using the playlist-endscreen Plugin</a> document.</p>
+  </section> -->
+
+  <section class="bcls-section">
+    <h2 id="Implement_using_code">코드를 사용하여 구현</h2> 
+    <p>플러그인을 구현하려면 플레이어는 플러그인 코드의 위치, 필요한 경우 스타일시트, 플러그인 이름 및 플러그인 구성 옵션을 알아야 합니다. 플러그인 코드 및 스타일시트의 위치는 다음과 같습니다.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>플러그인 코드 포함:</p>
+        <pre>
+<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-bc-airplay/1/videojs-bc-airplay.js</code></pre>
+      </li>
+      <li>
+        <p>플러그인 스타일 포함:</p>
+        <pre>
+<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-bc-airplay/1/videojs-bc-airplay.css</code></pre>
+      </li>
+      <li>플러그인 이름을 사용하여 플레이어에 로드합니다. <code translate="No">bcAirplay</code></li> 
+      <!-- <li>
+        <p>An example set of options is:</p>
+        <pre class="line-numbers">
+<code class="language-html" translate="No">{
+  &quot;playlistId&quot;: &quot;4602525726001&quot;,
+  &quot;title&quot;: &quot;Watch More&quot;
+}</code></pre>
+      </li> -->
+      <li>
+        <p>다음은 Advanced Embed 구현을 사용하여 플레이리스트 엔드스크린 플러그인을 플레이어의 단일 인스턴스와 연결하는 예제입니다.</p>
+        <pre class="line-numbers">
+<code class="language-html" translate="No">&lt;link href=&quot;https://players.brightcove.net/videojs-bc-airplay/1/videojs-bc-airplay.css&quot; rel=&quot;stylesheet&quot;&gt;
+  
+  &lt;div style=&quot;max-width: 960px;&quot;&gt;
+  &lt;video-js id=&quot;myPlayerID&quot;
+    data-account=&quot;<span class="bcls-input">your account ID</span>&quot;
+    data-player=&quot;<span class="bcls-input">your player ID</span>&quot;
+    data-embed=&quot;default&quot;
+    controls=&quot;&quot;
+    data-video-id=&quot;<span class="bcls-input">your video ID</span>&quot;
+    data-playlist-id=&quot;&quot;
+    data-application-id=&quot;&quot;
+    class=&quot;vjs-fluid&quot;&gt;
+  &lt;/video-js&gt;
+&lt;/div&gt;
+&lt;script src=&quot;https://players.brightcove.net/<span class="bcls-input">your account ID</span>/<span class="bcls-input">your player ID</span>_default/index.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- script for the Brightcove AirPlay plugin --&gt;
+&lt;script src=&quot;https://players.brightcove.net/videojs-bc-airplay/1/videojs-bc-airplay.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- custom script --&gt;
+&lt;script&gt;
+  videojs.getPlayer('myPlayerID').ready(function() {
+    var myPlayer = this;
+
+    // initialize the Brightcove AirPlay plugin
+    myPlayer.bcAirplay(); 
+  });
+&lt;/script&gt;</code></pre>
+      </li>
+    </ol>
+  </section>
+
+  <!-- <section class="bcls-section">
+    <h2 id="Options">Options</h2> 
+    <p>You may pass in an options object to the plugin upon initialization. This object may contain any of the following options:</p>
+
+    <h3>playlistId</h3>
+    <code translate="No">playlistId</code>
+    <ul>
+      <li>The string representing the playlist ID to be displayed in the end screen.</li>
+      <li>Type: <code translate="No">string</code></li>
+      <li>Default: <code translate="No">""</code></li>
+    </ul>
+
+    <h3>title</h3>
+    <code translate="No">title</code>
+    <ul>
+      <li>The string to customize the end screen title, this will also modify the button tooltip.</li>
+      <li>Type: <code translate="No">string</code></li>
+      <li>Default: <code translate="No">"Related videos"</code></li>
+    </ul>
+  </section> -->
+  
+  <!-- <section class="bcls-section">
+    <h2 id="Known_issues">Known issues</h2>
+    <ul>
+      <li></li>
+    </ul>
+  </section> -->
+  <section class="bcls-section"> 
+    <h2 id="changelog">변경 내역</h2>
+    <p>참조<a href="http://players.brightcove.net/release-notes/brightcove-player-airplay/index.html"> Brightcove AirPlay 플러그인 릴리스 정보</a> .</p>
+  </section>
+</article>

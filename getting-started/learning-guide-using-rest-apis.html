@@ -1,1085 +1,9 @@
-﻿<!doctype html>
-<html lang="ko">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="이 항목에서는 먼저 REST API 사용에 대한 개괄적인 개요를 볼 수 있습니다. 그런 다음이 문서의 뒷부분에서 자세히 살펴보면 예제 코드에 대해 논의 할 것입니다. 첫 번째 예제에서는 Analytics API를 사용하여 현재 플레이어에 있는 동영상의 조회수를 브라이트코브 플레이어 컨트롤 바에 검색하고 표시합니다. 두 번째, 약간 더 복잡한 예제에서는 Analytics API를 브라이트코브 플레이어 카탈로그와 함께 사용하여 계정에서 가장 인기 있는 동영상을 검색하고 재생목록에 표시합니다. 이 문서의 코드 토론은 올바른 REST API에서 원하는 데이터를 검색하는 것입니다.">
-  
-  <title>학습 가이드: REST API 사용</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">  
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Player_Logo.svg" alt="제품 로고" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">언어 선택</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-    
-
-
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="지원"/> 고객 지원 문의</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="시스템 상태"/> 시스템 상태</a></span> <br/>
-    
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">홈</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/getting-started/">시작하기</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">학습 가이드: REST API 사용</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-      <div class="col-sm-3 left-side-bar">
-        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-					<option value="">기타 브라이트코브 문서</option>
-					
-						
-							<option value="https://support.brightcove.com">설명서 홈</option>
-						
-					
-						
-							<option value="https://audience.support.brightcove.com">브라이트코브 대상</option>
-						
-					
-						
-							<option value="https://beacon.support.brightcove.com">브라이트코브 비콘</option>
-						
-					
-						
-							<option value="https://campaign.support.brightcove.com">브라이트코브 캠페인</option>
-						
-					
-						
-							<option value="https://engage.support.brightcove.com">브라이트코브 참여</option>
-						
-					
-						
-							<option value="https://live.support.brightcove.com">Brightcove Live</option>
-						
-					
-						
-							<option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-						
-					
-						
-							<option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-						
-					
-						
-							<option value="https://social.support.brightcove.com">브라이트코브 소셜</option>
-						
-					
-						
-							<option value="https://studio.support.brightcove.com">비디오 클라우드 스튜디오</option>
-						
-					
-						
-							<option value="https://player.support.brightcove.com">브라이트코브 플레이어 개발</option>
-						
-					
-						
-							<option value="https://apis.support.brightcove.com">비디오 클라우드 플랫폼 API</option>
-						
-					
-						
-							<option value="https://sdks.support.brightcove.com">비디오 클라우드 디바이스 SDK</option>
-						
-					
-						
-							<option value="https://integrations.support.brightcove.com">통합 및 CMS 커넥터</option>
-						
-					
-						
-							<option value="https://general.support.brightcove.com">비디오 클라우드 일반 정보</option>
-						
-					
-						
-							<option value="https://zencoder.support.brightcove.com">Zencoder</option>
-						
-					
-				</select>
-        <nav class="sidenav" id="side_nav">
-          
-            
-            <h5><a href="/index.html">홈</a></h5>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/getting-started/index.html">시작하기 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/training/developer-basics-videos.html">개발자 기본 동영상</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/what-brightcove-player.html">브라이트코브 플레이어란 무엇인가요?</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/overview-brightcove-player.html">개요: 브라이트코브 플레이어</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/learning-guide-video-advertising.html">학습 가이드: 비디오 광고</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/overview-brightcove-player-plugins.html">개요: 브라이트코브 플레이어 플러그인</a></li>
-                  
-                
-                  
-                    <li><a href="/training/player-development-training-videos.html">플레이어 개발 교육 비디오</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/step-step-brightcove-player.html">단계별: 브라이트코브 플레이어</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/step-step-player-customization.html">단계별: 플레이어 사용자 지정</a></li>
-                  
-                
-                  
-                    <li><a href="/training/training-demand-developing-brightcove-player.html">교육: 브라이트코브 플레이어를 통한 개발</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/learning-guide-using-rest-apis.html">학습 가이드: REST API 사용</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/basics/index.html">기본 사항 배우기 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/basics/developer-basics-advanced-player-code.html">고급 플레이어 코드</a></li>
-                  
-                
-                  
-                    <li><a href="/basics/developer-basics-autoplaying-video.html">비디오 자동 재생</a></li>
-                  
-                
-                  
-                    <li><a href="/basics/developer-basics-custom-plugin-converting-code.html">사용자 정의 플러그인 - 코드 변환</a></li>
-                  
-                
-                  
-                    <li><a href="/basics/developer-basics-custom-plugin-passing-data.html">사용자 정의 플러그인 - 데이터 전달</a></li>
-                  
-                
-                  
-                    <li><a href="/basics/developer-basics-custom-plugin-using-studio.html">사용자 정의 플러그인 - 스튜디오 사용</a></li>
-                  
-                
-                  
-                    <li><a href="/basics/developer-basics-custom-plugin-why-and-how.html">사용자 정의 플러그인 - 이유 및 방법</a></li>
-                  
-                
-                  
-                    <li><a href="/training/developer-basics-videos.html">개발자 기본 동영상</a></li>
-                  
-                
-                  
-                    <li><a href="/basics/developer-basics-generating-player-code.html">플레이어 코드 생성</a></li>
-                  
-                
-                  
-                    <li><a href="/basics/developer-basics-preparing-write-code.html">코드 작성 준비</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/references/index.html">참고 문헌 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/references/brightcove-player-5-6-migration-guide.html">브라이트코브 플레이어 5~6회 마이그레이션 가이드</a></li>
-                  
-                
-                  
-                    <li><a href="https://docs.brightcove.com/brightcove-player/current-release/index.html">브라이트코브 플레이어 API 설명서 (외부 사이트)</a></li>
-                  
-                
-                  
-                    <li><a href="/references/brightcove-player-cookies.html">브라이트코브 플레이어 쿠키</a></li>
-                  
-                
-                  
-                    <li><a href="/references/brightcove-player-error-reference.html">브라이트코브 플레이어 오류 참조</a></li>
-                  
-                
-                  
-                    <li><a href="https://groups.google.com/forum/embed/?place=forum/bcplayerdev#!forum/bcplayerdev">브라이트코브 플레이어 발표 포럼</a></li>
-                  
-                
-                  
-                    <li><a href="/references/brightcove-player-system-requirements.html">브라이트코브 플레이어 시스템 요구 사항</a></li>
-                  
-                
-                  
-                    <li><a href="/references/catalog-search-architecture.html">카탈로그 검색 아키텍처</a></li>
-                  
-                
-                  
-                    <li><a href="https://general.support.brightcove.com/general/known-issues-studio-brightcove-player-and-apis.html">알려진 문제</a></li>
-                  
-                
-                  
-                    <li><a href="/references/player-catalog.html">플레이어 카탈로그</a></li>
-                  
-                
-                  
-                    <li><a href="/references/player-feature-support-browser.html">브라우저별 플레이어 기능 지원</a></li>
-                  
-                
-                  
-                    <li><a href="/references/player-metadata-bcinfo.html">bcinfo의 플레이어 메타데이터</a></li>
-                  
-                
-                  
-                    <li><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html">플레이어 메소드/이벤트 API (외부 사이트)</a></li>
-                  
-                
-                  
-                    <li><a href="/references/guide-playlist-api.html">재생 목록 API 가이드</a></li>
-                  
-                
-                  
-                    <li><a href="/references/video-metadata-mediainfo.html">미디어 정보의 비디오 메타데이터</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/plugins/index.html">플러그인 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/plugins/360degvr-video-plugin.html">360º 비디오</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/ad-only-plugin.html">광고 전용</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/advertising-freewheel-plugin.html">FreeWheel 플러그인을 사용한 광고</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/advertising-ima3-plugin.html">IMA3 플러그인을 사용한 광고</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/upgrading-ima3-plugin-version-3.html">IMA3 플러그인 버전 3으로 업그레이드</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">SSAI를 사용한 광고</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/chromecast-plugin-brightcove-player.html">크롬캐스트</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/custom-endscreen-plugin.html">사용자 정의 끝화면</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/display-error-messages-plugin.html">오류 메시지 표시</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/display-thumbnail-previews-plugin.html">썸네일 미리보기 표시</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/configuring-brightcove-player-drm.html">DRM</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/google-tag-manager-plugin-brightcove-player.html">구글 태그 관리자</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/hls-plugin.html">HLS</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/live-dvrux-plugin.html">라이브 DVRUX</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/display-overlay-plugin.html">오버레이</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/overview-brightcove-player-plugins.html">개요: 플레이어 플러그인</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/picture-picture-plugin-aka-floating-or-pinned.html">픽처 인 픽처</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/playerplugin-version-testing.html">플레이어/플러그인 버전 테스트</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/playlist-ui-plugin.html">재생 목록 UI</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/changelog/index.html">플러그인 변경로그</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/plugin-registry.html">플러그인 레지스트리</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/plugin-version-reference.html">플러그인 버전 참조</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/quality-selection-plugin.html">품질 선택</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/social-sharing-plugin.html">소셜 미디어</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/tealium-plugin-brightcove-player.html">티리움 태그 관리자</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/video-seo-schema-generator-plugin.html">비디오 SEO 스키마 생성기</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/advertising/index.html">광고 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/advertising/ad-events-and-ad-objects.html">광고 이벤트 및 광고 개체</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/ad-only-plugin.html">광고 전용 플러그인</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/advertising-freewheel-plugin.html">FreeWheel 플러그인을 사용한 광고</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/advertising-ima3-plugin.html">IMA3 플러그인을 사용한 광고</a></li>
-                  
-                
-                  
-                    <li><a href="/advertising/client-side-preroll-with-live-ssai.html">라이브 SSAI를 통한 클라이언트측 프리롤 광고</a></li>
-                  
-                
-                  
-                    <li><a href="/advertising/displaying-ads-using-ad-cue-points.html">광고 큐 포인트를 사용하여 광고 표시</a></li>
-                  
-                
-                  
-                    <li><a href="/advertising/flash-no-longer-valid-ima.html">플래시가 IMA에서 더 이상 유효하지 않음</a></li>
-                  
-                
-                  
-                    <li><a href="/advertising/guide-ad-partner-integration.html">가이드: 광고 파트너 통합</a></li>
-                  
-                
-                  
-                    <li><a href="/advertising/guide-contrib-ads-migration.html">가이드: 컨트리브 광고 마이그레이션</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">브라이트코브 플레이어로 SSAI를 구현하기</a></li>
-                  
-                
-                  
-                    <li><a href="/advertising/jump-start-header-bidding-ad.html">점프 시작: 헤더 입찰 광고</a></li>
-                  
-                
-                  
-                    <li><a href="/advertising/jump-start-outstream-ad.html">점프 시작: 아웃스트림 광고</a></li>
-                  
-                
-                  
-                    <li><a href="/advertising/jump-start-pre-roll-ad.html">점프 시작: 프리롤 광고</a></li>
-                  
-                
-                  
-                    <li><a href="/advertising/known-issues-server-side-ad-insertion-ssai.html">알려진 문제: 서버 측 광고 삽입 (SSAI)</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/learning-guide-video-advertising.html">학습 가이드: 비디오 광고</a></li>
-                  
-                
-                  
-                    <li><a href="/advertising/step-step-implementing-advertising.html">단계별: 광고 구현</a></li>
-                  
-                
-                  
-                    <li><a href="/advertising/testing-pre-release-advertising-plugins.html">출시 전 광고 플러그인 테스트</a></li>
-                  
-                
-                  
-                    <li><a href="/advertising/using-dfp-premium-brightcove-player.html">브라이트코브 플레이어에서 DFP 프리미엄 사용</a></li>
-                  
-                
-                  
-                    <li><a href="/advertising/using-player-enhancements-live-ssai-brightcove-player.html">라이브 SSAI와 고급 플레이어 툴킷 사용</a></li>
-                  
-                
-                  
-                    <li><a href="/advertising/video-cloud-ssai-ad-tag-validation.html">비디오 클라우드 SSAI광고 태그 유효성 검사</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/publish/index.html">비디오 및 플레이어 퍼블리싱 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/publish/assigning-video-player-programmatically.html">프로그래밍 방식으로 플레이어에 비디오 할당</a></li>
-                  
-                
-                  
-                    <li><a href="/publish/available-options-advanced-page-embed-code.html">고급 (페이지 내) 포함 코드에 사용할 수 있는 옵션</a></li>
-                  
-                
-                  
-                    <li><a href="/publish/available-options-standard-iframe-embed-code.html">표준 (iframe) 포함 코드에 사용할 수 있는 옵션</a></li>
-                  
-                
-                  
-                    <li><a href="/publish/brightcove-player-loader.html">브라이트코브 플레이어 로더</a></li>
-                  
-                
-                  
-                    <li><a href="/publish/bulk-updating-brightcove-default-player.html">브라이트코브 기본 플레이어 대량 업데이트</a></li>
-                  
-                
-                  
-                    <li><a href="https://studio.support.brightcove.com/publish/choosing-correct-embed-code.html">올바른 임베드 코드 선택</a></li>
-                  
-                
-                  
-                    <li><a href="/publish/delaying-player-instantiation.html">플레이어 인스턴스화 지연</a></li>
-                  
-                
-                  
-                    <li><a href="/publish/pre-release-player.html">프리릴리즈 플레이어</a></li>
-                  
-                
-                  
-                    <li><a href="/publish/syndication-strategies.html">신디케이션 전략</a></li>
-                  
-                
-                  
-                    <li><a href="/publish/using-non-brightcove-player.html">브라이트코브가 아닌 플레이어 사용</a></li>
-                  
-                
-                  
-                    <li><a href="https://studio.support.brightcove.com/publish/using-multiple-players-one-page.html">한 페이지에서 여러 플레이어 사용</a></li>
-                  
-                
-                  
-                    <li><a href="https://studio.support.brightcove.com/publish/using-reference-ids.html">참조 ID 사용</a></li>
-                  
-                
-                  
-                    <li><a href="">비디오 변환 관리자</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/troubleshooting/index.html">문제 해결 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/troubleshooting/brightcove-playback-technology-app.html">브라이트코브 재생 기술 앱</a></li>
-                  
-                
-                  
-                    <li><a href="/references/brightcove-player-error-reference.html">브라이트코브 플레이어 오류 참조</a></li>
-                  
-                
-                  
-                    <li><a href="/troubleshooting/brightcove-player-information-modal.html">브라이트코브 플레이어 정보 모달</a></li>
-                  
-                
-                  
-                    <li><a href="/troubleshooting/brightcove-player-troubleshooting-guide.html">브라이트코브 플레이어 문제 해결 가이드</a></li>
-                  
-                
-                  
-                    <li><a href="/troubleshooting/creating-charles-log.html">찰스 로그 생성</a></li>
-                  
-                
-                  
-                    <li><a href="/troubleshooting/creating-network-log.html">네트워크 로그 작성</a></li>
-                  
-                
-                  
-                    <li><a href="/troubleshooting/domain-restrictions-messaging.html">도메인 제한 사항 메시징</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/display-error-messages-plugin.html">오류 메시지 플러그인 표시</a></li>
-                  
-                
-                  
-                    <li><a href="/troubleshooting/manually-setting-player-version.html">수동으로 플레이어 버전 설정</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/playerplugin-version-testing.html">플레이어/플러그인 버전 테스트</a></li>
-                  
-                
-                  
-                    <li><a href="/troubleshooting/player-informational-properties.html">플레이어 정보 등록 정보</a></li>
-                  
-                
-                  
-                    <li><a href="/code-samples/brightcove-player-sample-live-custom-error-message.html">샘플: 실시간 사용자 지정 오류 메시지</a></li>
-                  
-                
-                  
-                    <li><a href="/troubleshooting/step-step-brightcove-player-debugger.html">단계별: 브라이트코브 플레이어</a></li>
-                  
-                
-                  
-                    <li><a href="/troubleshooting/running-network-path-trace.html">네트워크 경로 추적 실행</a></li>
-                  
-                
-                  
-                    <li><a href="/troubleshooting/using-player-reference.html">플레이어 참조 사용</a></li>
-                  
-                
-                  
-                    <li><a href="/troubleshooting/vetting-brightcove-player-releases.html">브라이트코브 플레이어 출시 심사</a></li>
-                  
-                
-                  
-                    <li><a href="/troubleshooting/viewing-player-configuration.html">플레이어 구성 보기</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/styling/index.html">스타일 &amp; 모양 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/styling/customizing-player-appearance.html">플레이어 모양 사용자 정의</a></li>
-                  
-                
-                  
-                    <li><a href="/styling/customizing-player-appearance-legacy-skin.html">플레이어 모양 커스터마이징 - 레거시 스킨</a></li>
-                  
-                
-                  
-                    <li><a href="/styling/brightcove-player-sample-player-styling-playground.html">플레이어 스타일링 놀이터</a></li>
-                  
-                
-                  
-                    <li><a href="/styling/quick-start-player-customization-legacy-skin.html">빠른 시작: 플레이어 커스터마이징 - 레거시 스킨</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/step-step-player-customization.html">단계별: 플레이어 사용자 지정</a></li>
-                  
-                
-                  
-                    <li><a href="/styling/responsive-sizing-brightcove-player.html">브라이트코브 플레이어를 위한 반응형 크기 조정</a></li>
-                  
-                
-                  
-                    <li><a href="/styling/sizing-player.html">플레이어 크기 조정</a></li>
-                  
-                
-                  
-                    <li><a href="/styling/skins-and-player-versions.html">스킨 및 플레이어 버전</a></li>
-                  
-                
-                  
-                    <li><a href="https://studio.support.brightcove.com/media/styling-captions.html">캡션 스타일 지정</a></li>
-                  
-                
-                  
-                    <li><a href="/styling/styling-playlists.html">재생 목록 스타일 지정</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/playback/index.html">재생 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/playback/autoplay-considerations.html">자동 실행 고려 사항</a></li>
-                  
-                
-                  
-                    <li><a href="/troubleshooting/brightcove-playback-technology-app.html">브라이트코브 재생 기술 앱</a></li>
-                  
-                
-                  
-                    <li><a href="/playback/xdr-with-bcplayer.html">브라이트코브 플레이어로 장치 간 재개</a></li>
-                  
-                
-                  
-                    <li><a href="https://studio.support.brightcove.com/publish/deep-linking.html">딥 링크</a></li>
-                  
-                
-                  
-                    <li><a href="/playback/delivering-hls-video.html">HLS 비디오 제공</a></li>
-                  
-                
-                  
-                    <li><a href="/playback/determining-which-rendition-will-play.html">재생할 변환 결정</a></li>
-                  
-                
-                  
-                    <li><a href="/playback/guide-playback-technology.html">가이드: 재생 기술</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/hls-plugin.html">HLS 플러그인</a></li>
-                  
-                
-                  
-                    <li><a href="/playback/ios-and-brightcove-player.html">iOS 및 브라이트코브 플레이어</a></li>
-                  
-                
-                  
-                    <li><a href="/playback/overview-https-support.html">개요: HTTPS 지원</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/quality-selection-plugin.html">품질 선택 플러그인</a></li>
-                  
-                
-                  
-                    <li><a href="/playback/static-url-delivery.html">정적 URL 전송</a></li>
-                  
-                
-                  
-                    <li><a href="/playback/streaming-playready-protected-content-dynamic-delivery.html">재생 준비 상태로 보호된 콘텐츠 스트리밍</a></li>
-                  
-                
-                  
-                    <li><a href="/playback/using-brightcove-player-tve.html">TVE에 브라이트코브 플레이어 사용하기</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/content-protection/index.html">DRM 및 콘텐츠 보호 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="https://studio.support.brightcove.com/players/configuring-player-content-restrictions.html">플레이어 콘텐츠 제한 구성</a></li>
-                  
-                
-                  
-                    <li><a href="/content-protection/creating-dash-drm-manifest-brightcove-player.html">브라이트코브 플레이어를 위한 DASH DRM 매니페스트 만들기</a></li>
-                  
-                
-                  
-                    <li><a href="/troubleshooting/domain-restrictions-messaging.html">도메인 제한 사항 메시징</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/configuring-brightcove-player-drm.html">DRM 플러그인</a></li>
-                  
-                
-                  
-                    <li><a href="/content-protection/overview-content-protection.html">개요: 컨텐츠 보호</a></li>
-                  
-                
-                  
-                    <li><a href="/content-protection/policy-keys.html">정책 키</a></li>
-                  
-                
-                  
-                    <li><a href="/content-protection/restricting-video-playback-using-ip-address.html">IP 주소를 사용하여 비디오 재생 제한</a></li>
-                  
-                
-                  
-                    <li><a href="/content-protection/signed-urls-and-token-auth-live-stream.html">라이브 스트림으로 서명된 URL 및 토큰 인증</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/coding-topics/index.html">주제 코딩 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/publish/brightcove-player-loader.html">브라이트코브 플레이어 로더</a></li>
-                  
-                
-                  
-                    <li><a href="/references/catalog-search-architecture.html">카탈로그 검색 업그레이드</a></li>
-                  
-                
-                  
-                    <li><a href="/code-samples/brightcove-player-sample-trigger-rewind-custom-event.html">사용자 정의 이벤트</a></li>
-                  
-                
-                  
-                    <li><a href="/playback/guide-playback-technology.html">가이드: 재생 기술</a></li>
-                  
-                
-                  
-                    <li><a href="/coding-topics/programmatically-localizing-brightcove-player.html">브라이트코브 플레이어 현지화</a></li>
-                  
-                
-                  
-                    <li><a href="/coding-topics/localizing-plugins.html">플러그인 현지화</a></li>
-                  
-                
-                  
-                    <li><a href="/coding-topics/player-events.html">플레이어 이벤트</a></li>
-                  
-                
-                  
-                    <li><a href="/coding-topics/overview-components.html">개요: 구성 요소</a></li>
-                  
-                
-                  
-                    <li><a href="/playback/overview-https-support.html">개요: HTTPS 지원</a></li>
-                  
-                
-                  
-                    <li><a href="/coding-topics/overview-player-api.html">개요: 플레이어 API</a></li>
-                  
-                
-                  
-                    <li><a href="/coding-topics/pass-data-plugin.html">플러그인에 데이터 전달</a></li>
-                  
-                
-                  
-                    <li><a href="/coding-topics/react-player-loader.html">플레이어 로더 반응</a></li>
-                  
-                
-                  
-                    <li><a href="/coding-topics/reporting-brightcove-player-configurations.html">브라이트코브 플레이어 구성에 대한 보고</a></li>
-                  
-                
-                  
-                    <li><a href="/coding-topics/requirejs-and-brightcove-player.html">요구 사항 및 브라이트코브 플레이어</a></li>
-                  
-                
-                  
-                    <li><a href="/coding-topics/step-step-plugin-development.html">단계별: 플러그인 개발</a></li>
-                  
-                
-                  
-                    <li><a href="/coding-topics/step-step-videojs-plugin-generator.html">단계별: Video.js 플러그인 생성기</a></li>
-                  
-                
-                  
-                    <li><a href="/coding-topics/using-bc-and-getplayer-methods.html">BC () 및 getPlayer () 메소드를 사용하여</a></li>
-                  
-                
-                  
-                    <li><a href="/troubleshooting/viewing-player-configuration.html">플레이어 구성 보기</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/general/index.html">일반 정보 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="https://studio.support.brightcove.com/publish/adding-application-id-player-embed-code.html">플레이어 임베드 코드에 응용 프로그램 ID 추가</a></li>
-                  
-                
-                  
-                    <li><a href="/general/adding-captions-videos-programmatically.html">프로그래밍 방식으로 비디오에 캡션 추가</a></li>
-                  
-                
-                  
-                    <li><a href="https://studio.support.brightcove.com/media/adding-chapters-video.html">비디오에 장 추가</a></li>
-                  
-                
-                  
-                    <li><a href="/general/brightcove-player-6-now-default-version.html">브라이트코브 플레이어 6 이제 기본 버전</a></li>
-                  
-                
-                  
-                    <li><a href="/general/brightcove-player-accessibility.html">브라이트코브 플레이어 손쉬운</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/custom-endscreen-plugin.html">사용자 정의 엔드 스크린 플러그인</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/display-overlay-plugin.html">오버레이 플러그인 표시</a></li>
-                  
-                
-                  
-                    <li><a href="/references/guide-playlist-api.html">가이드: 재생 목록 API</a></li>
-                  
-                
-                  
-                    <li><a href="/general/identify-and-delete-low-performing-videos.html">실적이 낮은 비디오 식별 및 삭제</a></li>
-                  
-                
-                  
-                    <li><a href="/general/implementing-cue-points-programmatically.html">프로그래밍 방식으로 큐 포인트 구현</a></li>
-                  
-                
-                  
-                    <li><a href="/general/implementing-playlists.html">재생 목록 구현</a></li>
-                  
-                
-                  
-                    <li><a href="/general/implementing-modaldialog.html">모달 대화 상자 구현하기</a></li>
-                  
-                
-                  
-                    <li><a href="/general/live-hls.html">라이브 HLS</a></li>
-                  
-                
-                  
-                    <li><a href="/general/live-stream-configuration.html">라이브 스트림 구성</a></li>
-                  
-                
-                  
-                    <li><a href="/general/multiple-audio-tracks.html">다중 오디오 트랙</a></li>
-                  
-                
-                  
-                    <li><a href="/general/player-configuration-guide.html">플레이어 구성 가이드</a></li>
-                  
-                
-                  
-                    <li><a href="/general/playing-live-streams.html">라이브 스트림 재생</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/playlist-ui-plugin.html">재생 목록 UI 플러그인</a></li>
-                  
-                
-                  
-                    <li><a href="/content-protection/signed-urls-and-token-auth-live-stream.html">라이브 스트림으로 서명된 URL 및 토큰 인증</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/social-sharing-plugin.html">소셜 미디어 플러그인</a></li>
-                  
-                
-                  
-                    <li><a href="https://apis.support.brightcove.com/player-management/getting-started/step-step-player-management.html">단계별: 플레이어 관리</a></li>
-                  
-                
-                  
-                    <li><a href="/styling/styling-playlists.html">재생 목록 스타일 지정</a></li>
-                  
-                
-                  
-                    <li><a href="/general/using-screen-reader-brightcove-player.html">브라이트코브 플레이어에서 화면 판독기 사용</a></li>
-                  
-                
-                  
-                    <li><a href="/general/versions-brightcove-player-documentation.html">브라이트코브 플레이어 설명서 버전</a></li>
-                  
-                
-                  
-                    <li><a href="/general/volume-control.html">볼륨 컨트롤</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/code-samples/index.html">코드 샘플 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/code-samples/index-thumb.html">그룹별 코드 샘플</a></li>
-                  
-                
-                  
-                    <li><a href="/code-samples/index.html">코드 샘플 인덱스</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/amp/index.html">AMP <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/amp/amp-using-video-cloud-video.html">비디오 클라우드 비디오 사용 AMP</a></li>
-                  
-                
-                  
-                    <li><a href="/amp/amp-using-external-video.html">외부 비디오를 사용하는 AMP</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/training/index.html">교육 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/training/online-training-courses.html">모든 온라인 교육 과정</a></li>
-                  
-                
-                  
-                    <li><a href="/training/developer-basics-videos.html">개발자 기본 동영상</a></li>
-                  
-                
-                  
-                    <li><a href="/training/player-development-training-videos.html">플레이어 개발 교육 비디오</a></li>
-                  
-                
-                  
-                    <li><a href="/training/register-training.html">강사 주도식 교육 등록</a></li>
-                  
-                
-                  
-                    <li><a href="/training/training-demand-developing-brightcove-player.html">교육: 브라이트코브 플레이어를 통한 개발</a></li>
-                  
-                
-                  
-                    <li><a href="https://apis.support.brightcove.com/player-management/getting-started/training-demand-quick-start-player-management.html">교육: 플레이어 관리 빠른 시작</a></li>
-                  
-                
-                  
-                    <li><a href="/training/brightcove-university.html">브라이트코브 대학교 교육 과정</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/release-notes/index.html">릴리즈 노트 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/release-notes/brightcove-player-release-notes.html">브라이트코브 플레이어 출시 정보</a></li>
-                  
-                
-                  
-                    <li><a href="/release-notes/brightcove-player-prerelease-notes.html">브라이트코브 플레이어 사전 출시 정보</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/support/index.html">지원 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    
-                  
-                
-                  
-                    <li><a href="/support/viewing-brightcove-system-status-page.html">브라이트코브 시스템 상태 페이지 보기</a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">영업팀에 문의</a></li>
-                  
-                
-                  
-                    <li><a href="/support/opening-case-with-brightcove-support.html">지원 사례 열기</a></li>
-                  
-                
-              </ul>
-            
-          
-      </nav>
-    </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
-
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="네비게이션 메뉴"/></p>
-
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">페이지 내용</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="새 탭에서 열기" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-
-  
-    
+---
+title: '학습 가이드: REST API 사용'
+description: '이 주제에서는 먼저 REST API 사용에 대한 높은 수준의 개요를 얻습니다. 그런 다음 문서 후반부에서 예제 코드에 대해 자세히 설명합니다. 첫 번째 예에서는 다음을 사용합니다. <span translate="No">애널리틱스 API</span>현재 플레이어에 있는 비디오의 조회수를 검색하고 Brightcove 플레이어 컨트롤 막대에 표시합니다. 두 번째이자 약간 더 복잡한 예제는 다음을 사용합니다. <span translate="No">애널리틱스 API</span> Brightcove Player 카탈로그와 함께 계정에서 가장 인기 있는 비디오를 검색하고 재생 목록에 표시합니다. 이 문서의 코드 토론은 올바른 REST API에서 원하는 데이터를 검색하는 데 중점을 둡니다.'
+parent: Getting Started 
+---
 
 
 <!-- 
@@ -1092,46 +16,46 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   If you update in one place, you MUST update it in all!
  -->
 
- <h1>학습 가이드: REST API 사용</h1>
+ <h1>{{ page.title }}</h1>
  <article class="bcls-article">
-  <summary>이 항목에서는 먼저 REST API 사용에 대한 개괄적인 개요를 볼 수 있습니다. 그런 다음이 문서의 뒷부분에서 자세히 살펴보면 예제 코드에 대해 논의 할 것입니다. 첫 번째 예제에서는<span translate="No">Analytics API</span>를 사용하여 현재 플레이어에 있는 비디오의 조회수를 브라이트코브 플레이어 컨트롤 바에 검색하고 표시합니다. 두 번째, 약간 더 복잡한 예제는 브라이트코브 플레이어 카탈로그와 함께 를 사용하여 계정에서 가장 인기 있는 비디오를 검색하고 재생목록에 표시합니다. <span translate="No">Analytics API</span> 이 문서의 코드 토론은 올바른 REST API에서 원하는 데이터를 검색하는 것입니다.</summary>
+  <summary>{{ page.description }}</summary>
   <section class="bcls-section">
     <h2 id="High_level_view">높은 수준의 보기</h2>
-    <p>REST API를 사용하려면 몇 가지 조각이 있어야합니다. 간단히 말해서, 그들은 다음과 같습니다:</p>
+    <p>REST API를 사용하려면 몇 가지 부분이 준비되어 있어야 합니다. 간단히 말해서 다음과 같습니다.</p>
     <ul>
-      <li><strong>클라이언트 코드</strong> : 클라이언트 코드는 특정 데이터를 요청한 다음 응용 프로그램 요구 사항에 따라 표시합니다. 클라이언트 코드는 가장 자주 작성해야하는 것이므로 이 문서에서 어느 정도 설명됩니다.</li>
-      <li><strong>프록시 서버</strong> : 보안상의 이유로 REST API는 클라이언트에서 직접 데이터 요청을 수락하지 않으므로 클라이언트 자격 증명과 같은 기밀 정보를 클라이언트에서 보내는 것이 좋습니다. 즉, 프록시는 클라이언트와 REST API 간의 중개자 역할을 합니다. 예제에서 사용되는 프록시는 PHP로 작성되었으며 이 문서의 뒷부분에서 설명합니다. 프록시는 사용자가 제어할 수 있는 서버에 설정되어야 하며 원하는 언어로 작성할 수 있습니다. 제안 된 프록시 구성을 사용하면 한 번 작성하여 API에서 사용할 수 있습니다.</li>
-      <li><strong>REST API</strong> : 브라이트코브는 브라이트코브 플랫폼과의 맞춤화, 확장 및 통합을 위한 포괄적인 API 세트를 제공합니다. <a href="https://apis.support.brightcove.com/getting-started/getting-started-brightcove-apis.html">개요 보기: 자세한 내용은 비디오 클라우드 API</a>문서를 참조하십시오.</li>
+      <li><strong>클라이언트 코드</strong> : 클라이언트 코드는 특정 데이터를 요청한 다음 애플리케이션 요구 사항에 따라 이를 표시합니다. 클라이언트 코드는 가장 자주 작성해야 하는 코드이므로 이 문서에서 어느 정도 길게 설명합니다.</li>
+      <li><strong>프록시 서버</strong> : 보안상의 이유로 REST API는 클라이언트 자격 증명과 같은 기밀 정보를 클라이언트에서 보내도록 권장하므로 클라이언트에서 직접 데이터 요청을 수락하지 않습니다. 이는 프록시가 클라이언트와 REST API 사이의 중개자 역할을 한다는 것을 의미합니다. 예제에 사용된 프록시는 PHP로 작성되었으며 이 문서의 뒷부분에서 설명합니다. 프록시는 사용자가 제어하는 서버에 설정해야 하며 선택한 언어로 작성할 수 있습니다. 프록시의 제안된 구성을 사용하면 한 번 작성하고 모든 API에서 사용할 수 있습니다.</li>
+      <li><strong>REST API</strong> : Brightcove는 Brightcove 플랫폼과 사용자 지정, 확장 및 통합할 수 있는 포괄적인 API 세트를 제공합니다. <a href="https://apis.support.brightcove.com/getting-started/getting-started-brightcove-apis.html">개요를 참조하십시오. 비디오 클라우드 API</a>자세한 내용은 문서를 참조하십시오.</li>
     </ul>
-    <p>다음 다이어그램은 브라이트코브의 REST API 중 하나에서 데이터를 검색하기 위한 프로세스의 세 핵심 엔터티 간의 상호 작용을 보여 줍니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="기본 조각 개요" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/client-proxy-api.png"/></figure>
+    <p>다음 다이어그램은 Brightcove의 REST API 중 하나에서 데이터를 검색하는 프로세스의 세 가지 핵심 엔터티 간의 상호 작용을 보여줍니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Basic Pieces Overview" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/client-proxy-api.png" /></figure>
   </section>
   <section class="bcls-section">
     <h2 id="Client_functionality_overview">클라이언트 기능 개요</h2>
-    <p>클라이언트 측 코드는 데이터를 요청하는 API에 따라 크게 변경됩니다. 위에서 언급했듯이 프록시는 한 번 쓰기이며 코드를 수정하지 않으며 API가 브라이트코브에 의해 유지 관리됩니다. 이 문서의 강조는 API 중 하나에서 원하는 데이터를 검색하기 위해 클라이언트 코드를 변경하는 방법을 배우는 것입니다 이유입니다.</p>
-    <p>아래 다이어그램은 클라이언트 코드의 주요 부분을 중점적으로 다룹니다.</p>
+    <p>클라이언트 측 코드는 데이터를 요청하는 API에 따라 크게 변경됩니다. 위에서 언급했듯이 프록시는 한 번 쓰기이며 코드를 수정하지 않으며 API는 Brightcove에서 유지 관리합니다. 이것이 문서에서 API 중 하나에서 원하는 데이터를 검색하기 위해 클라이언트 코드를 변경하는 방법을 배우는 데 중점을 두는 이유입니다.</p>
+    <p>아래 다이어그램은 클라이언트 코드의 주요 부분에 중점을 두고 있습니다.</p>
     <ul>
-      <li>를 프록시로 만드는 함수입니다. <code translate="No">HTTPRequest</code> 모호성을 피하기 위해 함수의 이름이 지정됩니다<code translate="No">makeRequest()</code> . 이 그림은 아래 다이어그램의 오른쪽에 나와 있습니다.</li>
-      <li>요청에 필요한 정보를 수집하는 코드입니다. 이 그림은 다이어그램의 왼쪽 상단에 표시되어 있습니다. 이 코드는 일반적으로 매우 간단하며 초보자도 프로그래머에게 잘 알려진 개념을 사용합니다.</li>
-      <li>앞서 언급 한<code translate="No">makeRequest()</code>함수를 실행하는 호출입니다. 이 그림은 다이어그램의 왼쪽 하단에 표시됩니다. 호출은 매개<code translate="No">makeRequest()</code>변수로 함수를 전달합니다. 그런 다음<code translate="No">makeRequest()</code>해당 함수가 호출됩니다. 이것은 익명으로 정의 된<strong>콜백</strong>함수의 예입니다.</li>
+      <li>만들어주는 기능<code translate="No">HTTPRequest</code>프록시에. 모호성을 피하기 위해 함수의 이름은<code translate="No">makeRequest()</code> . 아래 그림의 오른쪽에 있는 그림입니다.</li>
+      <li>요청에 필요한 정보를 수집하는 코드입니다. 다이어그램의 왼쪽 상단에 있는 그림입니다. 이 코드는 일반적으로 매우 간단하며 초보 프로그래머에게도 잘 알려진 개념을 사용합니다.</li>
+      <li>앞서 언급한 호출을 실행<code translate="No">makeRequest()</code>기능. 다이어그램의 왼쪽 아래에 그림이 있습니다. 호출은 다음으로 함수를 전달합니다. <code translate="No">makeRequest()</code>매개변수로. 그런 다음<code translate="No">makeRequest()</code>그 함수가 호출됩니다. 이것은 익명으로 정의된<strong>콜백</strong>기능.</li>
     </ul>
-    <p>다이어그램에서<strong>비동기 작업이라는</strong>두 섹션을 볼 수 있습니다. 다이어그램에 두 개의 서로 다른 위치에 표시되지만 실제로는 동일한 비동기 활동이며 알 수 없는 시간을 나타냅니다.</p>
+    <p>레이블이 지정된 다이어그램의 두 섹션이 표시됩니다. <strong>비동기 활동</strong> . 다이어그램에서 두 개의 다른 위치에 표시되지만 실제로는 동일한 비동기 활동이며 다음과 같은 알 수 없는 시간을 나타냅니다.</p>
     <ul>
-      <li>프록시에 요청을 보낼 클라이언트.</li>
+      <li>프록시에 요청을 보낼 클라이언트입니다.</li>
       <li>API에서 데이터를 요청하는 프록시입니다.</li>
-      <li>결과 집합을 빌드하고 프록시로 반환하는 API입니다.</li>
+      <li>결과 집합을 빌드하고 프록시에 반환하는 API입니다.</li>
       <li>클라이언트에 데이터를 반환하는 프록시입니다.</li>
     </ul>
-    <p>호출하는 상자의 로직 흐름 화살표<code translate="No">makeRequest()</code> (왼쪽 아래 상자) 는 코드가 두 가지 다른 시간에 실행된다는 것을 나타내는 것처럼 보입니다. 함수에 대한 호출이 이루어지지만 콜백 함수는 작업을 완료하고 콜백 함수가 실행될 때까지<code translate="No">makeRequest()</code>실행되지 않습니다. 콜백 함수는 요청 된 데이터를 함수 호출 코드로 반환합니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="클라이언트 기능 개요" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/proxy-API-call.png"/></figure>
+    <p>다음을 호출하는 상자의 논리 흐름 화살표에 유의하십시오. <code translate="No">makeRequest()</code> (왼쪽 아래 상자)는 코드가 두 개의 다른 시간에 실행되었음을 나타내는 것 같으며, 정확히 그렇습니다. 함수에 대한 호출이 이루어지지만 콜백 함수는<code translate="No">makeRequest()</code>작업을 완료하고 콜백 함수가 실행되어 요청된 데이터를 함수 호출 코드로 반환합니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Client functionality overview" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/proxy-API-call.png" /></figure>
   </section>
   <section class="bcls-section">
     <h2 id="Example_code_walkthrough">예제 코드 연습</h2>
-    <p>코드를 한 조각으로 보는 대신 섹션에서 설명하고 설명합니다. 일부 섹션은 위의 다이어그램과 관련이 있습니다.</p>
+    <p>코드를 한 조각으로 보는 대신 섹션에서 제시하고 논의할 것입니다. 일부 섹션은 위의 다이어그램과 관련이 있습니다.</p>
     <h3>표준 플레이어 코드</h3>
-    <p>이 코드 섹션에는 브라이트코브 플레이어 페이지 내장 코드가 포함되어 있습니다.</p>
+    <p>이 코드 섹션에는 기본 Brightcove Player 인페이지 내장 코드가 포함되어 있습니다.</p>
     <ul>
-      <li>라인 11-21번: &nbsp;<code translate="No">id</code>특성이 추가된 표준 브라이트코브 플레이어 코드입니다.</li>
+      <li>11-21행: 추가된 표준 Brightcove Player 코드&nbsp;<code translate="No">id</code>속성이 추가되었습니다.</li>
     </ul>
     <pre class="line-numbers">
 	<code class="language-html" translate="No">&lt;!doctype html&gt;
@@ -1155,25 +79,25 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 		width="640"
 		height="360"&gt;&lt;/video-js&gt;
 	&lt;script src="https://players.brightcove.net/1752604059001/HkAzSmB0l_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
-    <h3>전화 걸기 준비</h3>
-    <p>이 코드 섹션은 변수를 초기화하고 을 호출 할 준비가됩니다<code translate="No">makeRequest()</code> . 일반적으로 읽기 요청의 경우 다음 정보를 제공해야 합니다.</p>
+    <h3>전화 걸 준비 중</h3>
+    <p>이 코드 섹션은 변수를 초기화하고<code translate="No">makeRequest()</code> . 일반적으로 읽기 요청의 경우 다음 정보를 제공해야 합니다.</p>
     <ol>
-      <li>예를 들어 사용할 프록시의 URL입니다 (물론 사용자가 제어하는 프록시 여야합니다).
+      <li>예를 들어 사용할 프록시에 대한 URL(물론 이것은 사용자가 제어하는 프록시여야 함):
         <pre class="line-numbers">
 	<code class="language-html" translate="No">https://solutions.brightcove.com/bcls/bcls-proxy/doc-samples-proxy-v2.php</code></pre>
       </li>
-      <li>실제 요청에 필요한 URL은 일반적으로 동적으로 구성됩니다.
+      <li>실제 요청에 필요한 URL로 일반적으로 동적으로 구성됩니다.
         <pre class="line-numbers">
 	<code class="language-html" translate="No">https://analytics.api.brightcove.com/v1/alltime/accounts/1752604059001/videos/4825279519001</code></pre>
       </li>
-      <li>예를 들어, HTTP 메소드입니다<code translate="No">GET</code> .</li>
+      <li>예를 들어 HTTP 메소드<code translate="No">GET</code> .</li>
     </ol>
-    <p>예를 들면 다음과 같습니다.</p>
+    <p>예는 다음과 같습니다.</p>
     <ul>
-      <li>라인 1: 플레이어가 상호 작용할 준비가 될 때까지 대기하는 표준 코드입니다.</li>
-      <li>라인 2-4: 나중에 코드에서 필요한 변수에 대한 값을 생성/설정합니다.</li>
-      <li>라인 7-12: 기다려<code translate="No">loadstart</code>이벤트 그래서<code translate="No">mediainfo</code>개체가 채워집니다. <span translate="No">Analytics API</span>엔드 포인트에 필요한 값을 보유 할 변수를 지정합니다.</li>
-      <li>13호선: 호출에 대한 HTTP 메소드를 설정합니다.</li>
+      <li>1호선: 플레이어가 상호 작용할 준비가 될 때까지 기다리는 표준 코드입니다.</li>
+      <li>2-4행: 나중에 코드에서 필요한 변수에 대한 값을 생성/설정합니다.</li>
+      <li>7-12번 라인: 기다려<code translate="No">loadstart</code>이벤트 그래서<code translate="No">mediainfo</code>개체가 채워집니다. 에 필요한 값을 유지하기 위해 변수를 할당합니다. <span translate="No">애널리틱스 API</span>끝점.</li>
+      <li>13번 호선: 호출에 대한 HTTP 메서드를 설정합니다.</li>
     </ul>
     <pre class="line-numbers">
 	<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
@@ -1189,25 +113,25 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 			options.proxyURL = "https://solutions.brightcove.com/bcls/bcls-proxy/doc-samples-proxy-v2.php";
 			options.url = baseURL + endPoint;
 			options.requestType = "GET";</code></pre>
-    <aside class="bcls-aside bcls-aside--information">참고: 라인 9,10 및 12 쉽게 하나의 긴 선에 배치 할 수 있습니다. 이 코드는 스크롤링과 관련된 긴 줄을 피하고 코드 재사용을 돕기 위해 그림과 같이 작성되었습니다.</aside>
-    <h3>전화<code translate="No">makeRequest()</code></h3>
-    <p>이 코드 섹션은<code translate="No">makeRequest()</code>함수를 호출합니다. 두 개의 매개 변수가 전달됩니다. 첫 번째는 끝점에 대한 정보를 보유하는 옵션 객체이고 두 번째는 콜백 함수입니다. 이는 비동기 호출이므로 REST API에 의해 함수에 데이터가 반환 될 때까지 익명으로 정의 된 콜백<code translate="No">makeRequest()</code>함수가 호출되지 않습니다.</p>
+    <aside class="bcls-aside bcls-aside--information">참고: 라인 9,10, 12는 하나의 긴 라인에 쉽게 배치될 수 있습니다. 코드는 보기로 스크롤해야 하는 긴 줄을 피하고 코드 재사용성을 돕기 위해 표시된 대로 작성되었습니다.</aside>
+    <h3>부르다<code translate="No">makeRequest()</code></h3>
+    <p>이 코드 섹션은<code translate="No">makeRequest()</code>기능. 두 개의 매개변수가 전달됩니다. 첫 번째는 끝점에 대한 정보를 보유하는 옵션 객체이고 두 번째는 콜백 함수입니다. 이것은 비동기식 호출이므로 REST API가 데이터를 반환할 때까지 익명으로 정의된 콜백 함수가 호출되지 않습니다. <code translate="No">makeRequest()</code>기능.</p>
     <ul>
-      <li>라인 1: 을 부르다<code translate="No">makeRequest()</code>함수에서 호출에 필요한 값을 전달합니다. <code translate="No">options</code>목적. 이 경우 객체에는 다음이 포함됩니다.
-        <figure class="bcls-figure"><img class="bcls-image" alt="옵션 객체" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/options-object-console.png"/></figure>
+      <li>1호선: 를 불러<code translate="No">makeRequest()</code>함수, 호출에 필요한 값 전달<code translate="No">options</code>물체. 이 경우 객체에는 다음이 포함됩니다.
+        <figure class="bcls-figure"><img class="bcls-image" alt="options object" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/options-object-console.png" /></figure>
       </li>
-      <li>3-13행 라인: 콜백 함수는 익명의 함수 (노란색으로 강조 표시) 로 정의됩니다. 이 함수는 매개 변수이며 여기에서 호출되지 않지만 나중에 코드에서 호출된다는 것을 기억하십시오.</li>
-      <li>라인 6, 8, 10: 표시되는<code translate="No">console.log()</code>명령문:
+      <li>3-13행: 콜백 함수는 익명 함수로 정의됩니다(노란색으로 강조 표시됨). 이 함수는 매개변수이며 여기에서 호출되지 않고 나중에 코드에서 호출된다는 점을 기억하십시오.</li>
+      <li>6, 8, 10행: <code translate="No">console.log()</code>다음을 표시하는 문:
         <ul>
-          <li>API 호출에 의해 반환되는 원시 JSON 문자열입니다.</li>
-          <li>문자열에서 객체로 변환하는<code translate="No">JSON.parse()</code>메서드에 의해 생성 된 JSON 객체입니다.</li>
-          <li>실제 뷰는 간단한<code translate="No">object.property</code>표기법을 사용하여 객체에서 추출 된 카운트.</li>
+          <li>API 호출에서 반환되는 원시 JSON 문자열입니다.</li>
+          <li>에 의해 생성된 JSON 객체<code translate="No">JSON.parse()</code>문자열에서 객체로 변환하는 메소드.</li>
+          <li>단순 뷰를 사용하여 객체에서 추출한 실제 조회수<code translate="No">object.property</code>표기법.</li>
         </ul>
       </li>
-      <li>라인 12: 컨트롤 막대에 뷰 수를 표시하는 함수를 호출합니다.</li>
+      <li>12번 호선: 컨트롤 바의 뷰 수를 표시하는 함수를 호출합니다.</li>
     </ul>
-    <p>콘솔에서 다음 스크린 샷은<code translate="No">console.log</code>명령문에서 실제 표시된 데이터를 보여줍니다:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="콜백 함수에서 데이터 처리" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/console-data-process-callback-function.png"/></figure>
+    <p>콘솔의 다음 스크린샷은 실제 표시된 데이터를 보여줍니다. <code translate="No">console.log</code>진술:</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Processing of data in callback function" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/console-data-process-callback-function.png" /></figure>
     <pre class="line-numbers">
 	<code class="language-javascript" translate="No">// +++ Make the request to the <span translate="No">Analytics API</span> +++
 	// Extract views from data returned by Analytics API
@@ -1222,14 +146,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 	// Call function to place data in controlbar
 	placeCountInControlbar(viewsCount);
 	}</span>);</code></pre>
-    <h3>실제<code translate="No">makeRequest()</code>함수</h3>
-    <p>문서의 이 섹션에서는 실제로<code translate="No">makeRequest()</code>함수를 정의하는 코드를 검사합니다. 함수를 정의하는 코드는 수정하지 않아도되지만 그대로 반복적으로 사용되는 방식으로 작성됩니다. 이것이 사실이 아닌 엣지 케이스를 발견 할 수 있지만 대다수의 용도에서이 코드를 수정할 필요가 없습니다.</p>
-    <aside class="bcls-aside bcls-aside--tip"><code translate="No">makeRequest()</code>함수를 이해하는 핵심 개념은<code translate="No">XMLHttpRequest</code>객체가 어떻게 동작하는지에 대한 지식을 얻는 것입니다. <code translate="No">XMLHttpRequest.onreadystatechange</code>는<code translate="No">readyState</code>속성이 변경될 때마다 호출되는 이벤트 핸들러입니다. 할당 된 값은 사용자가 작성하는 이벤트 핸들러 함수 코드입니다. 다음 표에서는<code translate="No">readyState</code>속성이 가질 수 있는 값과 각 값의 의미를 보여 줍니다.
+    <h3>실제<code translate="No">makeRequest()</code>기능</h3>
+    <p>문서의 이 섹션에서는 실제로 정의하는 코드를 검사합니다. <code translate="No">makeRequest()</code>기능. 함수를 정의하는 코드는 수정할 필요가 없지만 그대로 반복적으로 사용되는 방식으로 작성됩니다. 이것이 사실이 아닌 극단적인 경우를 찾을 수 있지만 대부분의 경우 이 코드를 수정할 필요가 없습니다.</p>
+    <aside class="bcls-aside bcls-aside--tip">이해의 핵심 개념<code translate="No">makeRequest()</code>기능이 어떻게<code translate="No">XMLHttpRequest</code>개체가 동작합니다. NS <code translate="No">XMLHttpRequest.onreadystatechange</code>때마다 호출되는 이벤트 핸들러입니다. <code translate="No">readyState</code>속성 변경. 할당된 값은 사용자가 작성하는 이벤트 핸들러 기능 코드입니다. 다음 표는 값을 보여줍니다. <code translate="No">readyState</code>속성이 가질 수 있는 것과 각 값이 의미하는 것:
       <table class="bcls-table">
         <thead class="bcls-table__head">
           <tr>
-            <td class="header">값</td>
-            <td class="header">주</td>
+            <td class="header">가치</td>
+            <td class="header">상태</td>
             <td class="header">설명</td>
           </tr>
         </thead>
@@ -1242,17 +166,17 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <tr>
             <td><code translate="No">1</code></td>
             <td><code translate="No">OPENED</code></td>
-            <td><code translate="No">open()</code>가 호출되었습니다.</td>
+            <td><code translate="No">open()</code>호출되었습니다.</td>
           </tr>
           <tr>
             <td><code translate="No">2</code></td>
             <td><code translate="No">HEADERS_RECEIVED</code></td>
-            <td><code translate="No">send()</code>가 호출되고 헤더와 상태를 사용할 수 있습니다.</td>
+            <td><code translate="No">send()</code>호출되었으며 헤더 및 상태를 사용할 수 있습니다.</td>
           </tr>
           <tr>
             <td><code translate="No">3</code></td>
             <td><code translate="No">LOADING</code></td>
-            <td>다운로드, 부분 데이터가<code translate="No">responseText</code>보관됩니다.</td>
+            <td>다운로드 중; <code translate="No">responseText</code>부분 데이터를 보유합니다.</td>
           </tr>
           <tr>
             <td><code translate="No">4</code></td>
@@ -1263,18 +187,18 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </table>
       <p>코드에서 이벤트 핸들러가 어떻게 활용되는지 정확히 알 수 있습니다.</p>
     </aside>
-    <p>코드에 대한 한 줄씩 토론하는 것은 다음과 같습니다.</p>
+    <p>코드에 대한 한 줄 한 줄 토론은 다음과 같습니다.</p>
     <ul>
-      <li>라인 1-6: 함수 정의 및 변수 생성 요점은 새<code translate="No">XMLHttpRequest</code>객체가 생성된다는 것입니다.</li>
-      <li>8호선, 26호선: <code translate="No">readyState</code>변경에 대한 이벤트 핸들러 함수를 정의합니다.</li>
-      <li>9, 23, 25호선: 요청이 높은 수준에서 실패하는 경우 a를 사용합니다. <code translate="No">try-catch</code></li>
-      <li>라인 10, 11: <code translate="No">if</code>문을 사용하여 요청이 완료되고 ( <code translate="No">readyState</code>가 4) 성공적으로 완료되었는지 확인하십시오. 상태는 200 범위에 있습니다. 다음은 이벤트 처리기 정의에서<code translate="No">readyState</code>및<code translate="No">status</code>값에 대한 콘솔 로깅을 보여 줍니다.
-        <figure class="bcls-figure"><img class="bcls-image" alt="준비 상태 및 상태 로깅" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/console-readystate-and-status.png"/></figure>
+      <li>1-6행: 함수 정의 및 변수 생성. 핵심은 새로운<code translate="No">XMLHttpRequest</code>객체가 생성됩니다.</li>
+      <li>8, 26행: 에 대한 이벤트 핸들러 함수를 정의합니다. <code translate="No">readyState</code>변경.</li>
+      <li>9, 23, 25행: 사용<code translate="No">try-catch</code>요청이 높은 수준에서 실패한 경우.</li>
+      <li>10, 11행: 사용하다<code translate="No">if</code>요청이 완료되었는지 확인하는 명령문( <code translate="No">readyState</code> 4) 성공적으로 완료되면 상태는 200 범위에 있습니다. 다음은 콘솔 로깅을 보여줍니다. <code translate="No">readyState</code>그리고<code translate="No">status</code>이벤트 핸들러 정의의 값:
+        <figure class="bcls-figure"><img class="bcls-image" alt="Logging readyState and status" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/console-readystate-and-status.png" /></figure>
       </li>
-      <li>18호선: 콜백 함수가 실행됩니다. 위의<strong>MakeRequest () 호출</strong>섹션에 자세히 설명된 대로 API에서 반환된 데이터를 콜백 함수로 다시 전달합니다.</li>
-      <li>제33호선: 이벤트에 대한 이벤트 처리기를 설정합니다. <code translate="No">XMLHttpRequest.onreadystatechange</code></li>
-      <li>지하철 35호선: 프록시에 대한 요청을 초기화합니다.</li>
-      <li>38호선: 비동기 요청을 보냅니다.</li>
+      <li>18호선: 콜백 함수가 실행됩니다. 이렇게 하면 API에서 반환된 데이터가 에 자세히 설명된 대로 콜백 함수로 다시 전달됩니다. <strong> makeRequest() 호출</strong>위 섹션.</li>
+      <li>33행: 이벤트 핸들러 설정<code translate="No">XMLHttpRequest.onreadystatechange</code>이벤트.</li>
+      <li>35번 라인: 프록시에 대한 요청을 초기화합니다.</li>
+      <li>38행: 비동기 요청을 보냅니다.</li>
     </ul>
     <pre class="line-numbers">
 	<code class="language-javascript" translate="No">function makeRequest(options, callback) {
@@ -1317,15 +241,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 	httpRequest.send(JSON.stringify(options));
 	}</code></pre>
     <h3>반환된 데이터 표시</h3>
-    <p>이 코드는 반환 된 데이터를 제어 막대에 배치하는 방법을 보여줍니다. 이 함수는 위의<strong>MakeRequest () 호출</strong>섹션에 표시된 콜백 함수의 끝에서 호출됩니다.</p>
+    <p>이 코드는 반환된 데이터를 컨트롤 막대에 배치하는 방법을 보여줍니다. 이 함수는 다음과 같이 콜백 함수의 끝에서 호출됩니다. <strong> makeRequest() 호출</strong>위 섹션.</p>
     <ul>
-      <li>라인 5, 16: 함수를 정의합니다.</li>
-      <li>라인 6: 컨트롤 바에서<code translate="No">spacer</code>요소에 대한 변수를 만듭니다.</li>
-      <li>라인 7: <code translate="No">div</code>요소를 동적으로 작성합니다.</li>
-      <li>9호선: 새로 작성된<code translate="No">div</code>요소에 레이블과 뷰 값을 배치합니다.</li>
-      <li>11호선: 자바 스크립트 사용<code translate="No">document.getElementsByClassName()</code>컨트롤 막대를 얻는 방법<code translate="No">spacer</code>요소.</li>
-      <li>13호선: 의<code translate="No">spacer</code>상단에서 오른쪽 정렬 및 아래로 10px 총 뷰를 표시하는 스타일<code translate="No">spacer</code> .</li>
-      <li>지하철 15호선: 새로 작성되고 채워지고 스타일이 지정된 요소를 에 추가합니다<code translate="No">spacer</code> .</li>
+      <li>5, 16행: 기능을 정의합니다.</li>
+      <li>6호선: 에 대한 변수를 생성합니다. <code translate="No">spacer</code>컨트롤 바의 요소.</li>
+      <li>7번 라인: 동적으로 생성<code translate="No">div</code>요소.</li>
+      <li>9번 라인: 새로 생성된 뷰에 레이블과 값을 배치합니다. <code translate="No">div</code>요소.</li>
+      <li>11번 행: 자바스크립트를 사용<code translate="No">document.getElementsByClassName()</code>컨트롤바를 얻는 방법<code translate="No">spacer</code>요소.</li>
+      <li>13번 호선: 스타일<code translate="No">spacer</code>전체 조회수를 오른쪽 정렬하고 상단에서 10px 아래로 표시하려면<code translate="No">spacer</code> .</li>
+      <li>15호선: 새로 생성되고 채워지고 스타일이 지정된 요소를<code translate="No">spacer</code> .</li>
     </ul>
     <pre class="line-numbers">
 	<code class="language-javascript" translate="No">/**
@@ -1345,40 +269,40 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 	spacer.appendChild(newElement);
 	}</code></pre>
     <h3>전체 코드 목록</h3>
-    <p>완전한 작동 코드는이 GitHub 저장소에 있습니다: <a href="https://github.com/BrightcoveLearning/learning-guide-using-rest-apis/blob/master/display-views-in-controlbar.html">display-views-in-controlbar.html</a> .</p>
+    <p>작동하는 완전한 코드는 다음 GitHub 리포지토리에 있습니다. <a href="https://github.com/BrightcoveLearning/learning-guide-using-rest-apis/blob/master/display-views-in-controlbar.html"> display-views-in-controlbar.html</a> .</p>
   </section>
   <section class="bcls-section">
     <h2 id="Simple_debugging">간단한 디버깅</h2>
-    <p>보시다시피 REST API를 사용할 때 여러 부분이 관련되어 있습니다. 이렇게 하면 앱이 제대로 작동하지 않을 때 문제가 발생할 수 있습니다. 디버깅을 어디에서 시작합니까?</p>
-    <p>이 섹션에서는 몇 가지 간단한 제안이 이루어지며 디버깅 모험을 시작하기에 좋은 장소입니다. 다음 두 섹션에서는 필요한 가장 기본적인 정보, 전화를 걸기 위해 전달되는 항목 및 반환되는 정보를 확인할 수 있습니다.</p>
+    <p>보시다시피 REST API를 사용할 때 관련된 많은 부분이 있습니다. 앱이 제대로 작동하지 않을 때 문제가 발생할 수 있습니다. 어디서 디버깅을 시작합니까?</p>
+    <p>이 섹션에서는 몇 가지 간단한 제안을 하고 디버깅 모험을 시작하기에 좋은 곳입니다. 다음 두 섹션에서는 필요한 가장 기본적인 정보, 호출을 위해 전달되는 정보 및 반환되는 정보를 볼 수 있는 방법을 제공합니다.</p>
     <h3>통화 옵션 확인</h3>
-    <p>이 문서에서 논의 된 클라이언트 측 코드는 기본적으로 프록시와 함께 사용할 올바른 옵션을 제공하고 실제 API를 제공하는 것에 관한 것입니다. 따라서 옵션이 올바른지 아는 것은 코드의 올바른 작동에 필수적입니다. 이 작업을 수행하는 간단한 방법은<code translate="No">options</code>객체가 사용되는<code translate="No">makeRequest</code>함수에 전달되기 직전에 객체를 콘솔에 기록하는 것입니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="코드 로그 옵션 디버깅" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/debugging-code-log-options.png"/></figure>
-    <p>옵션 객체에 포함 된 것은 수행하려는 작업에 따라 다르지만 몇 가지 기본 사항은 항상 존재할 것입니다.</p>
+    <p>이 문서에서 논의된 클라이언트 측 코드는 기본적으로 프록시와 함께 사용할 올바른 옵션을 제공하고 실제 API를 제공하는 것에 관한 것입니다. 따라서 옵션이 올바른지 아는 것은 코드가 올바르게 작동하는 데 필수적입니다. 이를 수행하는 간단한 방법은 콘솔에 기록하는 것입니다. <code translate="No">options</code>객체에 전달되기 직전에<code translate="No">makeRequest</code>사용되는 기능:</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="debugging code log options" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/debugging-code-log-options.png" /></figure>
+    <p>옵션 개체에 포함된 내용은 수행하려는 작업에 따라 다르지만 다음과 같은 몇 가지 기본 사항은 항상 존재합니다.</p>
     <ul>
-      <li>계정 ID입니다. 이 속성은 별도의 속성이거나 API 끝점 URL의 일부일 수 있습니다.</li>
-      <li>프록시를 저장하는 위치에 따라 달라지는 프록시 URL입니다.</li>
+      <li>계정 ID입니다. 이것은 별도의 속성이거나 API endPoint URL의 일부일 수 있습니다.</li>
+      <li>프록시를 저장하는 위치에 따라 달라지는 프록시에 대한 URL입니다.</li>
       <li>예를 들어 HTTP 메소드 유형<code translate="No">GET</code> , <code translate="No">POST</code>또는<code translate="No">PATCH</code> .</li>
-      <li>API에서 실제 요청을 만들기 위해 프록시가 사용하는 API 끝점 URL입니다. 예:
+      <li>API에서 실제 요청을 수행하기 위해 프록시에서 사용하는 API 끝점 URL입니다. 예를 들면 다음과 같습니다.
         <pre class="line-numbers">
 	<code class="language-html" translate="No">https://players.api.brightcove.com/v2/accounts/57838016001/players
 	https://edge.api.brightcove.com/playback/v1/accounts/1752604059001/videos/5842800655001
 	https://analytics.api.brightcove.com/v1/alltime/accounts/1752604059001/videos/4093643993001</code></pre>
       </li>
     </ul>
-    <p>API 요청에 따라 옵션 객체에는 다른 속성이 필요할 수 있습니다. 다음은 특정 계정의 모든 플레이어에 대한 요청을 위해 options 객체를 기록할 때 콘솔에 표시되는 항목의 예입니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="간단한 디버깅 옵션" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/debugging-options-simple.png"/></figure>
-    <p>다음은 플레이어를 업데이트 할 때 사용되는 좀 더 복잡한 로그 옵션 객체입니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="디버깅 옵션" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/debugging-options.png"/></figure>
+    <p>API 요청에 따라 옵션 객체에 다른 속성이 필요할 수 있습니다. 다음은 특정 계정의 모든 플레이어에 대한 요청을 만들기 위해 옵션 개체를 기록할 때 콘솔에 표시되는 내용의 예입니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="debugging options simple" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/debugging-options-simple.png" /></figure>
+    <p>다음은 플레이어를 업데이트할 때 사용되는 좀 더 복잡한 로그 옵션 개체입니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="debugging options" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/debugging-options.png" /></figure>
     <h3>반환된 데이터 보기</h3>
-    <p>반환되는 내용은 요청한 데이터와 오류가 반환되는 경우에 따라 달라집니다. 그러나 반환 된 데이터가 무엇이든 반환되는 데이터를보고 싶을 것입니다. 이를 수행하는 간단한 방법은 원시 콘솔에 로그하는 것입니다. <code translate="No">response</code>에 대한 호출 직후 데이터<code translate="No">makeRequest</code>함수:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="코드 로그 옵션 디버깅" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/debugging-code-log-response.png"/></figure>
-    <p>반환 될 것은 거의 무한한 가능성을 가지고 있지만 다음은 몇 가지 예입니다. 첫 번째는 계정의 모든 플레이어를 요청할 때 응답의 시작을 보여줍니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="플레이어 요청에 대한 디버깅 응답" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/debugging-response-multiple-players.png"/></figure>
-    <aside class="bcls-aside bcls-aside--tip">이것은 플레이어 정보가 라는 배열에 저장된다는 것을 보여주기 때문에 응답을 보는 것이 매우 유용할 수 있는 좋은 예입니다<code translate="No">items</code> .</aside>
-    <p>다음은<code translate="No">PATCH</code> HTTP 메소드를 사용하여 플레이어를 업데이트 한 후 응답입니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="플레이어 패치에 대한 디버깅 응답" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/debugging-response-on-player-patch.png"/></figure>
-    <p>다음은 첫 번째 응답에서 데이터의보다 잘 형식화 된 뷰입니다.</p>
+    <p>반환되는 내용은 요청한 데이터와 오류 반환 여부에 따라 다릅니다. 그러나 무엇을 반환하든 관계없이 어떤 데이터가 반환되는지 확인하고 싶을 것입니다. 이를 수행하는 간단한 방법은 콘솔에 원시 로그를 기록하는 것입니다. <code translate="No">response</code>호출 직후의 데이터<code translate="No">makeRequest</code>기능:</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="debugging code log options" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/debugging-code-log-response.png" /></figure>
+    <p>반환되는 것은 거의 무한한 가능성이 있지만 다음은 몇 가지 예입니다. 첫 번째는 계정의 모든 플레이어를 요청할 때 응답의 시작을 보여줍니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="debugging response on players request" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/debugging-response-multiple-players.png" /></figure>
+    <aside class="bcls-aside bcls-aside--tip">이것은 응답을 볼 때 플레이어 정보가<code translate="No">items</code> .</aside>
+    <p>다음은 다음을 사용하여 플레이어를 업데이트한 후의 응답입니다. <code translate="No">PATCH</code> HTTP 방법:</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="debugging response on player patch" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/debugging-response-on-player-patch.png" /></figure>
+    <p>다음은 첫 번째 응답의 데이터를 보다 멋지게 형식화한 보기입니다.</p>
     <pre class="line-numbers">
 	<code class="language-json" translate="No">{
 		"id": "1OHQdsTAr",
@@ -1386,44 +310,44 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 		"preview_embed_in_page": "http://preview-players.brightcove.net/v2/accounts/.../master/in_page.embed",
 		"preview_embed_code": "&lt;iframe src='//preview-players.brightcove.net/v2/accounts/.../master/index.html' ...&gt;&lt;/iframe&gt;"
 	}</code></pre>
-    <p>마지막으로 오류가 발생했을 때부터 매우 중요한 응답이 있습니다. 이 경우 적절한 자격 증명 없이 계정을 사용하고 있었습니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="오류 시 응답 디버깅" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/debugging-response-on-error.png"/></figure>
+    <p>마지막으로 오류가 발생했을 때의 매우 귀중한 응답입니다. 이 경우 적절한 자격 증명 없이 계정이 사용되었습니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="debugging response on error" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/proxy-API-call/debugging-response-on-error.png" /></figure>
   </section>
   <h3>기타 문제 해결 팁</h3>
-  <p>문제가 있는 경우 찾아야 할 몇 가지 다른 사항이 있습니다.</p>
+  <p>문제가 있는 경우 찾을 수 있는 다른 사항이 있습니다.</p>
   <dl>
     <dt>응답 없음</dt>
-    <dd>빈 응답이 있는지 확인하는 몇 가지 사항이 있습니다.
+    <dd>빈 응답을 받는지 확인해야 할 몇 가지 사항이 있습니다.
       <ul>
-        <li>API 참조를 확인하여 요청이 응답을 반환하는지 확인합니다. 일부는 콘텐츠가없는 201 또는 204 응답 만 반환합니다 (특히 DELETE 요청뿐만 아니라). 이 경우를 처리하려면 코드를 조정해야합니다.</li>
-        <li>브라우저에서 개발자 도구의 네트워크 섹션을 확인하여 프록시에 대한 성공적인 호출이 있는지 확인하십시오 (해당 서버를 일시적으로 사용할 수 없음).
-          <figure class="bcls-figure"><img class="bcls-image" alt="개발자 도구 네트워크 섹션" src="https://learning-services-media.brightcove.com/doc-assets/node/18132-learning-guide-rest-apis/developer-tools-network.png"/>
+        <li>API 참조를 확인하여 요청이 응답을 반환하는지 확인하십시오. 일부는 내용이 없는 201 또는 204 응답만 반환합니다(특히 DELETE 요청 뿐만 아니라). 이 경우를 처리하려면 코드를 조정해야 합니다.</li>
+        <li>브라우저에서 개발자 도구의 네트워크 섹션을 확인하여 프록시에 대한 성공적인 호출을 확인하십시오(해당 서버를 일시적으로 사용할 수 없음).
+          <figure class="bcls-figure"><img class="bcls-image" alt="Developer Tools Network Section" src="https://learning-services-media.brightcove.com/doc-assets/node/18132-learning-guide-rest-apis/developer-tools-network.png" />
             <figcaption class="bcls-caption--image">개발자 도구 네트워크 섹션</figcaption>
           </figure>
         </li>
       </ul>
     </dd>
-    <dt>응답을 볼 수 있지만<code translate="No">JSON.parse()</code>시도하면 예외가 발생합니다.</dt>
-    <dd>여기에 몇 가지 가능성:
+    <dt>응답을 볼 수 있지만 시도할 때<code translate="No">JSON.parse()</code>예외가 발생합니다.</dt>
+    <dd>여기에 몇 가지 가능성이 있습니다.
       <ul>
-        <li>이전 항목 참조 - 빈 스팅을 구문 분석하려고하면 JSON 예외가 발생합니다.</li>
+        <li>이전 항목 참조 - 빈 문자열을 구문 분석하려고 하면 JSON 예외가 발생합니다.</li>
         <li>
-          <p>응답을보고 JSON 문자열 ( <code translate="No">{</code>또는 a로 시작<code translate="No">[</code> ) 인지 확인하십시오. 요청이 JSON을 반환하지 않는 몇 가지 경우가 있습니다. <span translate="No">Analytics API</span>예를 들어, <code translate="No">format</code>매개 변수<code translate="No">csv</code>또는<code translate="No">xlxs</code> . 다시 말하지만, 이러한 종류의 요청을하는 경우 JSON이 아닌 응답을 처리하도록 코드를 조정해야합니다.</p>
+          <p>응답을 보고 JSON 문자열인지 확인합니다( <code translate="No">{</code>또는<code translate="No">[</code> ). 요청이 JSON을 반환하지 않을 수 있는 몇 가지 경우가 있습니다. <span translate="No">애널리틱스 API</span>예를 들어<code translate="No">format</code>매개변수<code translate="No">csv</code>또는<code translate="No">xlxs</code> . 다시 말하지만, 이러한 종류의 요청을 하는 경우 JSON이 아닌 응답을 처리하도록 코드를 조정해야 합니다.</p>
         </li>
-        <li>대부분의 경우 API에서 반환하는 오류도 JSON 형식이지만 오류가 일반 텍스트 또는 HTML로 반환되는 경우는 몇 가지 예외가 있습니다.</li>
+        <li>대부분의 경우 API에서 반환하는 오류는 JSON 형식이기도 하지만 오류가 일반 텍스트 또는 HTML로 반환되는 몇 가지 예외가 있습니다.</li>
       </ul>
     </dd>
   </dl>
   <section class="bcls-section">
     <h2 id="Proxy_code">프록시 코드</h2>
-    <p>앞에서 언급했듯이 프록시는 원하는 언어로 작성할 수 있습니다. 브라이트코브 API 설명서 예제는 PHP로 작성된 프록시를 사용합니다. 프록시의 구현은 언어에 따라 다르므로 아래의 PHP 코드는이 문서에서 자세히 분석되지 않습니다.</p>
+    <p>앞에서 언급했듯이 프록시는 선택한 언어로 작성할 수 있습니다. Brightcove API 문서 예제는 PHP로 작성된 프록시를 사용합니다. 프록시 구현은 언어에 따라 다르기 때문에 아래의 PHP 코드는 이 문서에서 자세히 분석하지 않습니다.</p>
     <p>프록시에서 제공하는 기본 기능에는 다음이 포함되어야 합니다.</p>
     <ol>
       <li>클라이언트 요청을 수락합니다.</li>
-      <li><strong>OAuth API에서 인증 토큰을</strong>가져옵니다.</li>
-      <li>인증 토큰 및 데이터 요청 (끝점) 을 의도 한 API로 보냅니다.</li>
-      <li>API에서 데이터를 다시 수신합니다.</li>
-      <li>데이터를 클라이언트로 다시 보냅니다.</li>
+      <li>받기<strong>인증 토큰</strong> OAuth API에서.</li>
+      <li>인증 토큰과 데이터 요청(엔드포인트)을 원하는 API로 보냅니다.</li>
+      <li>API에서 데이터를 다시 받습니다.</li>
+      <li>데이터를 다시 클라이언트로 보냅니다.</li>
     </ol>
     <pre class="line-numbers">
 	<code class="language-javascript" translate="No">&lt;?php
@@ -1595,27 +519,26 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 	// return the response to the AJAX caller
 	echo $response;
 	?&gt;</code></pre>
-    <p>프록시 서버에 대한 전체 코드가 위에 나와 있지만 GitHub 저장소에도 있습니다. <a href="https://github.com/BrightcoveLearning/sample-proxy-apps">샘플 프록시 앱</a>에<strong> PHP</strong>폴더.</p>
+    <p>프록시 서버에 대한 전체 코드가 위에 표시되어 있지만 GitHub 리포지토리에도 있습니다. <a href="https://github.com/BrightcoveLearning/sample-proxy-apps">샘플 프록시 앱</a>에서<strong> PHP</strong>폴더.</p>
   </section>
   <section class="bcls-section">
     <h2 id="Example_2">예제 2</h2>
-    <p>이 두 번째 예제는 앞에서 설명한 것보다 더 복잡합니다. 이 예는 재생 목록의 계정에서 가장 인기 있는 10개의 동영상을 표시합니다. 코드의 주요 단계는 다음과 같습니다.</p>
+    <p>이 두 번째 예는 앞에서 설명한 것보다 더 복잡합니다. 이 예에서는 재생 목록의 계정에서 가장 인기 있는 10개의 동영상을 표시합니다. 코드의 주요 단계는 다음과 같습니다.</p>
     <ol>
-      <li>에서 요청 10 계정에서 가장 조회수와 비디오. <span translate="No">Analytics API</span> 이 단계는 콜백 함수를 사용하여 비동기 호출을 포함한다.</li>
-      <li>반환된<span translate="No">Analytics API</span>데이터에서 비디오 ID만 추출하여 배열에 배치합니다. 헬퍼 함수는 반환 된 데이터에서 ID를 추출하기 위해 작성되었습니다.</li>
-      <li>배열의 ID 목록에 있는 각 비디오에 대한 전체 비디오 객체를 요청합니다. 이 단계는 배열을 반복하고 를 사용하여 비디오 객체를 요청하는 것을 포함한다<code translate="No">player.catalog.getVideo()</code> . 물론 이 작업에는 를 사용하는 여러 비동기 호출이 포함됩니다<code translate="No">catalog</code> . 도우미 함수는 ID를 기반으로 비디오 객체를 검색하고 객체를 배열에 배치하도록 작성됩니다.</li>
-      <li>재생 목록이 활성화된 플레이어의 재생 목록에 비디오 객체의 배열을 배치합니다.</li>
+      <li>요청<span translate="No">애널리틱스 API</span>계정에서 가장 많은 조회수를 기록한 10개의 동영상. 이 단계에는 콜백 함수를 사용한 비동기 호출이 포함됩니다.</li>
+      <li>반환에서<span translate="No">애널리틱스 API</span>데이터에서 비디오 ID만 추출하여 배열에 배치합니다. 반환된 데이터에서 ID를 추출하기 위해 도우미 함수가 작성되었습니다.</li>
+      <li>배열의 ID 목록에 있는 각 비디오에 대한 완전한 비디오 객체를 요청하십시오. 이 단계에는 배열을 반복하고 다음을 사용하여 비디오 객체를 요청하는 작업이 포함됩니다. <code translate="No">player.catalog.getVideo()</code> . 물론 여기에는 다음을 사용하는 여러 비동기 호출이 포함됩니다. <code translate="No">catalog</code> . 도우미 함수는 ID를 기반으로 비디오 개체를 검색하고 개체를 배열에 배치하기 위해 작성되었습니다.</li>
+      <li>재생 목록 지원 플레이어의 재생 목록에 비디오 개체 배열을 배치합니다.</li>
     </ol>
-    <p>이제 API를 호출하는 방법에 대한 많은 개념과 특정 코드에 익숙해지기 때문에<code translate="No">makeRequest()</code>함수를 호출하는 코드만 자세히 설명합니다.</p>
+    <p>이제 API를 호출하는 방법에 대한 많은 개념과 특정 코드에 익숙하므로 API를 호출하는 코드만<code translate="No">makeRequest()</code>기능이 자세히 나와있습니다.</p>
     <ul>
-      <li>라인 2: 익명으로 정의된 콜백<code translate="No">makeRequest()</code>함수 (노란색으로 강조 표시됨) 와 함께 성공적인 REST API 호출에 필요한 옵션을 인수로 전달하는 함수를 호출합니다. 이것은 위에서 잘 알고 있어야합니다. 매우 중요한 것은 호출되는<code translate="No">makeRequest()</code>함수가 이전 예제에서 사용 된 것과 동일한 함수입니다. 코드에서 동일한 작업을 수행 할 수 있습니다. 이<code translate="No">makeRequest()</code>함수는 브라이트코브 REST API에 대한 모든 호출과 함께 재사용하도록 작성되었습니다.
-        <aside class="bcls-aside bcls-aside--tip"><code translate="No">mostWatchedVideos</code>매개 변수는 콜백 함수가 함수에서 사용될 때 지정된 검색된 값을 갖습니다. <code translate="No">makeRequest()</code></aside>
+      <li>2호선: 를 불러<code translate="No">makeRequest()</code>함수는 익명으로 정의된 콜백 함수(노란색으로 강조 표시됨)와 함께 성공적인 REST API 호출에 필요한 옵션을 인수로 전달합니다. 이것은 위에서 친숙하게 들릴 것입니다. 매우 중요한 것은, <code translate="No">makeRequest()</code>호출된 함수는 이전 예에서 사용된 것과 똑같은 함수입니다. 코드에서 동일한 작업을 수행할 수 있습니다. NS <code translate="No">makeRequest()</code>함수는 Brightcove REST API에 대한 모든 호출과 함께 재사용되도록 작성되었습니다. <aside class="bcls-aside bcls-aside--tip">NS <code translate="No">mostWatchedVideos</code>매개 변수에는 콜백 함수가 사용될 때 검색된 값이 할당됩니다. <code translate="No">makeRequest()</code>기능.</aside>
       </li>
-      <li>라인 3: JSON 구문 분석 된 반환 된 데이터를 보유 할 변수를 만듭니다.</li>
-      <li>라인 5: 문자열에서 객체로 변환 할 반환 된 데이터를 구문 분석합니다.</li>
-      <li>라인 7: 헬퍼 함수를 사용하여 반환된 데이터에서 비디오 ID를 추출합니다. 안타깝게도 는 전체 비디오 객체를 반환하지<span translate="No">Analytics API</span>않으므로 전체 객체에 액세스하려면 ID가 필요합니다.</li>
-      <li>라인 9-12: 을 부르다<code translate="No">getVideoData</code>콜백 함수를 사용하여<code translate="No">videoObjects</code>전달 된 ID를 기반으로하는 배열입니다.</li>
-      <li>11호선: 비디오 객체의 배열로 재생 목록을 채웁니다.</li>
+      <li>3호선: JSON 구문 분석된 반환 데이터를 저장할 변수를 만듭니다.</li>
+      <li>5호선: 반환된 데이터를 구문 분석하여 if 문자열에서 개체로 변환합니다.</li>
+      <li>7번 라인: 도우미 함수를 사용하여 반환된 데이터에서 비디오 ID를 추출합니다. 불행히도, <span translate="No">애널리틱스 API</span>전체 비디오 개체를 반환하지 않으므로 전체 개체에 액세스하려면 ID가 필요합니다.</li>
+      <li>9-12행: 를 불러<code translate="No">getVideoData</code>콜백 함수를 사용하여 채우는 도우미 함수<code translate="No">videoObjects</code>전달된 ID를 기반으로 하는 배열입니다.</li>
+      <li>11번 행: 비디오 개체 배열로 재생 목록을 채웁니다.</li>
     </ul>
     <pre class="line-numbers">
 	<code class="language-javascript" translate="No">// +++ Make the <span translate="No">CMS API</span> request to get matching video IDs +++
@@ -1632,162 +555,6 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 		});</span>
 	});</code></pre>
     <h3>전체 코드 목록</h3>
-    <p>완전한 작동 예제는이 CodePen에 있습니다. <a href="https://codepen.io/team/rcrooks1969/pen/zRzZNG/">재생목록에서 가장 많이 시청한 동영상</a></p>
+    <p>완전한 작동 예제는 다음 CodePen에 있습니다. <a href="https://codepen.io/team/rcrooks1969/pen/zRzZNG/">재생 목록에서 가장 많이 본 동영상</a> .</p>
   </section>
 </article>
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">페이지 내용</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
-</div>
-
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>브라이트코브 지원</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://status.brightcove.com">시스템 상태</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">고객 지원 문의</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">문서화</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>교육</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">온라인 강좌</a>
-          </li>
-          <li>
-            <a href="https://studio.support.brightcove.com/training/register-training.html">강좌 등록</a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">브라이트코브 대학교</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">브라이트코브닷컴</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">연락처</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 브라이트코브 Inc. 모든 판권 소유.</div>
-            </td>
-            <td><a href="https://www.brightcove.com/en/legal/privacy">개인 정보 보호</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">이용 약관</a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-
-</div>
-</div>
-<script>
-      
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-  
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
-  
-
-</script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
-  <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
-  <script src="/assets/js/feedback.js"></script>
-  
-  <script src="/assets/js/sajari-search-foot.js"></script>
-  
-  <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <style>
-    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
-      background-color: lightblue;
-    }
-    div.sj-tabs__tab {
-      margin-top: 3rem;
-      margin-left: .3rem;
-      border-top-left-radius: .4rem;
-      border-top-right-radius: .4rem;
-      background-color:#e8e8e8;
-    }
-
-    div.sj-tabs__tab.sj-tabs__tab--selected {
-      border-bottom-color: crimson;
-      background-color: #f8f8f8;
-    }
-
-    p.sj-results__result__description.css-p9jvyt {
-      font-size: 1rem;
-    }
-
-    .sj-result__text.css-31l7gp h3 {
-      color: navy;
-      font-size: 1.4rem;
-    }
-    </style>
-
-</body>
-
-</html>

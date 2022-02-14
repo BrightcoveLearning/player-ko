@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" />
+  <!-- change title to match the h1 heading -->
+  <title>VJS. 코어오브젝트</title>
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/normalize.css" />
+  <script src="//use.edgefonts.net/source-code-pro.js"></script>
+  <link href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/font-hack/2.015/css/hack-extended.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/en/styles/bcls-doc-site.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/atelier-forest.light.min.css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/font-hack/2.015/css/hack-extended.min.css">
+
+  <script>
+  (함수 (i, s, o, g, r, a, m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)} , i [r] .l=1*새 날짜 (); A=.생성 요소 (o), m=.getElementsBytagName (o) [0]; a.async=1; a.src=g; m. 부모 노드 삽입 이전 (a, m)}) (윈도우, 문서, '스크립트', '//www.구글 애널리틱스.com/애널리틱스.js', '조지아'); 조지아 ('만들기', 'UA-2728311-23', 'auto'); ga ('보내기', '페이지 뷰');
+
+</script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/vendor/modernizr.js"></script>
+  </head>
+
+<body>
+	<!-- header navbar -->
+	<div id="navWrapper" class="fixed"></div>
+	<!-- breadcrumbs -->
+	<nav id="breadCrumbWrapper" class="breadcrumbs show-for-medium-up"></nav>
+	<!-- search -->
+	<div id="searchModal" class="reveal-modal" data-reveal></div>
+	<!-- content -->
+    <div class="row">
+        <div class="sidebar large-2 columns show-for-large-up">
+            <div id="sidenav" class="side-nav"></div>
+        </div>
+        <div id="main" class="large-10 small-12 columns">
+      <div id="top" class="section">
+
+<!-- GENERATED FROM SOURCE -->
+<h1>VJS. 코어오브젝트</h1>
+<div class="right"><a href="./index.html">API 인덱스</a></div>
+
+<p><strong>정의된 위치</strong> : <a href="https://github.com/videojs/video.js/blob/master/src/js/core-object.js#L52"> src/js/core-object.js #L52</a>  </p>
+
+<p>상속+접촉자를 사용하는 객체의 핵심 객체/클래스</p>
+
+<p>자체적으로 서브클래스할 수 있는 클래스를 만들려면 CoreObject 클래스를 확장하십시오.</p>
+
+<pre><code>var 동물 = 코어 오브젝트.확장 (); var 말 = 동물.확장 ();</code></pre>
+
+<p>생성자는 객체 인수의 init 속성을 통해 정의할 수 있습니다.</p>
+
+<pre><code>var 동물 = 코어 오브젝트.확장 ( { init: function(name, sound){ this.name = name; } });</code></pre>
+
+<p>다른 메서드와 프로퍼티는 동일한 방법으로 또는 프로토타입에 직접 추가할 수 있습니다.</p>
+
+<p>var 동물 = 코어 오브젝트 확장 ( { init: function(name){ this.name = name; } , getName: 함수 () { return this.name; } , 사운드: '...'  });</p>
+
+<p>동물. 프로토 타입. 메이크사운드 = 함수 () { alert(this.sound); } ;</p>
+
+<p>클래스의 인스턴스를 만들려면 create 메서드를 사용합니다.</p>
+
+<p>var 무성한 = 동물. 만들기 ('푹신한'); 솜털. getName ();//-&gt; 푹신한</p>
+
+<p>메서드와 속성은 하위 클래스에서 재정의할 수 있습니다.</p>
+
+<pre><code>var 말 = 동물.확장 ( { sound: 'Neighhhhh!' } ); var 헤이 = 말. 만들기 ('헤시'); 말.getName ();//-&gt; 헤이 말. 이웃!</code></pre>
+
+<hr>
+
+<div class="section" id="index">
+<h2>색인</h2>
+
+<ul>
+<li><a href="#methods">메소드</a>
+
+<ul>
+<li><a href="#create-static">창조하십시오</a></li>
+<li><a href="#extend-props--static">확장하십시오</a></li>
+</ul></li>
+</ul>
+
+<hr>
+
+</div>
+<div class="section" id="methodsSection">
+<h2 id="methods">메소드</h2>
+
+<h3 id="reate-static">만들기 () <code>정적</code></h3>
+
+<blockquote>
+<p>이 Object 클래스의 새 인스턴스 생성</p>
+
+<pre><code>var 내 동물 = 동물. 만들기 ();</code></pre>
+</blockquote>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code></code> vjs.CoreObject 코어 오브젝트 하위 클래스의 인스턴스</li>
+</ul>
+
+<p><em>정의됨</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/core-object.js#L120"> src/js/core-object.js #L120</a></p>
+
+<hr>
+
+<h3 id="extend-props--static">확장 (소품) <code>정적</code></h3>
+
+<blockquote>
+<p>이 Object에서 상속된 새 객체 만들기</p>
+
+<pre><code>var 동물 = 코어 오브젝트.확장 (); var 말 = 동물.확장 ();</code></pre>
+</blockquote>
+
+<h5>매개 변수:</h5>
+
+<ul>
+<li><strong>props </strong><code>오브젝트</code>함수 및 프로퍼티는</li>
+</ul>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>vjs.CoreObject 코어</code>오브젝트에서 상속되는 객체입니다.</li>
+</ul>
+
+<p><em>정의됨</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/core-object.js#L70"> src/js/core-object.js #L70</a></p>
+
+<hr>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- bcl scripts -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+  <script src="/en/scripts/log.js"></script>
+    <script src="/en/scripts/docs-nav-data.min.js"></script>
+    <script src="/en/scripts/bcls-doc-site-v1.js"></script>
+    <script src="/en/scripts/bc-mapi.js"></script>
+    <script>
+        $ (문서). 기초 ();
+    </script>
+    <script type="text/javascript">
+    /******** 페이지 샘플과 관련된 모든 스크립트는 여기로 이동해야 합니다. ***********/
+  </script>
+    
+    
+	<div style="text-align:center">
+    <iframe id="CSAT" src="//learning-services-media.brightcove.com/doc-assets/general/surveylink.html" style=" padding-bottom:20px;border:none"></iframe>
+</div>
+<div class="bcls-footer"><a id="feedbackMail" href="mailto:docs@brightcove.com">질문이나 의견이 있으십니까?</a></div>
+<script>
+var 피드백메일 = 문서. GetElementByID (“피드백 메일”); 피드백메일.설정속성 (“href”, “메일 토: docs@brightcove.com?제목=질문 "+ 인코딩 (문서.위치href));
+</script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/https-fix.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/support-feedback.js"></script><script src="https://support.brightcove.com/site-assets/js/site/feedback-docs.js"></script>
+</body>
+
+</html>

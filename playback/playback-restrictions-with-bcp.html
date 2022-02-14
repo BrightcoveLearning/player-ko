@@ -1,0 +1,372 @@
+
+---
+title: "Brightcove Player의 재생 제한"
+description: "이 항목에서는 재생 제한을 사용하도록 Brightcove Player를 구성하는 방법을 배웁니다."
+parent: Playback 
+---
+
+
+<article class="bcls-article">
+  <h1>{{ page.title }}</h1>
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="Introduction">소개</h2>
+    <p>
+      기본적으로 Brightcove Player는 Brightcove Playback API와 통신합니다. 재생 권한 및 제한을 관리하는 새로운 시스템이 Playback API 앞에 있으며 DRM 라이선스를 사용하여 재생 권한을 제공합니다.
+    </p>
+    <p>DRM을 사용하거나 사용하지 않고 재생 권한을 사용할 수 있지만 런타임 제한을 사용하도록 선택한 경우 JWT(JSON Web Token)를 사용해야 합니다.</p>
+    <p>License Keys Protection은 DRM으로 보호되거나 HLSe(HTTP Live Streaming Encryption) 콘텐츠와 함께 Dynamic Delivery를 사용할 때 추가 보안 수준을 제공합니다. 라이선스 요청은 서명된<a href="https://general.support.brightcove.com/developer/create-json-web-token.html"> JSON 웹 토큰 (JWT) 을 사용하여 인증할 수</a>있습니다. 토큰은 비디오가 플레이어에 로드되고 소스가 선택되면 비디오 라이센스를 요청할 때 사용됩니다.</p>
+    <p>라이선스 키 보호를 위해 Brightcove Player를 구성하려면 비디오에 대한 카탈로그 요청을 할 때 토큰 매개 변수를 전달합니다. </p>
+    <p>이 기능에 익숙하지 않은 경우<a href="https://apis.support.brightcove.com/playback-restrictions/getting-started/overview-playback-restrictions.html">개요를 참조하십시오. 브라이트코브 재생 제한</a>문서</p>
+
+    <p>다음 섹션의 코드를 이해하는 데 도움이 되도록 다음 문서의 개념을 검토하십시오.</p>
+    <ul>
+      <li><a href="https://general.support.brightcove.com/developer/create-json-web-token.html"><span translate="No">JSON 웹 토큰</span> (JWT) 생성</a></li>
+      <li><a href="https://support.brightcove.com/concepts-using-javascript-promises">개념: 자바스크립트 프로미스 사용</a></li>
+      <li><a href="https://support.brightcove.com/player-catalog#Catalog_parameters_object">카탈로그 매개변수</a></li>
+      <li><a href="https://support.brightcove.com/configuring-brightcove-player-drm">DRM용 브라이트코브 플레이어 구성</a></li>
+    </ul>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Requirements">요구 사항</h2>
+    <p>다음은 재생 제한을 사용하는 데 필요한 요구 사항입니다.</p>
+    <h3>재생 권한</h3>
+    <p>재생 권한을 사용하려면 다음이 필요합니다.</p>
+    <ul>
+      <li>플레이어 버전<strong> 6.39.0</strong>이상</li>
+    </ul>
+    <aside class="bcls-aside bcls-aside--information">재생 권한을 사용할 때 정책 키로 구성된 콘텐츠 제한은 무시됩니다.</aside>
+
+    <h3>라이센스 키 보호</h3>
+    <p>라이센스 키 보호를 사용하려면 다음이 필요합니다.</p>
+    <ul>
+      <li>플레이어 버전<strong> 6.33.0</strong>이상</li>
+      <li>DRM을 사용하는 경우<a href="https://support.brightcove.com/configuring-brightcove-player-drm#Changelog"> DRM 플러그인</a>버전<strong> 5.5.0</strong>이상</li>
+    </ul>
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Using_Playback_Rights">재생 권한 사용</h2>
+    <p>
+      재생 권한을 활용하려면 다음 단계를 따르세요.
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+           Brightcove Player의 정책 키를 제거하십시오. 자세한 내용은<a href="#Making_requests_with_Playback_Rights">재생 권한으로 요청하기</a>부분.
+        </p>
+      </li>
+      <li>
+        <p>
+          당신이 가지고 있다면<a href="https://apis.support.brightcove.com/playback-restrictions/getting-started/overview-playback-restrictions.html#Runtime_restrictions">런타임 제한</a> , 인증 토큰이 필요합니다. 지정된 경우 이 토큰은 모든 후속 요청에 대한 권한 부여 헤더로 추가됩니다.
+        </p>
+        <p>
+          다음과 같이 플레이어에 추가할 수 있습니다.
+        </p>
+        <pre>
+<code class="language-javascript" translate="No">player.catalog.setBcovAuthToken('<span class="bcls-input">your jwt token</span>');</code></pre>
+      </li>
+      <li>정책 키 및/또는 인증 토큰을 변경한 후에는 Brightcove Playback API에서 데이터를 요청하고 플레이어에 로드할 준비가 된 것입니다. 이 과정은 기본 케이스와 동일합니다.
+        <p>
+          다음은 재생 제한 및 인증 토큰이 있는 단일 동영상을 가져오는 예입니다.
+        </p>
+        <aside class="bcls-aside bcls-aside--tip">주의<a href="https://player.support.brightcove.com/coding-topics/using-bc-and-getplayer-methods.html#bc_method_details"> bc() 메서드</a>카탈로그를 호출하기 전에 정책 키를 설정할 수 있도록 하는 데 사용됩니다.</aside>
+
+    <h3>HTML</h3>
+  <pre class="line-numbers">
+<code class="language-html" translate="No">&lt;div style=&quot;max-width: 960px;&quot;&gt;
+  &lt;video-js id=&quot;myPlayerID&quot;
+    data-embed=&quot;default&quot;
+    controls=&quot;&quot;
+    data-application-id=&quot;&quot;
+    class=&quot;vjs-fluid&quot;&gt;&lt;/video-js&gt;
+&lt;/div&gt;
+&lt;script src=&quot;https://players.brightcove.net/<span class="bcls-input">your account id</span>/<span class="bcls-input">your player id</span>_default/index.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+    <h3>자바 스크립트</h3>
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">&lt;script&gt;
+    // +++ Add the player attributes +++
+    var myPlayer,
+    	myPlayerEl = document.getElementById(&quot;myPlayerID&quot;);
+    myPlayerEl.setAttribute('data-account', <span class="bcls-input">your account id</span>);
+    myPlayerEl.setAttribute('data-player', '<span class="bcls-input">your player id</span>');
+
+    // +++ Create the player +++
+    myPlayer = bc(myPlayerEl);
+
+    // Unset the player policy key
+    myPlayer.catalog.setPolicyKey(null);
+
+    // Set the authorization token
+    myPlayer.catalog.setBcovAuthToken('<span class="bcls-input">your jwt token</span>');
+    // This should trigger a request to:
+    //
+    //   https://edge-auth.api.brightcove.com/playback/v1/videos/1
+    //
+    // With header:
+    //
+    //   Authorization: Bearer &lt;span class=&quot;bcls-input&quot;&gt;your jwt token&lt;/span&gt;
+    //
+
+    myPlayer.catalog.get({id: '<span class="bcls-input">your video id</span>', type: 'video'}).
+    then(function(data) {
+      myPlayer.catalog.load(data);
+      myPlayer.muted(true);
+      myPlayer.play();
+    }).
+    catch(function(error) {
+      throw new Error(error);
+    });
+&lt;/script&gt;</code></pre>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Making_requests_with_Playback_Rights">재생 권한으로 요청하기</h2>
+    <P>기본적으로 모든 Brightcove 플레이어는 정책 키가있는 경우 Playback API에 요청합니다. 재생 권한을 먼저 확인하는 요청을하려면 정책 키를 제거해야합니다. 이를 수행하는 두 가지 방법이 있습니다.</P>
+    <h3>모든 플레이어에서 정책 키 제거</h3>
+    <p>Video Cloud Studio에서 생성 된 새 플레이어에 대한 정책 키 수집을 방지하려면 다음을 수행하십시오.</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>계정 관리자에게 문의하십시오.</li>
+      <li>계정 ID를 제공하고<code translate="No">remove policy key</code>깃발.
+      </li>
+    </ol>
+
+    <h3>개별 플레이어에서 정책 키 제거</h3>
+    <p>기본적으로<code translate="No">remove policy key</code>귀하의 계정에 플래그가 비활성화되어 있습니다. 개별 플레이어에서 정책 키를 제거하려면 다음을 수행하십시오.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>비디오 클라우드 스튜디오에서<strong>플레이어</strong>모듈로 이동합니다.</li>
+      <li>정책 키를 제거 할 플레이어를 선택하십시오.</li>
+      <li>왼쪽 탐색에서<strong> JSON 편집기를 선택합니다</strong> .</li>
+      <li>설정<code translate="No">policy_key</code>필드로<code translate="No">null</code> .
+        <figure class="bcls-figure">
+          <img
+            class="bcls-image--no-border"
+            alt="JSON editor"
+            src="/assets/images/playback/policy-key-editor.png"
+          />
+          <figcaption class="bcls-caption--image">JSON 에디터</figcaption>
+        </figure>
+      </li>
+      <li>변경 사항을 저장하고 플레이어를 게시합니다.</li>
+    </ol>
+      <!-- <pre>
+        <code class="language-javascript" translate="No">player.catalog.setPolicyKey(null);</code></pre> -->
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Making_requests_without_Playback_Rights">재생 권한없이 요청하기</h2>
+    <p>이 프로세스는 권한 및 제한없이 Playback API로 다시 요청을 보내도록 되돌릴 수 있습니다.</p>
+    <p>
+      정책 키와 권한 부여 토큰을 다음과 같이 설정합니다.
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>만약 당신이<code translate="No">remove policy key</code>플래그를 활성화 한 다음 계정 관리자에게 문의하여 비활성화하십시오.</p>
+        <aside class="bcls-aside bcls-aside--information">당신이 가지고있는 경우<code translate="No">remove policy key</code>플래그를 활성화하고 비활성화하면 정책 키가 설정한 플레이어를 제외한 모든 플레이어에 대해 재생성됩니다. <code translate="No">policy_key</code>필드<code translate="No">null</code> .</aside>
+      </li>
+      <li>Studio에서 개별 플레이어를 업데이트 한 경우 정책 키로 JSON을 업데이트합니다.
+        <figure class="bcls-figure">
+          <img
+            class="bcls-image--no-border"
+            alt="JSON editor"
+            src="/assets/images/playback/policy-key-defined.png"
+          />
+          <figcaption class="bcls-caption--image">JSON 에디터</figcaption>
+        </figure>
+      </li>
+      <li>인증 토큰을 다음으로 설정<code translate="No">null</code> .
+        <pre>
+<code class="language-javascript" translate="No">player.catalog.setBcovAuthToken(null);</code></pre>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Using_License_Keys_Protection">라이센스 키 보호 사용</h2>
+    <p>License Keys Protection을 사용하려면 인증 토큰 문자열을<a href="https://player.support.brightcove.com/references/player-catalog.html">플레이어 카탈로그</a>객체, 속성 이름 사용<code translate="No">bcovAuthToken</code> .</p>
+    <p>이 접근 방식은 DRM 및 HLSe 콘텐츠 모두에 적용됩니다. 플레이어는 Playback API에서 로드되는 소스 유형을 감지하고 해당 소스에 대한 올바른 구현을 제공합니다.</p>
+
+    <p>라이센스 키 보호를 사용하려면 다음 단계를 따르십시오.</p>
+    <ol class="bcls-tasklist">
+      <li>서명된<a href="https://general.support.brightcove.com/developer/create-json-web-token.html"> JSON 웹 토큰 (JWT) 을 만듭니다</a> .</li>
+      <li>이 토큰을 비디오 요청에 포함시킵니다.
+        <p>이 샘플 구현 코드는<a href="https://player.support.brightcove.com/references/player-catalog.html#get_method"> catalog.get ()</a>메서드를 사용하여 토큰을 제공하는 동안 비디오를 요청합니다.</p>
+    <aside class="bcls-aside bcls-aside--information"><code translate="No">data-video-id</code>매개변수는<code translate="No">&lt;video-js&gt;</code>태그에 포함시키지 않도록 해야 합니다.</aside>
+<pre class="line-numbers">
+  <code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
+    data-account=&quot;1507807800001&quot;
+    data-player=&quot;default&quot;
+    data-embed=&quot;default&quot;
+    controls
+    data-application-id&gt;&lt;/video-js&gt;
+  &lt;script src=&quot;//players.brightcove.net/1507807800001/default_default/index.min.js&quot;&gt;&lt;/script&gt;
+  
+  &lt;script&gt;
+    (function() {
+      var myPlayer = videojs.getPlayer('myPlayerID');
+  
+      myPlayer.catalog.get({
+        type: 'video',
+        id: '6015247091001',
+        <span class="bcls-highlight">bcovAuthToken:</span> '<span class="bcls-input">your jwt token</span>'
+      })
+        .then(function(videoReturned){
+          myPlayer.catalog.load(videoReturned);
+        })
+        .catch(function(err){
+          console.log('err:', err);
+        });
+    })();
+  &lt;/script&gt;</code></pre>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Using_Concurrency_and_Registration">동시성 및 등록 사용</h2>
+    <p>사용하는 경우<a href="https://apis.support.brightcove.com/playback-restrictions/guides/stream-concurrency.html">스트림 동시성</a>또는<a href="https://apis.support.brightcove.com/playback-restrictions/guides/device-limits.html">장치 등록</a> , 그러면 Brightcove 플레이어에서<strong> EME</strong>표준 대신 플러그인<strong> DRM</strong>플러그인.</p>
+    <aside class="bcls-aside bcls-aside--information">DRM 플러그인은 EME 플러그인의 래퍼입니다. 자세한 내용은<a href="https://player.support.brightcove.com/plugins/configuring-brightcove-player-drm.html#DRM_plugin_architecture"> DRM용 Brightcove 플레이어 구성</a>문서.</aside> 
+    
+
+    <p>다음 단계를 따르십시오.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>추가<strong> EME</strong>플러그인을 Brightcove 플레이어에 연결합니다. 포함하도록 플러그인이 업데이트되었습니다. <code translate="No">persistentState</code> .</li>
+      <li>비디오 클라우드 스튜디오에서<strong>플레이어</strong>모듈로 이동합니다. 해당 정보를 보려면 플레이어 링크를 선택하십시오.</li>
+      <li>왼쪽 탐색에서<strong>재생</strong> .</li>
+      <li>
+        <p>확인<strong> DRM 활성화</strong>선택되지 않았습니다.</p>
+        <figure class="bcls-figure">
+          <img
+            class="bcls-image--no-border"
+            alt="Enable DRM option"
+            src="/assets/images/playback/playback-restrictions/enable-drm-option.png"
+          />
+          <figcaption class="bcls-caption--image">DRM 옵션 활성화</figcaption>
+        </figure>
+      </li>
+      <li>왼쪽 탐색에서<strong> JSON 편집기를 선택합니다</strong> .</li>
+      <li>
+        <p>JSON 코드에서<code translate="No">plugins</code>다음과 같이 EME 플러그인을 추가합니다.</p>
+        <pre class="line-numbers">
+<code class="language-javascript" translate="No">&quot;plugins&quot;: [
+  {
+  &quot;name&quot;: &quot;eme&quot;,
+  &quot;scripts&quot;: [
+    &quot;//players.brightcove.net/videojs-drm/5.9.1/videojs-drm.min.js&quot;
+  ],
+  &quot;stylesheets&quot;: [
+    &quot;//players.brightcove.net/videojs-drm/5.9.1/videojs-drm.css&quot;
+  ],
+  &quot;options&quot;: {
+    &quot;keySystems&quot;: {
+      &quot;com.widevine.alpha&quot;: {
+        &quot;persistentState&quot;: &quot;required&quot;
+      }
+    }
+  }
+},</code></pre>
+<aside class="bcls-aside bcls-aside--warning">EME 플러그인은 위에 표시된 순서대로 구성해야 합니다(스크립트 및 스타일 시트를 먼저 선택한 다음 옵션). 그렇지 않으면 작동하지 않습니다.</aside> <aside class="bcls-aside bcls-aside--information">이 기능은 DRM 플러그인 v5.9.1 이상에서 지원됩니다.</aside>
+      </li>
+      <li>에 정의된 대로 JWT 인증 토큰을 포함합니다. <a href="#Using_License_Keys_Protection">라이센스 키 보호 사용</a>부분.</li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="configuring_server_side_ads_SSAI">서버 측 광고 (SSAI) 구성</h2>
+    <p>SSAI와 함께 라이센스 키 보호를 사용하는 경우 카탈로그 매개 변수 개체에 추가 매개 변수를 포함해야합니다. <code translate="No">adConfigId</code> . </p>
+    <pre class="line-numbers">
+<code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
+  data-account=&quot;1507807800001&quot;
+  data-player=&quot;default&quot;
+  data-embed=&quot;default&quot;
+  controls
+  data-application-id&gt;&lt;/video-js&gt;
+&lt;script src=&quot;//players.brightcove.net/1507807800001/default_default/index.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+  (function() {
+    var myPlayer = videojs.getPlayer('myPlayerID');
+
+    myPlayer.catalog.get({
+      type: 'video',
+      id: '6015247091001',
+      bcovAuthToken: '<span class="bcls-input">your jwt token</span>',
+      <span class="bcls-highlight">adConfigId:</span> '<span class="bcls-input">your ad configuration id</span>'
+    })
+      .then(function(videoReturned){
+        myPlayer.catalog.load(videoReturned);
+      })
+      .catch(function(err){
+        console.log('err:', err);
+      });
+  })();
+&lt;/script&gt;</code></pre>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Using_a_custom_implementation">사용자 지정 구현 사용</h2>
+    <p>당신은 당신이 가지고 있지 않은 사용자 정의 구현을 사용하고있을 수 있습니다<code translate="No">bcovAuthToken</code>값을 설정하려면<a href="https://support.brightcove.com/player-catalog#get_method">카탈로그.get()</a>메소드 요청. 본인 플레이어 또는 타사 플레이어를 사용하는 경우 다음 방법 중 하나를 사용하여 토큰을 라이선스 요청에 전달할 수 있습니다.</p>
+    <ul>
+      <li>
+        HTTP 헤더: <code translate="No">BCOV-Auth</code> (HLSE에서는 지원되지 않음)
+      </li>
+      <li>
+        쿠키: <code translate="No">bcov-auth</code> (HLSE에서는 지원되지 않음)
+      </li>
+      <li>
+        쿼리 매개 변수: <code translate="No">bcov-auth</code> (HLSE에서만 지원) 라이센스 URL 대신 마스터 매니페스트 URL에 추가해야 합니다.
+      </li>
+    </ul>
+    <p>
+      다음은 video 객체의<code translate="No">source.emeHeaders['BCOV-Auth']</code>속성을 토큰으로 설정하는 방법을 보여주는 예제입니다. 이렇게 하면<code translate="No">emeHeader</code>카탈로그 요청 후 각 소스에 가 삽입됩니다.
+    </p>
+    <pre class="line-numbers">
+<code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
+  data-account=&quot;1507807800001&quot;
+  data-player=&quot;default&quot;
+  data-embed=&quot;default&quot;
+  controls
+  data-application-id&gt;&lt;/video-js&gt;
+&lt;script src=&quot;//players.brightcove.net/1507807800001/default_default/index.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+  (function() {
+    var myPlayer = videojs.getPlayer('myPlayerID');
+
+    myPlayer.catalog.get({
+      type: 'video',
+      id: '6015247091001'
+    })
+    .then(function(video){
+      sources=video.sources;
+
+      for (let i = 0; i &lt; sources.length; i++) {
+        const source = sources[i];
+
+        // Only add the auth token as an eme header for DRM content
+        if (<span class="bcls-input">your jwt token</span> &amp;&amp; source.key_systems) {
+          source.emeHeaders = {
+              'BCOV-Auth': <span class="bcls-input">your jwt token</span>
+            };
+        }
+      }
+        myPlayer.catalog.load(video);
+      })
+      .catch(function(err){
+        console.log('err:', err);
+      });
+  })();
+&lt;/script&gt;</code></pre>
+    <!-- <p>
+      For more details about working with MPEG-DASH, see the <a href="https://support.brightcove.com/creating-dash-drm-manifest-brightcove-player">Creating a DASH DRM Manifest for the Brightcove Player</a> document.
+    </p> -->
+
+  </section>
+</article>

@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" />
+  <!-- change title to match the h1 heading -->
+  <title>VJ. 볼륨메누버튼</title>
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/normalize.css" />
+  <script src="//use.edgefonts.net/source-code-pro.js"></script>
+  <link href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/font-hack/2.015/css/hack-extended.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/en/styles/bcls-doc-site.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/atelier-forest.light.min.css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/font-hack/2.015/css/hack-extended.min.css">
+
+  <script>
+  (함수 (i, s, o, g, r, a, m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)} , i [r] .l=1*새 날짜 (); A=.생성 요소 (o), m=.getElementsBytagName (o) [0]; a.async=1; a.src=g; m. 부모 노드 삽입 이전 (a, m)}) (윈도우, 문서, '스크립트', '//www.구글 애널리틱스.com/애널리틱스.js', '조지아'); 조지아 ('만들기', 'UA-2728311-23', 'auto'); ga ('보내기', '페이지 뷰');
+
+</script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/vendor/modernizr.js"></script>
+  </head>
+
+<body>
+	<!-- header navbar -->
+	<div id="navWrapper" class="fixed"></div>
+	<!-- breadcrumbs -->
+	<nav id="breadCrumbWrapper" class="breadcrumbs show-for-medium-up"></nav>
+	<!-- search -->
+	<div id="searchModal" class="reveal-modal" data-reveal></div>
+	<!-- content -->
+    <div class="row">
+        <div class="sidebar large-2 columns show-for-large-up">
+            <div id="sidenav" class="side-nav"></div>
+        </div>
+        <div id="main" class="large-10 small-12 columns">
+      <div id="top" class="section">
+
+<!-- GENERATED FROM SOURCE -->
+<h1>VJ. 볼륨메누버튼</h1>
+<div class="right"><a href="./index.html">API 인덱스</a></div>
+
+<p><strong>확장</strong> : <a href="vjs.MenuButton.html"> VJS. 메뉴 버튼</a><br>
+<strong>정의된 위치</strong> : <a href="https://github.com/videojs/video.js/blob/master/src/js/control-bar/volume-menu-button.js#L5"> src/js/control-bar/volume-menu-button.js #L5</a>  </p>
+
+<p>볼륨 슬라이더를 표시하는 팝업이 있는 메뉴 버튼입니다.</p>
+
+<hr>
+
+<div class="section" id="index">
+<h2>색인</h2>
+
+<ul>
+<li><p><a href="#methods">메소드</a></p>
+
+<ul>
+<li><a href="#init-player-options-">초기화</a></li>
+<li><a href="#addchild-child-options-">애드차드</a> <em><code>상속</code></em></li>
+<li><a href="#addclass-classtoadd-">애드클래스</a> <em><code>상속</code></em></li>
+<li><a href="#buildcssclass">빌드CSS클래스</a> <em><code>상속</code></em></li>
+<li><a href="#children">어린이</a> <em><code>상속</code></em></li>
+<li><a href="#contentel">컨텐텔</a> <em><code>상속</code></em></li>
+<li><a href="#createel-tagname-attributes-">크리에이텔</a> <em><code>상속</code></em></li>
+<li><a href="#createitems">크리에이티아이템</a> <em><code>상속</code></em></li>
+<li><a href="#dimensions-width-height-">치수</a> <em><code>상속</code></em></li>
+<li><a href="#disable">비활성화</a> <em><code>상속</code></em></li>
+<li><a href="#dispose">처분하다</a> <em><code>상속</code></em></li>
+<li><a href="#el">엘</a> <em><code>상속</code></em></li>
+<li><a href="#getchild-name-">getChil</a> <em><code>상속</code></em></li>
+<li><a href="#getchildbyid-id-">Get아이드바이ID</a> <em><code>상속</code></em></li>
+<li><a href="#height-num-skiplisteners-">높이</a> <em><code>상속</code></em></li>
+<li><a href="#hide">숨기기</a> <em><code>상속</code></em></li>
+<li><a href="#id">id</a> <em><code>상속</code></em></li>
+<li><a href="#initchildren">이니티어린이</a> <em><code>상속</code></em></li>
+<li><a href="#name">이름</a> <em><code>상속</code></em></li>
+<li><a href="#off-type-fn-">꺼짐</a> <em><code>상속</code></em></li>
+<li><a href="#on-type-fn-">켜기</a> <em><code>상속</code></em></li>
+<li><a href="#one-type-fn-">하나</a> <em><code>상속</code></em></li>
+<li><a href="#options-obj-">옵션</a> <em><code>상속</code></em></li>
+<li><a href="#player">플레이어</a> <em><code>상속</code></em></li>
+<li><a href="#ready-fn-">준비</a> <em><code>상속</code></em></li>
+<li><a href="#removechild-component-">리무브차일드</a> <em><code>상속</code></em></li>
+<li><a href="#removeclass-classtoremove-">리모브클래스</a> <em><code>상속</code></em></li>
+<li><a href="#show">쇼</a> <em><code>상속</code></em></li>
+<li><a href="#trigger-type-event-">트리거</a> <em><code>상속</code></em></li>
+<li><a href="#triggerready">트리거 레디</a> <em><code>상속</code></em></li>
+<li><a href="#width-num-skiplisteners-">너비</a> <em><code>상속</code></em></li>
+</ul></li>
+<li><p><a href="#events">이벤트</a></p>
+
+<ul>
+<li><a href="#resize-event">크기 조정</a> <em><code>상속</code></em></li>
+</ul></li>
+</ul>
+
+<hr>
+
+</div>
+<div class="section" id="methodsSection">
+<h2 id="methods">메소드</h2>
+
+<h3 id="addchild-child-options-">애드차일드 (자식, [옵션])</h3>
+
+<blockquote>
+<p>이 컴포넌트 안에 자식 컴포넌트를 추가합니다.</p>
+
+<pre><code>MyComponent.el ();//-&gt;  &lt;  div 클래스 ='내 구성 요소'&gt;  &lt;  /div &gt; 마이코몬넌트.어린이 ();//[빈 배열] var myButton = 마이컴퍼넌트.addchild ('마이버튼');//-&gt;  &lt;  div 클래스='내 구성 요소'&gt;  &lt;  div 클래스="내 &lt; 버튼"&gt; 마이버튼 &lt;  div&gt;/div &gt;//-&gt; 마이버튼 === 마이코모넌트.어린이 () [0];</code></pre>
+
+<p>자식 생성자에 대한 옵션 및 자식 자식 옵션 전달</p>
+
+<pre><code>var MyButton = 마이컴포넌트.addchild ('마이버튼', { text: 'Press Me', children: { buttonChildExample: { buttonChildOption: true } }});</code></pre>
+</blockquote>
+
+<h5>매개 변수:</h5>
+
+<ul>
+<li><strong>자식</strong><code>문자열|vjs.Component</code>추가할 자식의 클래스 이름 또는 인스턴스</li>
+<li><strong>옵션</strong><code>개체</code> <em>(선택 사항)</em> 자녀의 자녀에게 전달할 옵션을 포함한 옵션.</li>
+</ul>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>vjs.component</code>하위 구성 요소 (문자열이 사용된 경우 이 프로세스에 의해 생성됨)</li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L343"> src/js/component.js #L343</a></p>
+
+<hr>
+
+<h3 id="addclass-classtoadd-">애드클래스 (클래스스토추가)</h3>
+
+<blockquote>
+<p>구성 요소의 요소에 CSS 클래스 이름 추가</p>
+</blockquote>
+
+<h5>매개 변수:</h5>
+
+<ul>
+<li><strong>클래스추가 할</strong><code>문자열</code>클래스 이름 추가</li>
+</ul>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>VJ. 컴포넌트</code> </li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L628"> src/js/component.js #L628</a></p>
+
+<hr>
+
+<h3 id="buildcssclass">빌드CSS클래스 ()</h3>
+
+<blockquote>
+<p>하위 구성 요소가 CSS 클래스 이름을 쌓을 수 있습니다.</p>
+</blockquote>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/menu.js#L157"> src/js/menu.js #L157</a></p>
+
+<hr>
+
+<h3 id="children">어린이 ()</h3>
+
+<blockquote>
+<p>모든 하위 구성 요소의 배열 가져오기</p>
+
+<pre><code>var 아이 = 마이컴포넌트. 어린이 ();</code></pre>
+</blockquote>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>배열</code>더 어린이</li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L277"> src/js/component.js #L277</a></p>
+
+<hr>
+
+<h3 id="contentel">컨텐텔 ()</h3>
+
+<blockquote>
+<p>콘텐츠를 포함하기 위해 컴포넌트의 DOM 요소를 반환합니다. el_ 또는 Createel에 정의된 새 요소가 됩니다.</p>
+</blockquote>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>요소</code> </li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L220"> src/js/component.js #L220</a></p>
+
+<hr>
+
+<h3 id="createel-tagname-attributes-">Createel ([태그 이름], [속성])</h3>
+
+<blockquote>
+<p>컴포넌트의 DOM 요소 만들기</p>
+</blockquote>
+
+<h5>매개 변수:</h5>
+
+<ul>
+<li><strong>태그이름</strong><code>문자열</code> <em>(선택 사항)</em> 요소의 노드 유형. 예: 'div'</li>
+<li><strong>속성</strong><code>객체</code> <em>(선택 사항)</em> 요소에 설정해야 하는 요소 속성의 객체</li>
+</ul>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>요소</code> </li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L190"> src/js/component.js #L190</a></p>
+
+<hr>
+
+<h3 id="createitems">크리에이트아이템 ()</h3>
+
+<blockquote>
+<p>메뉴 항목 목록을 만듭니다. 각 하위 클래스에만 해당됩니다.</p>
+</blockquote>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/menu.js#L154"> src/js/menu.js #L154</a></p>
+
+<hr>
+
+<h3 id="dimensions-width-height-">치수 (폭, 높이)</h3>
+
+<blockquote>
+<p>폭과 높이를 동시에 설정합니다.</p>
+</blockquote>
+
+<h5>매개 변수:</h5>
+
+<ul>
+<li><strong>너비</strong><code>번호|문자열</code> </li>
+<li><strong>높이</strong><code>번호|문자열</code> </li>
+</ul>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>vj. 구성 요소</code>구성 요소</li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L737"> src/js/component.js #L737</a></p>
+
+<hr>
+
+<h3 id="disable">비활성화 ()</h3>
+
+<blockquote>
+<p>구성 요소를 표시하지 않도록 설정하여 구성 요소를 비활성화합니다.</p>
+</blockquote>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L691"> src/js/component.js #L691</a></p>
+
+<hr>
+
+<h3 id="dispose">폐기 ()</h3>
+
+<blockquote>
+<p>구성 요소 및 모든 하위 구성 요소 폐기</p>
+</blockquote>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L74"> src/js/component.js #L74</a></p>
+
+<hr>
+
+<h3 id="el">el ()</h3>
+
+<blockquote>
+<p>컴포넌트의 DOM 요소 가져오기</p>
+
+<pre><code>var 도멜 = 마이콤넌트.el ();</code></pre>
+</blockquote>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>요소</code> </li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L201"> src/js/component.js #L201</a></p>
+
+<hr>
+
+<h3 id="getchild-name-">겟차일드 (이름)</h3>
+
+<blockquote>
+<p>제공된 이름을 가진 자식 컴포넌트를 돌려줍니다</p>
+</blockquote>
+
+<h5>매개 변수:</h5>
+
+<ul>
+<li><strong>이름</strong> </li>
+</ul>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>VJ. 컴포넌트</code> </li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L311"> src/js/component.js #L311</a></p>
+
+<hr>
+
+<h3 id="getchildbyid-id-">getChildByID (id)</h3>
+
+<blockquote>
+<p>제공된 ID를 가진 자식 컴포넌트를 돌려줍니다</p>
+</blockquote>
+
+<h5>매개 변수:</h5>
+
+<ul>
+<li><strong>id</strong> </li>
+</ul>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>VJ. 컴포넌트</code> </li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L294"> src/js/component.js #L294</a></p>
+
+<hr>
+
+<h3 id="height-num-skiplisteners-">높이 ([num], [스키플라이스너])</h3>
+
+<blockquote>
+<p>구성 요소의 높이 가져오기 또는 설정 (CSS 값)</p>
+
+<p>비디오 태그 치수 값을 설정하면 픽셀 단위의 값에서만 작동합니다. 백분율 값은 작동하지 않습니다. 일부 퍼센트를 사용할 수 있지만 width () /height () 는 실제 계산 된 너비/높이가 아닌 숫자 +%를 반환합니다.</p>
+</blockquote>
+
+<h5>매개 변수:</h5>
+
+<ul>
+<li><strong>번호</strong><code>번호|문자열</code> <em>(선택 사항)</em> 새 구성 요소 높이</li>
+<li><strong>스키플라이스너</strong><code>부울</code> <em>(선택 사항)</em> 크기 조정 이벤트 트리거 건너뛰기</li>
+</ul>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>vjs.Component</code>이 구성 요소, 높이를 설정할 때</li>
+<li><code>숫자|문자열 가져올</code>때의 높이입니다.</li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L726"> src/js/component.js #L726</a></p>
+
+<hr>
+
+<h3 id="hide">숨기기 ()</h3>
+
+<blockquote>
+<p>현재 표시된 경우 구성 요소 숨기기</p>
+</blockquote>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>VJ. 컴포넌트</code> </li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L659"> src/js/component.js #L659</a></p>
+
+<hr>
+
+<h3 id="id"> id ()</h3>
+
+<blockquote>
+<p>구성 요소 ID 가져오기</p>
+
+<pre><code>var id = 마이컴포넌트.id ();</code></pre>
+</blockquote>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>문자열</code> </li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L239"> src/js/component.js #L239</a></p>
+
+<hr>
+
+<h3 id="init-player-options-">init (플레이어, 옵션)</h3>
+
+<h5>매개 변수:</h5>
+
+<ul>
+<li><strong>플레이어</strong> </li>
+<li><strong>옵션</strong> </li>
+</ul>
+
+<p><em>정의됨</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/control-bar/volume-menu-button.js#L7"> src/js/control-bar/volume-menu-button.js #L7</a></p>
+
+<hr>
+
+<h3 id="initchildren">이니트어린이 ()</h3>
+
+<blockquote>
+<p>옵션에서 기본 하위 구성 요소 추가 및 초기화</p>
+
+<pre><code>//MyComponent의 인스턴스가 생성되면 옵션//의 모든 하위 항목이 이름 문자열과 옵션 myComponent.prototype.options_.Child_.Children = { myChildComponent: { myChildOption: true } } 에 의해 인스턴스에 추가됩니다.</code></pre>
+</blockquote>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L439"> src/js/component.js #L439</a></p>
+
+<hr>
+
+<h3 id="name">이름 ()</h3>
+
+<blockquote>
+<p>구성 요소 이름을 가져옵니다. 이 이름은 컴포넌트를 참조하는 데 자주 사용됩니다.</p>
+
+<pre><code>var 이름 = 마이컴포넌트.Name ();</code></pre>
+</blockquote>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>문자열</code> </li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L258"> src/js/component.js #L258</a></p>
+
+<hr>
+
+<h3 id="off-type-fn-">끄기 ([유형], [fn])</h3>
+
+<blockquote>
+<p>구성 요소의 요소에서 이벤트 리스너 제거</p>
+
+<pre><code>마이컴포넌트. 오프 (“이벤트 이름”, 마이펑크);</code></pre>
+</blockquote>
+
+<h5>매개 변수:</h5>
+
+<ul>
+<li><strong>유형</strong><code>문자열</code> <em>(선택 사항)</em> 이벤트 유형. 유형을 사용하지 않으면 모든 리스너가 제거됩니다.</li>
+<li><strong>fn </strong><code>함수</code> <em>(선택 사항)</em> 이벤트 리스너. fn이 없으면 유형에 대한 모든 리스너가 제거됩니다.</li>
+</ul>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>VJ. 컴포넌트</code> </li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L510"> src/js/component.js #L510</a></p>
+
+<hr>
+
+<h3 id="on-type-fn-">켜기 (유형, fn)</h3>
+
+<blockquote>
+<p>이 구성 요소의 요소에 이벤트 리스너 추가</p>
+
+<pre><code>var MyFunc = 함수 () { var myPlayer = this; // Do something when the event is fired } ; 마이플레이어. 온 (“이벤트 이름”, MyFUNC);</code></pre>
+
+<p>컨텍스트가 구성 요소가 됩니다.</p>
+</blockquote>
+
+<h5>매개 변수:</h5>
+
+<ul>
+<li><strong>유형</strong><code>문자열</code>이벤트 유형 예: '클릭'</li>
+<li><strong>fn </strong><code>함수</code>이벤트 리스너</li>
+</ul>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>vj. 구성 요소</code>자체</li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L496"> src/js/component.js #L496</a></p>
+
+<hr>
+
+<h3 id="one-type-fn-">하나 (유형, fn)</h3>
+
+<blockquote>
+<p>이벤트 리스너를 한 번만 트리거한 다음 제거할 수 있습니다.</p>
+</blockquote>
+
+<h5>매개 변수:</h5>
+
+<ul>
+<li><strong>유형</strong><code>문자열</code>이벤트 유형</li>
+<li><strong>fn </strong><code>함수</code>이벤트 리스너</li>
+</ul>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>VJ. 컴포넌트</code> </li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L522"> src/js/component.js #L522</a></p>
+
+<hr>
+
+<h3 id="options-obj-">옵션 (obj)</h3>
+
+<blockquote>
+<p>옵션 객체의 심층 병합</p>
+
+<p>속성이 두 옵션 객체의 객체일 때마다 vjs.obj.DeepMerge를 사용하여 두 속성이 병합됩니다.</p>
+
+<p>이 옵션은 하위 컴포넌트에 대한 옵션을 병합하는 데 사용됩니다. 다른 모든 기본 옵션을 다시 작성하지 않고도 자식 컴포넌트의 개별 옵션을 쉽게 오버라이드할 수 있기를 바랍니다.</p>
+
+<pre><code>부모.프로토타입.옵션_ = { children: { 'childOne': { 'foo': 'bar', 'asdf': 'fdsa' } , '자식두': {} , '자식세': {} }} 새 옵션 = { children: { 'childOne': { 'foo': 'baz', 'abc': '123' } '하위 두': 널, '자식포': {} }} 이.옵션 (새 옵션)</code></pre>
+
+<p>결과</p>
+
+<pre><code>{ children: { 'childOne': { 'foo': 'baz', 'asdf': 'fdsa', 'abc': '123' } , '차일투': null,//사용 안 함. 초기화되지 않습니다. '자식 세': {} , '차일드포': {} }}</code></pre>
+</blockquote>
+
+<h5>매개 변수:</h5>
+
+<ul>
+<li><strong>obj 새 옵션 값의</strong><code></code>개체 개체</li>
+</ul>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>개체</code>이 개체.options_ 및 obj 병합된 새 객체</li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L169"> src/js/component.js #L169</a></p>
+
+<hr>
+
+<h3 id="player">플레이어 ()</h3>
+
+<blockquote>
+<p>컴퍼넌트의 플레이어 반환</p>
+</blockquote>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>VJS. 플레이어</code> </li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L116"> src/js/component.js #L116</a></p>
+
+<hr>
+
+<h3 id="ready-fn-">준비 (fn)</h3>
+
+<blockquote>
+<p>리스너를 컴포넌트의 준비 상태에 바인딩</p>
+
+<p>ready 이벤트가 이미 발생하면 즉시 함수를 트리거한다는 점에서 이벤트 리스너와 다릅니다.</p>
+</blockquote>
+
+<h5>매개 변수:</h5>
+
+<ul>
+<li><strong>fn </strong><code>함수</code>준비 리스너</li>
+</ul>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>VJ. 컴포넌트</code> </li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L581"> src/js/component.js #L581</a></p>
+
+<hr>
+
+<h3 id="removechild-component-">제거자식 (구성 요소)</h3>
+
+<blockquote>
+<p>이 구성 요소의 하위 목록에서 하위 구성 요소를 제거하고 이 구성 요소의 요소에서 하위 구성 요소의 요소를 제거합니다.</p>
+</blockquote>
+
+<h5>매개 변수:</h5>
+
+<ul>
+<li><strong>구성 요소</strong><code>vjs.구성</code>요소 제거할 구성 요소</li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L401"> src/js/component.js #L401</a></p>
+
+<hr>
+
+<h3 id="removeclass-classtoremove-">리모브클래스 (클래스제거)</h3>
+
+<blockquote>
+<p>구성 요소의 요소에서 CSS 클래스 이름 제거</p>
+</blockquote>
+
+<h5>매개 변수:</h5>
+
+<ul>
+<li><strong>클래스제거</strong><code>문자열</code>클래스 이름 제거</li>
+</ul>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>VJ. 컴포넌트</code> </li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L639"> src/js/component.js #L639</a></p>
+
+<hr>
+
+<h3 id="show">쇼 ()</h3>
+
+<blockquote>
+<p>숨겨진 경우 구성 요소 표시</p>
+</blockquote>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>VJ. 컴포넌트</code> </li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L649"> src/js/component.js #L649</a></p>
+
+<hr>
+
+<h3 id="trigger-type-event-">트리거 (유형, 이벤트)</h3>
+
+<blockquote>
+<p>요소에 대한 이벤트 트리거</p>
+
+<pre><code>마이컴포넌트. 트리거 ('이벤트 이름');</code></pre>
+</blockquote>
+
+<h5>매개 변수:</h5>
+
+<ul>
+<li><strong>유형</strong><code>문자열</code>트리거할 이벤트 유형 (예: '클릭'</li>
+<li><strong>이벤트</strong><code>이벤트|객체</code>리스너에 전달할 이벤트 객체입니다.</li>
+</ul>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>vj. 구성 요소</code>자체</li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L536"> src/js/component.js #L536</a></p>
+
+<hr>
+
+<h3 id="triggerready">트리거 레디 ()</h3>
+
+<blockquote>
+<p>준비된 리스너 트리거</p>
+</blockquote>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>VJ. 컴포넌트</code> </li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L600"> src/js/component.js #L600</a></p>
+
+<hr>
+
+<h3 id="width-num-skiplisteners-">너비 ([num], 스키플라이스너)</h3>
+
+<blockquote>
+<p>구성 요소의 너비 설정 또는 가져오기 (CSS 값)</p>
+
+<p>비디오 태그 치수 값을 설정하면 픽셀 단위의 값에서만 작동합니다. 백분율 값은 작동하지 않습니다. 일부 퍼센트를 사용할 수 있지만 width () /height () 는 실제 계산 된 너비/높이가 아닌 숫자 +%를 반환합니다.</p>
+</blockquote>
+
+<h5>매개 변수:</h5>
+
+<ul>
+<li><strong>번호</strong><code>번호|문자열</code> <em>(선택 사항)</em> 너비 번호 (옵션)</li>
+<li><strong>건너뛰기 리스너</strong><code>부울</code>' 크기 조정 건너뛰기 이벤트 트리거</li>
+</ul>
+
+<h5>반환:</h5>
+
+<ul>
+<li><code>vjs.Component 너비를 설정할 때</code>이 구성 요소</li>
+<li><code></code>숫자|문자열 가져올 때 너비입니다.</li>
+</ul>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L709"> src/js/component.js #L709</a></p>
+
+<hr>
+
+</div>
+<div class="section" id="eventsSection">
+<h2 id="events">이벤트</h2>
+
+<h3 id="resize-event">크기 조정<code>이벤트</code></h3>
+
+<blockquote>
+<p>구성 요소의 너비 및/또는 높이가 변경될 때 발생합니다.</p>
+</blockquote>
+
+<p><em>상속</em>: <a href="https://github.com/videojs/video.js/blob/master/src/js/component.js#L816"> src/js/component.js #L816</a></p>
+
+<hr>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- bcl scripts -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+  <script src="/en/scripts/log.js"></script>
+    <script src="/en/scripts/docs-nav-data.min.js"></script>
+    <script src="/en/scripts/bcls-doc-site-v1.js"></script>
+    <script src="/en/scripts/bc-mapi.js"></script>
+    <script>
+        $ (문서). 기초 ();
+    </script>
+    <script type="text/javascript">
+    /******** 페이지 샘플과 관련된 모든 스크립트는 여기로 이동해야 합니다. ***********/
+  </script>
+    
+    
+	<div style="text-align:center">
+    <iframe id="CSAT" src="//learning-services-media.brightcove.com/doc-assets/general/surveylink.html" style=" padding-bottom:20px;border:none"></iframe>
+</div>
+<div class="bcls-footer"><a id="feedbackMail" href="mailto:docs@brightcove.com">질문이나 의견이 있으십니까?</a></div>
+<script>
+var 피드백메일 = 문서. GetElementByID (“피드백 메일”); 피드백메일.설정속성 (“href”, “메일 토: docs@brightcove.com?제목=질문 "+ 인코딩 (문서.위치href));
+</script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/https-fix.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/support-feedback.js"></script><script src="https://support.brightcove.com/site-assets/js/site/feedback-docs.js"></script>
+</body>
+
+</html>
