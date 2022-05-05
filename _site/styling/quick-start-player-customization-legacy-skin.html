@@ -1105,10 +1105,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>새로 만든 페이지를 찾습니다. 기본적으로 플레이어의 크기는 기본 크기 인 300 x 150 픽셀로 조정됩니다.</li>
       <li>브라우저의 개발 도구를 열고 HTML을 드릴 다운하여<code translate="No">div</code>플레이어를 둘러싼 태그. 당신은 볼 것입니다<code translate="No">div</code>태그에는<code translate="No">video-js</code> . 그만큼<code translate="No">div</code>플레이어를 포함하는 클래스는 항상<code translate="No">video-js</code> . <code translate="No">video-js</code>플레이어를 스타일링 할 때 필요한 클래스 이름입니다.</li>
       <li>빨간색으로 강조 표시된 클래스를 보려면 아래 스크린 샷을 확인하십시오. 녹색으로 강조 표시된 것은 Brightcove Player 인 비디오 태그입니다.
-        <figure class="bcls-figure"><img class="bcls-image" alt="동영상이있는 플레이어 사업부" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/player-div-with-video.png"/></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="동영상이있는 플레이어 사업부" src="/assets/images/player-customization/1x-customize-quick-start/player-div-with-video.png"/></figure>
         <aside class="bcls-aside bcls-aside--tip language-editable">
           <p>참고: 사용중인 운영 체제 및 브라우저에 따라 플레이어의 플래시 대체 버전이 표시 될 수 있습니다. 플레이어가 Flash 대체 버전의 플레이어를 사용하는 경우<code translate="No">video</code>꼬리표. 대신 당신은<code translate="No">div</code>주변<code translate="No">object</code>아래 강조 표시된대로 태그.</p>
-          <figure class="bcls-figure"><img class="bcls-image" alt="개체가있는 플레이어 사업부" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/player-div-with-object.png"/></figure>
+          <figure class="bcls-figure"><img class="bcls-image" alt="개체가있는 플레이어 사업부" src="/assets/images/player-customization/1x-customize-quick-start/player-div-with-object.png"/></figure>
         </aside>
       </li>
       <li>이제 CSS 선택기에 사용할 올바른 클래스를 알았으므로 해당 클래스 선택기를 사용하여 플레이어의 크기를 변경할 수 있습니다. 그만큼<code translate="No">style</code>아래 블록은<code translate="No">head</code> HTML 페이지의 섹션. CSS 용어에서 이것은<strong>클래스 선택기</strong> .
@@ -1131,7 +1131,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>HTML 페이지를 탐색합니다.</li>
       <li>플레이어를 오버레이하는 재생 버튼을 마우스 오른쪽 버튼으로 클릭하고<strong>요소 검사를</strong>선택합니다.</li>
       <li>참고<code translate="No">div</code>강조 표시된 태그는 재생 버튼을 나타내며<code translate="No">vjs-big-play-button</code> .
-        <figure class="bcls-figure"><img class="bcls-image" alt="큰 재생 버튼 사업부" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/big-play-button-div.png"/></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="큰 재생 버튼 사업부" src="/assets/images/player-customization/1x-customize-quick-start/big-play-button-div.png"/></figure>
       </li>
       <li>재생 버튼의 색상과 불투명도를 변경하고 (17 ~ 18 행) 플레이어 내부의 버튼을 중앙에 배치하는 (19 ~ 23 행) CSS를 포함하도록 스타일을 변경합니다.
         <pre class="line-numbers">
@@ -1152,15 +1152,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         &lt;/style&gt;  </code></pre>
       </li>
       <li>페이지를 탐색하면 모든 스타일이 사용되지 않은 것을 볼 수 있습니다. 버튼이 빨간색이 아닙니다.
-        <figure class="bcls-figure"><img class="bcls-image" alt="버튼이 아닌 빨간색" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/button-not-red.png"/></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="버튼이 아닌 빨간색" src="/assets/images/player-customization/1x-customize-quick-start/button-not-red.png"/></figure>
       </li>
       <li>개발자 도구의 오른쪽을 보면 스타일 요약을 볼 수 있습니다. 아래를 내려다보고 배경을 빨간색으로 변경하는 것이 무시되고 교차되는 것으로 표시됩니다.
-        <figure class="bcls-figure"><img class="bcls-image" alt="스타일 배경 재정의" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/styles-background-overridden.png"/></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="스타일 배경 재정의" src="/assets/images/player-customization/1x-customize-quick-start/styles-background-overridden.png"/></figure>
         <aside class="bcls-aside bcls-aside--information language-editable">참고: Safari에서는 스타일이 재정의되더라도 스타일이 교차되지 않을 수 있습니다.</aside>
         <p>무슨 일이 일어 났는지는 배경색에 많은 변화가 이루어진다는 것입니다. 설정 한 스타일은 CSS의 “계단식”부분에서 재정의되었습니다. 당신은<strong>특이성이라는</strong> CSS의 기능을 사용하여이를 변경할 수 있습니다. 특수성은 브라우저에 의해 적용되는 CSS 규칙을 결정하며 CSS (계단식 스타일 시트) 규칙이 표시되는 방식에 대한 가중치 유형입니다. 특이성을 사용하면 스타일을 다른 스타일보다 중요하게 만들 수 있으므로 강제로 사용할 수 있습니다. CSS 특이성에 대한 간략한 소개가 있습니다. <a href="/styling/customizing-player-appearance-legacy-skin.html#specificity">플레이어 모양 사용자 지정-레거시 스킨</a> doc 및 모든 검색에서 수많은 참조.</p>
       </li>
       <li>참고<code translate="No">div</code>태그는 플레이어를 둘러싼 수많은 클래스가 있습니다.
-        <figure class="bcls-figure"><img class="bcls-image" alt="다중 클래스" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/multiple-classes.png"/></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="다중 클래스" src="/assets/images/player-customization/1x-customize-quick-start/multiple-classes.png"/></figure>
       </li>
       <li>이 경우 조합을 사용하여<code translate="No">video-js</code>과<code translate="No">vjs-mouse</code>스타일이 우선권을 갖도록 "강화"합니다. 새 조합 선택기를 사용하도록 스타일을 변경하십시오. 처음 두 클래스 사이에는 공백이 없지만 마지막 클래스 앞에 하나가 있습니다 (이유에 대한 자세한 내용은 특정 규칙에서 찾을 수 있음).
         <pre class="line-numbers">
@@ -1175,10 +1175,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           }</code></pre>
       </li>
       <li>페이지를 탐색하고 모든 스타일이 적용되었는지 확인합니다.
-        <figure class="bcls-figure"><img class="bcls-image" alt="스타일 배경 작업" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/styles-background-working.png"/></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="스타일 배경 작업" src="/assets/images/player-customization/1x-customize-quick-start/styles-background-working.png"/></figure>
       </li>
       <li>다시 개발자 도구의 오른쪽을 보면 스타일 요약을 볼 수 있습니다. 이제 배경색 변경이 재정의되지 않았 음을 알 수 있습니다.
-        <figure class="bcls-figure"><img class="bcls-image" alt="스타일 배경이 재정의되지 않음" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/styles-background-NOT-overridden.png"/></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="스타일 배경이 재정의되지 않음" src="/assets/images/player-customization/1x-customize-quick-start/styles-background-NOT-overridden.png"/></figure>
       </li>
     </ol>
   </section>
@@ -1313,7 +1313,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li><strong>Studio에서 플레이어 모듈로 이동하여 빠른 시작을 위해 사용 중인 플레이어를 편집합니다.</strong></li>
       <li>찾기<strong>플러그인</strong>섹션을 클릭하고<strong>편집하다</strong>단추.</li>
       <li>클릭<strong> CSS</strong>다음과 같이 CSS 파일 경로를 입력합니다.
-        <figure class="bcls-figure"><img class="bcls-image" alt="스튜디오 입력 css" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/studio-enter-css.png"/></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="스튜디오 입력 css" src="/assets/images/player-customization/1x-customize-quick-start/studio-enter-css.png"/></figure>
       </li>
       <li>딸깍 하는 소리<strong>저장</strong>변경 사항을<strong>플러그인</strong>부분.
         <aside class="bcls-aside bcls-aside--information language-editable">페이지 상단의 미리보기 플레이어가 업데이트되어 버튼에 적용된 CSS 스타일을 표시합니다.</aside>

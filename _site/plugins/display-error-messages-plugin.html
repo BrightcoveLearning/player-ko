@@ -1088,7 +1088,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <section id="Overview" class="bcls-section">
         <h2>개요</h2>
         <p>오류 메시지 플러그인을 사용하면 플레이어가 오류 발생시 사용자에게 친숙한 메시지를 표시 할 수 있습니다. 기본 스타일 시트는 메시지를 비디오 요소 자체 위에 반투명 오버레이로 표시합니다. 기존 메시지 텍스트를 변경하고 자신 만의 스타일을 추가 할 수 있습니다. 원할 때 트리거되는 사용자 지정 메시지를 만들 수도 있습니다.</p>
-        <figure class="bcls-figure"><img class="bcls-image" alt="오류 메시지 플러그인" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/troubleshooting/errors-plugin/error-message-plugin.png"/></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="오류 메시지 플러그인" src="/assets/images/playback/troubleshooting/errors-plugin/error-message-plugin.png"/></figure>
         <p>위 이미지에 표시된 오류 메시지는 플레이어를 잘못된<code translate="No">src</code>가치<code translate="No">sources</code>특성.</p>
         <p>오류 메시지 플러그인은 기본 플러그인이며 Brightcove Player와 함께 자동으로로드됩니다. 그러나로드하지 않도록 선택할 수 있습니다. 이 플러그인이 없으면 제한된 오류 메시지가 표시되고 일부 오류는 브라우저 콘솔에만 나타납니다. 플레이어를 만들 때 기본 플러그인을로드하지 않는 방법에 대한 자세한 내용은<a href="/plugins/overview-brightcove-player-plugins.html">플레이어 플러그인 개요</a>문서.</p>
         <aside class="bcls-aside bcls-aside--warning language-editable">오류 메시지를 사용자 지정하려면이 문서에 표시된 두 가지 방법 중 하나를 사용할 수 있습니다.
@@ -1174,7 +1174,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             <li><code translate="No">type</code> : 이것이<strong>에러 코드:</strong>본문.</li>
             <li><code translate="No">message</code> : 이것이<strong>기술적 세부 사항:</strong>본문.</li>
         </ul>
-        <figure class="bcls-figure"><img class="bcls-image" alt="오류 메시지 플러그인" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/troubleshooting/errors-plugin/error-message-plugin2.png"/></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="오류 메시지 플러그인" src="/assets/images/playback/troubleshooting/errors-plugin/error-message-plugin2.png"/></figure>
         <!-- <p>Once your player is created, in Studio edit the <strong>Plugins</strong> section of the <strong>Players</strong> module with a JSON object to set property values.</p> -->
         <p>아래 예는 오류 코드 값이 다음과 같은 표준 오류에 대한 메시지 텍스트를 재정의하는 방법을 보여줍니다. <code translate="No">4</code> . 속성은 다음과 같이 정의됩니다.</p>
         <ul>
@@ -1304,7 +1304,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             </li>
         </ul>
         <aside class="bcls-aside bcls-aside--information">코드가없는 오류의 경우 메시지가 코드에 사용됩니다. 예를 들어 도메인 제한 오류는 다음과 같습니다.
-            <figure class="bcls-figure"><img class="bcls-image" alt="도메인 제한 오류 메시지" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/troubleshooting/errors-plugin/domain-restriction-error.png"/></figure>
+            <figure class="bcls-figure"><img class="bcls-image" alt="도메인 제한 오류 메시지" src="/assets/images/playback/troubleshooting/errors-plugin/domain-restriction-error.png"/></figure>
         </aside>
     </section>
     <section class="bcls-section">
@@ -1345,18 +1345,18 @@ myPlayer.on("loadstart", function () {
 });</code></pre>
         <p>여기<code translate="No">age_appropriate</code>변수가<code translate="No">false</code>하지만 사용자 지정 오류 메시지를 표시 할시기를 결정하려면 고유 한 코드를 추가해야합니다.</p>
         <p>오류는 다음과 같이 사용자에게 표시됩니다.</p>
-        <figure class="bcls-figure"><img class="bcls-image" alt="사용자 정의 오류 메시지" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/troubleshooting/errors-plugin/user-custom-error-message.png"/></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="사용자 정의 오류 메시지" src="/assets/images/playback/troubleshooting/errors-plugin/user-custom-error-message.png"/></figure>
         <aside class="bcls-aside bcls-aside--tip">참고 : 사용자 지정 오류를 발생시키는 모든 코드는 비디오가로드 될 때까지 기다려야합니다. 사용<code translate="No">loadstart</code>이를 결정하는 이벤트. 기다리지 않고 메시지를 표시하려고하면 비디오가로드 된 후 메시지가 사라집니다.</aside>
     </section>
     <section class="bcls-section">
         <h2 id="Making_custom_errors_non_dismissible">사용자 지정 오류를 무시할 수 없도록 만들기</h2>
         <p>기본적으로 사용자 지정 오류 메시지는 비디오 뷰어에서 무시할 수 있습니다. 다음 스크린 샷에서 볼 수 있듯이<strong>확인</strong>버튼을 클릭하여 창을 닫을뿐만 아니라<strong>엑스</strong>오른쪽 상단 모서리에 있습니다.</p>
-        <figure class="bcls-figure"><img class="bcls-image" alt="무시할 수있는 오류 메시지" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/troubleshooting/errors-plugin/dismissible.png"/></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="무시할 수있는 오류 메시지" src="/assets/images/playback/troubleshooting/errors-plugin/dismissible.png"/></figure>
         <p>비디오 뷰어가 오류 메시지를 무시하도록 허용하지 않으려면 그렇게 할 수 있습니다. 전화 할 때<code translate="No">error()</code>방법, 당신은 설정할 수 있습니다<code translate="No">dismiss</code>재산<code translate="No">false</code> .</p>
         <pre class="line-numbers">
 <code class="language-javascript" translate="No">myPlayer.error({code:'age-gate-error', <span class="bcls-highlight">dismiss: false</span>});</code></pre>
         <p>이 작업을 수행하면 오류를 해제 할 수없는 오류 메시지가 다음과 같이 나타납니다.</p>
-        <figure class="bcls-figure"><img class="bcls-image" alt="취소 할 수없는 오류 메시지" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/troubleshooting/errors-plugin/not-dismissible.png"/></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="취소 할 수없는 오류 메시지" src="/assets/images/playback/troubleshooting/errors-plugin/not-dismissible.png"/></figure>
     </section>
     <section class="bcls-section">
         <h2 id="getAll_method">getAll () 메서드</h2>
@@ -1364,7 +1364,7 @@ myPlayer.on("loadstart", function () {
         <pre class="line-numbers">
 <code class="language-javascript" translate="No">console.log('myPlayer.errors.getAll()',myPlayer.errors.getAll());</code></pre>
         <p>세부 사항을 위해 확장 된 일부 오류가있는 콘솔 표시의 예는 다음과 같습니다.</p>
-        <figure class="bcls-figure"><img class="bcls-image" alt="getAll 콘솔 디스플레이" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/troubleshooting/errors-plugin/getAll-method.png"/></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="getAll 콘솔 디스플레이" src="/assets/images/playback/troubleshooting/errors-plugin/getAll-method.png"/></figure>
     </section>
     <section id="dispatcherror" class="bcls-section">
         <h2>디스패치 오류</h2>

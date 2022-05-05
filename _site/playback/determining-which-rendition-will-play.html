@@ -1135,16 +1135,16 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>이 과정은 다음과 같습니다.</p>
     <ol>
       <li>새 세그먼트가 다운로드될 때마다 다운로드 비트 전송률은 세그먼트의 크기와 다운로드에 걸린 시간을 기준으로 계산됩니다.
-        <figure class="bcls-figure"><img class="bcls-image" alt="HLS 변환1" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/HLS-plugin/HLS-rendition-1.png"/></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="HLS 변환1" src="/assets/images/playback/HLS-plugin/HLS-rendition-1.png"/></figure>
       </li>
       <li>새 측정값보다 비트 전송률이 높은 모든 변환이 필터링됩니다.
-        <figure class="bcls-figure"><img class="bcls-image" alt="HLS 변환2" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/HLS-plugin/HLS-rendition-2.png"/></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="HLS 변환2" src="/assets/images/playback/HLS-plugin/HLS-rendition-2.png"/></figure>
       </li>
       <li>현재 플레이어의 크기보다 큰 모든 변환은 필터링됩니다.
-        <figure class="bcls-figure"><img class="bcls-image" alt="HLS 변환3" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/HLS-plugin/HLS-rendition-3.png"/></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="HLS 변환3" src="/assets/images/playback/HLS-plugin/HLS-rendition-3.png"/></figure>
       </li>
       <li>플레이어가 한 픽셀이 너무 작기 때문에 상당한 품질 저하가 필요하지 않으므로 다음으로 높은 해상도로 다시 추가됩니다. 가장 높은 비트레이트 변환이 사용되는 변환입니다.
-        <figure class="bcls-figure"><img class="bcls-image" alt="HLS 변환4" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/HLS-plugin/HLS-rendition-4.png"/></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="HLS 변환4" src="/assets/images/playback/HLS-plugin/HLS-rendition-4.png"/></figure>
       </li>
     </ol>
     <p>위에서 설명한 필터링을 기반으로 변환이 허용되지 않는 것으로 밝혀지면 마스터 재생 목록에 나열된 첫 번째 인코딩이 사용됩니다.</p>

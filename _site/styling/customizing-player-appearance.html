@@ -1094,7 +1094,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Player">플레이어</h2>
     <aside class="bcls-aside bcls-aside--information language-editable">참고: 이 문서는 CSS에 대한 지식과 브라우저의 개발 도구를 사용하여 HTML 요소의 클래스를보고 적용 가능한 CSS를 검사한다고 가정합니다. 필수 기본 지식이없는 경우 다음을 통해 작업하는 것이 가장 좋습니다. <a href="/getting-started/step-step-player-customization.html">단계별 : 플레이어 커스터마이징</a> .</aside>
     <p >플레이어의 모양을 변경할 수 있지만 먼저 문제를 해결할 방법이 있어야 합니다. 이를 보려면 고급 (인 페이지 임베드) 코드가 삽입 된 HTML 페이지를 찾아보십시오. 에서<strong><span translate="No">Elements</span></strong>개발 도구 섹션에서<code translate="No">&lt;video-js&gt;</code>태그 값을 가진 클래스가 있음을 알 수 있습니다. <code translate="No">video-js</code>다른 많은 것 중에서 할당.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/player-elements.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="/assets/images/player-customization/5x-player-styling/customize-appearance/player-elements.png"/></figure>
     <p >이 사실을 알고 나면 스타일을 사용하여 플레이어 자체를 변경할 수 있습니다. 예를 들어 플레이어 주위에 테두리를 포함하려면 다음 스타일을 사용할 수 있습니다.</p>
     <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;style&gt;
@@ -1104,12 +1104,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     border-color: red;
   }
 &lt;/style&gt;</code></pre>
-    <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/double-border.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="/assets/images/player-customization/5x-player-styling/customize-appearance/double-border.png"/></figure>
   </section>
   <section class="bcls-section">
     <h2 id="iframe_player">iframe 플레이어</h2>
     <p >플레이어의 표준 (iframe) 구현을 사용하는 경우 상황이 다릅니다. 여전히 플레이어가<code translate="No">video-js</code>클래스이지만, 물론 iframe 내부와<code translate="No">video-js</code>꼬리표.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="아이프레임 플레이어 요소" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/iframe-elements.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="아이프레임 플레이어 요소" src="/assets/images/player-customization/5x-player-styling/customize-appearance/iframe-elements.png"/></figure>
     <p >만든 스타일은 iframe에서 플레이어와 계속 작동하지만 CSS 파일을 만들어 Studio를 사용하여 플레이어와 연결해야 합니다. 당신은<strong>플레이어</strong>모듈을 클릭 한 다음 CSS를 연결하려는 플레이어를 클릭 한 다음<strong>플러그인&gt; 스타일 시트</strong>섹션에 CSS 파일 경로를 추가하십시오.</p>
     <p >iframe 자체를 맞춤 설정하려면 요소 선택기를 사용하면됩니다. 그런 다음<code translate="No">&lt;style&gt;</code>태그를 사용하여 원하는대로 수정합니다. 아래 예에서는 플레이어 주위에 테두리가 추가됩니다.</p>
     <pre class="line-numbers">
@@ -1142,9 +1142,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="Play_button">재생 버튼</h2>
     <p >재생 버튼의 모양을 변경하려면 먼저 해결 방법을 알아야합니다. Chrome에서 버튼을 마우스 오른쪽 버튼으로 클릭합니다. 표시되는 선택 항목에서<strong><span translate="No">Inspect</span></strong> . 선택할 때<strong><span translate="No">Inspect</span></strong> , 크롬&nbsp;<strong>개발 도구</strong>열 예정이다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="검사 버튼" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/inspect-button.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="검사 버튼" src="/assets/images/player-customization/5x-player-styling/customize-appearance/inspect-button.png"/></figure>
     <p >에서<strong><span translate="No">Elements</span></strong>개발 도구 섹션에서 버튼 요소에 해당하는 HTML 코드를 볼 수 있습니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="빅 플레이 버튼" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/big-play-button.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="빅 플레이 버튼" src="/assets/images/player-customization/5x-player-styling/customize-appearance/big-play-button.png"/></figure>
     <p >위의 강조 표시된 코드에서 버튼에 할당 된 클래스를 볼 수<code translate="No">vjs-big-play-button</code>있습니다. 재생 버튼의 색상 (호랑이와 일치) 과 불투명도는 다음 스타일로 변경됩니다.</p>
     <pre class="line-numbers">
 <code class="language-css" translate="No">.vjs-big-play-button {
@@ -1160,7 +1160,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   opacity: .6;
 }</code></pre>
     <p >다음은 진한 회색에서 오렌지색으로 버튼을 변경 한 결과입니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="주황색 재생 버튼" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/orange-play-button.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="주황색 재생 버튼" src="/assets/images/player-customization/5x-player-styling/customize-appearance/orange-play-button.png"/></figure>
     <h3>재생 버튼 숨기기</h3>
     <p >다음 스타일을 사용하여 재생 버튼을 완전히 숨길 수 있습니다.</p>
     <pre class="line-numbers">
@@ -1240,9 +1240,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="Progress_bar">진행률 표시줄</h2>
     <p >이제 진행률 표시기의 색상을 변경하는 방법을 볼 수 있습니다. 표시기의 기본 색상은 다음과 같이 자홍색입니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/play-progress-standard.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="/assets/images/player-customization/5x-player-styling/customize-appearance/play-progress-standard.png"/></figure>
     <p >여기서 문제는 요소의 클래스 이름을 찾는 것입니다. 문서의 앞부분에서 설명한 것과 동일한 기술을 사용하여 요소를 마우스 오른쪽 버튼으로 클릭하고<strong><span translate="No">Inspect</span></strong> , 드릴 다운하면<code translate="No">vjs-play-progress</code>수업.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="진행률 및 볼륨 요소" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/play-progress-element.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="진행률 및 볼륨 요소" src="/assets/images/player-customization/5x-player-styling/customize-appearance/play-progress-element.png"/></figure>
     <aside class="bcls-aside bcls-aside--tip language-editable">브라우저에서는 실제로 콘솔에서 클래스 이름을 검색 할 수 있습니다. 예를 들어 Chrome에서는 간단히<strong> CTL-F</strong>그런 다음 찾고있는 클래스를 입력하십시오.</aside>
     <p >그만큼<code translate="No">background-color</code>요소의 색상을 변경하고 스타일을 지정해야합니다. 필요한 스타일은 다음과 같습니다.</p>
     <pre class="line-numbers">
@@ -1251,14 +1251,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 }</code></pre>
     <p ><code translate="No">.video-js</code>클래스가 선택기에 추가 된 것을 알 수 있습니다. 이것은 선택기의 CSS 특이성을 높이기 위해 수행됩니다.</p>
     <p >결과는 다음과 같이 녹색 진행률 표시 줄을 보여줍니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/play-progress-green.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="/assets/images/player-customization/5x-player-styling/customize-appearance/play-progress-green.png"/></figure>
   </section>
   <section class="bcls-section">
     <h2 id="Volume_controls">음량 조절</h2>
     <p >CSS를 사용하거나<code translate="No">options</code>플레이어 생성 중 개체.</p>
     <h3>CSS를 사용하여 업데이트</h3>
     <p >이제 볼륨 컨트롤의 색상을 변경하는 방법을 볼 수 있습니다. 기본 모양은 자홍색 볼륨 레벨 막대가있는 흰색 볼륨 버튼입니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/volume-standard.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="/assets/images/player-customization/5x-player-styling/customize-appearance/volume-standard.png"/></figure>
     <p >볼륨 버튼의 색상을 변경하고 클릭 할 때 음소거 버튼을 변경하려면 여기에 표시된 선택기를 사용하십시오.</p>
     <pre class="line-numbers">
 <code class="language-css" translate="No">.vjs-volume-panel.vjs-control.vjs-volume-panel-horizontal {
@@ -1271,7 +1271,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 }</code></pre>
     <p ><code translate="No">.video-js</code>클래스가 선택기에 추가 된 것을 알 수 있습니다. 이것은 선택기의 CSS 특이성을 높이기 위해 수행됩니다.</p>
     <p >버튼과 볼륨 막대의 스타일을 지정한 결과는 다음과 같습니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/volume-yellow.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="/assets/images/player-customization/5x-player-styling/customize-appearance/volume-yellow.png"/></figure>
     <h3>옵션 개체를 사용하여 업데이트</h3>
     <p >볼륨 컨트롤의 레이아웃을 변경하려면<code translate="No">options</code>개체에<a href="/publish/delaying-player-instantiation.html"> bc () 메서드</a>다음과 같이 :</p>
     <ol class="bcls-tasklist">
@@ -1299,21 +1299,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <code class="language-css" translate="No">bc("myPlayerID", options);</code></pre>
       </li>
       <li>자세한 내용은<a href="/code-samples/brightcove-player-sample-vertical-volume-control.html">수직 볼륨 제어</a>플레이어 샘플.
-        <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/vertical-volume.png"/></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="/assets/images/player-customization/5x-player-styling/customize-appearance/vertical-volume.png"/></figure>
       </li>
     </ol>
   </section>
   <section class="bcls-section">
     <h2 id="Fonts">폰트</h2>
     <p >제목과 설명은 플레이어가 처음로드 될 때와 사용자가 플레이어를 가리킬 때 나타납니다. 제목과 설명의 글꼴 스타일을 함께 또는 개별적으로 변경할 수 있습니다. 에 대한 HTML <strong>독</strong>다음 스크린 샷과 같이 나타납니다. 거기에 유의하십시오<code translate="No">&lt;div&gt;</code>클래스가있는 요소<code translate="No">vjs-dock-text</code>다른 두 개를 포함하는<code translate="No">&lt;div&gt;</code>포함하는 요소<strong>표제</strong>과<strong>기술</strong> .</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="텍스트 선택기 고정" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/dock-text-elements.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="텍스트 선택기 고정" src="/assets/images/player-customization/5x-player-styling/customize-appearance/dock-text-elements.png"/></figure>
     <p >스타일을 설정하여 제목과 설명 모두에 영향을 미칠 수 있습니다. <code translate="No">vjs-dock-text</code>수업. 스타일은<code translate="No">.vjs-dock-title</code>과<code translate="No">.vjs-dock-description</code>물론 더 높은 수준에서 설정된 스타일에 의해 완전히 무시되지는 않습니다. 다음 스타일과 그 결과가 텍스트에 표시되는 것처럼 일부 스타일은 상속됩니다.</p>
     <pre class="line-numbers">
 <code class="language-css" translate="No">.video-js .vjs-dock-text {
   color: yellow;
   font-size: .7em;
 }</code></pre>
-    <figure class="bcls-figure"><img class="bcls-image" alt="독 텍스트 선택기 예제" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/dock-text-selector.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="독 텍스트 선택기 예제" src="/assets/images/player-customization/5x-player-styling/customize-appearance/dock-text-selector.png"/></figure>
     <p >개별 제목과 설명의 스타일을 직접 지정할 수 있습니다. 다음은에 설정된 스타일을 보여줍니다. <code translate="No">.vjs-dock-title</code>과<code translate="No">.vjs-dock-description</code>스타일을 표시하는 결과 텍스트와 함께 클래스 선택기 :</p>
     <pre class="line-numbers">
 <code class="language-css" translate="No">.video-js .vjs-dock-title {
@@ -1324,12 +1324,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   color: yellow;
   font-size: 1.0em;
 }</code></pre>
-    <figure class="bcls-figure"><img class="bcls-image" alt="제목 및 설명 선택자" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/title-and-description-selectors.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="제목 및 설명 선택자" src="/assets/images/player-customization/5x-player-styling/customize-appearance/title-and-description-selectors.png"/></figure>
   </section>
   <section class="bcls-section">
     <h2 id="Controlbar_icon_manipulation">컨트롤 바 아이콘 조작</h2>
     <p >HTML 순서에 따라 결정되는 컨트롤 바 아이콘 순서<code translate="No">&lt;div&gt;</code>부모 컨트롤 바의 s <code translate="No">&lt;div&gt;</code> . 여기에 컨트롤 바가 있습니다. <code translate="No">&lt;div&gt;</code>모든 자녀와 함께.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="요소 -controlbar-div" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/elements-controlbar-div.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="요소 -controlbar-div" src="/assets/images/player-customization/5x-player-styling/customize-appearance/elements-controlbar-div.png"/></figure>
     <p >일반적으로 컨트롤 바의 아이콘에 배치 할 때 사용하는 방법은 다음과 같습니다.</p>
     <ul>
       <li>컨트롤 바에 삽입하려는 요소를 동적으로 빌드합니다.</li>
@@ -1397,12 +1397,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     controlBar.insertBefore(newElement,insertBeforeNode);
   });</code></pre>
     <p >여기에 새로 삽입 된 아이콘이 노란색으로 강조 표시된 코드 결과가 표시됩니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="볼륨 전 다운로드 아이콘" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/download-icon-before-volume.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="볼륨 전 다운로드 아이콘" src="/assets/images/player-customization/5x-player-styling/customize-appearance/download-icon-before-volume.png"/></figure>
     <p >아이콘을 다른 위치에 두려면 앞에 삽입 할 요소를 가져 오는 코드 만 변경하면됩니다. 예를 들어, 새 아이콘을 전체 화면 버튼 앞으로 이동하려면 다음을 사용하십시오.</p>
     <pre class="line-numbers">
 <code class="language-javascript" translate="No">insertBeforeNode = document.getElementsByClassName('vjs-fullscreen-control')[0];</code></pre>
     <p >결과는 다음과 같이 나타납니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="전체 화면 전 다운로드 아이콘" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/download-icon-before-fullscreen.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="전체 화면 전 다운로드 아이콘" src="/assets/images/player-customization/5x-player-styling/customize-appearance/download-icon-before-fullscreen.png"/></figure>
     <h3>맨 오른쪽의 아이콘</h3>
     <p >아이콘이 컨트롤 막대의 오른쪽 끝에 나타나도록하려면<code translate="No">insertBefore()</code>와 더불어<code translate="No">appendChild()</code>방법은 다음과 같습니다.</p>
     <pre class="line-numbers">
@@ -1412,19 +1412,19 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p >위의 기술은 컨트롤 바에 아이콘을 배치하는 데 작동하지만 컨트롤 바를 조작하는 다른 코드와 호환되지 않을 수 있습니다. 또한 일반적인 재사용을 위해 코드를 플러그인으로 추상화하고 싶지 않을 것입니다.</p>
     <p >이전 단락의 약점은 특수 기능을 사용하여 극복 할 수 있습니다. <strong>스페이서</strong>특히 아이콘을 추가하기 위해 컨트롤 막대에 요소가 삽입됩니다. 스페이서의 단점은 아이콘을 배치 할 수있는 위치를 완전히 제어 할 수없는 반면이 섹션의 앞부분에 표시된 기술을 사용한다는 것입니다.</p>
     <p >스페이서 요소는 다음 스크린 샷 (녹색 타원으로 강조 표시됨)과 같이 왼쪽의 시간 정보와 오른쪽의 전체 화면 아이콘 사이의 컨트롤 막대에 있습니다. 참고<strong>집단</strong>개발자 도구 섹션의 요소는 HTML로 정의됩니다. <code translate="No">&lt;div&gt;</code> .</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="스페이서" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/spacer.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="스페이서" src="/assets/images/player-customization/5x-player-styling/customize-appearance/spacer.png"/></figure>
     <p >스페이서 요소에 아이콘을 배치하려면이 섹션의 앞부분에 표시된 코드와 매우 유사한 다음 코드를 사용합니다. 코드의 결과는 코드 스 니펫 다음에 스크린 샷에 표시됩니다.</p>
     <pre class="line-numbers">
 <code class="language-javascript" translate="No">// Get the spacer element
 spacer = document.getElementsByClassName('vjs-spacer')[0];
 // Place the new element in the spacer
 spacer.appendChild(newElement);</code></pre>
-    <figure class="bcls-figure"><img class="bcls-image" alt="스페이서 왼쪽" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/spacer-left.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="스페이서 왼쪽" src="/assets/images/player-customization/5x-player-styling/customize-appearance/spacer-left.png"/></figure>
     <p >스페이서의 오른쪽에 아이콘을 배치하려면 다른 코드 줄을 사용해야합니다. 스페이서 레이아웃은 HTML Flexbox에 의해 제어됩니다. 따라서 Flexbox 스타일을 추가하면 추가 된 아이콘을 오른쪽으로 밀 수 있습니다. 코드의 결과는 코드 스 니펫 다음에 스크린 샷에 표시됩니다.</p>
     <pre class="line-numbers">
 <code class="language-javascript" translate="No">// Set the content of the spacer to be right justified
 spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
-    <figure class="bcls-figure"><img class="bcls-image" alt="스페이서 오른쪽" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/spacer-right.png"/></figure>/playback/ios-and-brightcove-player.html/playback/ios-and-brightcove-player.html
+    <figure class="bcls-figure"><img class="bcls-image" alt="스페이서 오른쪽" src="/assets/images/player-customization/5x-player-styling/customize-appearance/spacer-right.png"/></figure>/playback/ios-and-brightcove-player.html/playback/ios-and-brightcove-player.html
   </section>
   <section class="bcls-section">
     <h2 id="Remove_fullscreen_icon">전체 화면 버튼 제거</h2>
@@ -1444,7 +1444,7 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
   <section class="bcls-section">
     <h2 id="Controlbar_icon_glow">컨트롤 바 아이콘 "글로우"</h2>
     <p >컨트롤 막대에있는 아이콘의 텍스트 그림자 ( "글로우"라고도 함)를 변경할 수 있습니다. 예를 들어 색상을 변경하거나 광선을 증가시켜 아이콘에 더 많은 초점을 맞출 수 있습니다. 다음 스크린 샷은 빨간색 텍스트 그림자를 보여줍니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="빨간색 텍스트 그림자" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/red-glow.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="빨간색 텍스트 그림자" src="/assets/images/player-customization/5x-player-styling/customize-appearance/red-glow.png"/></figure>
     <p >표시되는 효과는 CSS를 변경하여 수행됩니다. <code translate="No">text-shadow</code> . 선택기는 아이콘에 포커스 또는 호버 상태가있는 경우에만 변경이 발생하도록 결정합니다.</p>
     <pre class="line-numbers">
 <code class="language-css" translate="No">.video-js .vjs-control:hover:before, .video-js .vjs-control:focus:before {
@@ -1471,7 +1471,7 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
   background: linear-gradient(45deg, rgba(0,0,255,.8) 35%, transparent);
   height: 80%;
 }</code></pre>
-    <figure class="bcls-figure"><img class="bcls-image" alt="나쁜 블루 그라데이션" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/gradient-blue.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="나쁜 블루 그라데이션" src="/assets/images/player-customization/5x-player-styling/customize-appearance/gradient-blue.png"/></figure>
     <p >이 예제에서는 .8 알파의 파란색 그라디언트가 45도 내리막 각도로 적용됩니다. 선형 그래디언트에 설정된 색상 / 알파는 페이드가 시작되기 전에 그래디언트의 처음 35 %에 사용됩니다. 또한 요소 높이의 80 %가 사용됩니다.</p>
     <p >다음 CodePen을 사용하면 값을 실험 할 수 있습니다. 기본적으로 사용되는 미묘한 그라디언트를 보려면 비디오와 마우스를 안팎으로 시작하십시오.</p>
     <p data-height="371" data-theme-id="14832" data-slug-hash="XXyKqx" data-default-tab="result" data-user="bcls" class="codepen">펜보기<a href="http://codepen.io/team/bcls/pen/XXyKqx/"> Hover Gradient Luna 스킨</a>게시자 : Brightcove Learning Services ( <a href="https://codepen.io/team/rcrooks1969"> @bcls</a> ) 의 위에<a href="http://codepen.io"> CodePen</a> .</p>
@@ -1479,7 +1479,7 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
   <section class="bcls-section">
     <h2 id="Caption_list_items">캡션 목록 항목</h2>
     <p>캡션 메뉴에서 목록 항목의 스타일을 지정 / 제어하려면 선택기가 여기에 표시됩니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="캡션 목록 항목 선택기" width="800" height="281" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/caption-list-items.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="캡션 목록 항목 선택기" width="800" height="281" src="/assets/images/player-customization/5x-player-styling/customize-appearance/caption-list-items.png"/></figure>
     <p>선택기를 사용하여 모든 항목의 스타일을 지정할 수 있습니다.</p>
     <pre class="line-numbers">
 <code class="language-javascript" translate="No">.vjs-subs-caps-button .vjs-menu .vjs-menu-content .vjs-menu-item.</code></pre>
@@ -1488,7 +1488,7 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
     <h2 id="CSS_specificity">CSS 특이성</h2>
     <p >CSS 특이성은 브라우저가 관련성에 따라 요소에 적용되는 속성 값을 결정하는 방식을 의미합니다. 이 개념에 대한 자세한 내용은<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">특이성</a>문서를 검토하십시오.</p>
     <p >Chrome에서 큰 재생 버튼을 검사합니다. <code translate="No">background</code>속성은 여러 클래스를 사용하여 설정됩니다. 즉, 이 속성을 재정의하기 위해 하나의<code translate="No">.vjs-big-play-button</code>클래스 만 사용할 수 없습니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="재생 버튼 클래스" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/play-button-classes.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="재생 버튼 클래스" src="/assets/images/player-customization/5x-player-styling/customize-appearance/play-button-classes.png"/></figure>
     <p >다음은 큰 재생 버튼을 사용자 지정하는 세 가지 접근 방식입니다.</p>
     <ul>
       <li>플레이어에게 할당 된 ID를 참조하십시오.</li>
@@ -1517,7 +1517,7 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
     }
 &lt;/style&gt;</code></pre>
     <p >이제 큰 재생 버튼이 주황색임을 알 수 있습니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="orange-play-button.png" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/orange-play-button.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="orange-play-button.png" src="/assets/images/player-customization/5x-player-styling/customize-appearance/orange-play-button.png"/></figure>
     <h3>여러 클래스 사용</h3>
     <p >이후<code translate="No">background</code>큰 재생 버튼의 속성은 두 개의 클래스를 사용하여 설정됩니다.이 속성을 재정의하려면 CSS 선택기에 두 개 이상의 클래스가 필요합니다.</p>
     <p ><code translate="No">.video-js</code>클래스 선택기에<code translate="No">.vjs-big-play-button</code>클래스를 추가합니다. <code translate="No">.video-js</code>클래스가 비디오 컨테이너에 설정되어 있음을 기억하십시오.</p>
@@ -1566,9 +1566,9 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
     <h2 id="Component_selectors">구성 요소 선택기</h2>
     <p >이 스크린 샷과 다음 표는 해당 구성 요소를 조작하는 데 필요한 구성 요소와 CSS 선택기를 보여줍니다. 구성 요소 자체에 대한 자세한 내용은<a href="/coding-topics/overview-components.html">구성 요소 개요</a>문서.</p>
     <h3>플레이어 로드 및 호버</h3>
-    <figure class="bcls-figure"><img style="max-width: none" width="794" height="352" alt="로드 시 구성요소" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/5x-components-onload.png"/></figure>
+    <figure class="bcls-figure"><img style="max-width: none" width="794" height="352" alt="로드 시 구성요소" src="/assets/images/player-customization/5x-player-styling/customize-appearance/5x-components-onload.png"/></figure>
     <h3>재생 중</h3>
-    <figure class="bcls-figure"><img class="bcls-image" style="max-width: none" width="831" height="525" alt="구성요소 재생" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/6x-components.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" style="max-width: none" width="831" height="525" alt="구성요소 재생" src="/assets/images/player-customization/5x-player-styling/customize-appearance/6x-components.png"/></figure>
     <h3>구성 요소 선택기 요약</h3>
     <table class="table-styles">
       <thead>

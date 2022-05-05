@@ -1088,16 +1088,16 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="View_player_information">선수 정보보기</h2>
     <p>플레이어를 마우스 오른쪽 버튼으로 클릭하고 선택하여 플레이어 정보를 표시합니다. <strong>선수 정보</strong> ,이 스크린 샷에 표시된대로.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="상황에 맞는 메뉴에서 플레이어 정보를 선택합니다." src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/player-info-modal/context-menu.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="상황에 맞는 메뉴에서 플레이어 정보를 선택합니다." src="/assets/images/playback/player-info-modal/context-menu.png"/></figure>
     <aside class="bcls-aside bcls-aside--information">참고: 모바일에서는 길게 눌러 모달을 열 수 있습니다.</aside>
     <p>선택하면<strong>선수 정보</strong>이 스크린 샷과 같이 플레이어에 대한 정보가 포함 된 모달 창이 표시됩니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="모달의 플레이어 정보" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/player-info-modal/modal-with-info.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="모달의 플레이어 정보" src="/assets/images/playback/player-info-modal/modal-with-info.png"/></figure>
     <aside class="bcls-aside bcls-aside--information">참고: 구성의 일부인 Brightcove 제공 플러그인 만<strong>플러그인</strong>부분. HTML 페이지의 JavaScript에 Brightcove 플러그인을 추가하면 목록에 나타나지 않습니다. 플레이어 구성의 일부로 나열 되더라도 고객이 개발 한 플러그인은 표시되지 않습니다.</aside>
   </section>
   <section id="Close_the_modal_window" class="bcls-section">
     <h2>모달 창 닫기</h2>
     <p>모달을 닫습니다. <strong> ESC</strong>키를 누르거나 왼쪽 상단의 닫기 아이콘을 클릭합니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="닫기 아이콘" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/player-info-modal/close-modal.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="닫기 아이콘" src="/assets/images/playback/player-info-modal/close-modal.png"/></figure>
   </section>
   <section class="bcls-section">
     <h2 id="Alter_the_context_menu">상황에 맞는 메뉴 변경</h2>
@@ -1112,7 +1112,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>플레이어 정보 컨텍스트 메뉴가 전혀 나타나지 않도록하려면 다음 중 하나를 수행하십시오.</p>
     <h4>JSON 편집기 사용</h4>
     <p>강조 표시된 속성을 추가하여 플레이어의 구성을 변경합니다 (변경 사항을 저장하십시오).</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="JSON 편집기 디버거 없음" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/player-info-modal/json-editor-no-debugger.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="JSON 편집기 디버거 없음" src="/assets/images/playback/player-info-modal/json-editor-no-debugger.png"/></figure>
     <h4>컬 사용</h4>
     <pre class="line-numbers">
 <code class="language-bash" translate="No">curl \
@@ -1124,7 +1124,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   }' \
   https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/configuration</code></pre>
     <aside class="bcls-aside bcls-aside--information">참고: 컬을 사용하여 플레이어를 변경할 때마다 플레이어를 다시 게시해야합니다. Studio에서 이 작업을 수행할 수 있습니다. 그러면 플레이어가<strong>상태</strong>열에 게시해야 하는 것으로 표시됩니다.
-      <figure class="bcls-figure"><img class="bcls-image" alt="상태 쇼를 게시해야 합니다." src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/player-info-modal/needs-to-be-published.png"/></figure>
+      <figure class="bcls-figure"><img class="bcls-image" alt="상태 쇼를 게시해야 합니다." src="/assets/images/playback/player-info-modal/needs-to-be-published.png"/></figure>
       <p>curl을 사용하여 플레이어를 게시 할 수도 있습니다.</p>
       <pre class="line-numbers">
 <code class="language-bash" translate="No">curl \
@@ -1137,7 +1137,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>방지하려면<strong> Brightcove 정보</strong>메뉴 옵션이 표시되면 다음 중 하나를 수행 할 수 있습니다.</p>
     <h4>JSON 편집기 사용</h4>
     <p>강조 표시된 속성을 추가하여 플레이어의 구성을 변경합니다 (변경 사항을 저장하십시오).</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="브라이트코브 플레이어 브랜딩이 없는 JSON 편집기" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/player-info-modal/json-editor-no-bc-branding.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="브라이트코브 플레이어 브랜딩이 없는 JSON 편집기" src="/assets/images/playback/player-info-modal/json-editor-no-bc-branding.png"/></figure>
     <h4>컬 사용</h4>
     <pre class="line-numbers">
 <code class="language-bash" translate="No">curl \
@@ -1149,7 +1149,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   }' \
   https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/configuration</code></pre>
     <aside class="bcls-aside bcls-aside--information">참고: 컬을 사용하여 플레이어를 변경할 때마다 플레이어를 다시 게시해야합니다. Studio에서 이 작업을 수행할 수 있습니다. 그러면 플레이어가<strong>상태</strong>열에 게시해야 하는 것으로 표시됩니다.
-      <figure class="bcls-figure"><img class="bcls-image" alt="상태 쇼를 게시해야 합니다." src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/player-info-modal/needs-to-be-published.png"/></figure>
+      <figure class="bcls-figure"><img class="bcls-image" alt="상태 쇼를 게시해야 합니다." src="/assets/images/playback/player-info-modal/needs-to-be-published.png"/></figure>
       <p>curl을 사용하여 플레이어를 게시 할 수도 있습니다.</p>
       <pre class="line-numbers">
 <code class="language-bash" translate="No">curl \

@@ -1089,15 +1089,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Overview">개요</h2>
     <p>도메인 제한을 통해 비디오를 볼 수있는 위치를 제한 할 수 있습니다. 그만큼<a href="https://studio.support.brightcove.com/players/configuring-player-content-restrictions.html">플레이어 콘텐츠 제한 구성</a>문서는 Video Cloud를 사용하여 도메인 제한을 적용하는 방법을 보여줍니다. 지금 읽고있는 문서는 플레이어가 도메인 제한을 사용하고 있음을 사용자에게 알리는 코드를 구현하는 방법을 알려줍니다.</p>
     <p>기본적으로 Brightcove Player는 사용자가 보려는 비디오가 도메인 제한 플레이어에 있음을 알리지 않습니다. 플레이어는 단순히 검은 화면 만 표시합니다. 콘솔을 보면 다음이 표시됩니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="도메인 제한 콘솔 오류" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/troubleshooting/domain-restrictions-messaging/domain-restrictions-error-console.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="도메인 제한 콘솔 오류" src="/assets/images/playback/troubleshooting/domain-restrictions-messaging/domain-restrictions-error-console.png"/></figure>
     <p>이것은별로 도움이되지는 않지만<strong>회로망</strong>탭을 클릭하고<strong>이름</strong>비디오 ID에 해당하는<strong>시사</strong>탭에서 더 많은 오류를 볼 수 있습니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="도메인 메시지 콘솔 네트워크 탭" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/troubleshooting/domain-restrictions-messaging/domain-restrictions-error-network.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="도메인 메시지 콘솔 네트워크 탭" src="/assets/images/playback/troubleshooting/domain-restrictions-messaging/domain-restrictions-error-network.png"/></figure>
     <p>이 문서는 사용자가 시청하려는 동영상이 도메인 제한임을 알리는 전략을 구현합니다.</p>
   </section>
   <section class="bcls-section">
     <h2 id="errorobject">플레이어 카탈로그의 오류 개체</h2>
     <p>사용자 친화적 인 메시지를 작성하는 핵심은<code translate="No">error</code> Brightcove Player의<code translate="No">catalog</code> . 도메인 제한 오류의 예는 브라우저 콘솔의 스크린 샷에 아래에 나와 있습니다. 개체에는<code translate="No">data</code>자체적으로 배열을 포함하는 속성입니다. 어레이는 카탈로그에서 비디오를로드하는 동안 발생한 마지막 오류를 보유합니다. 예에서 배열의 요소가 도메인 제한 문제를보고하는 것을 볼 수 있습니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="카탈로그 오류 개체" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/troubleshooting/domain-restrictions-messaging/domain-restrictions-catalog-error.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="카탈로그 오류 개체" src="/assets/images/playback/troubleshooting/domain-restrictions-messaging/domain-restrictions-catalog-error.png"/></figure>
   </section>
   <section class="bcls-section">
     <h2 id="bccatalogerror">bc-catalog-error 처리</h2>
@@ -1152,7 +1152,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     });
   &lt;/script&gt;</code></pre>
     <p>다음 스크린 샷은 플레이어 아래에 표시된 메시지를 보여줍니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="플레이어 아래 오류" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/troubleshooting/domain-restrictions-messaging/domain-restrictions-html-message.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="플레이어 아래 오류" src="/assets/images/playback/troubleshooting/domain-restrictions-messaging/domain-restrictions-html-message.png"/></figure>
   </section>
   <section class="bcls-section">
     <h2 id="errorplugin">오류 플러그인을 통한 메시지</h2>
@@ -1188,12 +1188,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     });
   &lt;/script&gt;</code></pre>
     <p>다음 스크린 샷은 오류 플러그인의 정의 된 오류 표시를 보여줍니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="정의 된 오류" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/troubleshooting/domain-restrictions-messaging/domain-restrictions-errors-plugin.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="정의 된 오류" src="/assets/images/playback/troubleshooting/domain-restrictions-messaging/domain-restrictions-errors-plugin.png"/></figure>
   </section>
   <section id="generalerror" class="bcls-section">
     <h2>일반 오류 표시</h2>
     <p>위의 두 섹션에서는 특히 제한된 지역에서 지역 제한 비디오를 볼 때 생성되는 오류를 표시하는 방법을 다룹니다. 일부 오류는 도메인 제한의 세부 수준을 제공하지 않습니다. 이 유형의 예제 오류 개체가 여기에 표시됩니다. 주목하십시오<strong>데이터</strong>필드가 비어있는 반면 도메인 제한 오류에는 주요 오류 정보가 포함되어 있습니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="일반 오류 개체" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/troubleshooting/domain-restrictions-messaging/domain-restrictions-general-error.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="일반 오류 개체" src="/assets/images/playback/troubleshooting/domain-restrictions-messaging/domain-restrictions-general-error.png"/></figure>
     <p>다음 코드는 정보를 표시하는 방법을 보여줍니다. <code translate="No">catalog.error</code>세부 사항 수준에 관계없이. 상위 수준에서 코드는 다음을 수행합니다.</p>
     <ul>
       <li>카탈로그 오류가 발생했는지 확인합니다.</li>
@@ -1223,7 +1223,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     });
   &lt;/script&gt;</code></pre>
     <p>다음 스크린 샷은 HTML로 표시되는 일반 오류 메시지를 보여줍니다. 물론이 문서의 이전 섹션에 표시된대로 오류 플러그인을 사용하여 메시지를 표시 할 수도 있습니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="플레이어 아래에 일반 오류 메시지 표시" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/troubleshooting/domain-restrictions-messaging/domain-restrictions-general-message.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="플레이어 아래에 일반 오류 메시지 표시" src="/assets/images/playback/troubleshooting/domain-restrictions-messaging/domain-restrictions-general-message.png"/></figure>
   </section>
 </article>
 

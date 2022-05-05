@@ -1096,7 +1096,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="player">플레이어</h2>
     <aside class="bcls-aside bcls-aside--information">참고: 이 문서는 CSS에 대한 지식과 브라우저의 개발 도구를 사용하여 HTML 요소의 클래스를보고 적용 가능한 CSS를 검사한다고 가정합니다. 필수 기본 지식이없는 경우 다음을 통해 작업하는 것이 가장 좋습니다. <a href="/styling/quick-start-player-customization-legacy-skin.html">빠른 시작: 플레이어 커스터마이징-레거시 스킨</a> .</aside>
     <p>플레이어의 모양을 변경할 수 있지만 먼저 문제를 해결할 방법이 있어야 합니다. 이를 보려면 플레이어 embed_in_page 코드가 삽입 된 HTML 페이지를 찾아보세요. 에서<strong>집단</strong>개발 도구 섹션의 첫 번째<code translate="No">&lt;div&gt;</code>값이있는 클래스가있는 것을 볼 수 있습니다. <code translate="No">video-js</code>할당 됨.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/player-elements.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="/assets/images/player-customization/1x-customize-appearance/player-elements.png"/></figure>
     <p>이 사실을 알고 나면 스타일을 사용하여 플레이어 자체를 변경할 수 있습니다. 예를 들어 플레이어의 크기를 변경하려면 다음 스타일을 사용할 수 있습니다.</p>
     <pre class="line-numbers">
 <code class="language-css" translate="No">&lt;style&gt;
@@ -1109,7 +1109,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="iframeplayer">iframe 플레이어</h2>
     <p>플레이어의 iframe 구현을 사용하는 경우 상황이 다릅니다. 여전히 플레이어가<code translate="No">video-js</code>클래스이지만 물론 iframe 내부에 있습니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="아이프레임 플레이어 요소" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/iframe-elements.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="아이프레임 플레이어 요소" src="/assets/images/player-customization/1x-customize-appearance/iframe-elements.png"/></figure>
     <p>만든 스타일은 iframe에서 플레이어와 계속 작동하지만 CSS 파일을 만들어 Studio를 사용하여 플레이어와 연결해야 합니다. 당신은<strong>플레이어</strong>모듈을 클릭 한 다음 CSS를 연결하려는 동영상을 클릭 한 다음<strong>플러그인</strong>섹션에 CSS 파일 경로를 추가하십시오.</p>
     <p>iframe 자체를 맞춤 설정하려면<code translate="No">class</code>속성<code translate="No">iframe</code>요소 (27 행). 이 경우 클래스 값은<code translate="No">videoFrame</code> . 그런 다음<code translate="No">&lt;style&gt;</code>태그를 사용하여 원하는대로 수정합니다. 아래 예에서<code translate="No">width</code>과<code translate="No">height</code>변경됩니다.</p>
     <pre class="line-numbers" data-start="10">
@@ -1138,9 +1138,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="button">재생 버튼</h2>
     <p>재생 버튼의 모양을 변경하려면 먼저 해결 방법을 알아야합니다. Chrome에서<strong>개발 도구</strong>열린 다음 버튼을 마우스 오른쪽 버튼으로 클릭하십시오. 표시되는 선택 항목에서<strong>요소를 점검하다</strong> .</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="검사 버튼" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/inspect-button-1x.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="검사 버튼" src="/assets/images/player-customization/1x-customize-appearance/inspect-button-1x.png"/></figure>
     <p>에서<strong>집단</strong>개발 도구 섹션에서 버튼 요소에 해당하는 HTML 코드를 볼 수 있습니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="빅 플레이 버튼" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/big-play-button.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="빅 플레이 버튼" src="/assets/images/player-customization/1x-customize-appearance/big-play-button.png"/></figure>
     <p>위의 강조 표시된 코드에서 버튼에 할당 된 클래스를 볼 수<code translate="No">vjs-big-play-button</code>있습니다. 재생 버튼의 색상 (호랑이와 일치) 과 불투명도는 다음 스타일로 변경됩니다.</p>
     <pre class="line-numbers" data-start="36">
 <code class="language-css" translate="No">  &lt;style&gt;
@@ -1177,7 +1177,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     }
   &lt;/style&gt;</code></pre>
     <p>다음은 진한 회색에서 오렌지색으로 버튼을 변경 한 결과입니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="주황색 재생 버튼" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/orange-play-button-1x.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="주황색 재생 버튼" src="/assets/images/player-customization/1x-customize-appearance/orange-play-button-1x.png"/></figure>
     <h3>중앙 재생 버튼</h3>
     <p>다음 스타일을 사용하여 재생 버튼을 가로 및 세로 중앙에 둘 수 있습니다.</p>
     <pre class="line-numbers" data-start="199">
@@ -1197,10 +1197,10 @@ margin: auto;</code></pre>
   <section class="bcls-section">
     <h2 id="progressvolume">진행 및 볼륨</h2>
     <p>이 문서에서 마지막으로 살펴볼 모양 사용자 지정은 진행률 및 볼륨 표시기의 색상을 변경하는 것입니다. 두 가지 기본 색상은 다음과 같이 자홍색입니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="진행 및 볼륨" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/progress-and-volume-1x.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="진행 및 볼륨" src="/assets/images/player-customization/1x-customize-appearance/progress-and-volume-1x.png"/></figure>
     <p>여기서 문제는 요소의 클래스 이름을 찾는 것입니다. 위와 동일한 기술을 사용하여 요소를 마우스 오른쪽 버튼으로 클릭하여<strong>요소를 점검하다</strong> , 전체 진행률 표시기로 이동 한 다음 드릴 다운하면<code translate="No">vjs-play-progress</code>수업.</p>
     <p>크롬에서<strong>집단</strong>패널에서 마우스를<code translate="No">div</code>클래스 이름이있는 요소<code translate="No">vjs-play-progress</code>플레이어에서 다음을 확인하려면 :</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="진행 제어" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/progress-control.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="진행 제어" src="/assets/images/player-customization/1x-customize-appearance/progress-control.png"/></figure>
     <p>Chrome의 도구는 볼륨 수준 요소를 확인할 때 유용합니다. 볼륨 버튼 위에 마우스를 올려 놓으면 (마우스 오버) 볼륨 수준 만 표시됩니다. 올바른 요소를 검사하고 찾을 때 볼륨 레벨을 표시하려면 다음 단계를 수행하십시오.</p>
     <ul>
       <li>볼륨 버튼을 마우스 오른쪽 버튼으로 클릭하고 검사하십시오.</li>
@@ -1208,7 +1208,7 @@ margin: auto;</code></pre>
       <li>을 체크하다<strong> : 호버</strong>상자 (빨간색으로 강조 표시된<strong>스타일</strong>섹션)을 통해 요소를 검사하는 동안 마우스를 시뮬레이션합니다.</li>
       <li>볼륨 레벨 요소를 찾을 때까지 드릴 다운합니다 ( <strong>집단</strong>부분)</li>
     </ul>
-    <figure class="bcls-figure"><img class="bcls-image" alt="오디오 버튼 검사" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/inspect-audio-button.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="오디오 버튼 검사" src="/assets/images/player-customization/1x-customize-appearance/inspect-audio-button.png"/></figure>
     <p>이제<code translate="No">background-color</code>이 두 요소 모두 스타일을 지정해야합니다. 버튼과 같은 색상을 원하므로 여기에 표시된대로 스타일을 변경하십시오.</p>
     <pre class="line-numbers" data-start="94">
 <code class="language-html" translate="No">  &lt;style&gt;
@@ -1227,7 +1227,7 @@ margin: auto;</code></pre>
   &lt;/style&gt;</code></pre>
     <p>각 클래스 앞에 플레이어의 ID를 붙입니다. <code translate="No">div</code>요소. 이것은 CSS 특이성과 관련하여 클래스 변경에 대한 관련성을 제공합니다. 이에 대해서는 다음 섹션에서 설명합니다.</p>
     <p>결과는 다음과 같이 나타납니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="진행 볼륨 스타일" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/progress-volume-styled-1x.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="진행 볼륨 스타일" src="/assets/images/player-customization/1x-customize-appearance/progress-volume-styled-1x.png"/></figure>
     <p>이 입문서는 플레이어 스타일링에 대해 간략히 살펴 보았습니다. 보시다시피 접근 방식은 변경하려는 요소에 해당하는 클래스 이름을 찾은 다음 스타일을 지정하는 것입니다. 에 언급 된대로 기억하십시오<strong> iframe</strong>이 문서의 섹션에서 iframe 플레이어를 사용하는 경우 스타일을 파일에 넣은 다음 curl 문을 사용하여 스타일을 플레이어와 연결해야합니다.</p>
     <p>플레이어 구성에 사용자 지정을 추가하여 최적화하고 플레이어가 내장 된 위치에 관계없이 플레이어와 함께 이동할 수 있도록하는 것이 가장 좋습니다.</p>
   </section>
@@ -1267,7 +1267,7 @@ margin: auto;</code></pre>
     <h2 id="specificity">CSS 특이성</h2>
     <p>CSS 특이성은 브라우저가 관련성에 따라 요소에 적용되는 속성 값을 결정하는 방식을 의미합니다. 이 개념에 대한 자세한 내용은<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">특이성</a>문서를 검토하십시오.</p>
     <p>Chrome에서 큰 재생 버튼을 검사합니다. <code translate="No">background</code>속성은 여러 클래스를 사용하여 설정됩니다. 즉, 이 속성을 재정의하기 위해 하나의<code translate="No">.vjs-big-play-button</code>클래스 만 사용할 수 없습니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="재생 버튼 클래스" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/play-button-classes.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="재생 버튼 클래스" src="/assets/images/player-customization/1x-customize-appearance/play-button-classes.png"/></figure>
     <p>다음은 큰 재생 버튼을 사용자 지정하는 세 가지 접근 방식입니다.</p>
     <ul>
       <li>플레이어에게 할당 된 ID를 참조하십시오.</li>
@@ -1296,7 +1296,7 @@ margin: auto;</code></pre>
     }
   &lt;/style&gt;</code></pre>
     <p>이제 큰 재생 버튼이 주황색임을 알 수 있습니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="주황색 재생 버튼" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/orange-play-button-1x.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="주황색 재생 버튼" src="/assets/images/player-customization/1x-customize-appearance/orange-play-button-1x.png"/></figure>
     <h3>여러 클래스 사용</h3>
     <p>이후<code translate="No">background</code>큰 재생 버튼의 속성은 두 개의 클래스를 사용하여 설정됩니다.이 속성을 재정의하려면 CSS 선택기에 두 개 이상의 클래스가 필요합니다.</p>
     <p><code translate="No">.video-js</code>클래스 선택기에<code translate="No">.vjs-big-play-button</code>클래스를 추가합니다. <code translate="No">.video-js</code>클래스가 비디오 컨테이너에 설정되어 있음을 기억하십시오.</p>
