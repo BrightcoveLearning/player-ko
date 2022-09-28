@@ -1,5 +1,5 @@
-﻿<!doctype html>
-<html lang="ko">
+<!doctype html>
+<html lang="en-us">
 
 <head>
   <meta charset="utf-8">
@@ -11,48 +11,50 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">  
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
   <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
   <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
   <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
   <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-2728311-17"></script>
+<script>
+  데이터 레이어 = 윈도우.데이터 레이어 || []; 함수 gtag () {dataLayer.push(arguments);} gtag ('js', 새 날짜 ()); gtag ('구성', 'UA-2728311-17');
+</script>
   <script src="/assets/js/sajari-head.js"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
 <body class="body">
 
 <header>
   <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Player_Logo.svg" alt="제품 로고" style="max-height: 100px;max-width: 232px;"/></a>
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/SVG/COVE004_Brightcove_Player_Logo_RGB_K.svg" alt="Brightcove" style="max-width: 200px;"></a>
 <!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">언어 선택</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+<select onchange="doGTranslate(this);"><option value="">언어 선택</option><option value="en|en" translate="No">영어</option><option value="en|zh-TW" translate="No">中</option><option value="en|fr" translate="No">프랑세스</option><option value="en|de" translate="No">도이치</option><option value="en|ja" translate="No">日</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">에스파뇰</option></select>
 
 <script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
+/*<![CDATA[ */ 함수 도그 번역 (lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;} /*]]> */
 </script>
 
-    
 
 
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="지원"/> 고객 지원 문의</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="시스템 상태"/> 시스템 상태</a></span> <br/>
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><i data-feather="help-circle"></i> 지원 문의</a><span style="vertical-align: middle;margin-left:1em;margin-right:1em;">| </span><a href="https://status.brightcove.com/"><i data-feather="cloud"></i> 시스템 상태</a></span>
+    <br>
     
   </div>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb arr-right">
       
-      <li class="breadcrumb-item"><a href="/">홈</a></li>
+      <li class="breadcrumb-item first-item"><a href="/">홈</a></li>
       
-      
-      
-      <li class="breadcrumb-item"><a href="/styling/">스타일링 및 모양</a></li>
+      <li class="breadcrumb-item"><a href="/styling/">Styling &amp; Appearance</a></li>
       
       <li class="breadcrumb-item active" aria-current="page">플레이어 모양 사용자 정의</li>
     </ol>
@@ -61,1042 +63,589 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <div class="container">
     <div class="row">
       <div class="col-sm-3 left-side-bar">
-        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+				<select id="site_select" class="bcls-select" style="margin-left: 1rem;">
 					<option value="">기타 브라이트코브 문서</option>
 					
-						
 							<option value="https://support.brightcove.com">설명서 홈</option>
 						
-					
+							<option value="">— 비디오 클라우드 —</option>
 						
-							<option value="https://audience.support.brightcove.com">브라이트코브 대상</option>
+							<option value="https://studio.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;비디오 클라우드 스튜디오</option>
 						
-					
+							<option value="https://player.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;브라이트코브 플레이어 개발</option>
 						
-							<option value="https://beacon.support.brightcove.com">브라이트코브 비콘</option>
+							<option value="https://apis.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;비디오 클라우드 플랫폼 API</option>
 						
-					
+							<option value="https://sdks.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;비디오 클라우드 디바이스 SDK</option>
 						
-							<option value="https://campaign.support.brightcove.com">브라이트코브 캠페인</option>
+							<option value="https://integrations.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;통합 및 CMS 커넥터</option>
 						
-					
+							<option value="https://general.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;비디오 클라우드 일반 정보</option>
 						
-							<option value="https://engage.support.brightcove.com">브라이트코브 참여</option>
+							<option value="">— 비디오 필수 —</option>
 						
-					
+							<option value="https://beacon.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;브라이트코브 비콘</option>
 						
-							<option value="https://live.support.brightcove.com">Brightcove Live</option>
+							<option value="https://live.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;브라이트코브 라이브</option>
 						
-					
+							<option value="https://zencoder.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;젠코더</option>
 						
-							<option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
+							<option value="">— 비디오 클라우드 애드온 —</option>
 						
-					
+							<option value="https://campaign.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;브라이트코브 캠페인</option>
 						
-							<option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
+							<option value="https://engage.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;브라이트코브 참여</option>
 						
-					
+							<option value="https://gallery.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;브라이트코브 갤러리</option>
 						
-							<option value="https://social.support.brightcove.com">브라이트코브 소셜</option>
+							<option value="https://studio.support.brightcove.com/social/index.html">&nbsp;&nbsp;&nbsp;&nbsp;브라이트코브 소셜</option>
 						
-					
+							<option value="https://ssai.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;브라이트코브 SSAI</option>
 						
-							<option value="https://studio.support.brightcove.com">비디오 클라우드 스튜디오</option>
-						
-					
-						
-							<option value="https://player.support.brightcove.com">브라이트코브 플레이어 개발</option>
-						
-					
-						
-							<option value="https://apis.support.brightcove.com">비디오 클라우드 플랫폼 API</option>
-						
-					
-						
-							<option value="https://sdks.support.brightcove.com">비디오 클라우드 디바이스 SDK</option>
-						
-					
-						
-							<option value="https://integrations.support.brightcove.com">통합 및 CMS 커넥터</option>
-						
-					
-						
-							<option value="https://general.support.brightcove.com">비디오 클라우드 일반 정보</option>
-						
-					
-						
-							<option value="https://zencoder.support.brightcove.com">Zencoder</option>
-						
-					
 				</select>
         <nav class="sidenav" id="side_nav">
           
-            
             <h5><a href="/index.html">홈</a></h5>
             
-          
-            
-              <h5 class="submenu-header"><a href="/getting-started/index.html">시작하기 <strong>+</strong></a></h5>
+              <h5 class="submenu-header"><a href="/getting-started/index.html"><span style="color:#8E9093">+ </span>&nbsp;&nbsp;시작하기</a></h5>
               <ul class="sidenav-submenu" style="display:none;">
                 
+                    <li><a href="/training/developer-basics-videos.html">개발자 기본 사항 비디오</a></li>
                   
-                    <li><a href="/training/developer-basics-videos.html">개발자 기본 동영상</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/what-brightcove-player.html">브라이트코브 플레이어란 무엇인가요?</a></li>
-                  
-                
+                    <li><a href="/getting-started/what-brightcove-player.html">브라이트코브 플레이어란 무엇입니까?</a></li>
                   
                     <li><a href="/getting-started/overview-brightcove-player.html">개요: 브라이트코브 플레이어</a></li>
                   
-                
-                  
                     <li><a href="/getting-started/learning-guide-video-advertising.html">학습 가이드: 비디오 광고</a></li>
-                  
-                
                   
                     <li><a href="/getting-started/overview-brightcove-player-plugins.html">개요: 브라이트코브 플레이어 플러그인</a></li>
                   
-                
-                  
                     <li><a href="/training/player-development-training-videos.html">플레이어 개발 교육 비디오</a></li>
-                  
-                
                   
                     <li><a href="/getting-started/step-step-brightcove-player.html">단계별: 브라이트코브 플레이어</a></li>
                   
-                
-                  
                     <li><a href="/getting-started/step-step-player-customization.html">단계별: 플레이어 사용자 지정</a></li>
                   
-                
-                  
-                    <li><a href="/training/training-demand-developing-brightcove-player.html">교육: 브라이트코브 플레이어를 통한 개발</a></li>
-                  
-                
+                    <li><a href="/training/training-demand-developing-brightcove-player.html">교육: 브라이트코브 플레이어와 함께 개발</a></li>
                   
                     <li><a href="/getting-started/learning-guide-using-rest-apis.html">학습 가이드: REST API 사용</a></li>
                   
-                
               </ul>
             
-          
-            
-              <h5 class="submenu-header"><a href="/basics/index.html">기본 사항 배우기 <strong>+</strong></a></h5>
+              <h5 class="submenu-header"><a href="/basics/index.html"><span style="color:#8E9093">+ </span>&nbsp;&nbsp;기본 사항 알아보기</a></h5>
               <ul class="sidenav-submenu" style="display:none;">
                 
-                  
-                    <li><a href="/basics/developer-basics-advanced-player-code.html">고급 플레이어 코드</a></li>
-                  
-                
+                    <li><a href="/basics/developer-basics-advanced-player-code.html">많은플레이어 코드</a></li>
                   
                     <li><a href="/basics/developer-basics-autoplaying-video.html">비디오 자동 재생</a></li>
                   
-                
+                    <li><a href="/basics/developer-basics-custom-plugin-converting-code.html">사용자 정의 플러그인-코드 변환</a></li>
                   
-                    <li><a href="/basics/developer-basics-custom-plugin-converting-code.html">사용자 정의 플러그인 - 코드 변환</a></li>
+                    <li><a href="/basics/developer-basics-custom-plugin-passing-data.html">사용자 정의 플러그인-데이터 전달</a></li>
                   
-                
+                    <li><a href="/basics/developer-basics-custom-plugin-using-studio.html">커스텀 플러그인-Studio 사용</a></li>
                   
-                    <li><a href="/basics/developer-basics-custom-plugin-passing-data.html">사용자 정의 플러그인 - 데이터 전달</a></li>
+                    <li><a href="/basics/developer-basics-custom-plugin-why-and-how.html">사용자 정의 플러그인-이유와 방법</a></li>
                   
-                
-                  
-                    <li><a href="/basics/developer-basics-custom-plugin-using-studio.html">사용자 정의 플러그인 - 스튜디오 사용</a></li>
-                  
-                
-                  
-                    <li><a href="/basics/developer-basics-custom-plugin-why-and-how.html">사용자 정의 플러그인 - 이유 및 방법</a></li>
-                  
-                
-                  
-                    <li><a href="/training/developer-basics-videos.html">개발자 기본 동영상</a></li>
-                  
-                
+                    <li><a href="/training/developer-basics-videos.html">개발자 기본 사항 비디오</a></li>
                   
                     <li><a href="/basics/developer-basics-generating-player-code.html">플레이어 코드 생성</a></li>
                   
-                
-                  
                     <li><a href="/basics/developer-basics-preparing-write-code.html">코드 작성 준비</a></li>
                   
-                
               </ul>
             
-          
-            
-              <h5 class="submenu-header"><a href="/references/index.html">참고 문헌 <strong>+</strong></a></h5>
+              <h5 class="submenu-header"><a href="/references/index.html"><span style="color:#8E9093">+ </span>&nbsp;&nbsp;참고문헌</a></h5>
               <ul class="sidenav-submenu" style="display:none;">
                 
+                    <li><a href="/references/brightcove-player-5-6-migration-guide.html">Brightcove Player 5-6 마이그레이션 가이드</a></li>
                   
-                    <li><a href="/references/brightcove-player-5-6-migration-guide.html">브라이트코브 플레이어 5~6회 마이그레이션 가이드</a></li>
+                    <li><a href="/brightcove-player/current-release/index.html">브라이트코브 플레이어 API 문서</a></li>
                   
-                
-                  
-                    <li><a href="https://docs.brightcove.com/brightcove-player/current-release/index.html">브라이트코브 플레이어 API 설명서 (외부 사이트)</a></li>
-                  
-                
-                  
-                    <li><a href="/references/brightcove-player-cookies.html">브라이트코브 플레이어 쿠키</a></li>
-                  
-                
+                    <li><a href="/references/brightcove-player-cookies.html">Brightcove 플레이어 쿠키</a></li>
                   
                     <li><a href="/references/brightcove-player-error-reference.html">브라이트코브 플레이어 오류 참조</a></li>
                   
-                
+                    <li><a href="https://groups.google.com/forum/embed/?place=forum/bcplayerdev#!forum/bcplayerdev">Brightcove 플레이어 발표 포럼</a></li>
                   
-                    <li><a href="https://groups.google.com/forum/embed/?place=forum/bcplayerdev#!forum/bcplayerdev">브라이트코브 플레이어 발표 포럼</a></li>
-                  
-                
-                  
-                    <li><a href="/references/brightcove-player-system-requirements.html">브라이트코브 플레이어 시스템 요구 사항</a></li>
-                  
-                
+                    <li><a href="/references/brightcove-player-system-requirements.html">Brightcove Player 시스템 요구 사항</a></li>
                   
                     <li><a href="/references/catalog-search-architecture.html">카탈로그 검색 아키텍처</a></li>
                   
-                
-                  
                     <li><a href="https://general.support.brightcove.com/general/known-issues-studio-brightcove-player-and-apis.html">알려진 문제</a></li>
-                  
-                
                   
                     <li><a href="/references/player-catalog.html">플레이어 카탈로그</a></li>
                   
-                
+                    <li><a href="/references/player-feature-support-browser.html">브라우저 별 플레이어 기능 지원</a></li>
                   
-                    <li><a href="/references/player-feature-support-browser.html">브라우저별 플레이어 기능 지원</a></li>
+                    <li><a href="/references/player-metadata-bcinfo.html">bcinfo의 플레이어 메타 데이터</a></li>
                   
-                
+                    <li><a href="/brightcove-player/current-release/Player.html">플레이어 메서드/이벤트 API</a></li>
                   
-                    <li><a href="/references/player-metadata-bcinfo.html">bcinfo의 플레이어 메타데이터</a></li>
+                    <li><a href="/references/guide-playlist-api.html">Playlist API 가이드</a></li>
                   
-                
+                    <li><a href="/references/video-metadata-mediainfo.html">미디어인포의 비디오 메타데이터</a></li>
                   
-                    <li><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html">플레이어 메소드/이벤트 API (외부 사이트)</a></li>
-                  
-                
-                  
-                    <li><a href="/references/guide-playlist-api.html">재생 목록 API 가이드</a></li>
-                  
-                
-                  
-                    <li><a href="/references/video-metadata-mediainfo.html">미디어 정보의 비디오 메타데이터</a></li>
-                  
-                
               </ul>
             
-          
-            
-              <h5 class="submenu-header"><a href="/plugins/index.html">플러그인 <strong>+</strong></a></h5>
+              <h5 class="submenu-header"><a href="/plugins/index.html"><span style="color:#8E9093">+ </span>&nbsp;&nbsp;플러그인</a></h5>
               <ul class="sidenav-submenu" style="display:none;">
                 
+                    <li><a href="/plugins/360degvr-video-plugin.html">360º 동영상</a></li>
                   
-                    <li><a href="/plugins/360degvr-video-plugin.html">360º 비디오</a></li>
+                    <li><a href="/plugins/ad-only-plugin.html">광고 만</a></li>
                   
-                
-                  
-                    <li><a href="/plugins/ad-only-plugin.html">광고 전용</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/advertising-freewheel-plugin.html">FreeWheel 플러그인을 사용한 광고</a></li>
-                  
-                
+                    <li><a href="/plugins/advertising-freewheel-plugin.html">프리휠 플러그인을 사용한 광고</a></li>
                   
                     <li><a href="/plugins/advertising-ima3-plugin.html">IMA3 플러그인을 사용한 광고</a></li>
-                  
-                
                   
                     <li><a href="/plugins/upgrading-ima3-plugin-version-3.html">IMA3 플러그인 버전 3으로 업그레이드</a></li>
                   
-                
+                    <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">SSAI를 이용한 광고</a></li>
                   
-                    <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">SSAI를 사용한 광고</a></li>
-                  
-                
+                    <li><a href="/plugins/airplay-plugin.html">에어플레이</a></li>
                   
                     <li><a href="/plugins/chromecast-plugin-brightcove-player.html">크롬캐스트</a></li>
                   
-                
-                  
-                    <li><a href="/plugins/custom-endscreen-plugin.html">사용자 정의 끝화면</a></li>
-                  
-                
+                    <li><a href="/plugins/custom-endscreen-plugin.html">커스텀 엔드 스크린</a></li>
                   
                     <li><a href="/plugins/display-error-messages-plugin.html">오류 메시지 표시</a></li>
                   
-                
+                    <li><a href="/plugins/display-thumbnail-previews-plugin.html">축소판 미리보기 표시</a></li>
                   
-                    <li><a href="/plugins/display-thumbnail-previews-plugin.html">썸네일 미리보기 표시</a></li>
+                    <li><a href="/plugins/configuring-brightcove-player-drm.html"></a></li>
                   
-                
-                  
-                    <li><a href="/plugins/configuring-brightcove-player-drm.html">DRM</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/google-tag-manager-plugin-brightcove-player.html">구글 태그 관리자</a></li>
-                  
-                
+                    <li><a href="/plugins/google-tag-manager-plugin-brightcove-player.html">구글 태그 매니저</a></li>
                   
                     <li><a href="/plugins/hls-plugin.html">HLS</a></li>
                   
-                
-                  
                     <li><a href="/plugins/live-dvrux-plugin.html">라이브 DVRUX</a></li>
                   
-                
-                  
-                    <li><a href="/plugins/display-overlay-plugin.html">오버레이</a></li>
-                  
-                
+                    <li><a href="/plugins/display-overlay-plugin.html">위에 까는 것</a></li>
                   
                     <li><a href="/plugins/overview-brightcove-player-plugins.html">개요: 플레이어 플러그인</a></li>
                   
-                
-                  
-                    <li><a href="/plugins/picture-picture-plugin-aka-floating-or-pinned.html">픽처 인 픽처</a></li>
-                  
-                
+                    <li><a href="/plugins/picture-picture-plugin-aka-floating-or-pinned.html">PIP(Picture-in-Picture)</a></li>
                   
                     <li><a href="/plugins/playerplugin-version-testing.html">플레이어/플러그인 버전 테스트</a></li>
                   
-                
+                    <li><a href="/plugins/playlist-endscreen-plugin.html">재생 목록 최종 화면</a></li>
                   
                     <li><a href="/plugins/playlist-ui-plugin.html">재생 목록 UI</a></li>
                   
-                
-                  
-                    <li><a href="/plugins/changelog/index.html">플러그인 변경로그</a></li>
-                  
-                
+                    <li><a href="/plugins/changelog/index.html">플러그인 변경 로그</a></li>
                   
                     <li><a href="/plugins/plugin-registry.html">플러그인 레지스트리</a></li>
                   
-                
-                  
                     <li><a href="/plugins/plugin-version-reference.html">플러그인 버전 참조</a></li>
-                  
-                
                   
                     <li><a href="/plugins/quality-selection-plugin.html">품질 선택</a></li>
                   
-                
-                  
                     <li><a href="/plugins/social-sharing-plugin.html">소셜 미디어</a></li>
                   
-                
+                    <li><a href="/plugins/tealium-plugin-brightcove-player.html">Tealium 태그 관리자</a></li>
                   
-                    <li><a href="/plugins/tealium-plugin-brightcove-player.html">티리움 태그 관리자</a></li>
-                  
-                
+                    <li><a href="/plugins/thumbnails-plugin.html">썸네일 찾기</a></li>
                   
                     <li><a href="/plugins/video-seo-schema-generator-plugin.html">비디오 SEO 스키마 생성기</a></li>
                   
-                
               </ul>
             
-          
-            
-              <h5 class="submenu-header"><a href="/advertising/index.html">광고 <strong>+</strong></a></h5>
+              <h5 class="submenu-header"><a href="/advertising/index.html"><span style="color:#8E9093">+ </span>&nbsp;&nbsp;광고</a></h5>
               <ul class="sidenav-submenu" style="display:none;">
                 
-                  
                     <li><a href="/advertising/ad-events-and-ad-objects.html">광고 이벤트 및 광고 개체</a></li>
-                  
-                
                   
                     <li><a href="/plugins/ad-only-plugin.html">광고 전용 플러그인</a></li>
                   
-                
-                  
-                    <li><a href="/plugins/advertising-freewheel-plugin.html">FreeWheel 플러그인을 사용한 광고</a></li>
-                  
-                
+                    <li><a href="/plugins/advertising-freewheel-plugin.html">프리휠 플러그인을 사용한 광고</a></li>
                   
                     <li><a href="/plugins/advertising-ima3-plugin.html">IMA3 플러그인을 사용한 광고</a></li>
                   
-                
-                  
-                    <li><a href="/advertising/client-side-preroll-with-live-ssai.html">라이브 SSAI를 통한 클라이언트측 프리롤 광고</a></li>
-                  
-                
+                    <li><a href="/advertising/client-side-preroll-with-live-ssai.html">라이브 SSAI를 사용한 클라이언트 측 프리롤 광고</a></li>
                   
                     <li><a href="/advertising/displaying-ads-using-ad-cue-points.html">광고 큐 포인트를 사용하여 광고 표시</a></li>
                   
-                
-                  
-                    <li><a href="/advertising/flash-no-longer-valid-ima.html">플래시가 IMA에서 더 이상 유효하지 않음</a></li>
-                  
-                
+                    <li><a href="/advertising/flash-no-longer-valid-ima.html">IMA에서 더 이상 유효하지 않은 플래시</a></li>
                   
                     <li><a href="/advertising/guide-ad-partner-integration.html">가이드: 광고 파트너 통합</a></li>
                   
-                
+                    <li><a href="/advertising/guide-contrib-ads-migration.html">가이드: 기여 광고 마이그레이션</a></li>
                   
-                    <li><a href="/advertising/guide-contrib-ads-migration.html">가이드: 컨트리브 광고 마이그레이션</a></li>
+                    <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">Brightcove Player로 SSAI 구현</a></li>
                   
-                
+                    <li><a href="/advertising/jump-start-header-bidding-ad.html">점프 스타트: 헤더 입찰 광고</a></li>
                   
-                    <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">브라이트코브 플레이어로 SSAI를 구현하기</a></li>
+                    <li><a href="/advertising/jump-start-outstream-ad.html">점프 스타트: 아웃 스트림 광고</a></li>
                   
-                
+                    <li><a href="/advertising/jump-start-pre-roll-ad.html">점프 스타트: 프리 롤 광고</a></li>
                   
-                    <li><a href="/advertising/jump-start-header-bidding-ad.html">점프 시작: 헤더 입찰 광고</a></li>
-                  
-                
-                  
-                    <li><a href="/advertising/jump-start-outstream-ad.html">점프 시작: 아웃스트림 광고</a></li>
-                  
-                
-                  
-                    <li><a href="/advertising/jump-start-pre-roll-ad.html">점프 시작: 프리롤 광고</a></li>
-                  
-                
-                  
-                    <li><a href="/advertising/known-issues-server-side-ad-insertion-ssai.html">알려진 문제: 서버 측 광고 삽입 (SSAI)</a></li>
-                  
-                
+                    <li><a href="/advertising/known-issues-server-side-ad-insertion-ssai.html">알려진 문제: 서버 측 광고 삽입(SSAI)</a></li>
                   
                     <li><a href="/getting-started/learning-guide-video-advertising.html">학습 가이드: 비디오 광고</a></li>
                   
-                
-                  
                     <li><a href="/advertising/step-step-implementing-advertising.html">단계별: 광고 구현</a></li>
-                  
-                
                   
                     <li><a href="/advertising/testing-pre-release-advertising-plugins.html">출시 전 광고 플러그인 테스트</a></li>
                   
-                
+                    <li><a href="/advertising/using-dfp-premium-brightcove-player.html">Brightcove Player와 함께 DFP Premium 사용</a></li>
                   
-                    <li><a href="/advertising/using-dfp-premium-brightcove-player.html">브라이트코브 플레이어에서 DFP 프리미엄 사용</a></li>
+                    <li><a href="/advertising/using-player-enhancements-live-ssai-brightcove-player.html">Live SSAI에 대한 플레이어 향상 기능 사용</a></li>
                   
-                
+                    <li><a href="/advertising/video-cloud-ssai-ad-tag-validation.html">Video Cloud SSAI 광고 태그 유효성 검사</a></li>
                   
-                    <li><a href="/advertising/using-player-enhancements-live-ssai-brightcove-player.html">라이브 SSAI와 고급 플레이어 툴킷 사용</a></li>
-                  
-                
-                  
-                    <li><a href="/advertising/video-cloud-ssai-ad-tag-validation.html">비디오 클라우드 SSAI광고 태그 유효성 검사</a></li>
-                  
-                
               </ul>
             
-          
-            
-              <h5 class="submenu-header"><a href="/publish/index.html">비디오 및 플레이어 퍼블리싱 <strong>+</strong></a></h5>
+              <h5 class="submenu-header"><a href="/publish/index.html"><span style="color:#8E9093">+ </span>&nbsp;&nbsp;비디오 및 플레이어 게시</a></h5>
               <ul class="sidenav-submenu" style="display:none;">
                 
-                  
                     <li><a href="/publish/assigning-video-player-programmatically.html">프로그래밍 방식으로 플레이어에 비디오 할당</a></li>
                   
-                
+                    <li><a href="/publish/available-options-advanced-page-embed-code.html">고급 (인 페이지) 임베드 코드 옵션</a></li>
                   
-                    <li><a href="/publish/available-options-advanced-page-embed-code.html">고급 (페이지 내) 포함 코드에 사용할 수 있는 옵션</a></li>
-                  
-                
-                  
-                    <li><a href="/publish/available-options-standard-iframe-embed-code.html">표준 (iframe) 포함 코드에 사용할 수 있는 옵션</a></li>
-                  
-                
+                    <li><a href="/publish/available-options-standard-iframe-embed-code.html">표준 (iframe) 임베드 코드 옵션</a></li>
                   
                     <li><a href="/publish/brightcove-player-loader.html">브라이트코브 플레이어 로더</a></li>
                   
-                
-                  
-                    <li><a href="/publish/bulk-updating-brightcove-default-player.html">브라이트코브 기본 플레이어 대량 업데이트</a></li>
-                  
-                
+                    <li><a href="/publish/bulk-updating-brightcove-default-player.html">Brightcove 기본 플레이어 대량 업데이트</a></li>
                   
                     <li><a href="https://studio.support.brightcove.com/publish/choosing-correct-embed-code.html">올바른 임베드 코드 선택</a></li>
                   
-                
-                  
                     <li><a href="/publish/delaying-player-instantiation.html">플레이어 인스턴스화 지연</a></li>
                   
-                
-                  
-                    <li><a href="/publish/pre-release-player.html">프리릴리즈 플레이어</a></li>
-                  
-                
+                    <li><a href="/publish/pre-release-player.html">시험판 플레이어</a></li>
                   
                     <li><a href="/publish/syndication-strategies.html">신디케이션 전략</a></li>
                   
-                
-                  
-                    <li><a href="/publish/using-non-brightcove-player.html">브라이트코브가 아닌 플레이어 사용</a></li>
-                  
-                
+                    <li><a href="/publish/using-non-brightcove-player.html">비 Brightcove 플레이어 사용</a></li>
                   
                     <li><a href="https://studio.support.brightcove.com/publish/using-multiple-players-one-page.html">한 페이지에서 여러 플레이어 사용</a></li>
                   
-                
-                  
                     <li><a href="https://studio.support.brightcove.com/publish/using-reference-ids.html">참조 ID 사용</a></li>
                   
-                
+                    <li><a href="">비디오 변환 검사기</a></li>
                   
-                    <li><a href="">비디오 변환 관리자</a></li>
-                  
-                
               </ul>
             
-          
-            
-              <h5 class="submenu-header"><a href="/troubleshooting/index.html">문제 해결 <strong>+</strong></a></h5>
+              <h5 class="submenu-header"><a href="/troubleshooting/index.html"><span style="color:#8E9093">+ </span>&nbsp;&nbsp;문제 해결</a></h5>
               <ul class="sidenav-submenu" style="display:none;">
                 
-                  
                     <li><a href="/troubleshooting/brightcove-playback-technology-app.html">브라이트코브 재생 기술 앱</a></li>
-                  
-                
                   
                     <li><a href="/references/brightcove-player-error-reference.html">브라이트코브 플레이어 오류 참조</a></li>
                   
-                
+                    <li><a href="/troubleshooting/brightcove-player-information-modal.html">Brightcove 플레이어 정보 모달</a></li>
                   
-                    <li><a href="/troubleshooting/brightcove-player-information-modal.html">브라이트코브 플레이어 정보 모달</a></li>
+                    <li><a href="/troubleshooting/brightcove-player-troubleshooting-guide.html">Brightcove Player 문제 해결 가이드</a></li>
                   
-                
+                    <li><a href="/troubleshooting/creating-charles-log.html">Charles Log 생성</a></li>
                   
-                    <li><a href="/troubleshooting/brightcove-player-troubleshooting-guide.html">브라이트코브 플레이어 문제 해결 가이드</a></li>
+                    <li><a href="/troubleshooting/creating-network-log.html">네트워크 로그 생성</a></li>
                   
-                
-                  
-                    <li><a href="/troubleshooting/creating-charles-log.html">찰스 로그 생성</a></li>
-                  
-                
-                  
-                    <li><a href="/troubleshooting/creating-network-log.html">네트워크 로그 작성</a></li>
-                  
-                
-                  
-                    <li><a href="/troubleshooting/domain-restrictions-messaging.html">도메인 제한 사항 메시징</a></li>
-                  
-                
+                    <li><a href="/troubleshooting/domain-restrictions-messaging.html">도메인 제한 메시징</a></li>
                   
                     <li><a href="/plugins/display-error-messages-plugin.html">오류 메시지 플러그인 표시</a></li>
                   
-                
-                  
-                    <li><a href="/troubleshooting/manually-setting-player-version.html">수동으로 플레이어 버전 설정</a></li>
-                  
-                
+                    <li><a href="/troubleshooting/manually-setting-player-version.html">플레이어 버전 수동 설정</a></li>
                   
                     <li><a href="/plugins/playerplugin-version-testing.html">플레이어/플러그인 버전 테스트</a></li>
                   
-                
+                    <li><a href="/troubleshooting/player-informational-properties.html">플레이어 정보 속성</a></li>
                   
-                    <li><a href="/troubleshooting/player-informational-properties.html">플레이어 정보 등록 정보</a></li>
+                    <li><a href="/code-samples/brightcove-player-sample-live-custom-error-message.html">견본: 실시간 사용자 지정 오류 메시지</a></li>
                   
-                
-                  
-                    <li><a href="/code-samples/brightcove-player-sample-live-custom-error-message.html">샘플: 실시간 사용자 지정 오류 메시지</a></li>
-                  
-                
-                  
-                    <li><a href="/troubleshooting/step-step-brightcove-player-debugger.html">단계별: 브라이트코브 플레이어</a></li>
-                  
-                
+                    <li><a href="/troubleshooting/step-step-brightcove-player-debugger.html">단계별: Brightcove 플레이어 디버거</a></li>
                   
                     <li><a href="/troubleshooting/running-network-path-trace.html">네트워크 경로 추적 실행</a></li>
                   
-                
-                  
                     <li><a href="/troubleshooting/using-player-reference.html">플레이어 참조 사용</a></li>
                   
-                
-                  
-                    <li><a href="/troubleshooting/vetting-brightcove-player-releases.html">브라이트코브 플레이어 출시 심사</a></li>
-                  
-                
+                    <li><a href="/troubleshooting/vetting-brightcove-player-releases.html">Brightcove Player 릴리스 검토</a></li>
                   
                     <li><a href="/troubleshooting/viewing-player-configuration.html">플레이어 구성 보기</a></li>
                   
-                
               </ul>
             
-          
-            
-              <h5 class="submenu-header"><a href="/styling/index.html">스타일 &amp; 모양 <strong>+</strong></a></h5>
+              <h5 class="submenu-header"><a href="/styling/index.html"><span style="color:#8E9093">+ </span>&nbsp;&nbsp;스타일링 및 외관</a></h5>
               <ul class="sidenav-submenu" style="display:none;">
                 
+                    <li><a href="/styling/customizing-player-appearance.html">플레이어 모양 사용자 지정</a></li>
                   
-                    <li><a href="/styling/customizing-player-appearance.html">플레이어 모양 사용자 정의</a></li>
-                  
-                
-                  
-                    <li><a href="/styling/customizing-player-appearance-legacy-skin.html">플레이어 모양 커스터마이징 - 레거시 스킨</a></li>
-                  
-                
+                    <li><a href="/styling/customizing-player-appearance-legacy-skin.html">플레이어 모양 사용자 지정-레거시 스킨</a></li>
                   
                     <li><a href="/styling/brightcove-player-sample-player-styling-playground.html">플레이어 스타일링 놀이터</a></li>
                   
-                
-                  
-                    <li><a href="/styling/quick-start-player-customization-legacy-skin.html">빠른 시작: 플레이어 커스터마이징 - 레거시 스킨</a></li>
-                  
-                
+                    <li><a href="/styling/quick-start-player-customization-legacy-skin.html">빠른 시작: 플레이어 커스터마이징-레거시 스킨</a></li>
                   
                     <li><a href="/getting-started/step-step-player-customization.html">단계별: 플레이어 사용자 지정</a></li>
                   
-                
-                  
-                    <li><a href="/styling/responsive-sizing-brightcove-player.html">브라이트코브 플레이어를 위한 반응형 크기 조정</a></li>
-                  
-                
+                    <li><a href="/styling/responsive-sizing-brightcove-player.html">Brightcove 플레이어를위한 반응 형 크기 조정</a></li>
                   
                     <li><a href="/styling/sizing-player.html">플레이어 크기 조정</a></li>
                   
-                
-                  
                     <li><a href="/styling/skins-and-player-versions.html">스킨 및 플레이어 버전</a></li>
                   
-                
+                    <li><a href="https://studio.support.brightcove.com/media/styling-captions.html">스타일링 캡션</a></li>
                   
-                    <li><a href="https://studio.support.brightcove.com/media/styling-captions.html">캡션 스타일 지정</a></li>
+                    <li><a href="/styling/styling-playlists.html">재생목록 스타일링</a></li>
                   
-                
-                  
-                    <li><a href="/styling/styling-playlists.html">재생 목록 스타일 지정</a></li>
-                  
-                
               </ul>
             
-          
-            
-              <h5 class="submenu-header"><a href="/playback/index.html">재생 <strong>+</strong></a></h5>
+              <h5 class="submenu-header"><a href="/playback/index.html"><span style="color:#8E9093">+ </span>&nbsp;&nbsp;재생</a></h5>
               <ul class="sidenav-submenu" style="display:none;">
                 
-                  
-                    <li><a href="/playback/autoplay-considerations.html">자동 실행 고려 사항</a></li>
-                  
-                
+                    <li><a href="/playback/autoplay-considerations.html">자동 재생 고려 사항</a></li>
                   
                     <li><a href="/troubleshooting/brightcove-playback-technology-app.html">브라이트코브 재생 기술 앱</a></li>
                   
-                
+                    <li><a href="/playback/china-delivery-with-bcp.html">중국 배달</a></li>
                   
-                    <li><a href="/playback/xdr-with-bcplayer.html">브라이트코브 플레이어로 장치 간 재개</a></li>
+                    <li><a href="/playback/xdr-with-bcplayer.html">교차 기기 이력서</a></li>
                   
-                
-                  
-                    <li><a href="https://studio.support.brightcove.com/publish/deep-linking.html">딥 링크</a></li>
-                  
-                
+                    <li><a href="https://studio.support.brightcove.com/publish/deep-linking.html">딥 링킹</a></li>
                   
                     <li><a href="/playback/delivering-hls-video.html">HLS 비디오 제공</a></li>
                   
-                
+                    <li><a href="/playback/using-delivery-rules-with-bcp.html">배달 규칙</a></li>
                   
-                    <li><a href="/playback/determining-which-rendition-will-play.html">재생할 변환 결정</a></li>
+                    <li><a href="/playback/determining-which-rendition-will-play.html">재생할 렌 디션 결정</a></li>
                   
-                
+                    <li><a href="/playback/forensic-watermarking-with-bcp.html">포렌식 워터마킹</a></li>
                   
                     <li><a href="/playback/guide-playback-technology.html">가이드: 재생 기술</a></li>
-                  
-                
                   
                     <li><a href="/plugins/hls-plugin.html">HLS 플러그인</a></li>
                   
-                
+                    <li><a href="/playback/ios-and-brightcove-player.html">iOS 및 Brightcove Player</a></li>
                   
-                    <li><a href="/playback/ios-and-brightcove-player.html">iOS 및 브라이트코브 플레이어</a></li>
-                  
-                
+                    <li><a href="/playback/playback-restrictions-with-bcp.html">재생 제한</a></li>
                   
                     <li><a href="/playback/overview-https-support.html">개요: HTTPS 지원</a></li>
-                  
-                
                   
                     <li><a href="/plugins/quality-selection-plugin.html">품질 선택 플러그인</a></li>
                   
-                
+                    <li><a href="/playback/static-url-delivery.html">정적 URL 전달</a></li>
                   
-                    <li><a href="/playback/static-url-delivery.html">정적 URL 전송</a></li>
+                    <li><a href="/playback/streaming-playready-protected-content-dynamic-delivery.html">PlayReady 보호 콘텐츠 스트리밍</a></li>
                   
-                
+                    <li><a href="/playback/using-brightcove-player-tve.html">TVE 용 Brightcove Player 사용</a></li>
                   
-                    <li><a href="/playback/streaming-playready-protected-content-dynamic-delivery.html">재생 준비 상태로 보호된 콘텐츠 스트리밍</a></li>
-                  
-                
-                  
-                    <li><a href="/playback/using-brightcove-player-tve.html">TVE에 브라이트코브 플레이어 사용하기</a></li>
-                  
-                
               </ul>
             
-          
-            
-              <h5 class="submenu-header"><a href="/content-protection/index.html">DRM 및 콘텐츠 보호 <strong>+</strong></a></h5>
+              <h5 class="submenu-header"><a href="/content-protection/index.html"><span style="color:#8E9093">+ </span>&nbsp;&nbsp;DRM 및 콘텐츠 보호</a></h5>
               <ul class="sidenav-submenu" style="display:none;">
                 
-                  
                     <li><a href="https://studio.support.brightcove.com/players/configuring-player-content-restrictions.html">플레이어 콘텐츠 제한 구성</a></li>
                   
-                
+                    <li><a href="/content-protection/creating-dash-drm-manifest-brightcove-player.html">Brightcove 플레이어 용 DASH DRM 매니페스트 생성</a></li>
                   
-                    <li><a href="/content-protection/creating-dash-drm-manifest-brightcove-player.html">브라이트코브 플레이어를 위한 DASH DRM 매니페스트 만들기</a></li>
-                  
-                
-                  
-                    <li><a href="/troubleshooting/domain-restrictions-messaging.html">도메인 제한 사항 메시징</a></li>
-                  
-                
+                    <li><a href="/troubleshooting/domain-restrictions-messaging.html">도메인 제한 메시징</a></li>
                   
                     <li><a href="/plugins/configuring-brightcove-player-drm.html">DRM 플러그인</a></li>
                   
-                
-                  
-                    <li><a href="/content-protection/overview-content-protection.html">개요: 컨텐츠 보호</a></li>
-                  
-                
+                    <li><a href="/content-protection/overview-content-protection.html">개요: 콘텐츠 보호</a></li>
                   
                     <li><a href="/content-protection/policy-keys.html">정책 키</a></li>
                   
-                
-                  
                     <li><a href="/content-protection/restricting-video-playback-using-ip-address.html">IP 주소를 사용하여 비디오 재생 제한</a></li>
                   
-                
+                    <li><a href="/content-protection/signed-urls-and-token-auth-live-stream.html">라이브 스트림을 통한 서명된 URL 및 토큰 인증</a></li>
                   
-                    <li><a href="/content-protection/signed-urls-and-token-auth-live-stream.html">라이브 스트림으로 서명된 URL 및 토큰 인증</a></li>
-                  
-                
               </ul>
             
-          
-            
-              <h5 class="submenu-header"><a href="/coding-topics/index.html">주제 코딩 <strong>+</strong></a></h5>
+              <h5 class="submenu-header"><a href="/coding-topics/index.html"><span style="color:#8E9093">+ </span>&nbsp;&nbsp;코딩 주제</a></h5>
               <ul class="sidenav-submenu" style="display:none;">
                 
-                  
                     <li><a href="/publish/brightcove-player-loader.html">브라이트코브 플레이어 로더</a></li>
-                  
-                
                   
                     <li><a href="/references/catalog-search-architecture.html">카탈로그 검색 업그레이드</a></li>
                   
-                
-                  
-                    <li><a href="/code-samples/brightcove-player-sample-trigger-rewind-custom-event.html">사용자 정의 이벤트</a></li>
-                  
-                
+                    <li><a href="/code-samples/brightcove-player-sample-trigger-rewind-custom-event.html">맞춤 이벤트</a></li>
                   
                     <li><a href="/playback/guide-playback-technology.html">가이드: 재생 기술</a></li>
                   
-                
-                  
-                    <li><a href="/coding-topics/programmatically-localizing-brightcove-player.html">브라이트코브 플레이어 현지화</a></li>
-                  
-                
+                    <li><a href="/coding-topics/programmatically-localizing-brightcove-player.html">Brightcove Player 현지화</a></li>
                   
                     <li><a href="/coding-topics/localizing-plugins.html">플러그인 현지화</a></li>
                   
-                
-                  
                     <li><a href="/coding-topics/player-events.html">플레이어 이벤트</a></li>
                   
-                
-                  
-                    <li><a href="/coding-topics/overview-components.html">개요: 구성 요소</a></li>
-                  
-                
+                    <li><a href="/coding-topics/overview-components.html">개요: 구성품</a></li>
                   
                     <li><a href="/playback/overview-https-support.html">개요: HTTPS 지원</a></li>
                   
-                
-                  
                     <li><a href="/coding-topics/overview-player-api.html">개요: 플레이어 API</a></li>
-                  
-                
                   
                     <li><a href="/coding-topics/pass-data-plugin.html">플러그인에 데이터 전달</a></li>
                   
-                
+                    <li><a href="/coding-topics/react-player-loader.html">React Player 로더</a></li>
                   
-                    <li><a href="/coding-topics/react-player-loader.html">플레이어 로더 반응</a></li>
+                    <li><a href="/coding-topics/reporting-brightcove-player-configurations.html">Brightcove 플레이어 구성에 대한보고</a></li>
                   
-                
+                    <li><a href="/coding-topics/requirejs-and-brightcove-player.html">요구 사항 JS 및 브라이트코브 플레이어</a></li>
                   
-                    <li><a href="/coding-topics/reporting-brightcove-player-configurations.html">브라이트코브 플레이어 구성에 대한 보고</a></li>
-                  
-                
-                  
-                    <li><a href="/coding-topics/requirejs-and-brightcove-player.html">요구 사항 및 브라이트코브 플레이어</a></li>
-                  
-                
+                    <li><a href="/coding-topics/retrieve-bitrate-current-rendition.html">현재 변환의 비트 전송률 검색</a></li>
                   
                     <li><a href="/coding-topics/step-step-plugin-development.html">단계별: 플러그인 개발</a></li>
                   
-                
-                  
                     <li><a href="/coding-topics/step-step-videojs-plugin-generator.html">단계별: Video.js 플러그인 생성기</a></li>
                   
-                
-                  
-                    <li><a href="/coding-topics/using-bc-and-getplayer-methods.html">BC () 및 getPlayer () 메소드를 사용하여</a></li>
-                  
-                
+                    <li><a href="/coding-topics/using-bc-and-getplayer-methods.html">bc () 및 getPlayer () 메서드 사용</a></li>
                   
                     <li><a href="/troubleshooting/viewing-player-configuration.html">플레이어 구성 보기</a></li>
                   
-                
               </ul>
             
-          
-            
-              <h5 class="submenu-header"><a href="/general/index.html">일반 정보 <strong>+</strong></a></h5>
+              <h5 class="submenu-header"><a href="/general/index.html"><span style="color:#8E9093">+ </span>&nbsp;&nbsp;일반 정보</a></h5>
               <ul class="sidenav-submenu" style="display:none;">
                 
+                    <li><a href="https://studio.support.brightcove.com/publish/adding-application-id-player-embed-code.html">플레이어 임베드 코드에 애플리케이션 ID 추가</a></li>
                   
-                    <li><a href="https://studio.support.brightcove.com/publish/adding-application-id-player-embed-code.html">플레이어 임베드 코드에 응용 프로그램 ID 추가</a></li>
+                    <li><a href="/general/adding-captions-videos-programmatically.html">프로그래밍 방식으로 동영상에 캡션 추가</a></li>
                   
-                
+                    <li><a href="https://studio.support.brightcove.com/media/adding-chapters-video.html">비디오에 챕터 추가</a></li>
                   
-                    <li><a href="/general/adding-captions-videos-programmatically.html">프로그래밍 방식으로 비디오에 캡션 추가</a></li>
+                    <li><a href="/general/brightcove-player-6-now-default-version.html">Brightcove Player 6 이제 기본 버전</a></li>
                   
-                
+                    <li><a href="/general/brightcove-player-accessibility.html">Brightcove 플레이어 접근성</a></li>
                   
-                    <li><a href="https://studio.support.brightcove.com/media/adding-chapters-video.html">비디오에 장 추가</a></li>
+                    <li><a href="/plugins/custom-endscreen-plugin.html">사용자 지정 엔드 스크린 플러그인</a></li>
                   
-                
+                    <li><a href="/plugins/display-overlay-plugin.html">디스플레이 오버레이 플러그인</a></li>
                   
-                    <li><a href="/general/brightcove-player-6-now-default-version.html">브라이트코브 플레이어 6 이제 기본 버전</a></li>
-                  
-                
-                  
-                    <li><a href="/general/brightcove-player-accessibility.html">브라이트코브 플레이어 손쉬운</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/custom-endscreen-plugin.html">사용자 정의 엔드 스크린 플러그인</a></li>
-                  
-                
-                  
-                    <li><a href="/plugins/display-overlay-plugin.html">오버레이 플러그인 표시</a></li>
-                  
-                
+                    <li><a href="/general/ga-self-configure.html">Google 웹 로그 분석 자체 구성</a></li>
                   
                     <li><a href="/references/guide-playlist-api.html">가이드: 재생 목록 API</a></li>
                   
-                
-                  
-                    <li><a href="/general/identify-and-delete-low-performing-videos.html">실적이 낮은 비디오 식별 및 삭제</a></li>
-                  
-                
+                    <li><a href="/general/identify-and-delete-low-performing-videos.html">저 성능 비디오 식별 및 삭제</a></li>
                   
                     <li><a href="/general/implementing-cue-points-programmatically.html">프로그래밍 방식으로 큐 포인트 구현</a></li>
                   
-                
-                  
                     <li><a href="/general/implementing-playlists.html">재생 목록 구현</a></li>
                   
-                
-                  
-                    <li><a href="/general/implementing-modaldialog.html">모달 대화 상자 구현하기</a></li>
-                  
-                
+                    <li><a href="/general/implementing-modaldialog.html">ModalDialog 구현</a></li>
                   
                     <li><a href="/general/live-hls.html">라이브 HLS</a></li>
                   
-                
-                  
                     <li><a href="/general/live-stream-configuration.html">라이브 스트림 구성</a></li>
-                  
-                
                   
                     <li><a href="/general/multiple-audio-tracks.html">다중 오디오 트랙</a></li>
                   
-                
-                  
                     <li><a href="/general/player-configuration-guide.html">플레이어 구성 가이드</a></li>
-                  
-                
                   
                     <li><a href="/general/playing-live-streams.html">라이브 스트림 재생</a></li>
                   
-                
+                    <li><a href="/plugins/playlist-ui-plugin.html">재생목록 UI 플러그인</a></li>
                   
-                    <li><a href="/plugins/playlist-ui-plugin.html">재생 목록 UI 플러그인</a></li>
-                  
-                
-                  
-                    <li><a href="/content-protection/signed-urls-and-token-auth-live-stream.html">라이브 스트림으로 서명된 URL 및 토큰 인증</a></li>
-                  
-                
+                    <li><a href="/content-protection/signed-urls-and-token-auth-live-stream.html">라이브 스트림을 통한 서명된 URL 및 토큰 인증</a></li>
                   
                     <li><a href="/plugins/social-sharing-plugin.html">소셜 미디어 플러그인</a></li>
                   
-                
-                  
                     <li><a href="https://apis.support.brightcove.com/player-management/getting-started/step-step-player-management.html">단계별: 플레이어 관리</a></li>
                   
-                
+                    <li><a href="/styling/styling-playlists.html">재생목록 스타일링</a></li>
                   
-                    <li><a href="/styling/styling-playlists.html">재생 목록 스타일 지정</a></li>
+                    <li><a href="/general/using-screen-reader-brightcove-player.html">Brightcove Player와 함께 화면 판독기 사용</a></li>
                   
-                
+                    <li><a href="/general/versions-brightcove-player-documentation.html">Brightcove Player 문서 버전</a></li>
                   
-                    <li><a href="/general/using-screen-reader-brightcove-player.html">브라이트코브 플레이어에서 화면 판독기 사용</a></li>
+                    <li><a href="/general/volume-control.html">볼륨 조절</a></li>
                   
-                
-                  
-                    <li><a href="/general/versions-brightcove-player-documentation.html">브라이트코브 플레이어 설명서 버전</a></li>
-                  
-                
-                  
-                    <li><a href="/general/volume-control.html">볼륨 컨트롤</a></li>
-                  
-                
               </ul>
             
-          
-            
-              <h5 class="submenu-header"><a href="/code-samples/index.html">코드 샘플 <strong>+</strong></a></h5>
+              <h5 class="submenu-header"><a href="/code-samples/index.html"><span style="color:#8E9093">+ </span>&nbsp;&nbsp;코드 샘플</a></h5>
               <ul class="sidenav-submenu" style="display:none;">
                 
+                    <li><a href="/code-samples/index-thumb.html">그룹 별 코드 샘플</a></li>
                   
-                    <li><a href="/code-samples/index-thumb.html">그룹별 코드 샘플</a></li>
+                    <li><a href="/code-samples/index.html">코드 샘플 색인</a></li>
                   
-                
-                  
-                    <li><a href="/code-samples/index.html">코드 샘플 인덱스</a></li>
-                  
-                
               </ul>
             
-          
-            
-              <h5 class="submenu-header"><a href="/amp/index.html">AMP <strong>+</strong></a></h5>
+              <h5 class="submenu-header"><a href="/amp/index.html"><span style="color:#8E9093">+ </span>&nbsp;&nbsp;앰프</a></h5>
               <ul class="sidenav-submenu" style="display:none;">
                 
-                  
-                    <li><a href="/amp/amp-using-video-cloud-video.html">비디오 클라우드 비디오 사용 AMP</a></li>
-                  
-                
+                    <li><a href="/amp/amp-using-video-cloud-video.html">비디오 클라우드 비디오를 사용하는 AMP</a></li>
                   
                     <li><a href="/amp/amp-using-external-video.html">외부 비디오를 사용하는 AMP</a></li>
                   
-                
+                    <li><a href="/amp/amp-and-advertising.html">AMP 및 광고</a></li>
+                  
               </ul>
             
-          
-            
-              <h5 class="submenu-header"><a href="/training/index.html">교육 <strong>+</strong></a></h5>
+              <h5 class="submenu-header"><a href="/training/index.html"><span style="color:#8E9093">+ </span>&nbsp;&nbsp;훈련</a></h5>
               <ul class="sidenav-submenu" style="display:none;">
                 
-                  
                     <li><a href="/training/online-training-courses.html">모든 온라인 교육 과정</a></li>
                   
-                
-                  
-                    <li><a href="/training/developer-basics-videos.html">개발자 기본 동영상</a></li>
-                  
-                
+                    <li><a href="/training/developer-basics-videos.html">개발자 기본 사항 비디오</a></li>
                   
                     <li><a href="/training/player-development-training-videos.html">플레이어 개발 교육 비디오</a></li>
                   
-                
+                    <li><a href="/training/register-training.html">강사 주도 교육 등록</a></li>
                   
-                    <li><a href="/training/register-training.html">강사 주도식 교육 등록</a></li>
+                    <li><a href="/training/training-demand-developing-brightcove-player.html">교육: 브라이트코브 플레이어와 함께 개발</a></li>
                   
-                
-                  
-                    <li><a href="/training/training-demand-developing-brightcove-player.html">교육: 브라이트코브 플레이어를 통한 개발</a></li>
-                  
-                
-                  
-                    <li><a href="https://apis.support.brightcove.com/player-management/getting-started/training-demand-quick-start-player-management.html">교육: 플레이어 관리 빠른 시작</a></li>
-                  
-                
+                    <li><a href="https://apis.support.brightcove.com/player-management/getting-started/training-demand-quick-start-player-management.html">교육: 플레이어 관리로 빠른 시작</a></li>
                   
                     <li><a href="/training/brightcove-university.html">브라이트코브 대학교 교육 과정</a></li>
                   
-                
               </ul>
             
-          
-            
-              <h5 class="submenu-header"><a href="/release-notes/index.html">릴리즈 노트 <strong>+</strong></a></h5>
+              <h5 class="submenu-header"><a href="/release-notes/index.html"><span style="color:#8E9093">+ </span>&nbsp;&nbsp;릴리스 노트</a></h5>
               <ul class="sidenav-submenu" style="display:none;">
                 
+                    <li><a href="/release-notes/brightcove-player-release-notes.html">Brightcove Player 릴리스 정보</a></li>
                   
-                    <li><a href="/release-notes/brightcove-player-release-notes.html">브라이트코브 플레이어 출시 정보</a></li>
+                    <li><a href="/release-notes/brightcove-player-prerelease-notes.html">Brightcove Player 사전 출시 노트</a></li>
                   
-                
-                  
-                    <li><a href="/release-notes/brightcove-player-prerelease-notes.html">브라이트코브 플레이어 사전 출시 정보</a></li>
-                  
-                
               </ul>
             
-          
-            
-              <h5 class="submenu-header"><a href="/support/index.html">지원 <strong>+</strong></a></h5>
+              <h5 class="submenu-header"><a href="/support/index.html"><span style="color:#8E9093">+ </span>&nbsp;&nbsp;지원</a></h5>
               <ul class="sidenav-submenu" style="display:none;">
                 
-                  
-                    
-                  
-                
-                  
                     <li><a href="/support/viewing-brightcove-system-status-page.html">브라이트코브 시스템 상태 페이지 보기</a></li>
                   
-                
-                  
-                    <li><a href="/support/contact-sales.html">영업팀에 문의</a></li>
-                  
-                
+                    <li><a href="/support/contact-sales.html">영업 담당자</a></li>
                   
                     <li><a href="/support/opening-case-with-brightcove-support.html">지원 사례 열기</a></li>
                   
-                
+                    <li><a href="/support/reset-support-portal-password.html">지원 포털 암호 재설정</a></li>
+                  
               </ul>
             
-          
       </nav>
     </div>
     <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
   <!-- bootstrap layout -->
 
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="네비게이션 메뉴"/></p>
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Navigation Menu"></p>
 
 <!-- search bar -->
 <div id="nav-search-box" style="margin-top: 1rem;"></div>
 <!-- in-page navigation for narrow screens -->
 <details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">페이지 내용</h6></summary>
+  <summary><h6 class="toc">페이지 콘텐츠</h6></summary>
   <nav id="centered_toc"></nav>
   <ul id="centered_in_page_toc" class="list-none"></ul>
 </details>
 <!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="새 탭에서 열기" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-
-  
-    
-
-
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="open in new tab" style="margin-top:4em;width: 1.5em;"></a> 
 <article class="bcls-article">
-  <h1>플레이어 모양 사용자 정의</h1>
-  <summary>이 항목은 Brightcove Player의 모양 사용자 지정에 대한 입문서입니다. 콘텐츠는 Chrome의 개발 도구를 사용하지만 모든 최신 브라우저에는 동등한 기능이 있습니다. 여러 브라우저에서 개발 도구를 사용하는 방법에 대한 간략한 소개는<a href="https://general.support.brightcove.com/developer/concepts-javascript-debugging-basics.html">디버깅 기초</a>문서.</summary>
-  <aside class="bcls-aside bcls-aside--information language-editable">이 문서는 CSS를 사용하여 플레이어를 사용자 정의합니다. Studio에서 사용할 수있는 제한된 맞춤 설정 옵션이 있으며 구현하는 데 CSS에 대한 지식이 필요하지 않습니다. 참조<a href="https://studio.support.brightcove.com/players/styling-players.html">스타일링 플레이어</a>자세한 내용은 문서를 참조하십시오.</aside>
-  <section class="bcls-section">
-    <h2 id="Create_own_skin">자신 만의 스킨 만들기</h2>
-    <p >기본 스킨을 사용하지 않고 자신만의 스킨을 생성하려는 경우 플레이어 관리 API를 사용하여 이 스킨을 생성할 수 있습니다. <a href="/general/player-configuration-guide.html#skin">플레이어 구성 가이드는</a>필요한 정보를 제공합니다.</p>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Player">플레이어</h2>
-    <aside class="bcls-aside bcls-aside--information language-editable">참고: 이 문서는 CSS에 대한 지식과 브라우저의 개발 도구를 사용하여 HTML 요소의 클래스를보고 적용 가능한 CSS를 검사한다고 가정합니다. 필수 기본 지식이없는 경우 다음을 통해 작업하는 것이 가장 좋습니다. <a href="/getting-started/step-step-player-customization.html">단계별 : 플레이어 커스터마이징</a> .</aside>
-    <p >플레이어의 모양을 변경할 수 있지만 먼저 문제를 해결할 방법이 있어야 합니다. 이를 보려면 고급 (인 페이지 임베드) 코드가 삽입 된 HTML 페이지를 찾아보십시오. 에서<strong><span translate="No">Elements</span></strong>개발 도구 섹션에서<code translate="No">&lt;video-js&gt;</code>태그 값을 가진 클래스가 있음을 알 수 있습니다. <code translate="No">video-js</code>다른 많은 것 중에서 할당.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="/assets/images/player-customization/5x-player-styling/customize-appearance/player-elements.png"/></figure>
-    <p >이 사실을 알고 나면 스타일을 사용하여 플레이어 자체를 변경할 수 있습니다. 예를 들어 플레이어 주위에 테두리를 포함하려면 다음 스타일을 사용할 수 있습니다.</p>
-    <pre class="line-numbers">
+    <h1>플레이어 모양 사용자 지정</h1>
+    <summary>이 항목은 Brightcove Player의 모양 사용자 지정에 대한 입문서입니다. 콘텐츠는 Chrome의 개발 도구를 사용하지만 모든 최신 브라우저에는 동일한 기능이 있습니다. 여러 브라우저에서 개발 도구를 사용하는 방법에 대한 간략한 소개는<a href="https://general.support.brightcove.com/developer/concepts-javascript-debugging-basics.html">디버깅 기초</a>문서.</summary>
+    <aside class="bcls-aside bcls-aside--information">이 문서는 CSS를 사용하여 플레이어를 사용자 정의합니다. Studio에서 사용할 수있는 제한된 맞춤 설정 옵션이 있으며 구현하는 데 CSS에 대한 지식이 필요하지 않습니다. 참조<a href="https://studio.support.brightcove.com/players/styling-players.html">스타일링 선수</a>자세한 내용은 문서를 참조하십시오.</aside>
+    <section class="bcls-section">
+        <h2 id="Create_own_skin">자체 스킨 만들기</h2>
+        <p>기본 스킨을 사용하지 않고 자신만의 스킨을 생성하려는 경우 플레이어 관리 API를 사용하여 이 작업을 수행할 수 있습니다. <a href="/general/player-configuration-guide.html#skin">플레이어 구성 가이드는 필요한 정보를</a>제공합니다.</p>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Player">플레이어</h2>
+        <aside class="bcls-aside bcls-aside--information">참고: 이 문서에서는 CSS에 대한 지식과 브라우저의 개발 도구를 사용하여 HTML 요소의 클래스를 확인하고 적용 가능한 CSS를 검토합니다. 필수 기본 지식이없는 경우 다음을 통해 작업하는 것이 가장 좋습니다. <a href="/getting-started/step-step-player-customization.html">단계별 : 플레이어 커스터마이징</a> .</aside>
+        <p>플레이어의 모양을 변경할 수 있지만, 먼저 플레이어 모양을 해결할 방법이 있어야 합니다. 이를 보려면 고급 (인 페이지 임베드) 코드가 삽입 된 HTML 페이지를 찾아보십시오. 에서<strong><span translate="No">집단</span></strong>개발 도구 섹션에서<code translate="No">&lt;video-js&gt;</code>태그에 값이 있는 클래스가 있는 것을 볼 수 있습니다. <code translate="No">video-js</code>많은 다른 사람들 사이에서 할당되었습니다.</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="customize-player-elements" src="/assets/images/styling/customizing-player/player-elements.png" /></figure>
+        <p>이 사실을 알고 나면 스타일을 사용하여 플레이어 자체를 변경할 수 있습니다. 예를 들어 플레이어 주위에 테두리를 포함하려면 다음 스타일을 사용할 수 있습니다.</p>
+        <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;style&gt;
   .video-js {
     border-style: double;
@@ -1104,15 +653,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     border-color: red;
   }
 &lt;/style&gt;</code></pre>
-    <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="/assets/images/player-customization/5x-player-styling/customize-appearance/double-border.png"/></figure>
-  </section>
-  <section class="bcls-section">
-    <h2 id="iframe_player">iframe 플레이어</h2>
-    <p >플레이어의 표준 (iframe) 구현을 사용하는 경우 상황이 다릅니다. 여전히 플레이어가<code translate="No">video-js</code>클래스이지만, 물론 iframe 내부와<code translate="No">video-js</code>꼬리표.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="아이프레임 플레이어 요소" src="/assets/images/player-customization/5x-player-styling/customize-appearance/iframe-elements.png"/></figure>
-    <p >만든 스타일은 iframe에서 플레이어와 계속 작동하지만 CSS 파일을 만들어 Studio를 사용하여 플레이어와 연결해야 합니다. 당신은<strong>플레이어</strong>모듈을 클릭 한 다음 CSS를 연결하려는 플레이어를 클릭 한 다음<strong>플러그인&gt; 스타일 시트</strong>섹션에 CSS 파일 경로를 추가하십시오.</p>
-    <p >iframe 자체를 맞춤 설정하려면 요소 선택기를 사용하면됩니다. 그런 다음<code translate="No">&lt;style&gt;</code>태그를 사용하여 원하는대로 수정합니다. 아래 예에서는 플레이어 주위에 테두리가 추가됩니다.</p>
-    <pre class="line-numbers">
+        <figure class="bcls-figure"><img class="bcls-image" alt="customize-player-elements" src="/assets/images/styling/customizing-player/double-border.png" /></figure>
+    </section>
+    <section class="bcls-section">
+        <h2 id="iframe_player">이프레임 플레이어</h2>
+        <p>플레이어의 표준 (iframe) 구현을 사용하는 경우 상황이 다릅니다. 여전히 플레이어가<code translate="No">video-js</code>클래스이지만, 물론 iframe 내부와<code translate="No">video-js</code>꼬리표.</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="iframe-player-elements" src="/assets/images/styling/customizing-player/iframe-elements.png" /></figure>
+        <p>만드는 스타일은 iframe에서 플레이어와 계속 작동하지만, CSS 파일을 만들고 Studio를 사용하여 플레이어와 연결해야 합니다. 당신은<strong>플레이어</strong>모듈을 클릭 한 다음 CSS를 연결하려는 플레이어를 클릭 한 다음<strong>플러그인&gt; 스타일 시트</strong>섹션에 CSS 파일 경로를 추가하십시오.</p>
+        <p>iframe 자체를 맞춤 설정하려면 요소 선택기를 사용하면됩니다. 그런 다음<code translate="No">&lt;style&gt;</code>태그를 사용하여 원하는 대로 수정합니다. 아래 예에서는 플레이어 주위에 테두리가 추가됩니다.</p>
+        <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;!doctype html&gt;
 &lt;html&gt;
 
@@ -1138,55 +687,55 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 &lt;/body&gt;
 
 &lt;/html&gt;</code></pre>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Play_button">재생 버튼</h2>
-    <p >재생 버튼의 모양을 변경하려면 먼저 해결 방법을 알아야합니다. Chrome에서 버튼을 마우스 오른쪽 버튼으로 클릭합니다. 표시되는 선택 항목에서<strong><span translate="No">Inspect</span></strong> . 선택할 때<strong><span translate="No">Inspect</span></strong> , 크롬&nbsp;<strong>개발 도구</strong>열 예정이다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="검사 버튼" src="/assets/images/player-customization/5x-player-styling/customize-appearance/inspect-button.png"/></figure>
-    <p >에서<strong><span translate="No">Elements</span></strong>개발 도구 섹션에서 버튼 요소에 해당하는 HTML 코드를 볼 수 있습니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="빅 플레이 버튼" src="/assets/images/player-customization/5x-player-styling/customize-appearance/big-play-button.png"/></figure>
-    <p >위의 강조 표시된 코드에서 버튼에 할당 된 클래스를 볼 수<code translate="No">vjs-big-play-button</code>있습니다. 재생 버튼의 색상 (호랑이와 일치) 과 불투명도는 다음 스타일로 변경됩니다.</p>
-    <pre class="line-numbers">
+    </section>
+    <section class="bcls-section">
+        <h2 id="Play_button">재생 버튼</h2>
+        <p>재생 버튼의 모양을 변경하려면 먼저 해결 방법을 알아야합니다. Chrome에서 버튼을 마우스 오른쪽 버튼으로 클릭합니다. 표시되는 선택 항목에서<strong><span translate="No">검사</span></strong> . 선택할 때<strong><span translate="No">검사</span></strong> , 크롬의&nbsp;<strong>개발 도구</strong>열릴 것이다.</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="inspect-button" src="/assets/images/styling/customizing-player/inspect-button.png" /></figure>
+        <p>에서<strong><span translate="No">집단</span></strong>개발 도구 섹션에서 버튼 요소에 해당하는 HTML 코드를 볼 수 있습니다.</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="big-play-button" src="/assets/images/styling/customizing-player/big-play-button.png" /></figure>
+        <p>위의 강조 표시된 코드에서 버튼에 할당된 클래스가 인 것을 볼 수<code translate="No">vjs-big-play-button</code>있습니다. 재생 버튼의 색상 (호랑이와 일치) 과 불투명도는 다음과 같은 스타일로 변경됩니다.</p>
+        <pre class="line-numbers">
 <code class="language-css" translate="No">.vjs-big-play-button {
   background-color: #B37D5B;
   opacity: .6;
 }</code></pre>
-    <p >이 접근법이 효과가 있다고 생각하지만 그렇지 않습니다. CSS로 작업 할 때 속성 특이성을 알아야합니다. 이 브라우저는 관련성에 따라 요소에 적용되는 속성 값을 결정하는 방법을 의미한다.</p>
-    <p >버튼 변경 사항을 적용하는 한 가지 방법은 선택기에서 다른 클래스를 추가하는 것입니다. 예를 들어, <code translate="No">.video-js</code>선택 자의 특이성을 높이기 위해 클래스. 자세한 내용은<a href="#CSS_specificity"> CSS 특이성</a>부분</p>
-    <p >그런 다음 CSS에서 플레이어의 큰 재생 버튼을 다음과 같이 참조합니다.</p>
-    <pre class="line-numbers">
+        <p>이 접근 방식은 효과가 있다고 생각하지만 그렇지 않습니다. CSS로 작업할 때는 속성 특수성을 알고 있어야 합니다. 이는 관련성에 따라 요소에 적용할 속성 값을 브라우저가 결정하는 방법을 나타냅니다.</p>
+        <p>버튼 변경 사항을 적용하는 한 가지 방법은 선택기에서 다른 클래스를 추가하는 것입니다. 예를 들어, <code translate="No">.video-js</code>선택 자의 특이성을 높이기 위해 클래스. 자세한 내용은<a href="#CSS_specificity"> CSS 특이성</a>부분</p>
+        <p>그런 다음 CSS에서 플레이어의 큰 재생 버튼을 다음과 같이 참조합니다.</p>
+        <pre class="line-numbers">
 <code class="language-css" translate="No"><span class="bcls-highlight">.video-js</span> .vjs-big-play-button {
   background-color: #B37D5B;
   opacity: .6;
 }</code></pre>
-    <p >다음은 진한 회색에서 오렌지색으로 버튼을 변경 한 결과입니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="주황색 재생 버튼" src="/assets/images/player-customization/5x-player-styling/customize-appearance/orange-play-button.png"/></figure>
-    <h3>재생 버튼 숨기기</h3>
-    <p >다음 스타일을 사용하여 재생 버튼을 완전히 숨길 수 있습니다.</p>
-    <pre class="line-numbers">
+        <p>버튼을 진한 회색에서 주황색으로 변경한 결과는 다음과 같습니다.</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="orange-play-button" src="/assets/images/styling/customizing-player/orange-play-button.png" /></figure>
+        <h3>재생 버튼 숨기기</h3>
+        <p>다음 스타일을 사용하여 재생 버튼을 완전히 숨길 수 있습니다.</p>
+        <pre class="line-numbers">
 <code class="language-javascript" translate="No">display: none;</code></pre>
-    <h3>실험</h3>
-    <p >다음 CodePen에서는 재생 버튼을 사용해 볼 수 있습니다. 재생 버튼의 삼각형은 실제로 글꼴이며 크기는<code translate="No">font-size</code>스타일로 제어됩니다.</p>
-    <p data-height="414" data-theme-id="14832" data-slug-hash="KVVNLX" data-default-tab="result" data-user="mboles" class="codepen">펜보기<a href="http://codepen.io/mboles/pen/KVVNLX/"> 5.x 빅 플레이 버튼 커스터마이징</a>작성자 : Matt Boles ( <a href="http://codepen.io/mboles">뿡뿡</a> ) 의 위에<a href="http://codepen.io"> CodePen</a> .</p>
-    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-    <h3>호버 텍스트 변경</h3>
-    <p >큰 재생 버튼 위로 마우스를 가져갈 때 표시되는 텍스트를 변경하려면<strong>동영상 재생</strong>&nbsp;기본적으로 동영상에 더 구체적인 항목을 지정할 수 있습니다. 원하는 설명을 인수로 사용하여 다음 JavaScript를 추가하십시오. <code translate="No">controlText</code>방법.</p>
-    <pre class="line-numbers">
+        <h3>실험</h3>
+        <p>다음 CodePen에서는 재생 버튼을 사용해 볼 수 있습니다. 재생 버튼의 삼각형은 실제로 글꼴이며 크기는<code translate="No">font-size</code>스타일로 제어됩니다.</p>
+        <p data-height="414" data-theme-id="14832" data-slug-hash="KVVNLX" data-default-tab="result" data-user="mboles" class="codepen">펜보기<a href="http://codepen.io/mboles/pen/KVVNLX/"> 5.x 빅 플레이 버튼 커스터마이징</a>작성자 : Matt Boles ( <a href="http://codepen.io/mboles">멍멍</a> ) 의 위에<a href="http://codepen.io"> CodePen</a> .</p>
+        <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+        <h3>호버 텍스트 변경</h3>
+        <p>큰 재생 버튼 위로 마우스를 가져갈 때 표시되는 텍스트를 변경하려면<strong>동영상 재생</strong>&nbsp;기본적으로 동영상에 더 구체적인 항목을 지정할 수 있습니다. 원하는 설명을 인수로 사용하여 다음 JavaScript를 추가하십시오. <code translate="No">controlText</code>방법.</p>
+        <pre class="line-numbers">
 <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   myPlayer.getChild('bigPlayButton').controlText('Play Audio');
 });
 </code></pre>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Controls_visibility">가시성 제어</h2>
-    <p >컨트롤 막대와 그 안에 포함 된 컨트롤을 표시할지 여부를 제어 할 수 있습니다. 플레이어 생성을 시작할 때 컨트롤 막대를 숨기려면 다음 스타일을 사용할 수 있습니다.</p>
-    <pre class="line-numbers">
+    </section>
+    <section class="bcls-section">
+        <h2 id="Controls_visibility">가시성 제어</h2>
+        <p>컨트롤 막대와 그 안에 포함 된 컨트롤을 표시할지 여부를 제어 할 수 있습니다. 플레이어 생성을 시작할 때 컨트롤 막대를 숨기려면 다음 스타일을 사용할 수 있습니다.</p>
+        <pre class="line-numbers">
 <code class="language-css" translate="No">.video-js .vjs-control-bar {
   display: none;
 }</code></pre>
-    <p >일부 이벤트에 따라 동적으로이 작업을 수행하려면 다음을 사용할 수 있습니다. <code translate="No">controlBar.hide()/show()</code>행동 양식. 아래 코드 스 니펫은 메소드 사용을 보여줍니다 (이는<code translate="No">id</code>값으로<code translate="No">myPlayer</code>비디오) :</p>
-    <pre class="line-numbers">
+        <p>일부 이벤트에 따라 동적으로이 작업을 수행하려면 다음을 사용할 수 있습니다. <code translate="No">controlBar.hide()/show()</code>행동 양식. 아래 코드 스 니펫은 메소드 사용을 보여줍니다 (이는<code translate="No">id</code>값으로<code translate="No">myPlayer</code>비디오) :</p>
+        <pre class="line-numbers">
 <code class="language-javascript" translate="No">&lt;video-js id="myPlayerID"
 	data-video-id="5781068653001"
 	data-account="1507807800001"
@@ -1214,9 +763,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 		myPlayer.controlBar.show();
 	}
 &lt;/script&gt;</code></pre>
-    <h3>컨트롤은 숨기지 않습니다</h3>
-    <p >컨트롤이 숨겨지지 않도록 만들 수도 있습니다. 이렇게하려면<code translate="No">transform.none</code>스타일. 선택자는 변환의 특이성에 6 개의 클래스가 사용되는 한 매우 길다.</p>
-    <pre class="line-numbers">
+        <h3>컨트롤은 숨기지 않습니다</h3>
+        <p>컨트롤이 숨겨지지 않도록 만들 수도 있습니다. 이렇게하려면<code translate="No">transform.none</code>스타일. 선택자는 변환의 특이성을 위해 6 개의 클래스가 사용되는 한 매우 길다.</p>
+        <pre class="line-numbers">
 <code class="language-css" translate="No">.video-js.not-hover.vjs-has-started.vjs-paused.vjs-user-active .vjs-control-bar:not(.vjs-focus-within):not(.vjs-control-bar-visible),
 .video-js.not-hover.vjs-has-started.vjs-paused.vjs-user-inactive .vjs-control-bar:not(.vjs-focus-within):not(.vjs-control-bar-visible),
 .video-js.not-hover.vjs-has-started.vjs-playing.vjs-user-active .vjs-control-bar:not(.vjs-focus-within):not(.vjs-control-bar-visible),
@@ -1227,63 +776,62 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   -webkit-transform: none;
   -ms-transform: none;
 }</code></pre>
-    <aside class="bcls-aside bcls-aside--information language-editable">약간의 해킹으로 간주되지만 컨트롤 막대의 클래스를 8 번 반복하여 위의 선택기와 일치하도록 특이성을 구축 할 수 있습니다.
-      <pre class="line-numbers">
+        <aside class="bcls-aside bcls-aside--information">약간의 해킹으로 간주되지만 컨트롤 바의 클래스를 8번 반복하여 위의 선택기와 일치하도록 특수성을 구축할 수 있습니다.
+            <pre class="line-numbers">
 <code class="language-css" translate="No">.vjs-control-bar.vjs-control-bar.vjs-control-bar.vjs-control-bar.vjs-control-bar.vjs-control-bar.vjs-control-bar.vjs-control-bar {
   transform: none;
   -webkit-transform: none;
   -ms-transform: none;
 }</code></pre>
-    </aside>
-    <aside class="bcls-aside bcls-aside--tip language-editable">이 CSS를 사용하여 컨트롤 바가 사라지는 것을 막는 것은 컨트롤 바의 요소를 마우스 오른쪽 버튼으로 클릭하여 검사 할 때 매우 유용합니다. 이 작업을 수행하지 않으면 마우스 오른쪽 버튼을 클릭하면 컨트롤 막대가 사라집니다. 또한 첫 번째 마우스 오른쪽 버튼을 클릭하면 Brightcove Player 정보 메뉴가 표시되고<strong>두 번째 오른쪽 클릭은 검사를 선택할 수있는 메뉴를 표시합니다.</strong> .</aside>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Progress_bar">진행률 표시줄</h2>
-    <p >이제 진행률 표시기의 색상을 변경하는 방법을 볼 수 있습니다. 표시기의 기본 색상은 다음과 같이 자홍색입니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="/assets/images/player-customization/5x-player-styling/customize-appearance/play-progress-standard.png"/></figure>
-    <p >여기서 문제는 요소의 클래스 이름을 찾는 것입니다. 문서의 앞부분에서 설명한 것과 동일한 기술을 사용하여 요소를 마우스 오른쪽 버튼으로 클릭하고<strong><span translate="No">Inspect</span></strong> , 드릴 다운하면<code translate="No">vjs-play-progress</code>수업.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="진행률 및 볼륨 요소" src="/assets/images/player-customization/5x-player-styling/customize-appearance/play-progress-element.png"/></figure>
-    <aside class="bcls-aside bcls-aside--tip language-editable">브라우저에서는 실제로 콘솔에서 클래스 이름을 검색 할 수 있습니다. 예를 들어 Chrome에서는 간단히<strong> CTL-F</strong>그런 다음 찾고있는 클래스를 입력하십시오.</aside>
-    <p >그만큼<code translate="No">background-color</code>요소의 색상을 변경하고 스타일을 지정해야합니다. 필요한 스타일은 다음과 같습니다.</p>
-    <pre class="line-numbers">
+        </aside><aside class="bcls-aside bcls-aside--tip">이 CSS를 사용하여 컨트롤바가 사라지는 것을 막는 것은 컨트롤바의 요소를 마우스 오른쪽 버튼으로 클릭하여 검사할 때 매우 유용합니다. 이 작업을 수행하지 않으면 마우스 오른쪽 버튼을 클릭하면 컨트롤 막대가 사라집니다. 또한 첫 번째 마우스 오른쪽 버튼을 클릭하면 Brightcove Player 정보 메뉴가 표시되고<strong>두 번째 마우스 오른쪽 버튼을 클릭하면 검사를 선택할 수 있는 메뉴가 표시됩니다.</strong> .</aside>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Progress_bar">진행 표시 줄</h2>
+        <p>이제 진행률 표시기의 색상을 변경하는 방법을 볼 수 있습니다. 표시기의 기본 색상은 다음과 같이 자홍색입니다.</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="customize-player-elements" src="/assets/images/styling/customizing-player/play-progress-standard.png" /></figure>
+        <p>여기서 문제는 요소의 클래스 이름을 찾는 것입니다. 문서의 앞부분에서 설명한 것과 동일한 기술을 사용하여 요소를 마우스 오른쪽 버튼으로 클릭하고<strong><span translate="No">검사</span></strong> , 드릴다운하면<code translate="No">vjs-play-progress</code>수업.</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="progress-and-volume-elements" src="/assets/images/styling/customizing-player/play-progress-element.png" /></figure>
+        <aside class="bcls-aside bcls-aside--tip">브라우저에서는 실제로 콘솔에서 클래스 이름을 검색할 수 있습니다. 예를 들어 Chrome에서는 단순히<strong> CTL-F</strong>그런 다음 찾고 있는 클래스를 입력하십시오.</aside>
+        <p>그만큼<code translate="No">background-color</code>요소의 색상을 변경하고 스타일을 지정해야합니다. 필요한 스타일은 다음과 같습니다.</p>
+        <pre class="line-numbers">
 <code class="language-css" translate="No">.video-js .vjs-play-progress {
   background-color: green;
 }</code></pre>
-    <p ><code translate="No">.video-js</code>클래스가 선택기에 추가 된 것을 알 수 있습니다. 이것은 선택기의 CSS 특이성을 높이기 위해 수행됩니다.</p>
-    <p >결과는 다음과 같이 녹색 진행률 표시 줄을 보여줍니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="/assets/images/player-customization/5x-player-styling/customize-appearance/play-progress-green.png"/></figure>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Volume_controls">음량 조절</h2>
-    <p >CSS를 사용하거나<code translate="No">options</code>플레이어 생성 중 개체.</p>
-    <h3>CSS를 사용하여 업데이트</h3>
-    <p >이제 볼륨 컨트롤의 색상을 변경하는 방법을 볼 수 있습니다. 기본 모양은 자홍색 볼륨 레벨 막대가있는 흰색 볼륨 버튼입니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="/assets/images/player-customization/5x-player-styling/customize-appearance/volume-standard.png"/></figure>
-    <p >볼륨 버튼의 색상을 변경하고 클릭 할 때 음소거 버튼을 변경하려면 여기에 표시된 선택기를 사용하십시오.</p>
-    <pre class="line-numbers">
+        <p><code translate="No">.video-js</code>클래스가 선택기에 추가되었음을 알 수 있습니다. 이 작업은 선택기의 CSS 특수성을 높이기 위해 수행됩니다.</p>
+        <p>결과는 다음과 같이 녹색 진행률 표시 줄을 보여줍니다.</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="customize-player-elements" src="/assets/images/styling/customizing-player/play-progress-green.png" /></figure>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Volume_controls">음량 조절</h2>
+        <p>CSS를 사용하거나<code translate="No">options</code>플레이어 생성 중 개체.</p>
+        <h3>CSS를 사용하여 업데이트</h3>
+        <p>이제 볼륨 컨트롤의 색상을 변경하는 방법을 볼 수 있습니다. 기본 모양은 자홍색 볼륨 레벨 막대가있는 흰색 볼륨 버튼입니다.</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="customize-player-elements" src="/assets/images/styling/customizing-player/volume-standard.png" /></figure>
+        <p>볼륨 버튼의 색상과 클릭시 음소거 버튼을 변경하려면 여기에 표시된 선택기를 사용하십시오.</p>
+        <pre class="line-numbers">
 <code class="language-css" translate="No">.vjs-volume-panel.vjs-control.vjs-volume-panel-horizontal {
   color: yellow;
 }</code></pre>
-    <p >볼륨 막대의 색상을 변경하려면<code translate="No">background-color</code>요소의 스타일을 지정해야합니다. 필요한 스타일은 다음과 같습니다.</p>
-    <pre class="line-numbers">
+        <p>볼륨 막대의 색상을 변경하려면<code translate="No">background-color</code>요소의 스타일을 지정해야합니다. 필요한 스타일은 다음과 같습니다.</p>
+        <pre class="line-numbers">
 <code class="language-css" translate="No">.video-js .vjs-volume-level{
   background-color: yellow;
 }</code></pre>
-    <p ><code translate="No">.video-js</code>클래스가 선택기에 추가 된 것을 알 수 있습니다. 이것은 선택기의 CSS 특이성을 높이기 위해 수행됩니다.</p>
-    <p >버튼과 볼륨 막대의 스타일을 지정한 결과는 다음과 같습니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="/assets/images/player-customization/5x-player-styling/customize-appearance/volume-yellow.png"/></figure>
-    <h3>옵션 개체를 사용하여 업데이트</h3>
-    <p >볼륨 컨트롤의 레이아웃을 변경하려면<code translate="No">options</code>개체에<a href="/publish/delaying-player-instantiation.html"> bc () 메서드</a>다음과 같이 :</p>
-    <ol class="bcls-tasklist">
-      <li>다음 속성을 제거하여 플레이어 생성을 지연시킵니다. <code translate="No">video</code>꼬리표:
-        <ul>
-          <li><code translate="No">data-account</code></li>
-          <li><code translate="No">data-player</code></li>
-          <li><code translate="No">data-video-id</code></li>
-        </ul>
-      </li>
-      <li>정의<code translate="No">options</code>개체 그래서<code translate="No">volumePanel</code>수직이고 컨트롤 바와 인라인이 아닙니다.
-        <pre class="line-numbers">
+        <p><code translate="No">.video-js</code>클래스가 선택기에 추가되었음을 알 수 있습니다. 이 작업은 선택기의 CSS 특수성을 높이기 위해 수행됩니다.</p>
+        <p>버튼과 볼륨 막대의 스타일을 지정한 결과는 다음과 같습니다.</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="customize-player-elements" src="/assets/images/styling/customizing-player/volume-yellow.png" /></figure>
+        <h3>옵션 개체를 사용하여 업데이트</h3>
+        <p>볼륨 컨트롤의 레이아웃을 변경하려면<code translate="No">options</code>개체에<a href="/publish/delaying-player-instantiation.html"> bc () 메서드</a>다음과 같이 :</p>
+        <ol class="bcls-tasklist">
+            <li>다음 속성을 제거하여 플레이어 생성을 지연합니다. <code translate="No">video</code>꼬리표:
+                <ul>
+                    <li><code translate="No">data-account</code></li>
+                    <li><code translate="No">data-player</code></li>
+                    <li><code translate="No">data-video-id</code></li>
+                </ul>
+            </li>
+            <li>정의<code translate="No">options</code>개체 그래서<code translate="No">volumePanel</code>수직이고 컨트롤 바와 인라인이 아닙니다.
+                <pre class="line-numbers">
 <code class="language-css" translate="No">var options = {
   controlBar: {
     volumePanel: {
@@ -1292,30 +840,30 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     }
   }
 };</code></pre>
-      </li>
-      <li>처음에 제거 된 플레이어 속성을 추가합니다.</li>
-      <li>다음을 호출하여 플레이어를 만듭니다. <a href="/publish/delaying-player-instantiation.html"> bc () 메서드</a>와 더불어<code translate="No">options</code>목적.
-        <pre>
+            </li>
+            <li>처음에 제거 된 플레이어 속성을 추가합니다.</li>
+            <li>다음을 호출하여 플레이어를 만듭니다. <a href="/publish/delaying-player-instantiation.html"> bc () 메서드</a>와 더불어<code translate="No">options</code>목적.
+                <pre>
 <code class="language-css" translate="No">bc("myPlayerID", options);</code></pre>
-      </li>
-      <li>자세한 내용은<a href="/code-samples/brightcove-player-sample-vertical-volume-control.html">수직 볼륨 제어</a>플레이어 샘플.
-        <figure class="bcls-figure"><img class="bcls-image" alt="사용자 지정-플레이어 요소" src="/assets/images/player-customization/5x-player-styling/customize-appearance/vertical-volume.png"/></figure>
-      </li>
-    </ol>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Fonts">폰트</h2>
-    <p >제목과 설명은 플레이어가 처음로드 될 때와 사용자가 플레이어를 가리킬 때 나타납니다. 제목과 설명의 글꼴 스타일을 함께 또는 개별적으로 변경할 수 있습니다. 에 대한 HTML <strong>독</strong>다음 스크린 샷과 같이 나타납니다. 거기에 유의하십시오<code translate="No">&lt;div&gt;</code>클래스가있는 요소<code translate="No">vjs-dock-text</code>다른 두 개를 포함하는<code translate="No">&lt;div&gt;</code>포함하는 요소<strong>표제</strong>과<strong>기술</strong> .</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="텍스트 선택기 고정" src="/assets/images/player-customization/5x-player-styling/customize-appearance/dock-text-elements.png"/></figure>
-    <p >스타일을 설정하여 제목과 설명 모두에 영향을 미칠 수 있습니다. <code translate="No">vjs-dock-text</code>수업. 스타일은<code translate="No">.vjs-dock-title</code>과<code translate="No">.vjs-dock-description</code>물론 더 높은 수준에서 설정된 스타일에 의해 완전히 무시되지는 않습니다. 다음 스타일과 그 결과가 텍스트에 표시되는 것처럼 일부 스타일은 상속됩니다.</p>
-    <pre class="line-numbers">
+            </li>
+            <li>자세한 내용은<a href="/code-samples/brightcove-player-sample-vertical-volume-control.html">수직 볼륨 제어</a>플레이어 샘플.
+                <figure class="bcls-figure"><img class="bcls-image" alt="customize-player-elements" src="/assets/images/styling/customizing-player/vertical-volume.png" /></figure>
+            </li>
+        </ol>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Fonts">글꼴</h2>
+        <p>제목과 설명은 플레이어가 처음로드 될 때와 사용자가 플레이어를 가리킬 때 나타납니다. 제목과 설명의 글꼴 스타일을 함께 또는 개별적으로 변경할 수 있습니다. 에 대한 HTML <strong>독</strong>다음 스크린 샷과 같이 나타납니다. 거기에 유의하십시오<code translate="No">&lt;div&gt;</code>클래스가있는 요소<code translate="No">vjs-dock-text</code>다른 두 개를 포함하는<code translate="No">&lt;div&gt;</code>포함하는 요소<strong>표제</strong>과<strong>기술</strong> .</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="dock text selectors" src="/assets/images/styling/customizing-player/dock-text-elements.png" /></figure>
+        <p>스타일을 설정하여 제목과 설명 모두에 영향을 미칠 수 있습니다. <code translate="No">vjs-dock-text</code>수업. 스타일은<code translate="No">.vjs-dock-title</code>과<code translate="No">.vjs-dock-description</code>물론 더 높은 수준에서 설정된 스타일에 의해 완전히 무시되지는 않습니다. 다음 스타일과 그 결과가 텍스트에 표시되는 것처럼 일부 스타일은 상속됩니다.</p>
+        <pre class="line-numbers">
 <code class="language-css" translate="No">.video-js .vjs-dock-text {
   color: yellow;
   font-size: .7em;
 }</code></pre>
-    <figure class="bcls-figure"><img class="bcls-image" alt="독 텍스트 선택기 예제" src="/assets/images/player-customization/5x-player-styling/customize-appearance/dock-text-selector.png"/></figure>
-    <p >개별 제목과 설명의 스타일을 직접 지정할 수 있습니다. 다음은에 설정된 스타일을 보여줍니다. <code translate="No">.vjs-dock-title</code>과<code translate="No">.vjs-dock-description</code>스타일을 표시하는 결과 텍스트와 함께 클래스 선택기 :</p>
-    <pre class="line-numbers">
+        <figure class="bcls-figure"><img class="bcls-image" alt="dock text selector example" src="/assets/images/styling/customizing-player/dock-text-selector.png" /></figure>
+        <p>개별 제목과 설명의 스타일을 직접 지정할 수 있습니다. 다음은에 설정된 스타일을 보여줍니다. <code translate="No">.vjs-dock-title</code>과<code translate="No">.vjs-dock-description</code>스타일을 표시하는 결과 텍스트와 함께 클래스 선택기 :</p>
+        <pre class="line-numbers">
 <code class="language-css" translate="No">.video-js .vjs-dock-title {
   color: red;
   font-size: 1.5em;
@@ -1324,45 +872,45 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   color: yellow;
   font-size: 1.0em;
 }</code></pre>
-    <figure class="bcls-figure"><img class="bcls-image" alt="제목 및 설명 선택자" src="/assets/images/player-customization/5x-player-styling/customize-appearance/title-and-description-selectors.png"/></figure>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Controlbar_icon_manipulation">컨트롤 바 아이콘 조작</h2>
-    <p >HTML 순서에 따라 결정되는 컨트롤 바 아이콘 순서<code translate="No">&lt;div&gt;</code>부모 컨트롤 바의 s <code translate="No">&lt;div&gt;</code> . 여기에 컨트롤 바가 있습니다. <code translate="No">&lt;div&gt;</code>모든 자녀와 함께.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="요소 -controlbar-div" src="/assets/images/player-customization/5x-player-styling/customize-appearance/elements-controlbar-div.png"/></figure>
-    <p >일반적으로 컨트롤 바의 아이콘에 배치 할 때 사용하는 방법은 다음과 같습니다.</p>
-    <ul>
-      <li>컨트롤 바에 삽입하려는 요소를 동적으로 빌드합니다.</li>
-      <li>controlbar 요소에 대한 참조를 가져옵니다.</li>
-      <li>컨트롤 막대 앞에 새 요소를 삽입하려는 요소에 대한 참조를 가져옵니다.</li>
-      <li>JavaScript 사용<code translate="No">insertBefore()</code>아이콘을 배치하는 방법.</li>
-    </ul>
-    <aside class="bcls-aside bcls-aside--tip language-editable">
-      <p >구문<code translate="No">insertBefore()</code> is :</p>
-      <pre class="line-numbers">
-<code class="language-javascript" translate="No">parent.insertBefore(newElement,insertBeforeElement)</code></pre>
-      <p >즉, 아래의 자세한 코드에서 컨트롤 막대 (부모)에 대한 참조를 가져 오는 JavaScript를 볼 수 있습니다. <code translate="No">&lt;div&gt;</code>컨트롤 막대에 삽입 할 아이콘과 마지막으로 새 아이콘이 삽입 될 요소에 대한 참조가 있습니다.</p>
-    </aside>
-    <p >특히 다음 코드는 볼륨 아이콘 앞에 비디오 다운로드 아이콘을 삽입하는 데 사용됩니다.</p>
-    <ul>
-      <li>280-285 행 : 다운로드 버튼의 스타일입니다.</li>
-      <li>291-295 행 : 다음에 대한 변수를 할당하고 HTML 요소를 만듭니다.
+        <figure class="bcls-figure"><img class="bcls-image" alt="title and description selectors" src="/assets/images/styling/customizing-player/title-and-description-selectors.png" /></figure>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Controlbar_icon_manipulation">컨트롤 바 아이콘 조작</h2>
+        <p>HTML 순서에 따라 결정되는 컨트롤 바 아이콘 순서<code translate="No">&lt;div&gt;</code>부모 컨트롤 바의 s <code translate="No">&lt;div&gt;</code> . 여기에 컨트롤 바가 있습니다. <code translate="No">&lt;div&gt;</code>모든 자녀와 함께.</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="elements-controlbar-div" src="/assets/images/styling/customizing-player/elements-controlbar-div.png" /></figure>
+        <p>일반적으로 컨트롤 바의 아이콘에 배치 할 때 사용하는 방법은 다음과 같습니다.</p>
         <ul>
-          <li>그만큼<code translate="No">&lt;div&gt;</code>여기에는 다운로드 아이콘 아이콘이 포함됩니다.</li>
-          <li>아이콘을 클릭 가능하게 만드는 앵커 태그입니다.</li>
-          <li>아이콘 이미지 자체.</li>
+            <li>컨트롤 바에 삽입하려는 요소를 동적으로 빌드합니다.</li>
+            <li>controlbar 요소에 대한 참조를 가져옵니다.</li>
+            <li>컨트롤 막대 앞에 새 요소를 삽입하려는 요소에 대한 참조를 가져옵니다.</li>
+            <li>JavaScript 사용<code translate="No">insertBefore()</code>아이콘을 배치하는 방법.</li>
         </ul>
-      </li>
-      <li>297-2980 행 : 새 요소에 ID 및 CSS 클래스를 할당합니다.</li>
-      <li>300 행 : 이미지에 소스를 할당합니다.</li>
-      <li>301 행 : 할당<code translate="No">href</code>링크.</li>
-      <li>302 행 : 링크에 이미지를 추가하십시오.</li>
-      <li>303 행 : 동적으로 생성 된 링크를 추가합니다. <code translate="No">&lt;div&gt;</code> .</li>
-      <li>306 행 : 사용할 컨트롤 막대에 대한 참조 가져 오기<code translate="No">insertBefore()</code> .</li>
-      <li>308 행 : 함께 사용할 새 아이콘이 앞에 삽입 될 요소에 대한 참조를 가져옵니다. <code translate="No">insertBefore()</code> .</li>
-      <li>310 행 : 동적으로 생성 된 요소를 삽입합니다.</li>
-    </ul>
-    <pre class="line-numbers" data-start="279">
+        <aside class="bcls-aside bcls-aside--tip">
+            <p>구문<code translate="No">insertBefore()</code> is :</p>
+            <pre class="line-numbers">
+<code class="language-javascript" translate="No">parent.insertBefore(newElement,insertBeforeElement)</code></pre>
+            <p>즉, 아래의 자세한 코드에서 컨트롤 막대 (부모)에 대한 참조를 가져 오는 JavaScript를 볼 수 있습니다. <code translate="No">&lt;div&gt;</code>컨트롤 막대에 삽입 할 아이콘과 마지막으로 새 아이콘이 삽입 될 요소에 대한 참조가 있습니다.</p>
+        </aside>
+        <p>특히 다음 코드는 볼륨 아이콘 앞에 비디오 다운로드 아이콘을 삽입하는 데 사용됩니다.</p>
+        <ul>
+            <li>280-285 행 : 다운로드 버튼의 스타일입니다.</li>
+            <li>291-295 행 : 다음에 대한 변수를 할당하고 HTML 요소를 만듭니다.
+                <ul>
+                    <li>그만큼<code translate="No">&lt;div&gt;</code>여기에는 다운로드 아이콘 아이콘이 포함됩니다.</li>
+                    <li>아이콘을 클릭 가능하게 만드는 앵커 태그입니다.</li>
+                    <li>아이콘 이미지 자체.</li>
+                </ul>
+            </li>
+            <li>297-2980 행 : 새 요소에 ID 및 CSS 클래스를 할당합니다.</li>
+            <li>300 행 : 이미지에 소스를 할당합니다.</li>
+            <li>301 행 : 할당<code translate="No">href</code>링크.</li>
+            <li>302호선: 링크에 이미지를 추가합니다.</li>
+            <li>303 행 : 동적으로 생성 된 링크 추가<code translate="No">&lt;div&gt;</code> .</li>
+            <li>306 행 : 사용할 컨트롤 막대에 대한 참조 가져 오기<code translate="No">insertBefore()</code> .</li>
+            <li>308 행 : 함께 사용할 새 아이콘이 앞에 삽입 될 요소에 대한 참조를 가져옵니다. <code translate="No">insertBefore()</code> .</li>
+            <li>310 행 : 동적으로 생성 된 요소를 삽입합니다.</li>
+        </ul>
+        <pre class="line-numbers" data-start="279">
 <code class="language-javascript" translate="No">&lt;!-- styles for page --&gt;
   /* Style the download icon */
   #downloadButton {
@@ -1396,40 +944,40 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     // Insert the icon div in proper location
     controlBar.insertBefore(newElement,insertBeforeNode);
   });</code></pre>
-    <p >여기에 새로 삽입 된 아이콘이 노란색으로 강조 표시된 코드 결과가 표시됩니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="볼륨 전 다운로드 아이콘" src="/assets/images/player-customization/5x-player-styling/customize-appearance/download-icon-before-volume.png"/></figure>
-    <p >아이콘을 다른 위치에 두려면 앞에 삽입 할 요소를 가져 오는 코드 만 변경하면됩니다. 예를 들어, 새 아이콘을 전체 화면 버튼 앞으로 이동하려면 다음을 사용하십시오.</p>
-    <pre class="line-numbers">
+        <p>여기에 새로 삽입 된 아이콘이 노란색으로 강조 표시된 코드 결과가 표시됩니다.</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="download-icon-before-volume" src="/assets/images/styling/customizing-player/download-icon-before-volume.png" /></figure>
+        <p>아이콘을 다른 위치에 두려면 앞에 삽입 할 요소를 가져 오는 코드 만 변경하면됩니다. 예를 들어, 새 아이콘을 전체 화면 버튼 앞으로 이동하려면 다음을 사용하십시오.</p>
+        <pre class="line-numbers">
 <code class="language-javascript" translate="No">insertBeforeNode = document.getElementsByClassName('vjs-fullscreen-control')[0];</code></pre>
-    <p >결과는 다음과 같이 나타납니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="전체 화면 전 다운로드 아이콘" src="/assets/images/player-customization/5x-player-styling/customize-appearance/download-icon-before-fullscreen.png"/></figure>
-    <h3>맨 오른쪽의 아이콘</h3>
-    <p >아이콘이 컨트롤 막대의 오른쪽 끝에 나타나도록하려면<code translate="No">insertBefore()</code>와 더불어<code translate="No">appendChild()</code>방법은 다음과 같습니다.</p>
-    <pre class="line-numbers">
+        <p>결과는 다음과 같이 나타납니다.</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="download-icon-before-fullscreen" src="/assets/images/styling/customizing-player/download-icon-before-fullscreen.png" /></figure>
+        <h3>맨 오른쪽의 아이콘</h3>
+        <p>아이콘이 컨트롤 막대의 오른쪽 끝에 나타나도록하려면<code translate="No">insertBefore()</code>와 더불어<code translate="No">appendChild()</code>방법은 다음과 같습니다.</p>
+        <pre class="line-numbers">
 <code class="language-javascript" translate="No">controlBar.appendChild(newElement);</code></pre>
-    <p >이 경우 파일을 다운로드하기 위한 아이콘을 추가하는 예가<a href="/code-samples/brightcove-player-sample-download-video-plugin.html">브라이트코브 플레이어 샘플에 나와 있습니다. 비디오 플러그인 문서를 다운로드합니다</a> .</p>
-    <h3 id="spacer">스페이서 사용</h3>
-    <p >위의 기술은 컨트롤 바에 아이콘을 배치하는 데 작동하지만 컨트롤 바를 조작하는 다른 코드와 호환되지 않을 수 있습니다. 또한 일반적인 재사용을 위해 코드를 플러그인으로 추상화하고 싶지 않을 것입니다.</p>
-    <p >이전 단락의 약점은 특수 기능을 사용하여 극복 할 수 있습니다. <strong>스페이서</strong>특히 아이콘을 추가하기 위해 컨트롤 막대에 요소가 삽입됩니다. 스페이서의 단점은 아이콘을 배치 할 수있는 위치를 완전히 제어 할 수없는 반면이 섹션의 앞부분에 표시된 기술을 사용한다는 것입니다.</p>
-    <p >스페이서 요소는 다음 스크린 샷 (녹색 타원으로 강조 표시됨)과 같이 왼쪽의 시간 정보와 오른쪽의 전체 화면 아이콘 사이의 컨트롤 막대에 있습니다. 참고<strong>집단</strong>개발자 도구 섹션의 요소는 HTML로 정의됩니다. <code translate="No">&lt;div&gt;</code> .</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="스페이서" src="/assets/images/player-customization/5x-player-styling/customize-appearance/spacer.png"/></figure>
-    <p >스페이서 요소에 아이콘을 배치하려면이 섹션의 앞부분에 표시된 코드와 매우 유사한 다음 코드를 사용합니다. 코드의 결과는 코드 스 니펫 다음에 스크린 샷에 표시됩니다.</p>
-    <pre class="line-numbers">
+        <p>이 경우 파일을 다운로드하기 위해 아이콘을 추가하는 예가<a href="/code-samples/brightcove-player-sample-download-video-plugin.html">브라이트코브 플레이어 샘플에 나와 있습니다. 비디오 플러그인</a>문서를 다운로드하십시오.</p>
+        <h3 id="spacer">스페이서 사용</h3>
+        <p>위의 기술은 컨트롤 바에 아이콘을 배치하는 데 작동하지만 컨트롤 바를 조작하는 다른 코드와 호환되지 않을 수 있습니다. 또한 일반적인 재사용을 위해 코드를 플러그인으로 추상화하고 싶지 않을 것입니다.</p>
+        <p>이전 단락의 약점은 특수 기능을 사용하여 극복 할 수 있습니다. <strong>스페이서</strong>특히 아이콘을 추가하기 위해 컨트롤 막대에 요소가 삽입됩니다. 스페이서의 단점은 아이콘을 배치 할 수있는 위치를 완전히 제어 할 수없는 반면이 섹션의 앞부분에 표시된 기술을 사용한다는 것입니다.</p>
+        <p>스페이서 요소는 다음 스크린 샷 (녹색 타원으로 강조 표시됨)과 같이 왼쪽의 시간 정보와 오른쪽의 전체 화면 아이콘 사이의 컨트롤 막대에 있습니다. 참고 사항<strong>집단</strong>개발자 도구 섹션의 요소는 HTML로 정의됩니다. <code translate="No">&lt;div&gt;</code> .</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="spacer" src="/assets/images/styling/customizing-player/spacer.png" /></figure>
+        <p>스페이서 요소에 아이콘을 배치하려면이 섹션의 앞부분에 표시된 코드와 매우 유사한 다음 코드를 사용합니다. 코드 조각 다음에 나오는 스크린샷에 코드 결과가 표시됩니다.</p>
+        <pre class="line-numbers">
 <code class="language-javascript" translate="No">// Get the spacer element
 spacer = document.getElementsByClassName('vjs-spacer')[0];
 // Place the new element in the spacer
 spacer.appendChild(newElement);</code></pre>
-    <figure class="bcls-figure"><img class="bcls-image" alt="스페이서 왼쪽" src="/assets/images/player-customization/5x-player-styling/customize-appearance/spacer-left.png"/></figure>
-    <p >스페이서의 오른쪽에 아이콘을 배치하려면 다른 코드 줄을 사용해야합니다. 스페이서 레이아웃은 HTML Flexbox에 의해 제어됩니다. 따라서 Flexbox 스타일을 추가하면 추가 된 아이콘을 오른쪽으로 밀 수 있습니다. 코드의 결과는 코드 스 니펫 다음에 스크린 샷에 표시됩니다.</p>
-    <pre class="line-numbers">
+        <figure class="bcls-figure"><img class="bcls-image" alt="spacer-left" src="/assets/images/styling/customizing-player/spacer-left.png" /></figure>
+        <p>스페이서의 오른쪽에 아이콘을 배치하려면 다른 코드 줄을 사용해야합니다. 스페이서 레이아웃은 HTML Flexbox에 의해 제어됩니다. 따라서 Flexbox 스타일을 추가하면 추가 된 아이콘을 오른쪽으로 밀 수 있습니다. 코드 조각 다음에 나오는 스크린샷에 코드 결과가 표시됩니다.</p>
+        <pre class="line-numbers">
 <code class="language-javascript" translate="No">// Set the content of the spacer to be right justified
 spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
-    <figure class="bcls-figure"><img class="bcls-image" alt="스페이서 오른쪽" src="/assets/images/player-customization/5x-player-styling/customize-appearance/spacer-right.png"/></figure>/playback/ios-and-brightcove-player.html/playback/ios-and-brightcove-player.html
-  </section>
-  <section class="bcls-section">
-    <h2 id="Remove_fullscreen_icon">전체 화면 버튼 제거</h2>
-    <p >iOS에서 비디오의 전체 화면보기를 허용하면 문제가 발생할 수 있습니다. <a href="/playback/ios-and-brightcove-player.html"> iOS 및 Brightcove Player</a>문서. 제어 막대에서 전체 화면 버튼을 제거하려면 다음 코드를 사용할 수 있습니다.</p>
-    <pre class="line-numbers">
+        <figure class="bcls-figure"><img class="bcls-image" alt="spacer-right" src="/assets/images/styling/customizing-player/spacer-right.png" /></figure>/playback/ios-and-brightcove-player.html/playback/ios-and-brightcove-player.html
+    </section>
+    <section class="bcls-section">
+        <h2 id="Remove_fullscreen_icon">전체 화면 버튼 제거</h2>
+        <p>iOS에서 비디오의 전체 화면보기를 허용하면 문제가 발생할 수 있습니다. <a href="/playback/ios-and-brightcove-player.html"> iOS 및 Brightcove Player</a>문서. 제어 막대에서 전체 화면 버튼을 제거하려면 다음 코드를 사용할 수 있습니다.</p>
+        <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;script type="text/javascript"&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
     var myPlayer = this,
@@ -1439,73 +987,74 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
     }</span>
   });
 &lt;/script&gt;</code></pre>
-    <p >참고<code translate="No">if</code>이 버튼은 iOS 기기에서만 제거됩니다.</p>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Controlbar_icon_glow">컨트롤 바 아이콘 "글로우"</h2>
-    <p >컨트롤 막대에있는 아이콘의 텍스트 그림자 ( "글로우"라고도 함)를 변경할 수 있습니다. 예를 들어 색상을 변경하거나 광선을 증가시켜 아이콘에 더 많은 초점을 맞출 수 있습니다. 다음 스크린 샷은 빨간색 텍스트 그림자를 보여줍니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="빨간색 텍스트 그림자" src="/assets/images/player-customization/5x-player-styling/customize-appearance/red-glow.png"/></figure>
-    <p >표시되는 효과는 CSS를 변경하여 수행됩니다. <code translate="No">text-shadow</code> . 선택기는 아이콘에 포커스 또는 호버 상태가있는 경우에만 변경이 발생하도록 결정합니다.</p>
-    <pre class="line-numbers">
+        <p>참고<code translate="No">if</code>이 버튼은 iOS 기기에서만 제거됩니다.</p>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Controlbar_icon_glow">컨트롤 바 아이콘 "광선"</h2>
+        <p>컨트롤 막대에있는 아이콘의 텍스트 그림자 ( "글로우"라고도 함)를 변경할 수 있습니다. 예를 들어 색상을 변경하거나 광선을 증가시켜 아이콘에 더 많은 초점을 맞출 수 있습니다. 다음 스크린 샷은 빨간색 텍스트 그림자를 보여줍니다.</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="red text shadow" src="/assets/images/styling/customizing-player/red-glow.png" /></figure>
+        <p>표시되는 효과는 CSS를 변경하여 수행됩니다. <code translate="No">text-shadow</code> . 선택기는 아이콘에 포커스 또는 호버 상태가있는 경우에만 변경이 발생하도록 결정합니다.</p>
+        <pre class="line-numbers">
 <code class="language-css" translate="No">.video-js .vjs-control:hover:before, .video-js .vjs-control:focus:before {
   text-shadow: 0 0 1em #f00,0 0 1em #f00,0 0 1em #f00;
 }</code></pre>
-    <p >다소 복잡한 것에 대한 자세한 내용은<code translate="No">text-shadow</code>스타일, MDN 참조<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow">텍스트 그림자</a>문서.</p>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Hover_gradient">호버 그라데이션</h2>
-    <p >플레이어가 처음로드되고 플레이어 위로 마우스를 가져 가면 비디오 제목이 표시되고 플레이어 상단 부분에 검은 색에서 투명한 그라디언트가 표시됩니다. 이 섹션에서는 그라디언트를 변경하는 방법을 보여줍니다.</p>
-    <p >실제 그라디언트는 CSS에 의해 제어됩니다. <code translate="No">linear-gradient</code>기능<code translate="No">vjs-dock-text</code> HTML <code translate="No">&lt;div&gt;.</code>그래디언트의 크기는<code translate="No">vjs-dock-text</code> HTML <code translate="No">&lt;div&gt;</code> . 다음은 플레이어의 해당 요소와 그 자식입니다.</p>
-    <pre class="line-numbers">
+        <p>다소 복잡한 것에 대한 자세한 내용은<code translate="No">text-shadow</code>스타일, MDN 참조<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow">텍스트 그림자</a>문서.</p>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Hover_gradient">호버 그라데이션</h2>
+        <p>플레이어가 처음로드되고 플레이어 위로 마우스를 가져 가면 비디오 제목이 표시되고 플레이어 상단 부분에 검은 색에서 투명한 그라디언트가 표시됩니다. 이 섹션에서는 그라디언트를 변경하는 방법을 보여줍니다.</p>
+        <p>실제 그라디언트는 CSS에 의해 제어됩니다. <code translate="No">linear-gradient</code>기능<code translate="No">vjs-dock-text</code> HTML <code translate="No">&lt;div&gt;.</code>그래디언트의 크기는<code translate="No">vjs-dock-text</code> HTML <code translate="No">&lt;div&gt;</code> . 다음은 플레이어의 해당 요소와 그 자식입니다.</p>
+        <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;div class="vjs-dock-text"&gt;
   &lt;h1 class="vjs-dock-title"&gt;Tiger&lt;/h1&gt;
   &lt;h2 class="vjs-dock-description"&gt;&lt;/h2&gt;
 &lt;/div&gt;</code></pre>
-    <p >그라디언트의 기본값은<code translate="No">rgba()</code> (red-green-blue-alpha) 함수는 다음과 같습니다.</p>
-    <pre class="line-numbers">
+        <p>그라디언트의 기본값은<code translate="No">rgba()</code> (red-green-blue-alpha) 함수는 다음과 같습니다.</p>
+        <pre class="line-numbers">
 <code class="language-javascript" translate="No">linear-gradient(180deg,rgba(0,0,0,.8) 25%,transparent 100%);</code></pre>
-    <p >이러한 값을 사용하면 그래디언트가 검정에서 수평으로 희미 해지며 알파는<strong> .8</strong> , 투명합니다. 의 가치<strong> 25 %</strong>컷오프 값입니다. 즉, <code translate="No">rgba</code>함수는 투명으로 페이딩이 시작되기 전에 공간의 처음 25 %에 사용됩니다.</p>
-    <p >교육 목적으로 프로덕션에서이 그라데이션을 사용하지 않을 것이므로 다음 스타일은 스크린 샷에 그라데이션을 만듭니다.</p>
-    <pre class="line-numbers">
+        <p>이러한 값을 사용하면 그라디언트가 검정에서 수평으로 희미 해지며 알파는<strong> .8</strong> , 투명합니다. 의 가치<strong> 25 %</strong>컷오프 값입니다. 즉, <code translate="No">rgba</code>함수는 투명으로 페이딩이 시작되기 전에 공간의 처음 25 %에 사용됩니다.</p>
+        <p>교육 목적으로 프로덕션에서이 그라데이션을 사용하지 않을 것이므로 다음 스타일은 스크린 샷에 그라데이션을 만듭니다.</p>
+        <pre class="line-numbers">
 <code class="language-css" translate="No">.video-js .vjs-dock-text {
   background: linear-gradient(45deg, rgba(0,0,255,.8) 35%, transparent);
   height: 80%;
 }</code></pre>
-    <figure class="bcls-figure"><img class="bcls-image" alt="나쁜 블루 그라데이션" src="/assets/images/player-customization/5x-player-styling/customize-appearance/gradient-blue.png"/></figure>
-    <p >이 예제에서는 .8 알파의 파란색 그라디언트가 45도 내리막 각도로 적용됩니다. 선형 그래디언트에 설정된 색상 / 알파는 페이드가 시작되기 전에 그래디언트의 처음 35 %에 사용됩니다. 또한 요소 높이의 80 %가 사용됩니다.</p>
-    <p >다음 CodePen을 사용하면 값을 실험 할 수 있습니다. 기본적으로 사용되는 미묘한 그라디언트를 보려면 비디오와 마우스를 안팎으로 시작하십시오.</p>
-    <p data-height="371" data-theme-id="14832" data-slug-hash="XXyKqx" data-default-tab="result" data-user="bcls" class="codepen">펜보기<a href="http://codepen.io/team/bcls/pen/XXyKqx/"> Hover Gradient Luna 스킨</a>게시자 : Brightcove Learning Services ( <a href="https://codepen.io/team/rcrooks1969"> @bcls</a> ) 의 위에<a href="http://codepen.io"> CodePen</a> .</p>
-    <script async src="//assets.codepen.io/assets/embed/ei.js"></script></section>
-  <section class="bcls-section">
-    <h2 id="Caption_list_items">캡션 목록 항목</h2>
-    <p>캡션 메뉴에서 목록 항목의 스타일을 지정 / 제어하려면 선택기가 여기에 표시됩니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="캡션 목록 항목 선택기" width="800" height="281" src="/assets/images/player-customization/5x-player-styling/customize-appearance/caption-list-items.png"/></figure>
-    <p>선택기를 사용하여 모든 항목의 스타일을 지정할 수 있습니다.</p>
-    <pre class="line-numbers">
+        <figure class="bcls-figure"><img class="bcls-image" alt="bad blue gradient" src="/assets/images/styling/customizing-player/gradient-blue.png" /></figure>
+        <p>이 예에서는 .8 알파의 파란색 그라디언트가 내리막 각도 45도에 적용됩니다. 선형 그래디언트에 설정된 색상 / 알파는 페이드가 시작되기 전에 그래디언트의 처음 35 %에 사용됩니다. 또한 요소 높이의 80 %가 사용됩니다.</p>
+        <p>다음 CodePen을 사용하면 값을 실험 할 수 있습니다. 기본적으로 사용되는 미묘한 그라디언트를 보려면 비디오와 마우스를 안팎으로 시작하십시오.</p>
+        <p data-height="371" data-theme-id="14832" data-slug-hash="XXyKqx" data-default-tab="result" data-user="bcls" class="codepen">펜보기<a href="http://codepen.io/team/bcls/pen/XXyKqx/"> Hover Gradient Luna 스킨</a>게시자 : Brightcove Learning Services ( <a href="https://codepen.io/team/rcrooks1969"> @bcls</a> ) 의 위에<a href="http://codepen.io"> CodePen</a> .</p>
+        <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Caption_list_items">캡션 목록 항목</h2>
+        <p>캡션 메뉴에서 목록 항목의 스타일을 지정 / 제어하려면 선택기가 여기에 표시됩니다.</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="Selectors for caption list items" width="800" height="281" src="/assets/images/styling/customizing-player/caption-list-items.png" /></figure>
+        <p>선택기를 사용하여 모든 항목의 스타일을 지정할 수 있습니다.</p>
+        <pre class="line-numbers">
 <code class="language-javascript" translate="No">.vjs-subs-caps-button .vjs-menu .vjs-menu-content .vjs-menu-item.</code></pre>
-  </section>
-  <section class="bcls-section">
-    <h2 id="CSS_specificity">CSS 특이성</h2>
-    <p >CSS 특이성은 브라우저가 관련성에 따라 요소에 적용되는 속성 값을 결정하는 방식을 의미합니다. 이 개념에 대한 자세한 내용은<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">특이성</a>문서를 검토하십시오.</p>
-    <p >Chrome에서 큰 재생 버튼을 검사합니다. <code translate="No">background</code>속성은 여러 클래스를 사용하여 설정됩니다. 즉, 이 속성을 재정의하기 위해 하나의<code translate="No">.vjs-big-play-button</code>클래스 만 사용할 수 없습니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="재생 버튼 클래스" src="/assets/images/player-customization/5x-player-styling/customize-appearance/play-button-classes.png"/></figure>
-    <p >다음은 큰 재생 버튼을 사용자 지정하는 세 가지 접근 방식입니다.</p>
-    <ul>
-      <li>플레이어에게 할당 된 ID를 참조하십시오.</li>
-      <li>여러 클래스를 사용하여 속성의 관련성을 높입니다.</li>
-      <li>자바 스크립트를 사용하여 플레이어에서 id 속성을 설정 한 다음 CSS에서 참조 할 수 있습니다.</li>
-    </ul>
-    <h3>ID 참조하기</h3>
-    <p ><code translate="No">id</code>속성은 CSS 특수성과 관련하여 높은 관련성을 가지므로 CSS 선택기에<code translate="No">id</code>를 추가하면<code translate="No">background-color</code>속성이 재정의됩니다.</p>
-    <p >아직 수행하지 않은 경우<code translate="No">id</code>속성<code translate="No">video</code>다음과 같이 요소 :</p>
-    <pre class="line-numbers">
+    </section>
+    <section class="bcls-section">
+        <h2 id="CSS_specificity">CSS 특이성</h2>
+        <p>CSS 특수성은 브라우저가 관련성에 따라 요소에 적용되는 속성 값을 결정하는 방식을 말합니다. 이 개념에 대한 자세한 내용은<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">특이성</a>문서를 참조하십시오.</p>
+        <p>Chrome에서 큰 재생 버튼을 검사합니다. <code translate="No">background</code>속성은 여러 클래스를 사용하여 설정됩니다. 즉, 이 속성을 재정의하는 데 하나의<code translate="No">.vjs-big-play-button</code>클래스만 사용할 수 없습니다.</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="play-button-classes" src="/assets/images/styling/customizing-player/play-button-classes.png" /></figure>
+        <p>큰 재생 버튼을 커스터마이징하는 세 가지 방법은 다음과 같습니다.</p>
+        <ul>
+            <li>플레이어에 할당된 ID를 참조합니다.</li>
+            <li>여러 클래스를 사용하여 속성의 관련성을 높입니다.</li>
+            <li>JavaScript를 사용하여 플레이어에서 id 속성을 설정한 다음 CSS에서 참조합니다.</li>
+        </ul>
+        <h3>id 참조</h3>
+        <p><code translate="No">id</code>속성은 CSS 특수성과 관련성이 높기 때문에 CSS 선택기에<code translate="No">id</code>를 추가하면<code translate="No">background-color</code>속성.</p>
+        <p>아직 하지 않았다면 추가<code translate="No">id</code>속성<code translate="No">video</code>다음과 같은 요소:</p>
+        <pre class="line-numbers">
 <code class="language-html" translate="No"><span class="bcls-highlight">&lt;video-js id="video_1"</span>
   data-account="1752604059001"
   data-player="68f30408-8fb4-431d-accb-8c5baa8c4790"
   data-embed="default"
   class="video-js" controls&gt;&lt;/video-js&gt;</code></pre>
-    <p >CSS에서<code translate="No">.vjs-big-play-button</code>클래스 선택기에 id 값을 추가합니다. 다음과 같이 배경색과 불투명도를 재정의합니다.</p>
-    <pre class="line-numbers">
+        <p>CSS에서 id 값을<code translate="No">.vjs-big-play-button</code>클래스 선택기에 추가합니다. 다음과 같이 배경색과 불투명도를 재정의합니다.</p>
+        <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;style&gt;
 <span class="bcls-highlight">  #video_1 .vjs-big-play-button {
       background-color: #B37D5B;
@@ -1516,13 +1065,13 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
       height: 360px;
     }
 &lt;/style&gt;</code></pre>
-    <p >이제 큰 재생 버튼이 주황색임을 알 수 있습니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="orange-play-button.png" src="/assets/images/player-customization/5x-player-styling/customize-appearance/orange-play-button.png"/></figure>
-    <h3>여러 클래스 사용</h3>
-    <p >이후<code translate="No">background</code>큰 재생 버튼의 속성은 두 개의 클래스를 사용하여 설정됩니다.이 속성을 재정의하려면 CSS 선택기에 두 개 이상의 클래스가 필요합니다.</p>
-    <p ><code translate="No">.video-js</code>클래스 선택기에<code translate="No">.vjs-big-play-button</code>클래스를 추가합니다. <code translate="No">.video-js</code>클래스가 비디오 컨테이너에 설정되어 있음을 기억하십시오.</p>
-    <p >이 값을 사용하여 클래스 이름이 다음과 같은 모든 요소를 선택합니다. <code translate="No">vjs-big-play-button</code>클래스 이름이 다음과 같은 요소의 사망자입니다. <code translate="No">.video-js</code> .</p>
-    <pre class="line-numbers">
+        <p>이제 큰 재생 버튼이 주황색임을 알 수 있습니다.</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="orange-play-button.png" src="/assets/images/styling/customizing-player/orange-play-button.png" /></figure>
+        <h3>여러 클래스 사용</h3>
+        <p>이후<code translate="No">background</code>큰 재생 버튼의 속성은 두 개의 클래스를 사용하여 설정됩니다.이 속성을 재정의하려면 CSS 선택기에 두 개 이상의 클래스가 필요합니다.</p>
+        <p><code translate="No">.video-js</code>클래스 선택기에<code translate="No">.vjs-big-play-button</code>클래스를 추가합니다. <code translate="No">.video-js</code>클래스는 비디오 컨테이너에 설정되어 있음을 기억하십시오.</p>
+        <p>이 값을 사용하여 클래스 이름이 다음과 같은 모든 요소를 선택합니다. <code translate="No">vjs-big-play-button</code>클래스 이름을 가진 요소의 사망자입니다. <code translate="No">.video-js</code> .</p>
+        <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;style&gt;
 <span class="bcls-highlight">  .video-js .vjs-big-play-button {</span>
     background-color: #B37D5B;
@@ -1533,23 +1082,23 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
     height: 360px;
   }
 &lt;/style&gt;</code></pre>
-    <p >이제 큰 재생 버튼이 주황색임을 알 수 있습니다. 여러 클래스로 작업하는 것은 까다로울 수 있으며 여러 요소에 영향을 줄 수 있지만 id는 하나의 요소에 고유합니다.</p>
-    <h3>자바 스크립트 사용하기</h3>
-    <p >JavaScript를 사용하여 큰 재생 버튼에 ID를 동적으로 추가 할 수도 있습니다. 그런 다음 CSS에서 해당 ID를 참조 할 수 있습니다.</p>
-    <p >큰 재생 버튼 요소에 ID를 추가하는 코드를 추가하십시오.</p>
-    <ul>
-      <li>173호선: 클래스가 있는 첫 번째 요소에 대한 참조를 가져옵니다<code translate="No">vjs-big-play-button</code> .</li>
-      <li>174호선: 큰 재생 버튼에<code translate="No">id</code>속성을 추가합니다.</li>
-    </ul>
-    <pre class="line-numbers" data-start="171">
+        <p>이제 큰 재생 버튼이 주황색임을 알 수 있습니다. 여러 클래스로 작업하는 것은 까다로울 수 있으며 여러 요소에 영향을 줄 수 있지만 id는 하나의 요소에 고유합니다.</p>
+        <h3>자바스크립트 사용</h3>
+        <p>JavaScript를 사용하여 큰 재생 버튼에 ID를 동적으로 추가할 수도 있습니다. 그런 다음 CSS에서 해당 ID를 참조할 수 있습니다.</p>
+        <p>큰 재생 버튼 요소에 ID를 추가하는 코드를 추가합니다.</p>
+        <ul>
+            <li>173호선: 클래스가 인 첫 번째 요소에 대한 참조를 가져옵니다<code translate="No">vjs-big-play-button</code> .</li>
+            <li>174호선: 큰 재생 버튼에<code translate="No">id</code>속성을 추가합니다.</li>
+        </ul>
+        <pre class="line-numbers" data-start="171">
 <code class="language-html" translate="No">  &lt;script type="text/JavaScript"&gt;
 
     var playButton = document.getElementsByClassName("vjs-big-play-button")[0];
     playButton.setAttribute("id", "myPlayButton");
 
   &lt;/script&gt;</code></pre>
-    <p >CSS에서<code translate="No">myPlayButton</code> ID 이름을 사용하도록 선택기를 변경합니다.</p>
-    <pre class="line-numbers">
+        <p>CSS에서 선택기를 변경하여<code translate="No">myPlayButton</code> id 이름을 사용합니다.</p>
+        <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;style&gt;
 <span class="bcls-highlight">    #myPlayButton {</span>
       background-color: #B37D5B;
@@ -1560,124 +1109,127 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
       height: 360px;
     }
   &lt;/style&gt;</code></pre>
-    <p >이제 큰 재생 버튼이 주황색임을 알 수 있습니다.</p>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Component_selectors">구성 요소 선택기</h2>
-    <p >이 스크린 샷과 다음 표는 해당 구성 요소를 조작하는 데 필요한 구성 요소와 CSS 선택기를 보여줍니다. 구성 요소 자체에 대한 자세한 내용은<a href="/coding-topics/overview-components.html">구성 요소 개요</a>문서.</p>
-    <h3>플레이어 로드 및 호버</h3>
-    <figure class="bcls-figure"><img style="max-width: none" width="794" height="352" alt="로드 시 구성요소" src="/assets/images/player-customization/5x-player-styling/customize-appearance/5x-components-onload.png"/></figure>
-    <h3>재생 중</h3>
-    <figure class="bcls-figure"><img class="bcls-image" style="max-width: none" width="831" height="525" alt="구성요소 재생" src="/assets/images/player-customization/5x-player-styling/customize-appearance/6x-components.png"/></figure>
-    <h3>구성 요소 선택기 요약</h3>
-    <table class="table-styles">
-      <thead>
-        <tr>
-          <th style="width:30%">구성 요소</th>
-          <th style="width:70%">선택기</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>빅플레이버튼</td>
-          <td><code translate="No">.video-js.vjs-mouse .vjs-big-play-button</code></td>
-        </tr>
-        <tr>
-          <td>컨트롤 바</td>
-          <td><code translate="No">.video-js .vjs-control-bar</code> (ControlBar의 아이콘으로 상속되지만 ProgressControl은 아님)</td>
-        </tr>
-        <tr>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;재생 토글</td>
-          <td><code translate="No">.video-js .vjs-play-control</code></td>
-        </tr>
-        <tr>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;뮤트토글</td>
-          <td><code translate="No">.vjs-volume-panel.vjs-control.vjs-volume-panel-horizontal</code></td>
-        </tr>
-        <tr>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VolumeBar</td>
-          <td><code translate="No">.vjs-volume-bar.vjs-slider-bar.vjs-slider.vjs-slider-horizontal</code></td>
-        </tr>
-        <tr>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;볼륨 레벨</td>
-          <td><code translate="No">.video-js .vjs-volume-level</code></td>
-        </tr>
-        <tr>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;현재 시간 표시</td>
-          <td><code translate="No">.video-js .vjs-current-time</code></td>
-        </tr>
-        <tr>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;티미디더</td>
-          <td><code translate="No">.video-js .vjs-time-divider</code></td>
-        </tr>
-        <tr>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;기간디스플레이</td>
-          <td><code translate="No">.video-js .vjs-duration</code></td>
-        </tr>
-        <tr>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;시크바</td>
-          <td><code translate="No">.video-js .vjs-progress-control.vjs-control</code></td>
-        </tr>
-        <tr>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;로드진행률 표시줄</td>
-          <td><code translate="No">.video-js .vjs-load-progress</code></td>
-        </tr>
-        <tr>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;플레이진행률 표시줄</td>
-          <td><code translate="No">.video-js .vjs-play-progress.vjs-slider-bar</code></td>
-        </tr>
-        <tr>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;챕터버튼</td>
-          <td><code translate="No">.video-js .vjs-chapters-button.vjs-menu-button</code></td>
-        </tr>
-        <tr>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;캡션단추</td>
-          <td><code translate="No">.video-js .vjs-captions-button.vjs-menu-button</code></td>
-        </tr>
-        <tr>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;전체 화면 토글</td>
-          <td><code translate="No">.video-js .vjs-fullscreen-control.vjs-control</code></td>
-        </tr>
-        <tr>
-          <td>도크텍스트</td>
-          <td><code translate="No">.vjs-dock-text</code> (DockTitle 및 DockDescription 모두에서 상 속됨)</td>
-        </tr>
-        <tr>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;독제목</td>
-          <td><code translate="No">.vjs-dock-title</code></td>
-        </tr>
-        <tr>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;도킹 설명</td>
-          <td><code translate="No">.vjs-dock-description</code></td>
-        </tr>
-      </tbody>
-    </table>
-    <p >찾고있는 선택자가 표에없는 경우 이메일로 알려주십시오. <a id="selectorrequest" href="mailto:docs@brightcove.com">지식 팀</a>그리고 우리는 그것을 테이블로 가져올 것입니다.</p>
-  </section>
-  <section class="bcls-section">
-    <h2 id="PLAYER_CLASS">{PLAYER_CLASS}</h2>
-    <p >그만큼<code translate="No">{PLAYER_CLASS}</code>선택기이며 플레이어의 실제 클래스 별 선택기로 대체됩니다. 예를 들면 다음과 같습니다.</p>
-    <pre class="line-numbers">
+        <p>이제 큰 재생 버튼이 주황색임을 알 수 있습니다.</p>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Component_selectors">구성 요소 선택기</h2>
+        <p>이 스크린 샷과 다음 표는 해당 구성 요소를 조작하는 데 필요한 구성 요소와 CSS 선택기를 보여줍니다. 구성 요소 자체에 대한 자세한 내용은<a href="/coding-topics/overview-components.html">구성 요소 개요</a>문서.</p>
+        <h3>플레이어 로드 및 호버시</h3>
+        <figure class="bcls-figure"><img style="max-width: none" width="794" height="352" alt="components on load" src="/assets/images/styling/customizing-player/5x-components-onload.png" /></figure>
+        <h3>재생 중</h3>
+        <figure class="bcls-figure"><img class="bcls-image" style="max-width: none" width="831" height="525" alt="components playback" src="/assets/images/styling/customizeing-player-appearance/6x-components.png" /></figure>
+        <h3>구성 요소 선택기 요약</h3>
+        <table class="table-styles">
+            <thead>
+                <tr>
+                    <th style="width:30%">구성 요소</th>
+                    <th style="width:70%">선택기</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>빅플레이버튼</td>
+                    <td><code translate="No">.video-js.vjs-mouse .vjs-big-play-button</code></td>
+                </tr>
+                <tr>
+                    <td>제어바</td>
+                    <td><code translate="No">.video-js .vjs-control-bar</code> (ControlBar의 아이콘으로 상속되지만 ProgressControl은 아님)</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;플레이토글</td>
+                    <td><code translate="No">.video-js .vjs-play-control</code></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;뮤트토글</td>
+                    <td><code translate="No">.vjs-volume-panel.vjs-control.vjs-volume-panel-horizontal</code></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VolumeBar</td>
+                    <td><code translate="No">.vjs-volume-bar.vjs-slider-bar.vjs-slider.vjs-slider-horizontal</code></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;볼룸엘벨</td>
+                    <td><code translate="No">.video-js .vjs-volume-level</code></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;현재 시간 표시</td>
+                    <td><code translate="No">.video-js .vjs-current-time</code></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;티미디비더</td>
+                    <td><code translate="No">.video-js .vjs-time-divider</code></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;지속 시간 디스플레이</td>
+                    <td><code translate="No">.video-js .vjs-duration</code></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;시크바</td>
+                    <td><code translate="No">.video-js .vjs-progress-control.vjs-control</code></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;로드프로그레스바</td>
+                    <td><code translate="No">.video-js .vjs-load-progress</code></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;플레이프로그레스바</td>
+                    <td><code translate="No">.video-js .vjs-play-progress.vjs-slider-bar</code></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp; AudioTrack</td>
+                    <td><code translate="No">.video-js .vjs-control-bar .vjs-audio-button</code></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;챕터 버튼</td>
+                    <td><code translate="No">.video-js .vjs-chapters-button.vjs-menu-button</code></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;캡션 버튼</td>
+                    <td><code translate="No">.video-js .vjs-captions-button.vjs-menu-button</code></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;풀스크린토글</td>
+                    <td><code translate="No">.video-js .vjs-fullscreen-control.vjs-control</code></td>
+                </tr>
+                <tr>
+                    <td>도크텍스트</td>
+                    <td><code translate="No">.vjs-dock-text</code> (DockTitle 및 DockDescription 모두에서 상 속됨)</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;도크타이틀</td>
+                    <td><code translate="No">.vjs-dock-title</code></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;도크 설명</td>
+                    <td><code translate="No">.vjs-dock-description</code></td>
+                </tr>
+            </tbody>
+        </table>
+        <p>찾고있는 선택자가 표에없는 경우 이메일로 알려주십시오. <a id="selectorrequest" href="mailto:docs@brightcove.com">지식 팀</a>그리고 우리는 그것을 테이블로 가져올 것입니다.</p>
+    </section>
+    <section class="bcls-section">
+        <h2 id="PLAYER_CLASS">{PLAYER_CLASS}</h2>
+        <p>그만큼<code translate="No">{PLAYER_CLASS}</code>선택기이며 플레이어의 실제 클래스 별 선택기로 대체됩니다. 예를 들면 다음과 같습니다.</p>
+        <pre class="line-numbers">
 <code class="language-css" translate="No">.bc-player-oH9IdGudo_default</code></pre>
-    <p ><code translate="No">{PLAYER_CLASS}</code>각 플레이어에 대해 개별적으로 CSS를 만들거나 다음과 같은 것을 사용하지 않고도 내장 스타일을 덮어 쓸 수 있도록 CSS를 구체적으로 만들 수 있습니다.</p>
-    <pre class="line-numbers">
+        <p><code translate="No">{PLAYER_CLASS}</code>각 플레이어에 대해 개별적으로 CSS를 만들거나 다음과 같은 것을 사용하지 않고도 내장 스타일을 덮어 쓸 수 있도록 CSS를 구체적으로 만들 수 있습니다.</p>
+        <pre class="line-numbers">
 <code class="language-css" translate="No">.video-js.video-js</code></pre>
-    <p >예를 들어 로딩 스피너를 재정의하려면 다음을 사용할 수 있습니다.</p>
-    <pre class="line-numbers">
+        <p>예를 들어 로딩 스피너를 재정의하려면 다음을 사용할 수 있습니다.</p>
+        <pre class="line-numbers">
 <code class="language-css" translate="No">.video-js.video-js .vjs-loading-spinner {...}</code></pre>
-    <p >이는 기본값을 재정의하기에 충분히 구체적이지만 페이지에 두 번째 플레이어가있는 경우입니다. 다음을 사용하면 페이지의 다른 플레이어에게 영향을주지 않습니다.</p>
-    <pre class="line-numbers">
+        <p>이는 기본값을 재정의하기에 충분히 구체적이지만 페이지에 두 번째 플레이어가있는 경우입니다. 다음을 사용하면 페이지의 다른 플레이어에게 영향을주지 않습니다.</p>
+        <pre class="line-numbers">
 <code class="language-css" translate="No">.video-js{PLAYER_CLASS} .vjs-loading-spinner {...}</code></pre>
-    <p>참고<code translate="No">{PLAYER_CLASS}</code>선택기는 플레이어 구성 스타일 시트 배열에 추가되고 (예 : Studio 또는 플레이어 관리 API를 통해) 플레이어에 직접 빌드 된 CSS 파일에서만 사용할 수 있습니다. 이 선택기는 다음을 통해 별도로 포함 된 고급 구현 코드 CSS에서 작동하지 않습니다. <code translate="No">&lt;style&gt;&lt;/style&gt;</code>또는<code translate="No">&lt;link&gt;&lt;/link&gt;</code>태그.</p>
-  </section>
+        <p>참고<code translate="No">{PLAYER_CLASS}</code>선택기는 플레이어 구성 스타일 시트 배열에 추가되고 (예 : Studio 또는 플레이어 관리 API를 통해) 플레이어에 직접 빌드 된 CSS 파일에서만 사용할 수 있습니다. 이 선택기는 다음을 통해 별도로 포함 된 고급 구현 코드 CSS에서 작동하지 않습니다. <code translate="No">&lt;style&gt;&lt;/style&gt;</code>또는<code translate="No">&lt;link&gt;&lt;/link&gt;</code>태그.</p>
+    </section>
 </article>
-
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
       
       <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">페이지 내용</h6>
+        <h6 class="toc">페이지 콘텐츠</h6>
         <ul id="in_page_nav" class="list-none"></ul>
       </nav>
       
@@ -1686,18 +1238,26 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
 </div>
 
 <hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
+<div class="last-updated">
+  마지막으로 업데이트된 페이지14 Feb 2022
+</div>
+
+
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
     <div class="region region-footer-top-center col-md-12">
       <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+        <img src="https://support.brightcove.com/site-assets/images/site/SVG/COVE004_Brightcove_Logo_093020_RGB_KO.svg" class="bc-footer-logo" alt="Brightcove">
 
-        <h2>브라이트코브 지원</h2>
+        <h2>브라이트코브 서포트</h2>
 
         <ul class="menu">
           <li>
             <a href="https://status.brightcove.com">시스템 상태</a>
           </li>
           <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">고객 지원 문의</a>
+            <a href="https://supportportal.brightcove.com/s/login/?">지원 문의</a>
           </li>
           <li>
             <a href="https://support.brightcove.com/">문서화</a>
@@ -1711,10 +1271,10 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
 
         <ul class="menu">
           <li>
-            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">온라인 강좌</a>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">온라인 코스</a>
           </li>
           <li>
-            <a href="https://studio.support.brightcove.com/training/register-training.html">강좌 등록</a>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">강좌에 등록하기</a>
           </li>
           <li>
             <a href="https://university.brightcove.com/">브라이트코브 대학교</a>
@@ -1724,14 +1284,14 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
       </nav>
       <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
 
-        <h2>Brightcove</h2>
+        <h2>브라이트코브</h2>
 
         <ul class="menu">
           <li>
             <a href="https://www.brightcove.com">브라이트코브닷컴</a>
           </li>
           <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">연락처</a>
+            <a href="https://supportportal.brightcove.com/s/login/?">문의하기</a>
           </li>
         </ul>
       </nav>
@@ -1743,12 +1303,12 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
         <table>
           <tr>
             <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 브라이트코브 Inc. 모든 판권 소유.</div>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 브라이트코브 Inc. 판권 소유</div>
             </td>
             <td><a href="https://www.brightcove.com/en/legal/privacy">개인 정보 보호</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">이용 약관</a></td>
             <td>
               <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin" style="margin-right: 1rem;"><i data-feather="linkedin" style="color:#8E9093;height: 1.25rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter" style="margin-right: 1rem;"><i data-feather="twitter" style="color:#8E9093;height: 1.25rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i data-feather="facebook" style="color:#8E9093;height: 1.25rem;"></i></a>
                 </div>
               </div>
             </td>
@@ -1759,23 +1319,9 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
   </div>
 </footer>
 
-</div>
-</div>
 <script>
       
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-  
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
+  var 검색 상자 = sajari.init ( { mode: "search-box", project: "1588255093746585379", // Set this to your project. collection: "brightcove-documenation", // Set this to your collection. instantPipeline: "autocomplete", // Pipeline used as you type inputPlaceholder: "Search", // Input element placeholder maxSuggestions: 5, // Maximum number of suggestions to show attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to } ); 검색 상자 (“하위”, “파이프 라인. 검색-전송”, 함수 (_, 쿼리) { window.location = "/search.html?q=" + encodeURIComponent(query.q); } );
   
 
 </script>
@@ -1797,32 +1343,12 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
   
   <script src="/assets/js/sajari-search-foot.js"></script>
   
+  <script>
+  페더. 바꾸기 ()
+</script>
   <!-- <script src="/assets/js/sajari-index.js"></script> -->
   <style>
-    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
-      background-color: lightblue;
-    }
-    div.sj-tabs__tab {
-      margin-top: 3rem;
-      margin-left: .3rem;
-      border-top-left-radius: .4rem;
-      border-top-right-radius: .4rem;
-      background-color:#e8e8e8;
-    }
-
-    div.sj-tabs__tab.sj-tabs__tab--selected {
-      border-bottom-color: crimson;
-      background-color: #f8f8f8;
-    }
-
-    p.sj-results__result__description.css-p9jvyt {
-      font-size: 1rem;
-    }
-
-    .sj-result__text.css-31l7gp h3 {
-      color: navy;
-      font-size: 1.4rem;
-    }
+    .sj-페이지 번호.sj 페이지 매김{ background-color: lightblue; }표기__페이지 번호—현재.css-so0ov7 div.sj-탭__탭{ margin-top: 3rem; margin-left: .3rem; border-top-left-radius: .4rem; border-top-right-radius: .4rem; background-color:#e8e8e8; } div.sj-탭__tab.sj-탭__tab—선택한{ border-bottom-color: crimson; background-color: #f8f8f8; } Psj { font-size: 1rem; }결과__결과__설명.css-p9jvyt.sj-결과__텍스트CSS-31l7gp h3 { color: navy; font-size: 1.4rem; }
     </style>
 
 </body>

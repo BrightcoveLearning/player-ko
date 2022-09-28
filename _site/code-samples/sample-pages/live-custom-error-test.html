@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>제목 없는 문서</title>
+    <style>
+        /* * 본문 스타일은 * 코드펜의 배경색 전용입니다. * 코드에 포함하지 마십시오. */ 신체{ background-color: #111; color: #fff; } /* * 샘플에 필수적인 스타일은 * 아래에 있습니다. */ .video-js { height: 440px; width: 560px; }
+    </style>
+</head>
+
+<body>
+
+    <video-js id="myPlayerID" data-video-id="5185914204001" data-account="1752604059001" data-player="Hyv669PDZ" data-embed="default" data-application-id class="video-js" controls></video-js>
+    <script src="https://players.brightcove.net/1752604059001/Hyv669PDZ_default/index.min.js"></script>
+
+    <script>
+        videojs.getPlayer('myPlayerID').ready(function() { var myPlayer = this; // HTML 콘텐츠를 배치하고 이미지를 내부에 배치할 div를 만듭니다. var newElement = document.createElement("div"); newElement.innerHTML = "<img src='https://player.support.brightcove.com/assets/images/code-samples/brightcove-player-sample-live-custom-error-message/please-stand-by.png'>"; // 모달 콘텐츠에 사용할 옵션 객체 정의 var options = {} ; options.content = newElement; // 옵션 객체로 모달 생성 var ModalDialog = videojs.getComponent("ModalDialog"); var myModal = 새로운 ModalDialog(myPlayer, 옵션); myPlayer.addChild(myModal); // 오류 이벤트 수신 myPlayer.on("error", function(err) { // The Modal should only be displayed if the error code is 4 // and the duration is NaN (not a number) // The following code gets the error code and duration var errNo = myPlayer.error().code; var duration = myPlayer.duration(); //Check if the error code and duration mean no video has loaded if (errNo == "4" &amp;&amp; duration == 0) { console.log('info: in if'); // Hide the error display myPlayer.errorDisplay.hide(); // If conditions met show the custom modal myModal.open(); } }); // 사용자 정의 모달 오류가 닫히면 기본 오류 표시 myModal.on("modalclose", function() { myPlayer.errorDisplay.show(); } ); });
+    </script>
+
+</body>
+
+</html>
