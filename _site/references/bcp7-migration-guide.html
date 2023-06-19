@@ -1,0 +1,2939 @@
+﻿<!DOCTYPE html>
+<html lang="ko"> 
+    <head>
+        <title>Brightcove Player 7 마이그레이션 가이드</title>
+        
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="이 항목에서는 Brightcove Player 7의 주 버전 릴리스의 새로운 개선 사항 및 기능에 대해 알아봅니다.">
+        
+        <!-- Google Font -->
+        <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/fonts/articulat-site.css">
+        <link href="/assets/s-site-assets-stylesheets/fonts/source-code-pro.css" rel="stylesheet">
+        
+        <!-- FontAwesome JS-->
+        
+        <script src="https://kit.fontawesome.com/d67c74a882.js" crossorigin="anonymous"></script>  
+        
+        <!-- Plugins CSS -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.css">
+
+        <!-- Theme CSS -->  
+        <link id="theme-style" rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/css/theme.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/prism.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/custom-css/styles.css">
+
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBJC11HF8Z"></script>
+        <script translate="no">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XBJC11HF8Z');
+        </script>
+        <script src="/assets/s-site-assets-scripts/sixth-sense.js"></script>
+        <script src="/assets/s-site-assets-scripts/sajari-head.js"></script>
+        <script src="/assets/s-site-assets-scripts/feather.min.js"></script>
+
+    </head> 
+
+    <body class="docs-page">
+        
+
+<header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid position-relative py-2">
+      <div class="docs-logo-wrapper">
+        <button id="docs-sidebar-toggler" class="docs-sidebar-toggler"
+          type="button">
+          <span></span> <span></span> <span></span>
+        </button>
+        <div class="site-logo"><a class="navbar-brand" href="https://support.brightcove.com/" style="margin-left: 15px;"> <img class="logo-icon me-2" src="/assets/s-site-assets-template-stylesheets/images/bc_logo_black_1@1x.png" alt="로고" style="margin-bottom: 9px;"/>
+            <!-- <span class="logo-text">BRIGHTCOVE</span> -->
+          </a></div>
+      </div><!--//docs-logo-wrapper-->
+
+      <div class="docs-top-utilities d-flex justify-content-end
+        align-items-center">
+        
+        <!-- Search bar -->
+        <div id="nav-search-box" class="top-search-box d-none d-lg-flex" style="margin-right: 10px ;"></div>
+
+<select id="site_select" class="form-select select-focus" style="width:
+          20%; margin-right: 10px;" translate="no">
+          <option value="">Other Brightcove Docs</option>
+          
+          
+          <option value="https://support.brightcove.com" translate="no">Documentation Home</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD --</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Studio</option>
+          
+          
+          
+          <option value="https://mstudio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Marketing Studio</option>
+          
+          
+          
+          <option value="https://player.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Player Development</option>
+          
+          
+          
+          <option value="https://apis.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Platform APIs</option>
+          
+          
+          
+          <option value="https://sdks.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Device SDKs</option>
+          
+          
+          
+          <option value="https://integrations.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Integrations and CMS Connectors</option>
+          
+          
+          
+          <option value="https://general.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud General Information</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO ESSENTIALS --</option>
+          
+          
+          
+          <option value="https://audience-insights.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Audience Insights</option>
+          
+          
+          
+          <option value="https://beacon-help.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Studio</option>
+          
+          
+          
+          <option value="https://beacon.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Classic</option>
+          
+          
+          
+          <option value="https://corptv.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;CorpTV</option>
+          
+          
+          
+          <option value="https://live.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Live</option>
+          
+          
+          
+          <option value="https://zencoder.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Zencoder</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD ADD-ONS --</option>
+          
+          
+          
+          <option value="https://gallery.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Gallery</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com/social/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Social</option>
+          
+          
+          
+          <option value="https://interactivity.support.brightcove.com/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Interactivity</option>
+          
+          
+          
+          <option value="https://ssai.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove SSAI</option>
+          
+          
+          
+          <option value="https://campaign.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Campaign</option>
+          
+          
+        </select>
+
+        <select id="language_select" class="form-select select-focus" style="width: 10%;"
+          onchange="doGTranslate(this);" translate="no">
+          <!-- <option value="">Select Language</option> -->
+          <option value="en|en" translate="No">English</option>
+          <option value="en|zh-TW" translate="No">繁體中文</option>
+          <option value="en|fr" translate="No">Français</option>
+          <option value="en|de" translate="No">Deutsche</option>
+          <option value="en|ja" translate="No">日本語</option>
+          <option value="en|ko" translate="No">한국어</option>
+          <option value="en|es" translate="No">Español</option>
+        </select>
+
+        <script translate="no">
+          /* <![CDATA[ */
+          function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+          /* ]]> */
+        </script>
+      </div>
+    </div>
+  </div>
+</header><!--//header-->
+
+<div class="docs-wrapper">
+  <div id="docs-sidebar" class="docs-sidebar" style="padding-right: 15px;">
+    <div id="nav-search-box" class="top-search-box d-lg-none p-3"></div>
+    <div class="row">
+      
+        <div id="side_nav" style="margin-left: 1em; display: inline-block; border-right: 1px solid #e5e5e6; padding-right: 1em;">
+          
+          <nav class="docs-nav sidenav" aria-label="Main">
+            <ul class="site-nav" style="list-style-type: none;">
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/index.html">홈</a></li>
+            
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/getting-started/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;시작하기</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/training/developer-basics-videos.html">개발자 기본 동영상</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/what-brightcove-player.html">브라이트코브 플레이어란 무엇인가요?</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/overview-brightcove-player.html">개요: 브라이트코브 플레이어</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/learning-guide-video-advertising.html">학습 가이드: 비디오 광고</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/overview-brightcove-player-plugins.html">개요: 브라이트코브 플레이어 플러그인</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/training/player-development-training-videos.html">플레이어 개발 교육 비디오</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/step-step-brightcove-player.html">단계별: 브라이트코브 플레이어</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/step-step-player-customization.html">단계별: 플레이어 사용자 지정</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/training/training-demand-developing-brightcove-player.html">교육: 브라이트코브 플레이어를 통한 개발</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/learning-guide-using-rest-apis.html">학습 가이드: REST API 사용</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/basics/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;기본 사항 알아보기</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/basics/developer-basics-advanced-player-code.html">고급 플레이어 코드</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/basics/developer-basics-autoplaying-video.html">비디오 자동 재생</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/basics/developer-basics-custom-plugin-converting-code.html">사용자 정의 플러그인 - 코드 변환</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/basics/developer-basics-custom-plugin-passing-data.html">사용자 정의 플러그인 - 데이터 전달</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/basics/developer-basics-custom-plugin-using-studio.html">사용자 정의 플러그인 - 스튜디오 사용</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/basics/developer-basics-custom-plugin-why-and-how.html">사용자 정의 플러그인 - 이유 및 방법</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/training/developer-basics-videos.html">개발자 기본 동영상</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/basics/developer-basics-generating-player-code.html">플레이어 코드 생성</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/basics/developer-basics-preparing-write-code.html">코드 작성 준비</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/references/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;참고 문헌</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/references/bcp7-migration-guide.html" aria-current="page">Brightcove Player 7 마이그레이션 가이드</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/brightcove-player/current-release/index.html">Brightcove Player API 설명서</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/references/brightcove-player-cookies.html">브라이트코브 플레이어 쿠키</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/references/brightcove-player-error-reference.html">브라이트코브 플레이어 오류 참조</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/references/brightcove-player-system-requirements.html">브라이트코브 플레이어 시스템 요구 사항</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/references/catalog-search-architecture.html">카탈로그 검색 아키텍처</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://general.support.brightcove.com/general/known-issues-studio-brightcove-player-and-apis.html">알려진 문제</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/references/player-catalog.html">플레이어 카탈로그</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/references/player-feature-support-browser.html">브라우저별 플레이어 기능 지원</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/references/player-metadata-bcinfo.html">bcinfo의 플레이어 메타데이터</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/brightcove-player/current-release/Player.html">플레이어 메서드/이벤트 API</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/references/guide-playlist-api.html">재생 목록 API 가이드</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/references/video-metadata-mediainfo.html">미디어 정보의 비디오 메타데이터</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/plugins/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;플러그인</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/360degvr-video-plugin.html">360º 비디오</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/ad-intelligence-plugin.html">광고 인텔리전스 플러그인</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/ad-only-plugin.html">광고 전용</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/advertising-freewheel-plugin.html">FreeWheel 플러그인을 사용한 광고</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/advertising-ima3-plugin.html">IMA3 플러그인을 사용한 광고</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/implementing-server-side-ads-brightcove-player.html">SSAI를 사용한 광고</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/open-measurement-with-ssai.html">SSAI 및 Open Measurement를 사용한 광고</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/airplay-plugin.html">에어플레이</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/brightcove-player-plugins.html">브라이트코브 플레이어 플러그인</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/chromecast-plugin-brightcove-player.html">크롬캐스트</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/custom-endscreen-plugin.html">사용자 정의 끝화면</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/display-error-messages-plugin.html">오류 메시지 표시</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/display-thumbnail-previews-plugin.html">썸네일 미리보기 표시</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/configuring-brightcove-player-drm.html">DRM</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/google-tag-manager-plugin-brightcove-player.html">구글 태그 관리자</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/hls-plugin.html">HLS</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/live-dvrux-plugin.html">라이브 DVRUX</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/display-overlay-plugin.html">오버레이</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/overview-brightcove-player-plugins.html">개요: 플레이어 플러그인</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/picture-picture-plugin-aka-floating-or-pinned.html">픽처 인 픽처</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/playerplugin-version-testing.html">플레이어/플러그인 버전 테스트</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/playlist-endscreen-plugin.html">재생목록 최종 화면</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/playlist-ui-plugin.html">재생 목록 UI</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/changelog/index.html">플러그인 변경로그</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/plugin-registry.html">플러그인 레지스트리</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/plugin-version-reference.html">플러그인 버전 참조</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/quality-selection-plugin.html">품질 선택</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/social-sharing-plugin.html">소셜 미디어</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/tealium-plugin-brightcove-player.html">티리움 태그 관리자</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/thumbnails-plugin.html">썸네일 찾기</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/video-seo-schema-generator-plugin.html">비디오 SEO 스키마 생성기</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/advertising/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;광고하기</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/advertising/ad-events-and-ad-objects.html">광고 이벤트 및 광고 개체</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/ad-only-plugin.html">광고 전용 플러그인</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/advertising-freewheel-plugin.html">FreeWheel 플러그인을 사용한 광고</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/advertising-ima3-plugin.html">IMA3 플러그인을 사용한 광고</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/implementing-server-side-ads-brightcove-player.html">서버 측 광고(SSAI)를 사용한 광고</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/open-measurement-with-ssai.html">SSAI 및 Open Measurement를 사용한 광고</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/advertising/checking-for-ad-blockers.html">광고 차단기 확인</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/advertising/client-side-preroll-with-live-ssai.html">라이브 SSAI를 통한 클라이언트측 프리롤 광고</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/advertising/displaying-ads-using-ad-cue-points.html">광고 큐 포인트를 사용하여 광고 표시</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/advertising/flash-no-longer-valid-ima.html">플래시가 IMA에서 더 이상 유효하지 않음</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/advertising/guide-ad-partner-integration.html">가이드: 광고 파트너 통합</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/advertising/guide-contrib-ads-migration.html">가이드: 컨트리브 광고 마이그레이션</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/advertising/jump-start-header-bidding-ad.html">점프 시작: 헤더 입찰 광고</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/advertising/jump-start-outstream-ad.html">점프 시작: 아웃스트림 광고</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/advertising/jump-start-pre-roll-ad.html">점프 시작: 프리롤 광고</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/advertising/known-issues-server-side-ad-insertion-ssai.html">알려진 문제: 서버 측 광고 삽입 (SSAI)</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/learning-guide-video-advertising.html">학습 가이드: 비디오 광고</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/advertising/step-step-implementing-advertising.html">단계별: 광고 구현</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/advertising/testing-pre-release-advertising-plugins.html">출시 전 광고 플러그인 테스트</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/advertising/using-dfp-premium-brightcove-player.html">브라이트코브 플레이어에서 DFP 프리미엄 사용</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/advertising/using-player-enhancements-live-ssai-brightcove-player.html">Live SSAI에 대한 플레이어 향상 기능 사용</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/advertising/video-cloud-ssai-ad-tag-validation.html">비디오 클라우드 SSAI광고 태그 유효성 검사</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/publish/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;비디오 및 플레이어 게시</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/publish/adding-application-id-player-embed-code.html">플레이어 임베드 코드에 응용 프로그램 ID 추가</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/publish/assigning-video-player-programmatically.html">프로그래밍 방식으로 비디오를 플레이어에 할당</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/publish/available-options-advanced-page-embed-code.html">고급(페이지 내) 임베드 코드 옵션</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/publish/available-options-standard-iframe-embed-code.html">표준(iframe) 임베드 코드 옵션</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/publish/brightcove-player-loader.html">브라이트코브 플레이어 로더</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/publish/bulk-updating-brightcove-default-player.html">브라이트코브 기본 플레이어 대량 업데이트</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/publish/choosing-correct-embed-code.html">올바른 임베드 코드 선택</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/publish/delaying-player-instantiation.html">플레이어 인스턴스화 지연</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/publish/pre-release-player.html">프리릴리즈 플레이어</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/publish/syndication-strategies.html">신디케이션 전략</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/publish/using-non-brightcove-player.html">브라이트코브가 아닌 플레이어 사용</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://studio.support.brightcove.com/publish/using-multiple-players-one-page.html">한 페이지에서 여러 플레이어 사용</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://studio.support.brightcove.com/publish/using-reference-ids.html">참조 ID 사용</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/troubleshooting/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;문제 해결</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/troubleshooting/index-ads.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;광고하기</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/troubleshooting/advertising-troubleshooting-checklist.html">광고 문제해결 체크리스트</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/troubleshooting/index-logs.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;캡처 로그</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/troubleshooting/creating-charles-log.html">찰스 로그 생성</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/troubleshooting/creating-network-log.html">네트워크 로그 작성</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/troubleshooting/index-debugging.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;디버그 플레이어</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/troubleshooting/brightcove-playback-technology-app.html">브라이트코브 재생 기술 앱</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/references/brightcove-player-error-reference.html">브라이트코브 플레이어 오류 참조</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/troubleshooting/brightcove-player-information-modal.html">브라이트코브 플레이어 정보 모달</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/troubleshooting/brightcove-player-troubleshooting-guide.html">브라이트코브 플레이어 문제 해결 가이드</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/troubleshooting/domain-restrictions-messaging.html">도메인 제한 사항 메시징</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/plugins/display-error-messages-plugin.html">오류 메시지 플러그인 표시</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/troubleshooting/manually-setting-player-version.html">수동으로 플레이어 버전 설정</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/troubleshooting/player-debug-mode.html">플레이어 디버그 모드</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/plugins/playerplugin-version-testing.html">플레이어/플러그인 버전 테스트</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/troubleshooting/player-informational-properties.html">플레이어 정보 등록 정보</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/code-samples/brightcove-player-sample-live-custom-error-message.html">샘플: 실시간 사용자 지정 오류 메시지</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/troubleshooting/step-step-brightcove-player-debugger.html">단계별: 브라이트코브 플레이어</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/troubleshooting/running-network-path-trace.html">네트워크 경로 추적 실행</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/troubleshooting/using-player-reference.html">플레이어 참조 사용</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/troubleshooting/vetting-brightcove-player-releases.html">브라이트코브 플레이어 출시 심사</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/troubleshooting/viewing-player-configuration.html">플레이어 구성 보기</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/styling/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;스타일링 및 외관</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/styling/customizing-player-appearance.html">플레이어 모양 사용자 정의</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/styling/brightcove-player-sample-player-styling-playground.html">플레이어 스타일링 놀이터</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/step-step-player-customization.html">단계별: 플레이어 사용자 지정</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/styling/responsive-sizing-brightcove-player.html">브라이트코브 플레이어를 위한 반응형 크기 조정</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/styling/sizing-player.html">플레이어 크기 조정</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/styling/skins-and-player-versions.html">스킨 및 플레이어 버전</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://studio.support.brightcove.com/media/styling-captions.html">캡션 스타일 지정</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/styling/styling-playlists.html">재생 목록 스타일 지정</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/playback/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;재생</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/playback/audio-only-player.html">오디오 전용 플레이어</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/playback/autoplay-considerations.html">자동 실행 고려 사항</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/troubleshooting/brightcove-playback-technology-app.html">브라이트코브 재생 기술 앱</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/playback/bumper-videos.html">범퍼 동영상</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/playback/china-delivery-with-bcp.html">중국 배송</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/playback/xdr-with-bcplayer.html">장치 간 재개</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://studio.support.brightcove.com/publish/deep-linking.html">딥 링크</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/playback/delivering-hls-video.html">HLS 비디오 제공</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/playback/using-delivery-rules-with-bcp.html">배달 규칙</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/playback/determining-which-rendition-will-play.html">재생할 변환 결정</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/playback/forensic-watermarking-with-bcp.html">포렌식 워터마킹</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/playback/guide-playback-technology.html">가이드: 재생 기술</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/hls-plugin.html">HLS 플러그인</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/playback/ios-and-brightcove-player.html">iOS 및 브라이트코브 플레이어</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/playback/playback-restrictions-with-bcp.html">재생 제한</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/playback/overview-https-support.html">개요: HTTPS 지원</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/quality-selection-plugin.html">품질 선택 플러그인</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/playback/static-url-delivery.html">정적 URL 전송</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/playback/streaming-playready-protected-content-dynamic-delivery.html">재생 준비 상태로 보호된 콘텐츠 스트리밍</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/playback/using-brightcove-player-tve.html">TVE에 브라이트코브 플레이어 사용하기</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/content-protection/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp; DRM 및 콘텐츠 보호</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://studio.support.brightcove.com/players/configuring-player-content-restrictions.html">플레이어 콘텐츠 제한 구성</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/content-protection/creating-dash-drm-manifest-brightcove-player.html">브라이트코브 플레이어를 위한 DASH DRM 매니페스트 만들기</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/troubleshooting/domain-restrictions-messaging.html">도메인 제한 사항 메시징</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/configuring-brightcove-player-drm.html">DRM 플러그인</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/content-protection/overview-content-protection.html">개요: 콘텐츠 보호</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/content-protection/policy-keys.html">정책 키</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/content-protection/restricting-video-playback-using-ip-address.html">IP 주소를 사용하여 비디오 재생 제한</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/content-protection/signed-urls-and-token-auth-live-stream.html">라이브 스트림으로 서명된 URL 및 토큰 인증</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/coding-topics/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;코딩 주제</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/coding-topics/general/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;일반</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/coding-topics/general/concepts-cors.html">CORS 이해</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/coding-topics/general/concepts-introducing-json.html">JSON 소개</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/coding-topics/general/concepts-javascript-debugging-basics.html">자바 스크립트 디버깅 기본 사항</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/coding-topics/general/concepts-javascript-module-design-pattern.html">자바 스크립트 모듈 디자인 패턴</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/coding-topics/general/concepts-set-curl.html">cURL 설정하기</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/coding-topics/general/concepts-using-javascript-promises.html">자바 스크립트 약속 사용</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/coding-topics/general/create-json-web-token.html">JSON 웹 토큰 만들기 (JWT)</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/coding-topics/general/debugging-mobile-devices.html">모바일 장치에서 디버깅</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/coding-topics/general/using-mtr-to-look-at-network-traffic.html">MTR (내 추적 경로) 사용</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/coding-topics/general/using-wireshark-track-network-traffic-debugging.html">Wireshark를 사용하여 네트워크 트래픽 추적</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/publish/brightcove-player-loader.html">브라이트코브 플레이어 로더</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/references/catalog-search-architecture.html">카탈로그 검색 업그레이드</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/code-samples/brightcove-player-sample-trigger-rewind-custom-event.html">사용자 정의 이벤트</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/playback/guide-playback-technology.html">가이드: 재생 기술</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/coding-topics/programmatically-localizing-brightcove-player.html">브라이트코브 플레이어 현지화</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/coding-topics/localizing-plugins.html">플러그인 현지화</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/coding-topics/player-events.html">플레이어 이벤트</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/coding-topics/overview-components.html">개요: 구성 요소</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/playback/overview-https-support.html">개요: HTTPS 지원</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/coding-topics/overview-player-api.html">개요: 플레이어 API</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/coding-topics/pass-data-plugin.html">플러그인에 데이터 전달</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/coding-topics/react-player-loader.html">플레이어 로더 반응</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/coding-topics/reporting-brightcove-player-configurations.html">브라이트코브 플레이어 구성에 대한 보고</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/coding-topics/requirejs-and-brightcove-player.html">요구 사항 및 브라이트코브 플레이어</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/coding-topics/retrieve-bitrate-current-rendition.html">현재 렌디션의 비트레이트 검색</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/coding-topics/step-step-plugin-development.html">단계별: 플러그인 개발</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/coding-topics/step-step-videojs-plugin-generator.html">단계별: Video.js 플러그인 생성기</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/coding-topics/using-bc-and-getplayer-methods.html">BC () 및 getPlayer () 메소드를 사용하여</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/troubleshooting/viewing-player-configuration.html">플레이어 구성 보기</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/general/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;일반 정보</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://studio.support.brightcove.com/publish/adding-application-id-player-embed-code.html">플레이어 임베드 코드에 응용 프로그램 ID 추가</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/adding-captions-videos-programmatically.html">프로그래밍 방식으로 비디오에 캡션 추가</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://studio.support.brightcove.com/media/adding-chapters-video.html">비디오에 장 추가</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/brightcove-player-accessibility.html">브라이트코브 플레이어 손쉬운</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/brightcove-player-viewability.html">가시성</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/custom-endscreen-plugin.html">사용자 정의 엔드 스크린 플러그인</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/display-overlay-plugin.html">오버레이 플러그인 표시</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/ga-self-configure.html">Google 애널리틱스 자체 구성</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/references/guide-playlist-api.html">가이드: 재생 목록 API</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/identify-and-delete-low-performing-videos.html">실적이 낮은 비디오 식별 및 삭제</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/implementing-cue-points-programmatically.html">프로그래밍 방식으로 큐 포인트 구현</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/implementing-playlists.html">재생 목록 구현</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/implementing-modaldialog.html">모달 대화 상자 구현하기</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/live-hls.html">라이브 HLS</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/live-stream-configuration.html">라이브 스트림 구성</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/multiple-audio-tracks.html">다중 오디오 트랙</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/player-configuration-guide.html">플레이어 구성 가이드</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/playing-live-streams.html">라이브 스트림 재생</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/playlist-ui-plugin.html">재생 목록 UI 플러그인</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/rename-608-708-captions.html">플레이어에서 608/708 캡션 이름 바꾸기</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/content-protection/signed-urls-and-token-auth-live-stream.html">라이브 스트림으로 서명된 URL 및 토큰 인증</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/plugins/social-sharing-plugin.html">소셜 미디어 플러그인</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://apis.support.brightcove.com/player-management/getting-started/step-step-player-management.html">단계별: 플레이어 관리</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/styling/styling-playlists.html">재생 목록 스타일 지정</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/using-screen-reader-brightcove-player.html">브라이트코브 플레이어에서 화면 판독기 사용</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/volume-control.html">볼륨 컨트롤</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/code-samples/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;코드 샘플</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/code-samples/index-thumb.html">그룹별 코드 샘플</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/code-samples/index.html">코드 샘플 인덱스</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/amp/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;앰프</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/amp/amp-using-video-cloud-video.html">비디오 클라우드 비디오 사용 AMP</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/amp/amp-using-external-video.html">외부 비디오를 사용하는 AMP</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/amp/amp-and-advertising.html">AMP 및 광고</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/training/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;트레이닝</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/training/online-training-courses.html">모든 온라인 교육 과정</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/training/developer-basics-videos.html">개발자 기본 동영상</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/training/player-development-training-videos.html">플레이어 개발 교육 비디오</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/training/register-training.html">강사 주도식 교육 등록</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/training/training-demand-developing-brightcove-player.html">교육: 브라이트코브 플레이어를 통한 개발</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://apis.support.brightcove.com/player-management/getting-started/training-demand-quick-start-player-management.html">교육: 플레이어 관리 빠른 시작</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/training/brightcove-university.html">브라이트코브 대학교 교육 과정</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/release-notes/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;릴리즈 노트</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/release-notes/brightcove-player-release-notes.html">브라이트코브 플레이어 출시 정보</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/support/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;서포트</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/viewing-brightcove-system-status-page.html">브라이트코브 시스템 상태 페이지 보기</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/contact-sales.html">영업팀에 문의</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html">지원 사례 열기</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/reset-support-portal-password.html">지원 포털 비밀번호 재설정</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+          </ul>
+          </nav>
+        </div>
+      </div>
+    </div><!--//docs-sidebar-->
+  </div>
+</div>
+
+<div style="margin-top: 20px;">
+  <div class="docs-content" style="padding-bottom: 0px;">
+    <div class="container">
+      <div class="docs-overview">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/">홈</a></li>
+            
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/references/">참고 자료</a></li>
+            
+            
+            
+            <li class="breadcrumb-item active" aria-current="page">Brightcove Player 7 마이그레이션 가이드</li>
+            
+            
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="docs-content">
+  <div class="container">
+    <div class="docs-overview py-5">
+      
+      <div class="centered-inpage-nav" id="centered_inpage_nav">
+        <nav id="centered_toc">
+          <select id="centered_in_page_toc" class="form-select select-focus"></select>
+        </nav>
+      </div>
+      <br/>
+      
+      
+<h1>Brightcove Player 7 마이그레이션 가이드</h1>
+<article class="bcls-article">
+    <summary>이 항목에서는 Brightcove Player 7의 주 버전 릴리스의 새로운 개선 사항 및 기능에 대해 알아봅니다.</summary> 
+
+    <section class="bcls-section">
+      <h2 id="Introduction">서문</h2>
+      <p>버전 7은 Brightcove Player의 최신 주요 버전 릴리스입니다. 플레이어의 변경 사항 및 개선 사항에는 Video.js 8 및 VHS(Video.js HTTP Streaming) 3의 변경 사항 및 개선 사항이 포함됩니다. </p>
+      <p>기능 및 개선 사항은 다음과 같습니다.</p>
+      <ul>
+        <li>대부분의 최신 브라우저용으로 설계됨</li>
+        <li>기본적으로 ES6</li>
+        <li>새로운 조회가능성 이벤트</li>
+        <li>향상된 적응형 비트 전송률(ABR) 알고리즘</li>
+        <li>플러그인 없이 콘텐츠 보호(DRM) 지원</li>
+        <li>IE11에 대한 지원 제거</li>
+      </ul>
+      <p>디자인 팀은 가까운 시일 내에 제공될 플레이어 7의 추가 UX 변경 작업을 진행하고 있습니다. 주요 수치는 다음과 같습니다.</p>
+      <ul>
+        <li>새로운 기본 레이아웃</li>
+        <li>향상된 플레이어 동작</li>
+      </ul>
+      <p>Brightcove Player는 여전히 업계 최고의 웹 비디오 플레이어입니다. 개요는 <a href="https://www.brightcove.com/en/resources/blog/great-online-video-player/">훌륭한 온라인 비디오 플레이어를 만드는 요소를 참조하십시오. 브라이트코브의 플레이어 v7</a>블로그 게시물을 발표합니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">Brightcove는 플레이어를 새로운 주요 버전으로 자동 업그레이드 <strong>하지 않습니다</strong> .</aside>
+      <aside class="bcls-aside bcls-aside--information">참고 사항:
+        <ul>
+          <li>Quality Selector 컨트롤은 Brightcove Player 7 릴리스 7.1.0 이상에서 지원됩니다.</li>
+          <li>Brightcove Player 7 사용 시 <a href="#Limitations">제한 사항</a> 검토</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="bcls-section">
+      <h2 id="Upgrade_to_version_7">버전 7로 업그레이드</h2>
+      <!-- <p>Brightcove Player 7.0.0 is available as a pre-release for manual update. No existing players have been auto-updated to this version, but you can upgrade your player using the JSON editor.</p>
+      <ol class="bcls-tasklist">
+        <li>In Video Cloud Studio, navigate to the <strong>Players</strong> module.</li>
+        <li>
+          <p>Create a new player or open an existing player.</p>
+          <figure class="bcls-figure">
+            <img class="bcls-image--no-border" alt="Player information" src="/assets/images/references/bcp7/player-info.webp" />
+          </figure>
+        </li>
+        <li>In the <strong>Player Information</strong> section, scroll down to <strong>Update Mode</strong>.</li>
+        <li>
+          <ol>
+            <li>Click <strong>Manual</strong>.</li>
+            <li>Click <strong>Save</strong>.</li>
+          </ol>
+          <figure class="bcls-figure">
+            <img class="bcls-image--no-border" alt="Manual Mode" src="/assets/images/references/bcp7/manual-mode.webp" />
+          </figure>
+        </li> 
+        <li>
+          <p>In the left navigation, click <strong>JSON Editor</strong>.</p>
+          <figure class="bcls-figure">
+            <img class="bcls-image--no-border" alt="JSON editor" src="/assets/images/references/bcp7/json-editor.webp" />
+          </figure>
+        </li>
+        <li>
+          <p>In the JSON editor, change the player version to <strong>7.0.0</strong> and click <strong>Save</strong>.</p>
+          <figure class="bcls-figure">
+            <img class="bcls-image--no-border" alt="Change player version" src="/assets/images/references/bcp7/change-version.webp" />
+          </figure>
+        </li>
+        <li>
+          <p>If any of the features or plugins in the following table are added to your player, then change their version number.</p>
+          <figure class="bcls-figure">
+            <img class="bcls-image--no-border" alt="Update plugin version" src="/assets/images/references/bcp7/version-table.webp" />
+          </figure>
+          <aside class="bcls-aside bcls-aside--information">
+            Notes:
+            <ul>
+              <li>The version 6 number may not be exactly what's the listed above, e.g. <strong>2.1.0</strong> instead of <strong>2.x</strong></li>
+              <li>Reverting to version 6 requires the same steps, but reversing the version numbers (i.e. right to left)</li>
+            </ul>
+          </aside>
+        </li>
+        <li>Click <strong>Save</strong>.</li>
+        <li>
+          <p>Click <strong>Publish & Embed</strong>.</p>
+          <figure class="bcls-figure">
+            <img class="bcls-image--no-border" alt="Publish" src="/assets/images/references/bcp7/publish.webp" />
+          </figure>
+        </li>
+        <li>Click <strong>Publish Changes</strong> and then <strong>Close</strong>.</li>
+      </ol> -->
+
+      <!-- Uncomment section below for single button upgrade steps -->
+      <p>이제 Brightcove Player 7.0.0을 사용할 수 있습니다. 기존 플레이어가 이 버전으로 자동 업데이트되지 않았지만 Studio에서 플레이어를 업그레이드할 수 있습니다.</p>
+      <ol class="bcls-tasklist">
+        <li>비디오 클라우드 스튜디오에서<strong>플레이어</strong>모듈로 이동합니다.</li>
+        <li>
+          <p>새 플레이어를 생성하거나 기존 플레이어를 엽니다.</p>
+          <figure class="bcls-figure">
+            <img class="bcls-image--no-border" alt="선수 정보" src="/assets/images/references/bcp7/player-information.webp"/>
+          </figure>
+        </li>
+        <li><strong>플레이어 정보</strong> 섹션에서 <strong>플레이어 버전</strong> 까지 아래로 스크롤합니다.</li>
+        <li>
+          <ol>
+            <li><strong>업데이트 모드가</strong> <strong>자동</strong> 으로 설정되어 있는지 확인하십시오. 자세한 내용은 <a href="#Limitations">제한 사항</a> 섹션을 참조하십시오.</li>
+            <li><strong>Brightcove Player 7로 업그레이드를</strong> 클릭합니다.</li>
+            <li><strong>저장</strong>을 클릭합니다.</li>
+            <li><strong>게시 및 삽입을 클릭합니다</strong> .</li>
+          </ol>
+          <figure class="bcls-figure">
+            <img class="bcls-image--no-border" alt="플레이어 7로 업그레이드" src="/assets/images/references/bcp7/player-version-7.webp"/>
+          </figure>
+        </li> 
+        <li><strong>변경 사항 게시를</strong> 클릭한 다음 <strong>닫기를</strong> 클릭합니다.</li>
+      </ol>
+      <aside class="bcls-aside bcls-aside--information"><p>플레이어를 업그레이드하기 위해 위의 단계를 따랐다면 플러그인 버전이 올바르게 설정될 것입니다.</p>
+        <p>JSON 편집기를 사용하여 플레이어를 수동으로 업데이트하는 경우 플러그인 버전에 대한 <a href="#Plugins">플러그인</a> 섹션을 참조하십시오.</p></aside>
+
+      <!-- <div style="position: relative; display: block; max-width: 624px;"><div style="padding-top: 56.25%;"><iframe src="https://players.brightcove.net/6225316964001/Qznf2bKtV_default/index.html?videoId=6316422161112" allowfullscreen="" allow="encrypted-media" style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></iframe></div></div> -->
+    </section>
+
+    <section class="bcls-section">
+      <h2 id="Browser_and_Device_Support">브라우저 및 장치 지원</h2>
+      <h3>업데이트된 시스템 요구 사항</h3>
+      <p>Brightcove Player 7의 시스템 요구 사항은 다음과 같습니다.</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>브라우저/엔진</th>
+            <th>플랫폼/OS</th>
+            <th>최소 버전</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td>Chrome</td>
+            <td>윈도우, macOS, 안드로이드, iPadOS <sup><a href="#n1">[1]</a></sup> , iOS <sup><a href="#n1">[1]</a></sup></td>
+            <td>현재 및 두 개의 이전 주요 버전</td>
+          </tr>
+          <tr>
+            <td>Edge</td>
+            <td>윈도우, macOS, 안드로이드, iPadOS <sup><a href="#n1">[1]</a></sup> , iOS <sup><a href="#n1">[1]</a></sup></td>
+            <td>현재 및 두 개의 이전 주요 버전</td>
+          </tr>
+          <tr>
+            <td>Firefox</td>
+            <td>윈도우, macOS, 안드로이드, iPadOS <sup><a href="#n1">[1]</a></sup> , iOS <sup><a href="#n1">[1]</a></sup></td>
+            <td>현재 및 두 개의 이전 주요 버전</td>
+          </tr>
+          <tr>
+            <td>Safari</td>
+            <td>맥OS, 아이패드OS, iOS</td>
+            <td>현재 및 두 개의 이전 주요 버전</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>다음 참고 사항은 위의 표를 참조하십시오.</p>
+      <p id="n1"><sup>[1]</sup> iPadOS 및 iOS에서는 Safari 브라우저 엔진만 허용됩니다. Chrome, Firefox 및 Edge와 같은 대체 브라우저는 내부적으로 Safari를 사용합니다. 그들의 동작은 해당 브라우저의 실제 버전과 일치하지 않습니다.</p>
+
+      <h3>인터넷 익스플로러 11</h3>
+      <p>2021년 6월 15일 및 Brightcove Player 6.56.0부터 공식적으로 IE11 지원을 중단했습니다. 이 시점 이후에는 IE 브라우저에서 적극적으로 깨지지 않도록 노력했습니다. 이것은 플레이어 7의 경우가 아닙니다.</p>
+      <p>Brightcove Player 7.0.0에서는 IE11을 지원하는 모든 코드를 제거했으며 플레이어는 IE에서 작동하지 않습니다.</p>
+      <p>시청자가 IE에서 재생을 시도하면 플레이어가 작동하지 않습니다. IE11은 스크립트를 구문 분석하여 메시지를 표시할 수 없기 때문에 "지원되지 않는 브라우저" 메시지가 표시되지 않습니다.</p>
+    </section>
+
+    <section class="bcls-section">
+      <h2 id="Navigating_this_Guide">이 가이드 탐색</h2>
+      <p>변경 사항을 나타내는 아래의 각 섹션에는 어떤 주요 구성 요소가 영향을 받았는지 나타내는 괄호로 묶인 약어가 있습니다.</p>
+      <ul>
+        <li><strong>BCP7</strong> : 이 변경 사항은 Brightcove Player 7에 적용됩니다.</li>
+        <li><strong>VJS8</strong> : 이 변경 사항은 Video.js 8에 적용됩니다.</li>
+        <li><strong>VHS3</strong> : 이 변경 사항은 Video.js HTTP Streaming 3에 적용됩니다.</li>
+      </ul>
+
+      <h3>이 가이드에서 다루지 않는 내용</h3>
+      <p>이 가이드는 Brightcove Player 7의 사용자 관련 변경 사항만 다룹니다.</p>
+      <p>엔지니어가 향후 플레이어를 더 쉽게 개발할 수 있도록 코드 구성과 관련된 중요한 내부 변경 사항은 다루지 않습니다. 우리는 Brightcove Player가 거의 10년 간의 지속적인 개발 후에도 업계 최고의 웹 비디오 플레이어로 남아 있다는 사실을 매우 자랑스럽게 생각합니다.</p>    
+    </section>
+
+    <section class="bcls-section">
+      <h2 id="Features_and_Enhancements">기능 및 개선 사항</h2>
+      <p>기능 및 개선 사항은 플레이어의 완전히 새로운 기능 또는 크게 변경되거나 개선된 기능 및 동작을 나타냅니다.</p>
+
+      <h3>기본적으로 ES6</h3>
+      <p>변경 사항은 VJS8, VHS3, BCP7에 적용됩니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">통합 코드가 Video.js 클래스를 확장하는 경우 마이그레이션이 필요할 수 있습니다.</aside>
+      <p>Video.js 및 VHS를 포함하여 대부분의 Brightcove Player 7은 더 이상 ES5 코드로 변환되지 않습니다.</p>
+      <p>이제 대부분의 코드는 <a href="#Browser_and_Device_Support">최신 브라우저 엔진을</a> 대상으로 트랜스파일됩니다. 이것의 좋은 결과 중 하나는 코드의 전체 패키지 크기를 3-5% 줄일 수 있었다는 것입니다.</p>
+      <h4>마이그레이션 고려 사항</h4>
+      <p>기본 ES6 클래스를 상속하려고 시도하지만 궁극적으로 ES5로 트랜스파일되는 코드는 더 이상 Video.js 8 및 Brightcove Player 7에서 작동하지 않습니다. 이 비호환성은 일반적으로 다음과 같은 메시지와 함께 발생하는 오류에 의해 표면화됩니다.</p>
+      <pre><code class="language-javascript" translate="No">TypeError: Class constructor ___ cannot be invoked without 'new'
+</code></pre>
+      <p>Babel과 같은 변환 도구는 클래스를 일반 JavaScript 함수로 변환하고 해당 함수에서<code translate="No">apply()</code>또는<code translate="No">call()</code>호출을 시도하기 때문입니다. 이러한 메소드는 함수에 존재하지만 ES6 클래스에는 존재하지 않습니다.</p>
+      <p>유일한 해결책은 Video.js 8 및 Brightcove Player 7과 함께 사용하기 위해 ES6 클래스를 ES5로 트랜스파일하지 않는 것입니다.</p>
+
+      <h3>조회 가능성 이벤트 및 동작</h3>
+      <p>변경 사항은 BCP7에 적용됩니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">새로운 기능, 마이그레이션이 필요하지 않습니다!</aside>
+      <p>플레이어의 가시성은 광고 통합 및 플로팅 플레이어와 같은 일부 UI 처리에 매우 중요합니다. 이 맥락에서 우리는 "조회 가능성"을 주어진 순간에 브라우저 뷰포트에 표시되는 플레이어의 비율로 정의합니다. 플레이어의 특정 비율이 뷰포트에 있는 경우 플레이어는 "볼 수 있는" 것으로 간주됩니다.</p>
+      <p>Brightcove Player 7에는 DOM 이벤트를 추적하는 조회 가능성과 플레이어의 조회 가능한 상태에 따라 달라지는 몇 가지 유용한 동작이 도입되었습니다.</p>
+
+      <h4>플레이어 구성</h4>
+      <p>플레이어의 조회 가능성 이벤트 및 동작은 플레이어의 JSON 구성에서 구성할 수 있습니다. 모든 구성은<code translate="No">viewability</code>속성에서 사용할 수 있습니다.</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>부동산</th>
+            <th>설명</th>
+            <th>유형</th>
+            <th>기본값</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code translate="No">viewability_threshold</code></td>
+            <td>사이의 숫자<code translate="No">0</code>그리고<code translate="No">1</code> "조회 가능"으로 계산하기 위해 뷰포트에 있어야 하는 플레이어 부분을 나타냅니다.</td>
+            <td><code translate="No">number</code></td>
+            <td><code translate="No">0.6</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">min_duration_for_viewable_impression</code></td>
+            <td>조회 가능한 노출을 테스트하기 전에 광고 재생이 시작된 후 대기하는 시간(밀리초)을 나타냅니다.<br/><br/>기본 설정에 따라 플레이어는 광고를 재생한 지 2초 후에<code translate="No">viewable-ad-impression</code>이벤트를 통해 광고 노출을 볼 수 있었는지 여부를 보고합니다.</td>
+            <td><code translate="No">number</code></td>
+            <td><code translate="No">2000</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">threshold_percentage_increment</code></td>
+            <td><code translate="No">viewable-percent-change</code>이벤트 간에 필요한 가시성 변경의 양입니다.<br/><br/>기본적으로 값<code translate="No">5</code>의미<code translate="No">viewable-percent-change</code>이벤트는 플레이어의 가시성이 5%(예: 45%에서 50%로) 변경된 경우에만 실행됩니다.<br/><br/> 많은 이벤트를 발생시키므로 더 이상 세분화하지 않는 것이 좋습니다.</td>
+            <td><code translate="No">number</code></td>
+            <td><code translate="No">5</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">delay_autoplay_if_not_viewable</code></td>
+            <td>자동 재생이 구성된 플레이어와만 상호 작용합니다.<br/><br/>이<code translate="No">true</code>경우 플레이어는 플레이어가 보이는 상태가 될 때까지 재생 시도를 연기합니다.<br/><br/>이<code translate="No">false</code>경우 플레이어는 시청 가능 상태와 상관없이 재생을 시도합니다. 이것은 자동 재생 플레이어의 기본 동작입니다.</td>
+            <td><code translate="No">boolean</code></td>
+            <td><code translate="No">false</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">delay_autoplay_on_mobile_only</code></td>
+            <td><code translate="No">true</code>인 경우 지연 자동 재생 기능은 모바일 환경 (iOS 또는 Android) 에서만 활성화됩니다.<br/><br/><strong>참고</strong> : 이 경우 태블릿은 모바일 환경으로 간주됩니다..</td>
+            <td><code translate="No">boolean</code></td>
+            <td><code translate="No">true</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">pause_when_not_viewable</code></td>
+            <td>이<code translate="No">true</code>경우 재생을 볼 수 없게 되면 플레이어가 재생을 일시 정지합니다. 플레이어를 다시 볼 수 있게 되면 재생이 다시 시작됩니다.<br/><br/>그럴<code translate="No">false</code>경우 플레이어가 일시정지 또는 재생을 전환하지 않습니다<code translate="No">viewable-change</code> . 이것은 플레이어의 기본 동작입니다.</td>
+            <td><code translate="No">boolean</code></td>
+            <td><code translate="No">false</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>예</h4>
+      <p>조회 가능성을 포함하는 플레이어 구성에 대한 JSON은 다음과 같습니다.</p>
+      <pre class="line-numbers"><code class="language-json" translate="No">{
+  ... other properties ...
+  "viewability": {
+    "viewability_threshold": 0.7,
+    "pause_when_not_viewable": true
+  }
+}</code></pre>
+      <p>이 예에서는 사용자가 플레이어를 시야 밖으로 스크롤하여 플레이어의 70% 미만이 브라우저 뷰포트에 표시될 때 재생이 일시 중지됩니다. 플레이어가 다시 표시되면 재생이 다시 시작됩니다.</p>
+
+      <h4>조회가능성 이벤트</h4>
+      <p>사용자는 조회 가능성과 관련된 세 가지 새로운 이벤트에 연결할 수 있습니다.</p>
+      <ul>
+        <li>
+          <p><h4><code translate="No">viewable-change</code></h4></p>
+          <p>이 이벤트는 플레이어가 볼 수 있는 상태로 전환하거나 볼 수 있는 상태에서 전환할 때 발생합니다.</p>
+          <table class="bcls-table">
+            <thead class="bcls-table__head">
+              <tr>
+                <th>부동산</th>
+                <th>유형</th>
+                <th>설명</th>
+              </tr>
+            </thead>
+            <tbody class="bcls-table__body">
+              <tr>
+                <td><code translate="No">viewable</code></td>
+                <td>부울</td>
+                <td>플레이어가 볼 수 있는 상태인지 여부를 나타냅니다.</td>
+              </tr>
+              <tr>
+                <td><code translate="No">viewablePercent</code></td>
+                <td>번호</td>
+                <td>현재 뷰포트에 있는 플레이어의 비율을 나타냅니다.</td>
+              </tr>
+            </tbody>
+          </table>
+          <strong>예</strong>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">player.on('viewable-change', (e) =&gt; {
+  if (e.viewable) {
+    player.log('the player is viewable!');
+  } else {
+    player.log('the player is not viewable!');
+  }
+});</code></pre>
+          <br/>
+        </li>
+        <li>
+          <p><h4><code translate="No">viewable-percent-change</code></h4></p>
+          <p>이 이벤트는 플레이어의 조회 가능한 비율이 변경될 때 발생합니다.</p>
+          <aside class="bcls-aside bcls-aside--information"><p>이 이벤트의 빈도는<code translate="No">threshold_percentage_increment</code>컨피그레이션의 영향을 받을 수 있지만 매우 자주 발생할 수 있습니다. 즉, 이 이벤트에 대해 계산 비용이 많이 드는 작업을 수행하면 성능이 저하될 수 있습니다.</p> 
+            정말 필요한 경우에만 사용하는 것이 좋습니다. 대부분의 사용 사례에서는 플레이어가 언제 보기 가능 상태로 이동하거나 종료 상태로 이동하는지 알고 싶으므로<code translate="No">viewable-change</code>이벤트를 사용해야 합니다.</aside>
+          <table class="bcls-table">
+            <thead class="bcls-table__head">
+              <tr>
+                <th>부동산</th>
+                <th>유형</th>
+                <th>설명</th>
+              </tr>
+            </thead>
+            <tbody class="bcls-table__body">
+              <tr>
+                <td><code translate="No">viewable</code></td>
+                <td>부울</td>
+                <td>플레이어가 볼 수 있는 상태인지 여부를 나타냅니다.</td>
+              </tr>
+              <tr>
+                <td><code translate="No">viewablePercent</code></td>
+                <td>번호</td>
+                <td>현재 뷰포트에 있는 플레이어의 비율을 나타냅니다.</td>
+              </tr>
+            </tbody>
+          </table>
+          <strong>예</strong>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">player.on('viewable-percent-change', (e) =&gt; {
+  player.log(`the player is ${e.viewablePercent}% viewable!`);
+});</code></pre>
+          <br/>
+        </li>
+        <li>
+          <p><h4><code translate="No">viewable-ad-impression</code></h4></p>
+          <p>이 이벤트는 조회 가능한 광고 노출이 측정될 때 실행됩니다. 광고 재생 컨텍스트 외부에서는 실행되지 않습니다.</p>
+         <p>즉, 광고가 시작되고 플레이어가 볼 수<code translate="No">min_duration_for_viewable_impression</code>있는 시간 (밀리초) 동안 광고가 재생되면 해당 이벤트가 실행됩니다.</p>
+         <p>이 이벤트에는 추가 데이터가 전달되지 않습니다.</p>
+        </li>
+      </ul>
+
+      <h3>기본적으로 DRM 지원</h3>
+      <p>변경 사항은 BCP7에 적용됩니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">마이그레이션이 필요하지 않음 - Brightcove는 구성에서 DRM 플러그인을 제거할 것을 권장합니다.</aside>
+      <p>기존 DRM 플러그인은 더 이상 Brightcove Player 7에 필요하지 않습니다. 플레이어는 이전 플레이어 버전과 동일한 방식으로 즉시 DRM을 지원합니다.</p>
+      <p>이렇게 하면 플레이어에서도 DRM 보호를 활성화해야 한다는 것을 기억할 필요 없이 미디어 콘텐츠에서 DRM 보호를 활성화하기만 하면 DRM을 보다 쉽게 구성할 수 있습니다.</p>
+      <p>마이그레이션이 필요하지 않습니다. DRM 플러그인과 Player 7로 구성된 플레이어는 중단되지 않습니다.</p>
+
+      <h3>시간 초과 오류 개선 사항</h3>
+      <p>변경 사항은 BCP7에 적용됩니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">마이그레이션 필요 없음</aside>
+      <p>Brightcove Player는 시간 초과라는 특수 오류를 오랫동안 지원해 왔습니다. 이것이 일반적으로 의미하는 바는 플레이어가 콘텐츠 재생을 예상하지만(즉, 일시 중지되지 않음) 재생이 진행되지 않는다는 것입니다. 일반적으로 이는 네트워크 문제 또는 매니페스트 URL의 TTL이 만료된 것과 같이 플레이어를 멈추게 한 다른 조건으로 인해 콘텐츠를 버퍼링할 수 없음을 의미합니다.</p>
+      <p>우리는 이것을 "오류"라고 부르지만 복구할 수 있다는 점에서 대부분의 오류와는 다릅니다. 예를 들어 네트워크 상태가 개선되고 콘텐츠 버퍼링이 복구되면 재생을 다시 시작할 수 있습니다.</p>
+      <p>플레이어 6에서는 재생이 다시 시작되면 오류 모달 대화 상자가 닫히지 않아 시청자 경험이 저하됩니다. </p>
+      <p>앞으로는 플레이어의 시간 제한 모달 대화 상자에서 뷰어를 닫거나 Playback API에서 비디오 소스를 다시 로드하여 새 매니페스트 URL을 검색할 수 있는 옵션을 제공합니다. 후자의 경우 플레이어는 VOD 스트림의 재생 위치를 유지합니다. 이것은 이상적인 경험은 아니지만 작동하지 않는 플레이어보다 낫습니다.</p>
+
+      <h3>지원되지 않는 브라우저 UI</h3>
+      <p>변경 사항은 BCP7에 적용됩니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">마이그레이션이 필요하지 않음 - 플레이어에 포함된 외부 코드에서 오류가 발생하지 않는 한</aside>
+      <p>Player 6을 사용하면 지원되지 않는 브라우저에 로드될 때 오류가 발생하고 브라우저 콘솔에 기록되지만 시청자에게는 아무 것도 표시되지 않습니다.</p>
+      <p>플레이어 7에는 이러한 경우를 더 명확하게 하기 위한 새로운 UI가 있습니다. 플레이어가 지원되지 않는 브라우저에 로드되면 다음과 유사한 메시지가 표시됩니다. </p>
+      <figure class="bcls-figure">
+        <img class="bcls-image--no-border" alt="지원되지 않는 브라우저 메시지" src="/assets/images/references/bcp7/unsupported-browser.png"/>
+      </figure>
+      <p>이 오류가 나타날 것으로 예상되는 두 가지 경우가 있습니다.</p>
+      <ul>
+        <li>Internet Explorer와 같은 지원되지 않는 브라우저</li>
+        <li>플레이어 초기화 프로세스 중에 포착되지 않은 JavaScript 오류가 발생했습니다.</li>
+      </ul>
+      <p>이 메시지가 표시되고 브라우저가 지원되어야 하는 경우 브라우저 콘솔을 확인하십시오. 오류가 자신의 코드에서 발생한 경우 이를 해결할 수 있습니다. 그렇지 않으면 <a href="https://supportportal.brightcove.com/s/login">Brightcove 고객 지원</a> 에 도움을 요청하십시오.</p>
+
+      <h3>Analytics 플레이어 이벤트 이름 변경</h3>
+      <p>변경 사항은 BCP7에 적용됩니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">
+        <p>이주:</p>
+        <ul>
+          <li>다음으로<code translate="No">analytics_request</code>바꾸기<code translate="No">analytics-beacon</code></li>
+          <li>바꾸다<code translate="No">analytics_request_*</code> ~와 함께<code translate="No">analytics-beacon-*</code>어디<code translate="No">*</code>다음이 있는 분석 이벤트 이름입니다. <code translate="No">_</code> ~로 교체되다<code translate="No">-</code></li>
+        </ul>
+      </aside>
+      <h4>오래된</h4>
+      <p>버전 7 이전에는 플레이어가<code translate="No">analytics_request</code>이벤트 및<code translate="No">analytics_request_*</code>이벤트<code translate="No">*</code>분석 비콘 이벤트 이름을 나타냅니다. 예를 들어 플레이어가<code translate="No">video_engagement</code>이벤트를 나타내는 비콘을 보내면 플레이어는 다음 두 가지 신호를 모두 트리거합니다.</p>
+      <ul>
+        <li><code translate="No">analytics_request</code></li>
+        <li><code translate="No">analytics_request_video_engagement</code></li>
+      </ul>
+      <h4>새로운</h4>
+      <p>이벤트 이름 지정 시 일관성을 유지하기 위해 하이픈으로 연결된 소문자 이벤트 이름을 사용하려고 합니다. Data Collection API로 전송되는 작은 HTTP 요청을 논의할 때 "비콘"이라고 부르므로 해당 용어도 사용하고 있습니다.</p>
+      <p>이러한 이벤트의 이름을 다음과 같이 변경했습니다. (여기서<code translate="No">*</code>는 Analytics Beacon 이벤트 이름의 약자로, 는 로<code translate="No">_</code><code translate="No">-</code>대체됨)</p>
+      <ul>
+        <li><code translate="No">analytics-beacon</code></li>
+        <li><code translate="No">analytics-beacon-*</code></li>
+      </ul>
+      <p><strong>예</strong></p>
+      <p>플레이어가 언제<code translate="No">video_engagement</code>이벤트 비콘을 보냈는지 알고 싶다면 다음과 같이 할 수 있습니다.</p>
+      <pre class="line-numbers"><code class="language-javascript" translate="No">player.on('analytics-beacon-video-engagement', (e) =&gt; {
+  // The event object in the callback contains a `params` object, which
+  // has a JavaScript object representation of the query params that
+  // were sent to the Data Collection API.
+  player.log('video_engagement beacon sent!', e.params);
+});</code></pre>
+
+      <h3>애널리틱스<code translate="No">play_request</code>이벤트</h3>
+      <p>변경 사항은 BCP7에 적용됩니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">마이그레이션이 필요 없습니다. 업그레이드 후<code translate="No">play_request</code>지표가 떨어질 수 있습니다.</aside>
+      <p>Brightcove Player 7은 재생을 시작하라는 요청이 처음 있을 때만<code translate="No">play_request</code>비콘을 전송합니다. 이는 시청자가 재생 버튼을 누르거나 특정 형태의 자동 재생 (예: <code translate="No">play()</code>메서드 호출) 을 통해서입니다.</p>
+      <p>이전 버전에서는<code translate="No">play_request</code>플레이어가 있을 때마다 비콘<code translate="No">play</code>이벤트. 여기에는 시청자가 일시 중지했다가 다시 시작하거나 클라이언트 측 광고가 종료되고 콘텐츠 재생으로 돌아가는 등 콘텐츠 재생이 요청된 모든 시간이 포함됩니다.</p>
+      <p>Brightcove의 제품 및 데이터 조직은 이에 대해 논의하고 이 이벤트의 의도가 재생 시작을 위한 초기 요청을 추적하는 것이라고 결정했습니다. 즉, play_request 메트릭을 추적하는 사람은 누구나 Player 7로 업그레이드한 후 해당 수치가 감소하는 것을 볼 수 있습니다. 이런 일이 발생하면 문제가 있는 것이 아닙니다.</p>
+
+      <h3>플레이어<code translate="No">video_complete</code>이벤트</h3> 
+      <p>변경 사항은 BCP7에 적용됩니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">이벤트를 사용하는 경우<code translate="No">video_complete</code><code translate="No">ended</code>이벤트를 대신 사용할 수 있습니다.</aside>
+      <p>비디오 클라우드 분석에서는 이<code translate="No">video_complete</code>이벤트를 사용하지 않으며 BCP7에서 제거되었습니다. 이는 다음을 의미합니다.</p>
+      <ul>
+        <li><code translate="No">analytics-beacon-video-complete</code>이벤트 없음</li>
+        <li>아니요<code translate="No">analytics-beacon</code>이벤트<code translate="No">params.event</code>로 설정<code translate="No">video_complete</code></li>
+      </ul>
+
+      <h3>브라이트코브 네임스페이스</h3>
+      <p>변경 사항은 BCP7에 적용됩니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">마이그레이션은 필요하지 않지만 향후 개선 및 통합을 위해 이 공간을 지켜볼 가치가 있습니다.</aside>
+      <p>사용자에게 혼란을 주는 원인은 Brightcove Player의 각 인스턴스에 연결된 여러 개체에 걸쳐 핵심 속성과 메서드가 확산되었다는 것입니다. 이에 대한 몇 가지 예로는<code translate="No">bcAnalytics</code>및 가<code translate="No">catalog</code>있습니다.</p>
+      <p>플레이어 7에서는 이러한 서로 다른 기능을 새로운 핵심 네임스페이스로 통합하기 시작할 것입니다.</p>
+      <ul>
+        <li><code translate="No">brightcove</code></li>
+      </ul>
+      <p>이 네임스페이스는 Brightcove 전용 플레이어 향상 및 통합을 위한 단일 위치입니다. 이 네임스페이스는 각 플레이어 인스턴스의 속성으로 연결됩니다.</p>
+      <h4>목표</h4>
+      <p><code translate="No">brightcove</code>네임스페이스의 목표는 다음과 같습니다.</p>
+      <ul>
+        <li>내부적으로 목표는 Brightcove Player의 여러 하위 구성 요소 및 플러그인에서 복잡성과 중복 코드를 줄이는 것입니다.</li>
+        <li>외부적으로 목표는 서로 다른 핵심 기능을 단일 네임스페이스로 통합하여 통합 개발자 경험을 개선하는 것입니다.</li>
+      </ul>
+      <p>지금은 이 네임스페이스에 대한 일부 유틸리티 기능만 노출하고 있으며 다음에서 액세스할 수 있습니다.</p>
+      <ul>
+        <li><code translate="No">brightcove.util</code></li>
+      </ul>
+      <p>이 중 소수는 Video.js 유틸리티 기능의 사본이지만 시간이 지남에 따라 이러한 기능도 통합할 예정입니다. 이 객체에 노출된 함수의 수가 너무 많아 여기에 나열할 수 없지만 완전한 문서가 곧 나올 것입니다.</p>
+      <p>여기에는 아직 마이그레이션이 필요하지 않지만 중앙 브라이트코브 네임스페이스를 통해 기능을 노출하는 것은 이 개체에 기능을 포팅하고 이전 속성/메서드를 사용하지 않는 반복적인 프로세스가 될 것입니다. 중요한 점은 메이저 릴리즈에서는 이전 버전과의 호환성이 중단되지 않으므로<code translate="No">bcAnalytics</code> Brightcove Player 8이 나오기 전까지는<code translate="No">catalog</code>중단되지 않을 것이라는 점입니다.</p>
+
+      <h3>향상된 ABR 알고리즘</h3>
+      <p>변경 사항은 VJS8/VHS3/BCP7에 적용됩니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">마이그레이션 필요 없음</aside>
+      <p>VHS와 Brightcove Player가 사용하는 ABR 알고리즘은 더 높은 비트 전송률 선택을 유지하면서 리버퍼링 이벤트를 줄이는 것을 목표로 개선되었습니다. 이는 가장 최근의 대역폭 추정 대신 이동 평균 대역폭 추정을 사용하여 달성됩니다.</p>
+      <p>또한, 낮은 렌디션으로 전환하기 위해 버퍼링된 고품질 콘텐츠를 버리지 않도록 렌디션 전환을 수행할 때 스마트하게 대역폭 사용을 최적화하는 것을 목표로 합니다.</p>
+      <p>이 <a href="https://gist.github.com/gesinger/8aa3608278b3c398fe8dc5facf57eb3e">GitHub Gist</a> 에서 이러한 조정에 대한 생각과 이 <a href="https://github.com/videojs/http-streaming/pull/886">GitHub 풀 리퀘스트</a> 에서 최종 구현에 대해 자세히 볼 수 있습니다.</p>
+      <p>ABR 알고리즘에 대한 자세한 내용은 <a href="https://player.support.brightcove.com/playback/determining-which-rendition-will-play.html">재생할 렌디션 결정</a> 문서를 참조하십시오.</p>
+
+      <h3><code translate="No">sourceset</code>이벤트 </h3>
+      <p>변경 사항은 VJS8/BCP7에 적용됩니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">마이그레이션이 필요하지 않지만 통합에서 이 이벤트를 사용하여 실험해 볼 가치가 있습니다.</aside>
+      <p>이 이벤트는 기능 플래그 뒤에 있는 Video.js에서 수년 동안 존재해 왔습니다. 이제 소스 변경을 감지하는 데 사용되는<code translate="No">loadstart</code> , 잠재적으로 스탠다드 이벤트 이전에 플레이어의 소스 변경 여부를 감지하기 위한 방법으로 기본적으로 활성화했습니다.</p>
+      <p><strong>예</strong></p>
+      <pre class="line-numbers"><code class="language-javascript" translate="No">player.on('sourceset', (e) =&gt; {
+  player.log('The media source is changing!');
+});</code></pre>
+
+      <h3>오류 시 재시도</h3>
+      <p>변경 사항은 VJS8/BCP7에 적용됩니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">마이그레이션 필요 없음</aside>
+      <p>플레이어에 소스 목록이 제공되고 첫 번째 소스가 로드되지 않으면 Video.js는 이제 재생할 수 있는 소스를 찾거나 소스가 부족할 때까지 순서대로 다음 미디어 소스를 시도합니다.</p>
+      <p>이는 Playback API를 통과할 때 이 오류 조건이 발생할 가능성이 거의 없기 때문에 플레이어 전용 고객과 더 관련이 있습니다.</p>
+
+      <h3><code translate="No">TitleBar</code>컴포넌트 </h3>
+      <p>변경 사항은 VJS8/BCP7에 적용됩니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">통합 코드가 플레이어 "도킹" 구성 요소와 상호 작용하는 경우에만 마이그레이션이 필요합니다.</aside>
+      <p><strong>videojs-dock</strong>플러그인을 제거하고 유사한 기능을 Video.js 핵심 구성 요소인 구성 요소에 다시 구현했습니다. <code translate="No">TitleBar</code></p>
+      <p>새<code translate="No">TitleBar</code>구성 요소는 플레이어 상단에 플레이어 내 현재 미디어의 제목 및/또는 설명을 표시하는 UI 요소를 표시합니다. 제목이나 설명이 제공되지 않으면 표시되지 않습니다. <code translate="No">TitleBar</code></p>
+
+      <h4>비디오 클라우드 고객</h4>
+      <p>플레이어가 Playback API를 통해 Video Cloud와 통합되면 자동으로 채워집니다. <code translate="No">TitleBar</code></p>
+
+      <h4>플레이어 전용 고객</h4>
+      <p>플레이어 전용 고객은 다음 방법 중 하나를 사용하여 항목을 채울 수 있습니다<code translate="No">TitleBar</code> .</p>
+      <ul>
+        <li>
+          <p><strong>채우는<code translate="No">loadMedia</code>데 사용<code translate="No">TitleBar</code></strong></p>
+          <p>제목 및/또는 설명을 제공하는 가장 쉬운<code translate="No">loadMedia</code>방법은 플레이어의 방법을 사용하는 것입니다.</p>
+          <pre class="line-numbers"><code class="language-javascript" translate="No">player.loadMedia({
+  artist: 'Extremely',
+  album: 'Oceans',
+  title: 'Oceans',
+  description: 'Journey in to the depths ... and race with dolphins at play.',
+  poster: 'https://vjs.zencdn.net/v/oceans.png',
+  src: [{
+    src: 'https://vjs.zencdn.net/v/oceans.mp4',
+    type: 'video/mp4'
+  }, {
+    src: 'https://vjs.zencdn.net/v/oceans.webm',
+    type: 'video/webm'
+  }]
+})</code></pre>
+          <p>메서드에 익숙하지 않다면 src <code translate="No">loadMedia</code>메서드만으로 사용할 수 있는 것 외에 미디어에 추가 메타데이터를 제공하는 방법일 수 있습니다. 위의 예에서 볼 수 있듯이 제목과 설명이 제공되며 제목 표시줄을 채우는 데 사용됩니다.</p>
+        </li>
+        <li>
+          <p><strong><code translate="No">TitleBar</code>직접 채우기</strong></p>
+          <p>그만큼<code translate="No">TitleBar</code>구성요소의<code translate="No">update</code>방법:</p>
+          <pre class="line-numbers"><code class="language-javascript" translate="No">player.titleBar.update({
+  title: 'Oceans',
+  description: 'Journey in to the depths ... and race with dolphins at play.'
+});</code></pre>
+          <p>다음 값 중 하나 또는 둘 다에 대해 빈 문자열을 전달하여 제목 및/또는 설명을 제거할 수 있습니다.</p>
+          <pre class="line-numbers"><code class="language-javascript" translate="No">player.titleBar.update({
+  title: '',
+  description: ''
+});</code></pre>
+          <p>둘 다<code translate="No">TitleBar</code>제거하면 더 이상 표시되지 않습니다.</p>
+        </li>
+      </ul>
+      <h4>Brightcove 플레이어 마이그레이션</h4>
+      <p>대부분의 Brightcove 고객이 이에 대한 마이그레이션을 필요로 할 가능성은 낮습니다.</p>
+      <p>그러나 다음에 따라 타사 코드가 가능합니다. <code translate="No">player.dock</code> API를 사용하려면 업데이트해야 합니다. <code translate="No">TitleBar</code>에서 언급된<strong>플레이어 전용 고객</strong>부분.</p>
+
+      <h3>Video.js 유틸리티 객체</h3>
+      <p>변경 사항은 VJS8/VHS3/BCP7에 적용됩니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">마이그레이션은 필요하지 않지만, 이러한 새 객체나<code translate="No">player.brightcove.util</code>함수에 연결된 함수를 사용하도록 더 이상 사용되지 않는 함수를 사용하도록 업데이트해야 합니다.</aside>
+      <p>시간이 지남에 따라 다양한 유틸리티 함수로 인해<code translate="No">videojs</code>네임스페이스가 복잡해졌습니다. Brightcove는 이러한 유틸리티 기능을 위해 보다 의도적으로 설계된 인터페이스를 도입하고 있습니다.</p>
+      <p>여기서 기본 원칙은 함수가 라이브러리의 핵심 부분처럼 느껴지지 않지만 여전히 잠재적으로 유용할 경우 이를 최상위 함수 대신 유틸리티 개체의 일부로 노출한다는 것입니다.</p>
+      <p><code translate="No">videojs</code> 8.0.0에 첨부된 유틸리티 객체는 다음과 같습니다.</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>물체</th>
+            <th>설명</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code translate="No">videojs.dom</code></td>
+            <td>DOM 함수(이전에 사용 가능)</td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.fn</code></td>
+            <td>기능... 기능</td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.num</code></td>
+            <td>숫자 함수</td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.obj</code></td>
+            <td>개체 함수</td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.str</code></td>
+            <td>문자열 함수</td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.time</code></td>
+            <td>시간 관련 기능</td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.url</code></td>
+            <td>URL 관련 기능</td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.browser</code></td>
+            <td>다양한 사용자 에이전트 감지 값(이전 사용 가능)</td>
+          </tr>   
+        </tbody>
+      </table>
+
+      <h3>기타 Brightcove Player 기능 및 개선 사항</h3>
+      <p>변경 사항은 BCP7에 적용됩니다.</p>
+      <ul>
+        <li>
+          <p><code translate="No">not-hover</code>클래스 이름이 로 변경되었습니다<code translate="No">vjs-hide-controls</code> .</p> 
+          <p>이 이전 클래스의 명명은 우리의 명명 기준을 따르지 않았으며 그 목적이 불분명했습니다. 해당 클래스 이름을 대상으로 하는 모든 CSS(또는 JavaScript)를 업데이트해야 합니다.</p>
+        </li>
+        <li>
+          <p>플레이어가 Video.js CSS용으로 만든<code translate="No">style</code>요소에는<code translate="No">id="bc-style-vjs"</code>속성이 있습니다. 이것<code translate="No">id</code>로 변경되었습니다<code translate="No">class</code>기인하다.</p>
+          <p>이전 플레이어 버전에서는 여러 플레이어를 사용할 때 이론적으로 DOM의 여러 요소가 HTML 사양에 위배되는 ID를 공유하는 상황이 발생할 수 있습니다. </p>
+        </li>
+      </ul>
+
+      <h3>기타 Video.js 기능 및 개선 사항</h3>
+      <p>변경 사항은 VJS8에 적용됩니다.</p>
+      <ul>
+        <li>
+          <p><code translate="No">addClass</code>이제<code translate="No">removeClass</code>메서드에 여러 클래스 이름을 공백으로 구분된 문자열로 지정할 수 있습니다 (예:) <code translate="No">foo bar</code> .</p> 
+        </li>
+        <li>
+          <p>이제 재생 속도 메뉴 버튼을 클릭하면 재생 속도 메뉴가 열리고 다른 메뉴 버튼과 정렬됩니다.</p> 
+        </li>
+        <li>
+          <p>잘못된 이벤트 유형은 이제 로그 경고 대신 오류를 발생시킵니다.</p> 
+        </li>
+      </ul>
+
+      <h3>기타 VHS 기능 및 개선 사항</h3>
+      <p>변경 사항은 VHS3에 적용됩니다.</p>
+      <ul>
+        <li>
+          <p>건너뛰기 전에 간격의 지속 시간을 기다리는 대신 간격이 즉시 감지됩니다.</p> 
+        </li>
+        <li>
+          <p>더 이상 사용되지 않는<code translate="No">smoothQualityChange</code>메서드를 제거했습니다.</p> 
+        </li>
+        <li>
+          <p><code translate="No">output-restricted</code>이벤트 처리 시 동작 개선</p> 
+        </li>
+        <li>
+          <p>의 매개변수를 정리했습니다. <code translate="No">excludePlaylist</code></p> 
+        </li>
+        <li>
+          <p>보다 포괄적인 언어 사용을 위해 다음과 같이 많은 이름이 변경되었습니다.</p> 
+          <ul>
+            <li>"마스터"는 "메인"이 됩니다.</li>
+            <li>"블랙리스트"는 "제외" 또는 "제외 목록"이 됩니다.</li>
+            <li>"whitelist"는 "allow" 또는 "allowList"가 됩니다.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="bcls-section">
+      <h2 id="Deprecations">지원 중단</h2>
+      <p>사용 중단은 Brightcove가 다음 주요 버전에서 만들 계획인 변경 사항을 나타냅니다. 일반적으로 이들은 브라우저 콘솔에 경고를 기록하여 개발자가 통합을 미래에 대비할 수 있도록 돕습니다.</p>
+
+      <h3>최상위 유틸리티 함수</h3>
+      <p>변경 사항은 VJS8/VHS3/BCP7에 적용됩니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">마이그레이션은 필요하지 않지만, 더 이상 사용되지 않는 함수를 새 Video.js 유틸리티 객체 또는<code translate="No">player.brightcove.util</code>함수에 첨부된 함수를 사용하도록 업데이트해야 합니다.</aside>
+      <p>시간이 지남에 따라 다양한 유틸리티 함수로 인해<code translate="No">videojs</code>네임스페이스가 복잡해졌습니다. 브라이트코브는<code translate="No">videojs</code> API를 더 잘 구성하기 위해 유틸리티 오브젝트를 노출하는 새로운 조직 원칙을 도입했습니다.</p>
+      <p>그 결과 많은 최상위 함수가 더 이상 사용되지 않습니다. 이러한 각 기능은 이제 처음 사용할 때(브라우저 콘솔을 어지럽히지 않도록 한 번만) 경고를 기록합니다.</p>
+
+      <aside class="bcls-aside bcls-aside--warning">Video.js 9 및 Brightcove Player 8에서 제거될 다음 두 표의 사용되지 않는 모든 기능을 예상합니다.</aside>
+
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>더 이상 사용되지 않는 기능</th>
+            <th>대신 사용…</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code translate="No">videojs.bind</code></td>
+            <td>원주민<code translate="No">Function.prototype.bind</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.computedStyle</code></td>
+            <td><code translate="No">videojs.dom.computedStyle</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.createTimeRange</code></td>
+            <td><code translate="No">videojs.time.createTimeRanges</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.createTimeRanges</code></td>
+            <td><code translate="No">videojs.time.createTimeRanges</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.defineLazyProperty</code></td>
+            <td><code translate="No">videojs.obj.defineLazyProperty</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.formatTime</code></td>
+            <td><code translate="No">videojs.time.formatTime</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.isCrossOrigin</code></td>
+            <td><code translate="No">videojs.url.isCrossOrigin</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.mergeOptions</code></td>
+            <td><code translate="No">videojs.obj.merge</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.parseUrl</code></td>
+            <td><code translate="No">videojs.url.parseUrl</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.resetFormatTime</code></td>
+            <td><code translate="No">videojs.time.resetFormatTime</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.setFormatTime</code></td>
+            <td><code translate="No">videojs.time.setFormatTime</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>사용 가능하지만 더 이상 사용되지 않는 이전 함수도 많이 있습니다.</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>더 이상 사용되지 않는 기능</th>
+            <th>대신 사용…</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code translate="No">videojs.addClass</code></td>
+            <td>원주민<code translate="No">videojs.dom.addClass</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.appendContent</code></td>
+            <td><code translate="No">videojs.dom.appendContent</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.createEl</code></td>
+            <td><code translate="No">videojs.dom.createEl</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.emptyEl</code></td>
+            <td><code translate="No">videojs.dom.emptyEl</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.getAttributes</code></td>
+            <td><code translate="No">videojs.dom.getAttributes</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.hasClass</code></td>
+            <td><code translate="No">videojs.dom.hasClass</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.insertContent</code></td>
+            <td><code translate="No">videojs.dom.insertContent</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.isEl</code></td>
+            <td><code translate="No">videojs.dom.isEl</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.isTextNode</code></td>
+            <td><code translate="No">videojs.dom.isTextNode</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.plugin</code></td>
+            <td><code translate="No">videojs.registerPlugin</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.removeClass</code></td>
+            <td><code translate="No">videojs.dom.removeClass</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.setAttributes</code></td>
+            <td><code translate="No">videojs.dom.setAttributes</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.toggleClass</code></td>
+            <td><code translate="No">videojs.dom.toggleClass</code></td>
+          </tr>          
+        </tbody>
+      </table>
+    </section>
+
+    <section class="bcls-section">
+      <h2 id="Removals">제거</h2>
+      <p>이 섹션의 내용은 이전에 지원되었던 항목에 대한 지원이 완전히 제거되었음을 나타냅니다. 우리는 사전에 더 이상 사용하지 않는 항목에 대한 지원을 제거하지 않으려고 노력하지만 때로는 제품을 미래에 유지 관리할 수 있도록 유지해야 합니다.</p>
+
+      <h3>그래파이트 스킨</h3>
+      <p>변경 사항은 BCP7에 적용됩니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">통합 코드가 Graphite 스킨을 사용하는 경우 마이그레이션이 필요합니다. 그렇지 않으면 Brightcove Player 7로<code translate="No">"skin": "graphite"</code>업데이트된 플레이어가 대신 Sapphire를 사용합니다.</aside>
+      <p>Graphite 스킨은 더 이상 사용할 수 없습니다.</p>
+      <p>출시 시 Brightcove Player 7에서 지원하는 유일한 스킨은 기본 Sapphire 스킨입니다. 유일한 다른 옵션은<code translate="No">null</code>모든 CSS를 끄고 고급 사용자가 처음부터 자신의 스킨을 작성할 수 있도록 하는 것입니다.</p>
+      <p>플레이어 JSON 구성에<code translate="No">"skin": "graphite"</code>있는 경우 삭제하세요. Graphite CSS를 기반으로 하는 모든 사용자 지정을 업데이트해야 할 수 있습니다.</p>
+
+      <h3>인페이지 임베드의 쿼리 문자열 지원</h3>
+      <p>변경 사항은 BCP7에 적용됩니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">페이지 내 임베드의 암시적 지원<code translate="No">autoplay</code>또는 상위 URL의<code translate="No">t</code>쿼리 매개 변수에 의존하는 경우에만 마이그레이션이 필요합니다.</aside>
+      <p>페이지에 포함된 경우 Brightcove Player 7은 더 이상 쿼리 파라미터 또는<code translate="No">autoplay</code>쿼리 파라미터 (또는 기타<code translate="No">t</code>쿼리 파라미터) 를 인식하지 못합니다.</p>
+      <p>쿼리 매개변수는 iframe 임베드에 대해 임베드 코드 수준에서 데이터를 제공하는 이상적인 방법이지만 인페이지 임베드의 경우 임베딩 웹사이트의 URL에 있어야 합니다.</p>
+      <p>이전 버전의 Internet Explorer에서는 적절하게 지원되지 않는 전체 화면 API에 대한 해결 방법이 필요했기 때문에 이전에 이 두 매개변수가 지원되었습니다. 그러나 다른 목적을 위해 자체 웹 페이지 URL에 이러한 매개 변수가 포함되어 여러 고객에게 약간의 혼란을 야기했지만 내장된 Brightcove Player의 동작에 영향을 미쳤습니다.</p>
+      <p>어떤 식으로든 이러한 지원에 의존하고 있다면 Brightcove는 페이지 내 임베드의<code translate="No">autoplay</code> or <code translate="No">data-start-time</code>속성으로 전환하거나 JavaScript 코드를 통해 이 기능을 구현할 것을 권장합니다.</p>
+
+      <h3>최상위 재생 목록 관련 구성</h3>
+      <p>변경 사항은 BCP7에 적용됩니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">최상위 JSON 구성 (예: JSON 구성의<code translate="No">plugins</code>배열을 통하지 않음) 으로 제어되는 레거시 재생 목록 구현을 사용하는 경우 마이그레이션이 필요합니다.</aside>
+      <p>이전 플레이어 버전에는 여러 레거시 재생 목록 플러그인/구현 및 구성 방법이 있었습니다. 여러 재생 목록 구현을 유지하면 상당한 혼란과 복잡성이 발생하므로 Brightcove는 재생 목록 구현을 단순화하고 명확하게 했습니다.</p>
+      <p>요컨대, Brightcove Player 7에서는 다음을 포함한 모든 최상위 재생 목록 관련 구성이 더 이상 지원되지 않습니다.</p>
+      <ul>
+        <li><code translate="No">autoadvance</code></li>
+        <li><code translate="No">media</code> (재생목록으로 해석되는 배열로)</li>
+        <li><code translate="No">playlist</code></li>
+        <li><code translate="No">repeat</code></li>
+      </ul>
+      <p>최상위 재생 목록 구성은 두 가지 방법으로 사용할 수 있습니다.</p>
+      <ul>
+        <li>사용<code translate="No">true</code>레거시 재생 목록 UI를 켜려면( <a href="https://github.com/videojs/videojs-playlist-ui"> videojs-재생 목록-UI</a> )</li>
+        <li>사용<code translate="No">false</code>재생 목록 API를 끄려면( <a href="https://github.com/videojs/videojs-playlist"> videojs 재생 목록</a> )</li>
+      </ul>
+      <p>그러나 Brightcove Playlist UI 플러그인에는 영향을 미치지 않았습니다.</p>
+      <h4>이주</h4>
+      <p>재생 목록의 마이그레이션 경로는 Studio를 통해 구성할 수 있는 Brightcove 재생 목록 UI 플러그인을 항상 사용하는 것입니다. 이전 최상위 구성은 Studio를 통해 노출된 적이 없습니다.</p>
+
+      <h3><code translate="No">videojs.extend()</code>함수</h3>
+      <p>변경 사항은 VJS8/BCP7에 적용됩니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">현재 이 기능을 사용하여 Video.js 클래스를 확장하는 경우 마이그레이션이 필요합니다.</aside>
+      <p>이<code translate="No">extend()</code>함수는 이전에 Video.js 구성 요소 및 고급 플러그인을 확장하는 데 사용되었습니다.</p>
+      <p>우리는 이제 모든 곳에서 네이티브 ES6 클래스를 사용하고 있으며 이전<code translate="No">videojs.extend()</code>함수는 일반 함수 프로토타입에서만 작동하므로 Video.js 8을 구성하는 네이티브 ES6 클래스에서는 사용할 수 없습니다. 따라서 제거되었습니다.</p>
+
+      <h4>오래된</h4>
+      <p>예를 들어, 를 사용하여<code translate="No">extend()</code>구성 요소를 만드는 이전 방법은 다음과 같습니다.</p>
+      <pre class="line-numbers"><code class="language-javascript" translate="No">const Component = videojs.getComponent('Component');
+
+const MyComponent = videojs.extend(Component, {
+  constructor: function(player, options) {
+    Component.call(this, player, options);
+  }
+});
+
+videojs.registerComponent('MyComponent', MyComponent);</code></pre>
+
+      <h4>새로운</h4>
+      <p>앞으로는 ES6 클래스만 지원됩니다. 이에 상응하는 것은 다음과 같습니다.</p>
+      <pre class="line-numbers"><code class="language-javascript" translate="No">const Component = videojs.getComponent('Component');
+
+class MyComponent extends Component {
+  constructor(player, options) {
+    super(player, options);
+  }
+}
+
+videojs.registerComponent('MyComponent', MyComponent);</code></pre>
+
+      <p>통합 코드가<code translate="No">videojs.extend()</code>의존하는 사용자는 Brightcove Player 7로 업데이트하기 전에 구현을 업데이트해야 합니다.</p>
+
+      <h3><code translate="No">firstplay</code>이벤트</h3>
+      <p>변경 사항은 VJS8/BCP7에 적용됩니다.</p>
+      <aside class="bcls-aside bcls-aside--tip">현재<code translate="No">firstplay</code>이벤트를 사용 중인 경우 마이그레이션 필요</aside>
+      <p><code translate="No">firstplay</code>이벤트가 제거되었습니다. 이것은 이벤트가 처음 실행되었을 때 시작된 레거시<code translate="No">play</code>이벤트였습니다. 그러나 첫 번째에 연결하는 더 좋은 방법이 있습니다. <code translate="No">play</code>주어진 소스에 대한 이벤트, <code translate="No">one()</code>방법:</p>
+      <pre class="line-numbers"><code class="language-javascript" translate="No">// Each time the source is about to change, listen for the first play event.
+player.on('sourceset', () =&gt; {
+  player.one('play', callback);
+});</code></pre>
+
+      <h3>기타 제거</h3>
+      <ul>
+        <li>[BCP7] <code translate="No">fullscreenControl</code>및<code translate="No">techOrder</code> JSON 구성은 더 이상 지원되지 않습니다. 대신, <code translate="No">fullscreen_control</code>및 를<code translate="No">tech_order</code>각각 사용하십시오.</li>
+        <li>[VJS8] 설정 기능 제거<code translate="No">aria-*</code> , <code translate="No">role</code> , 그리고<code translate="No">type</code>의 props 인수를 통한 속성<code translate="No">createEl</code>행동 양식</li>
+        <li>[VJS8] Flash 및 SWF 파일과 관련된 나머지 참조 및 논리 제거</li>
+        <li>[VJS8] 누락된 CSS flexbox 지원에 대한 폴백 제거</li>
+        <li>[VJS8] IE 특정 코드 제거</li>
+      </ul> 
+    </section>
+
+    <section class="bcls-section">
+      <h2 id="Plugins">플러그인</h2>
+      <p>모든 Brightcove 플러그인이 플레이어의 새 버전에 맞게 업데이트되었습니다. 수동 업데이트를 수행하는 경우 다음 목록은 <a href="https://apis.support.brightcove.com/player-management/guides/plugin-registry.html">플러그인 레지스트리</a> 에서 사용할 수 있는 새 버전 번호를 자세히 설명합니다.</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>플러그인 설명</th>
+            <th>registry_id</th>
+            <th>플레이어 6 플러그인 버전</th>
+            <th>플레이어 7 플러그인 버전</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td>Adobe Analytics 플레이어 플러그인</td>
+            <td><code translate="No">@brightcove/videojs-bc-aa</code></td>
+            <td>1.x</td>
+            <td>2.x</td>
+          </tr>
+          <tr>
+            <td>에어플레이 지원</td>
+            <td><code translate="No">@brightcove/videojs-bc-airplay</code></td>
+            <td>1.x</td>
+            <td>2.x</td>
+          </tr>
+          <tr>
+            <td>Google Analytics</td>
+            <td><code translate="No">@brightcove/videojs-bc-ga</code></td>
+            <td>1.x</td>
+            <td>2.x</td>
+          </tr>
+          <tr>
+            <td>구글 태그 관리자</td>
+            <td><code translate="No">@brightcove/videojs-bc-gtm</code></td>
+            <td>1.x</td>
+            <td>2.x</td>
+          </tr>
+          <tr>
+            <td>재생 목록 지원</td>
+            <td><code translate="No">@brightcove/videojs-bc-playlist-ui</code></td>
+            <td>3.x</td>
+            <td>4.x</td>
+          </tr>
+          <tr>
+            <td>틸륨 분석</td>
+            <td><code translate="No">@brightcove/videojs-bc-tealium</code></td>
+            <td>1.x</td>
+            <td>2.x</td>
+          </tr>
+          <tr>
+            <td>크롬캐스트</td>
+            <td><code translate="No">@brightcove/ <br/>
+              videojs-bc-chromecast-receiver</code></td>
+            <td>2.x</td>
+            <td>3.x</td>
+          </tr>
+          <tr>
+            <td>맞춤 최종 화면</td>
+            <td><code translate="No">@brightcove/ <br/>
+              videojs-bc-custom-endscreen</code></td>
+            <td>3.x</td>
+            <td>4.x</td>
+          </tr>
+          <tr>
+            <td>DRM 지원</td>
+            <td><code translate="No">@brightcove/videojs-bc-drm</code></td>
+            <td>5.x</td>
+            <td>Brightcove Player 7에는 필요하지 않음 <br/> 제거해야합니다</td>
+          </tr>
+          <tr>
+            <td>프리휠 광고</td>
+            <td><code translate="No">@brightcove/videojs-bc-freewheel</code></td>
+            <td>3.x</td>
+            <td>4.x</td>
+          </tr>
+          <tr>
+            <td>구글 IMA3 광고</td>
+            <td><code translate="No">@brightcove/videojs-bc-ima3</code></td>
+            <td>4.x</td>
+            <td>변경 없음</td>
+          </tr>
+          <tr>
+            <td>집단 eCDN 지원</td>
+            <td><code translate="No">@brightcove/videojs-bc-kollective</code></td>
+            <td>1.x</td>
+            <td>2.x</td>
+          </tr>
+          <tr>
+            <td>오버레이</td>
+            <td><code translate="No">@brightcove/videojs-bc-overlay</code></td>
+            <td>2.x</td>
+            <td>변경 없음</td>
+          </tr>
+          <tr>
+            <td>Picture-in-Picture 일명 "플로팅 플레이어"</td>
+            <td><code translate="No">@brightcove/videojs-bc-pip</code></td>
+            <td>1.x</td>
+            <td>2.x</td>
+          </tr>
+          <tr>
+            <td>재생목록 최종 화면</td>
+            <td><code translate="No">@brightcove/ <br/>
+              videojs-bc-playlist-endscreen</code></td>
+            <td>1.x</td>
+            <td>2.x</td>
+          </tr>
+          <tr>
+            <td>품질 선택 메뉴</td>
+            <td><code translate="No">@brightcove/videojs-bc-quality-menu</code></td>
+            <td>1.x</td>
+            <td>2.x</td>
+          </tr>
+          <tr>
+            <td>소셜 미디어 공유</td>
+            <td><code translate="No">@brightcove/videojs-bc-social</code></td>
+            <td>3.x</td>
+            <td>4.x</td>
+          </tr>
+          <tr>
+            <td>브라이트코브 SSAI 지원</td>
+            <td><code translate="No">@brightcove/videojs-bc-ssai</code></td>
+            <td>1.x</td>
+            <td>2.x</td>
+          </tr>
+          <tr>
+            <td>썸네일 찾기</td>
+            <td><code translate="No">@brightcove/videojs-bc-thumbnails</code></td>
+            <td>1.x</td>
+            <td>2.x</td>
+          </tr>  
+        </tbody>
+      </table>
+
+      <!-- <figure class="bcls-figure">
+        <img class="bcls-image--no-border" alt="Update plugin version" src="/assets/images/references/bcp7/version-table.webp" />
+      </figure> -->
+      <aside class="bcls-aside bcls-aside--information">
+        참고 사항:
+        <ul>
+          <li>버전 6 번호는 위에 나열된 것과 정확히 일치하지 않을 수 있습니다(예: <strong>2.x</strong> 대신 <strong>2.1.0)</strong> .</li>
+          <li>버전 6으로 되돌리려면 동일한 단계가 필요하지만 버전 번호를 반대로 해야 합니다(예: 오른쪽에서 왼쪽).</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="bcls-section">
+      <h2 id="Limitations">제한 사항</h2>
+      <p>다음 제한 사항이 Brightcove Player 7에 적용됩니다.</p>
+      <ul>
+        <li>플레이어 v7 업그레이드/다운그레이드에는 자동 업데이트 모드가 필요합니다.
+          <ul>
+            <li>버전 7로 업데이트하거나 다운그레이드하기 전에 플레이어가 자동 업데이트 모드인지 확인하십시오.</li>
+            <li>플레이어가 업그레이드/다운그레이드된 후 관련 플러그인 버전을 조정하십시오.</li>
+          </ul>
+        </li>
+      </ul>
+     
+    </section>
+
+   
+</article>
+<!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
+  
+  <nav class="right-side-nav" id="right_side_nav">
+    <h6 class="toc">페이지 내용</h6>
+    <ul id="in_page_nav" class="list-none"></ul>
+  </nav>
+  
+<!-- </div> -->
+</div>
+</div>
+</div>
+<div class="page-content" style="background-color: rgb(1, 5, 14);">
+  <div class="container" style="width: 50%;">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-6 col-md">
+          <h5 class="h5-text">브라이트코브 지원</h5>
+          <ul class="list-unstyled text-small" style="color: white ;">
+            <li><a class="a-text" href="https://status.brightcove.com">시스템 상태</a></li>
+            <li><a class="a-text" href="https://supportportal.brightcove.com">고객 지원 문의</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/search.html">모든 문서 검색</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6 col-md">
+          <h5 class="h5-text">교육</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/online-training-courses.html">온라인 코스</a></li>
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/register-training.html">강좌 등록</a></li>
+            <li><a class="a-text" href="https://academy.brightcove.com/">브라이트코브 아카데미</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Brightcove</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://www.brightcove.com">브라이트코브닷컴</a></li>
+            <li><a class="a-text" href="https://community.brightcove.com/s/">밝은 자리 커뮤니티 포럼</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/product-updates.html">제품 릴리스 정보</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/doc-updates.html">설명서 업데이트</a></li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>© Brightcove Inc. 판권 소유.</p>
+      <a class="a-text" href="https://www.brightcove.com/en/legal/privacy">프라이버시</a><a class="a-text" href="https://www.brightcove.com/en/terms-and-conditions">이용 약관</a>
+
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" target="_blank" class="gf-social-linkedin" style="margin-right: 1rem;"><i data-feather="linkedin" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://twitter.com/brightcove" title="Twitter" target="_blank" class="gf-social-twitter" style="margin-right: 1rem;"><i data-feather="twitter" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://www.facebook.com/Brightcove" title="Facebook" target="_blank" class="gf-social-facebook"><i data-feather="facebook" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+      </ul>
+      </div>
+    </footer>
+  </div>
+</div>
+
+
+<script translate="no">
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documentation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder,
+    styling: {
+      components: {
+        
+        input: {
+          container: {
+          backgroundColor: 'white',
+          }
+        
+        }
+      }
+    },
+    maxSuggestions: 5, // Maximum number of suggestions to show
+      attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+
+  
+
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+    window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+  </script>
+  
+  <!-- Javascript -->          
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/popper.min.js"></script>
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+
+
+  <!-- Page Specific JS -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/smoothscroll.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script> -->
+  <!-- <script src="/assets/s-site-assets-template-stylesheets/js/highlight-custom.js"></script>  -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+  <script src="/assets/s-site-assets-template-stylesheets/js/docs.js"></script> 
+
+  <!-- original footer components -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+  <script src="/assets/s-site-assets-scripts/https-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/setDate.js"></script>
+  <script src="/assets/s-site-assets-scripts/selector.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/prism.js"></script>
+  <script src="/assets/s-site-assets-scripts/prism-normalize.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/learning-paths/learning-paths.js"></script>
+  <!-- <script src="/assets/s-site-assets-scripts/site.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/tabs.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/toc-new-template.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="/assets/s-site-assets-scripts/bcls-utils.js"></script>
+  <script src="/assets/s-site-assets-scripts/local-link-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/sajari-reindex.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/sajari-search-foot.js"></script>
+  
+  <script translate="no">
+    feather.replace()
+  </script>
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/in-app.js"></script>
+  <style translate="no">
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+  </body>
+</html> 

@@ -1,4 +1,4 @@
-<video-js id="myPlayerID"
+﻿<video-js id="myPlayerID"
   data-account="1752604059001"
   data-player="default"
   data-embed="default"
@@ -14,6 +14,11 @@
 <script src="https://players.brightcove.net/videojs-bc-airplay/1/videojs-bc-airplayn.js"></script>
 
 <!-- custom script -->
-<script>
-  videojs.getPlayer('myPlayerID').ready(함수() { var myPlayer = this; // initialize the AirPlay plugin myPlayer.bcAirplay(); } );
+<script translate="no">
+  videojs.getPlayer('myPlayerID').ready(function() {
+    var myPlayer = this;
+
+    // initialize the AirPlay plugin
+    myPlayer.bcAirplay();
+  });
 </script>
